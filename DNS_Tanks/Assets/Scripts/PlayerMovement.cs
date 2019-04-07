@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Tooltip("Numer gracza. Przykład: gracz 1 będzie kierował klawiszami z dopiskiem 1 (sprawdź Project Settings -> Input)")]
     public int playerNumber = 1;
