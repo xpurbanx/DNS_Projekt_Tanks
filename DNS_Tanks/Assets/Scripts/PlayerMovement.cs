@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Na sposób poruszania ma też wpływ samo Rigibody, jego parametry można zmienić w Unity, w inspektorze
+    // Czyli: Drag - tarcie, po jakim czasie od puszczenia przycisków pojazd sam się zatrzyma, oraz jak długo będzie przyśpieszał
+    // W związku z tym, że tworzymy grę, w której poruszamy się tylko po X i Y to zaznaczamy:
+    // "Freeze Position Y" oraz "Freeze Rotation X", "Freeze Rotation Z";
+
     [Tooltip("Numer gracza. Przykład: gracz 1 będzie kierował klawiszami z dopiskiem 1 (sprawdź Project Settings -> Input)")]
     public int playerNumber = 1;
     [Tooltip("Prędkość poruszania się pojazdu")]
@@ -13,9 +18,11 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
     public float maxVelocity = 3f;
 
-    private string movementAxisName;
-    private string turnAxisName;
-    private Rigidbody rigidbody;
+    private string kMovementAxisName;
+    private string kTurnAxisName;
+    private string jMovementAxisName;
+    private string jTurnAxisName;
+    private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
 
@@ -35,16 +42,22 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         // Ustanawianie konkretnych nazw inputów dla danego czołgu. 
-        movementAxisName = "Vertical" + playerNumber;
-        turnAxisName = "Horizontal" + playerNumber;
+        kMovementAxisName = "KVertical" + playerNumber;
+        kTurnAxisName = "KHorizontal" + playerNumber;
+        jMovementAxisName = "JVertical" + playerNumber;
+        jTurnAxisName = "JHorizontal" + playerNumber;
 
     }
 
     void Update()
     {
         // Input gracza
-        movementInputValue = Input.GetAxis(movementAxisName);
-        turnInputValue = Input.GetAxis(turnAxisName);
+        movementInputValue = 0f;
+        turnInputValue = 0f;
+        movementInputValue += Input.GetAxis(kMovementAxisName);
+        movementInputValue += Input.GetAxis(jMovementAxisName);
+        turnInputValue += Input.GetAxis(kTurnAxisName);
+        turnInputValue += Input.GetAxis(jTurnAxisName);
     }
 
     private void FixedUpdate()
