@@ -11,7 +11,7 @@ namespace GameClasses
         int dmg; // Zadawane obrażenia
         int spd; // Prędkość pojazdu
 
-        void Movement() {; } // Poruszanie pojazdem
+        void Movement() {; }// Poruszanie pojazdem
         void Shoot() {; } // Strzel
         void PickUp() {; } // Podnieś przedmiot (np. flagę)
 
@@ -22,7 +22,6 @@ namespace GameClasses
             dmg = 0;
             spd = 50;
         }
-        
     }
 }
 
