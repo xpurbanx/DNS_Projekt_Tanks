@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Numer gracza. Przykład: gracz 1 będzie kierował klawiszami z dopiskiem 1 (sprawdź Project Settings -> Input)")]
     public int playerNumber = 1;
     [Tooltip("Prędkość poruszania się pojazdu")]
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.up * movementInputValue * speed * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
@@ -72,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+        //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+        Quaternion turnRotation = Quaternion.Euler(0f, 0f, turn);
+
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
         return;
     }
