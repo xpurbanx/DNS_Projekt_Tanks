@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameClasses
 {
-    public class Vehicle : MonoBehaviour
+    public class Vehicle : PlayerMovement
     {
         // PRYWATNE:
         int hp; // Zdrowie
