@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Numer gracza. Przykład: gracz 1 będzie kierował klawiszami z dopiskiem 1 (sprawdź Project Settings -> Input)")]
     public int playerNumber = 1;
     [Tooltip("Prędkość poruszania się pojazdu")]

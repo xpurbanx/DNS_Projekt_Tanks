@@ -7,20 +7,19 @@ namespace GameClasses
     public class Vehicle : PlayerMovement
     {
         // PRYWATNE:
-        int hp; // Zdrowie
-        int dmg; // Zadawane obrażenia
-        int spd; // Prędkość pojazdu
+        int health; // Zdrowie
+        int damage; // Zadawane
 
-        void Movement() {; }// Poruszanie pojazdem
-        void Shoot() {; } // Strzel
-        void PickUp() {; } // Podnieś przedmiot (np. flagę)
+        // PUBLICZNE:
 
-        // KONSTRUKTOR I DESTRUKTOR:
+        [Header("Atrybuty klasy:")]
+        public int HP = 100;
+        public int DMG = 0;
+
         public Vehicle()
         {
-            hp = 100;
-            dmg = 0;
-            spd = 50;
+            health = HP;
+            damage = DMG;
         }
     }
 }
