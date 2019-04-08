@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 1838894714}
   - component: {fileID: 1838894713}
   - component: {fileID: 1838894712}
+  - component: {fileID: 1838894718}
   - component: {fileID: 1838894717}
   m_Layer: 0
   m_Name: Tank
@@ -457,7 +458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838894711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.49, y: 0.374, z: -4.05}
+  m_LocalPosition: {x: -1.49, y: 0.372, z: -4.05}
   m_LocalScale: {x: 0.70929, y: 0.70929, z: 1.6865498}
   m_Children: []
   m_Father: {fileID: 0}
@@ -475,7 +476,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
   speed: 925
   turnSpeed: 60
   maxVelocity: 3
+--- !u!114 &1838894718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838894711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917261fd821a48246b852eaa41dd7e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
