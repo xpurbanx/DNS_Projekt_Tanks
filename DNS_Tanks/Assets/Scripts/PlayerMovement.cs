@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.up * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        Quaternion turnRotation = Quaternion.Euler(0f, 0f, turn);
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
         return;
