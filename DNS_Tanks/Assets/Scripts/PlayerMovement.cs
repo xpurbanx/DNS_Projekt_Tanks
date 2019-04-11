@@ -6,7 +6,11 @@ public class PlayerMovement : MonoBehaviour
     // Czyli: Drag - tarcie, po jakim czasie od puszczenia przycisków pojazd sam się zatrzyma, oraz jak długo będzie przyśpieszał
     // W związku z tym, że tworzymy grę, w której poruszamy się tylko po X i Y to zaznaczamy:
     // "Freeze Position Y" oraz "Freeze Rotation X", "Freeze Rotation Z";
+    // ALE!!! Te modele są trochę poprzekręcane względem osi Y
+    // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
+    // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
+    [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Prędkość poruszania się pojazdu")]
     public float speed = 925f;
     [Tooltip("Prędkość skręcania pojazdu")]

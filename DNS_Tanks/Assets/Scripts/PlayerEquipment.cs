@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
+    // Czy czołg trzyma flagę
     [HideInInspector]
     public bool holdingFlag = false;
 }
