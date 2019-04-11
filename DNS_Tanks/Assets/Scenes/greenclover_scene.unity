@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 534128904}
   - component: {fileID: 534128903}
   - component: {fileID: 534128902}
+  - component: {fileID: 534128906}
   m_Layer: 0
   m_Name: FlagStation01
   m_TagString: Untagged
@@ -754,6 +755,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534128906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534128901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0112ec57af0154d47b77a73fbbb67abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagInsterted: 0
 --- !u!1001 &634039859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,6 +923,7 @@ GameObject:
   - component: {fileID: 886527197}
   - component: {fileID: 886527196}
   - component: {fileID: 886527195}
+  - component: {fileID: 886527199}
   m_Layer: 0
   m_Name: FlagStation02
   m_TagString: Untagged
@@ -988,6 +1003,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &886527199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886527194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0112ec57af0154d47b77a73fbbb67abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagInsterted: 0
 --- !u!1 &1526364292
 GameObject:
   m_ObjectHideFlags: 0
