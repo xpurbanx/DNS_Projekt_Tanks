@@ -5,7 +5,8 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     // Numer flagi
-    private string flagNumber = "";
+    // private string flagNumber = "";
+    private string flagNumber;
 
     void Start()
     {

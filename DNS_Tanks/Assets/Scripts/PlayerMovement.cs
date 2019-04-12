@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    private PlayerInput playerInput;
+    //private PlayerInput playerInput;
+    private PlayerInputSetup playerInput; //Zmienilem na input z gierki jamowej
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputSetup>();
     }
 
     void Update()
