@@ -51,8 +51,11 @@ MonoBehaviour:
   speed: 925
   turnSpeed: 180
   maxVelocity: 10
-  HP: 100
-  DMG: 0
+  HEALTH: 100
+  DAMAGE: 0
+  SPEED: 600
+  TURN_SPEED: 150
+  MAX_VELOCITY: 30
 --- !u!114 &1910960004019847593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +95,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1747875516174512398
 BoxCollider:

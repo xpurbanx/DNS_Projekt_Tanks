@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Prędkość poruszania się pojazdu")]
-    public float speed = 925f;
+    protected float speed = 100f;
     [Tooltip("Prędkość skręcania pojazdu")]
-    public float turnSpeed = 180f;
+    protected float turnSpeed = 180f;
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
-    public float maxVelocity = 3f;
+    protected float maxVelocity = 3f;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         turnInputValue = 0f;
         movementInputValue = playerInput.Vertical();
         turnInputValue = playerInput.Horizontal();
+        Debug.Log(speed);
     }
 
     private void FixedUpdate()
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime * 10f;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);

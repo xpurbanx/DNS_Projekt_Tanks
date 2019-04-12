@@ -6,22 +6,29 @@ namespace GameClasses
 {
     public class Vehicle : PlayerMovement
     {
-        // PRYWATNE:
+        // NIEDZIEDZICZONE
         int health; // Zdrowie
         int damage; // Zadawane
 
         // PUBLICZNE:
 
         [Header("Atrybuty klasy:")]
-        public int HP = 100;
-        public int DMG = 0;
+        public int HEALTH = 100;
+        public int DAMAGE = 0;
+        public float SPEED = 600f;
+        public float TURN_SPEED = 150f;
+        public float MAX_VELOCITY = 30f;
 
         public Vehicle()
         {
-            health = HP;
-            damage = DMG;
+            health = HEALTH;
+            damage = DAMAGE;
+            speed = SPEED;
+            turnSpeed = TURN_SPEED;
+            maxVelocity = MAX_VELOCITY;
         }
-    }
+
+    } 
 }
 
 
