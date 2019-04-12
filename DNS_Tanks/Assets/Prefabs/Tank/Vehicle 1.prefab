@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 3026002978957099777, guid: 1f366062450e69040b5d2b67043dced9,
+        type: 3}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3026002978221641865, guid: 1f366062450e69040b5d2b67043dced9,
         type: 3}
       propertyPath: m_TagString
