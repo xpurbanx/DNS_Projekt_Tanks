@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 3026002978957099776}
   - component: {fileID: 3026002978957099777}
   - component: {fileID: 3026002978957099782}
+  - component: {fileID: 1392516274218456739}
   m_Layer: 0
   m_Name: Tank 1
   m_TagString: Player 1
@@ -573,6 +574,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1, z: 2.92}
   m_Center: {x: 0, y: 0, z: -0.15}
+--- !u!114 &1392516274218456739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026002978957099783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec425bb843fcac44a7d2a474311a1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
 --- !u!1 &3026002978962644999
 GameObject:
   m_ObjectHideFlags: 0
