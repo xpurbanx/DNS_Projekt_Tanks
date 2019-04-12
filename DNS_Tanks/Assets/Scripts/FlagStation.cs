@@ -14,8 +14,8 @@ public class FlagStation : MonoBehaviour
 
     void Start()
     {
-        // Numer stacji jest znany dzięki dwóm ostatnim cyfrom na końcu nazwy obiektu
-        flagStationNumber = gameObject.name.Substring(gameObject.name.Length - 2);
+        // Numer stacji z jej tagu
+        flagStationNumber = gameObject.tag.Substring(gameObject.name.Length - 1);
     }
 
     void Update()
@@ -30,17 +30,21 @@ public class FlagStation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        string shortTag = other.gameObject.tag.Substring(0, 6);
         // Jeżeli obiekt, który koliduje z bazą posiada tag Player
-        if (other.tag == "Player")
+        if (shortTag == "Player")
         {
-            // Pobieramy numer tego player'a, za pomocą dwóch ostatnich cyfr nazwy jego obiektu
-            string tankNumber = other.name.Substring(other.name.Length - 2);
+            // Pobieramy numer gracza za pomocą tagu (ostatnia cyfra)
+            string playerNumber = other.tag.Substring(other.tag.Length - 1);
 
             // Jeżeli numer player'a jest taki sam jak numer bazy (czyli czy gracz jest w swojej bazie
-            if (tankNumber == flagStationNumber)
+            if (playerNumber == flagStationNumber)
             {
+                // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą Gameobject Find, ale nie mogłem wpaść na inny pomysł
+                GameObject player = GameObject.Find("Tank " + playerNumber);
+
                 // Jeżeli gracz posiada jakąś flagę
-                if (other.GetComponent<PlayerEquipment>().holdingFlag == true)
+                if (player.GetComponent<PlayerEquipment>().holdingFlag == true)
                 {
                     // Flaga została dostarczona
                     flagInsterted = true;
