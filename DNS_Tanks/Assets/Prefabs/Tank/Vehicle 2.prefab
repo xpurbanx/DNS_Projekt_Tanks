@@ -195,6 +195,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1910960004019847595, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264438466278508355, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655461, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655465, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655471, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655467, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655469, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655479, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655459, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963001008811655463, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc628aa23c2297c44938908c110e175c, type: 3}
 --- !u!1 &8418738306948585612 stripped
