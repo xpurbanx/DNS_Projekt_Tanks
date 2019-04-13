@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
+
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,13 +13,17 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
+    public static PlayerMovement instance;
+
     [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Prędkość poruszania się pojazdu")]
-    protected float speed = 100f;
+    internal float speed;
+
     [Tooltip("Prędkość skręcania pojazdu")]
-    protected float turnSpeed = 180f;
+    internal float turnSpeed = 180f;
+
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
-    protected float maxVelocity = 3f;
+    internal float maxVelocity = 3f;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
@@ -25,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
     private float turnInputValue;
     //private PlayerInput playerInput;
     private PlayerInputSetup playerInput; //Zmienilem na input z gierki jamowej
+
+    public PlayerMovement()
+    {
+        instance = this;
+        speed = 100f;
+    }
 
     private void Awake()
     {
@@ -51,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         turnInputValue = 0f;
         movementInputValue = playerInput.Vertical();
         turnInputValue = playerInput.Horizontal();
-        Debug.Log(speed);
+        //Debug.Log(speed);
     }
 
     private void FixedUpdate()
