@@ -1,20 +1,27 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
+
 public class PlayerFiring : MonoBehaviour
 {
+    public static PlayerFiring instance; // Utworzenie instancji
+
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
     // Opóźnienie w wystrzeliwaniu pocisku
-    public float firingCooldown = 5f;
+    internal float firingCooldown = 5f;
     private float timeStamp = 0;
 
-    // Start is called before the first frame update
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        // Konstrukcja instancji
+        instance = this;
     }
 
     void Start()
@@ -24,8 +31,6 @@ public class PlayerFiring : MonoBehaviour
     private void FixedUpdate()
     {
         Fire();
-
-            
     }
 
     private void Fire()
@@ -38,6 +43,5 @@ public class PlayerFiring : MonoBehaviour
             timeStamp = Time.time + firingCooldown;
             Debug.Log("ISTNIEJĘ!");
         }
-
     }
 }

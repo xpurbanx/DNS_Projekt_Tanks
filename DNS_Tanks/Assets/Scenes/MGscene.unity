@@ -813,6 +813,21 @@ PrefabInstance:
       propertyPath: SPD
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1622415767158247880, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: speed
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767158247880, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767158247880, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: firingCooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1622415767158247882, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_Enabled

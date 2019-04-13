@@ -195,20 +195,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5264438466278508355, guid: dc628aa23c2297c44938908c110e175c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1910960004019847595, guid: dc628aa23c2297c44938908c110e175c,
         type: 3}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 1910960004019847595, guid: dc628aa23c2297c44938908c110e175c,
         type: 3}
       propertyPath: m_Drag
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264438466278508355, guid: dc628aa23c2297c44938908c110e175c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 1963001008811655461, guid: dc628aa23c2297c44938908c110e175c,
         type: 3}
