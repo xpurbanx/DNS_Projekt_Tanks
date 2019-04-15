@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GameClasses
 {
+<<<<<<< HEAD
     public class Vehicle : PlayerMovement
     {
         // NIEDZIEDZICZONE
@@ -29,6 +30,43 @@ namespace GameClasses
         }
 
     } 
+=======
+    // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
+
+    [Tooltip("Wytrzymałość pojazdu")]
+    public int health = 100;
+
+    [Tooltip("Obrażenia zadawane przez pojazd")]
+    public int damage = 0;
+
+    [Tooltip("Prędkość poruszania się pojazdu")]
+    public float speed = 5000f;
+
+    [Tooltip("Prędkość skręcania pojazdu")]
+    public float turnSpeed = 180f;
+
+    [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
+    public float maxVelocity = 3f;
+
+    [Tooltip("Szybkostrzelność pojazdu")]
+    public float firingCooldown = 5f;
+
+    // KONSTRUKTOR UNITY:
+
+    void Start()
+    {
+        hp = health;
+        dmg = damage;
+        PlayerMovement.instance.speed = speed;
+        PlayerMovement.instance.turnSpeed = turnSpeed;
+        PlayerMovement.instance.maxVelocity = maxVelocity;
+        PlayerFiring.instance.firingCooldown = firingCooldown;
+    }
+
+    // PRYWATNE ATRYBUTY NIEPOCHODZĄCE ZE SKRYPTÓW ZEWNĘTRZNYCH
+    int hp;
+    int dmg;
+>>>>>>> parent of 87e2f7f... some work
 }
 
 

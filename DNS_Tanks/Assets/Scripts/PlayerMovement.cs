@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
+<<<<<<< HEAD
     [Header("Zawartość skryptu PlayerMovement.cs:")]
     [Tooltip("Prędkość poruszania się pojazdu")]
     protected float speed = 100f;
@@ -17,6 +18,15 @@ public class PlayerMovement : MonoBehaviour
     protected float turnSpeed = 180f;
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
     protected float maxVelocity = 3f;
+=======
+    public static PlayerMovement instance; // Utworzenie instancji
+
+    // Prywatne atrybuty zaprzyjaśnione z Vehicle.cs
+
+    internal float speed = 25000f;
+    internal float turnSpeed = 180f;
+    internal float maxVelocity = 3f;
+>>>>>>> parent of 87e2f7f... some work
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania

@@ -476,6 +476,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3026002978957099789}
   - component: {fileID: 3026002978957099778}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 1392516274218456739}
+>>>>>>> parent of 87e2f7f... some work
   - component: {fileID: 3026002978957099779}
   - component: {fileID: 3026002978957099776}
   - component: {fileID: 3026002978957099777}
@@ -514,11 +518,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc6ae3e69029340be9dd74ba319b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   HEALTH: 100
   DAMAGE: 0
   SPEED: 100
   TURN_SPEED: 60
   MAX_VELOCITY: 30
+=======
+  health: 100
+  damage: 0
+  speed: 5000
+  turnSpeed: 180
+  maxVelocity: 3
+--- !u!114 &1392516274218456739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026002978957099783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec425bb843fcac44a7d2a474311a1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
+    type: 3}
+  firingCooldown: 5
+>>>>>>> parent of 87e2f7f... some work
 --- !u!114 &3026002978957099779
 MonoBehaviour:
   m_ObjectHideFlags: 0
