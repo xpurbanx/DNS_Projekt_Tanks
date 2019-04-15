@@ -8,17 +8,11 @@ public class FlagStation : MonoBehaviour
     [HideInInspector]
     public bool flagInsterted = false;
 
-    // Numer bazy, stacji
-    private string flagStationNumber = "";
+    // Numer bazy / stacji
+    public int flagStationNumber;
 
     // Czy gra się zakończyła?
     private bool gameEnded = false;
-
-    void Start()
-    {
-        // Numer stacji z jej tagu
-        flagStationNumber = gameObject.tag.Substring(gameObject.name.Length - 1);
-    }
 
     void Update()
     {
@@ -32,19 +26,22 @@ public class FlagStation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        string shortTag = other.gameObject.tag.Substring(0, 6);
+        // Pierwsze 7 znaków tagu. Np. z Player 1 będzie to Player
+        if (other.gameObject.tag.Length < 7) return;
+        string shortTag = other.gameObject.tag.Substring(0, 7);
 
         // Jeżeli obiekt, który koliduje z bazą posiada tag Player
-        if (shortTag == "Player")
+        if (shortTag == "Player ")
         {
             // Pobieramy numer gracza za pomocą tagu (ostatnia cyfra)
-            string playerNumber = other.tag.Substring(other.tag.Length - 1);
+            string playerNumberString = other.tag.Substring(other.tag.Length - 1);
+            int playerNumber = Utility.ParseToInt(playerNumberString);
 
             // Jeżeli numer player'a jest taki sam jak numer bazy (czyli czy gracz jest w swojej bazie
             if (playerNumber == flagStationNumber)
             {
                 // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą Gameobject Find, ale nie mogłem wpaść na inny pomysł
-                GameObject player = GameObject.Find("Tank " + playerNumber);
+                GameObject player = GameObject.Find("Tank " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
                 if (player.GetComponent<PlayerEquipment>().holdingFlag == true)

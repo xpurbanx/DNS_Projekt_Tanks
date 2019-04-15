@@ -837,6 +837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagStation 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2389800242668483583, guid: f7a86f14bf0766e48b5291ab045141c1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2389800242668483571, guid: f7a86f14bf0766e48b5291ab045141c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -892,6 +897,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2389800242668483568, guid: f7a86f14bf0766e48b5291ab045141c1,
+        type: 3}
+      propertyPath: flagStationNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a86f14bf0766e48b5291ab045141c1, type: 3}
 --- !u!1001 &4616017646592565813
@@ -905,6 +915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flag 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616017646304791398, guid: c83c6dc168bec7d4aba353c0e2ba8c91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4616017646304791394, guid: c83c6dc168bec7d4aba353c0e2ba8c91,
         type: 3}
@@ -961,6 +976,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4616017646304791405, guid: c83c6dc168bec7d4aba353c0e2ba8c91,
+        type: 3}
+      propertyPath: flagNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616017645856128273, guid: c83c6dc168bec7d4aba353c0e2ba8c91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83c6dc168bec7d4aba353c0e2ba8c91, type: 3}
 --- !u!1001 &6550005158737892509
@@ -974,6 +999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flag 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550005159037734008, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6550005159037734004, guid: 400f88facbf75b54e87f4cee640ab1d0,
         type: 3}
@@ -1030,6 +1060,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6550005159037734007, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: flagNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550005158615071264, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400f88facbf75b54e87f4cee640ab1d0, type: 3}
 --- !u!1001 &7835550249160252820
@@ -1043,6 +1083,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlagStation 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835550248813250894, guid: 5d1fd2db7db0eee4ba41d0796a99c4b8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7835550248813250890, guid: 5d1fd2db7db0eee4ba41d0796a99c4b8,
         type: 3}
@@ -1098,6 +1143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835550248813250891, guid: 5d1fd2db7db0eee4ba41d0796a99c4b8,
+        type: 3}
+      propertyPath: flagStationNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1fd2db7db0eee4ba41d0796a99c4b8, type: 3}
