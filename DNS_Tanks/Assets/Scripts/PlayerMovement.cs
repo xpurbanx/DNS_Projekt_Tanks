@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
+
+[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,35 +13,26 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
-
-    [Header("Zawartość skryptu PlayerMovement.cs:")]
-    [Tooltip("Prędkość poruszania się pojazdu")]
-    protected float speed = 100f;
-    [Tooltip("Prędkość skręcania pojazdu")]
-    protected float turnSpeed = 180f;
-    [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
-    protected float maxVelocity = 3f;
-
     public static PlayerMovement instance; // Utworzenie instancji
 
     // Prywatne atrybuty zaprzyjaśnione z Vehicle.cs
-
     internal float speed = 25000f;
     internal float turnSpeed = 180f;
     internal float maxVelocity = 3f;
-
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    //private PlayerInput playerInput;
-    private PlayerInputSetup playerInput; //Zmienilem na input z gierki jamowej
-
+    private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
+    
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        // Konstrukcja instancji
+        instance = this;
     }
 
     // Po włączeniu skryptu upewniamy się, że na czołg mogą działać siły i zerujemy aktualnie działające siły
@@ -61,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         turnInputValue = 0f;
         movementInputValue = playerInput.Vertical();
         turnInputValue = playerInput.Horizontal();
-        Debug.Log(speed);
     }
 
     private void FixedUpdate()
