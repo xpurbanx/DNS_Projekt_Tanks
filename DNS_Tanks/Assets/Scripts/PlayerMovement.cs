@@ -10,22 +10,21 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
-    [Header("Zawartość skryptu PlayerMovement.cs:")]
-    [Tooltip("Prędkość poruszania się pojazdu")]
-    public float speed = 925f;
-    [Tooltip("Prędkość skręcania pojazdu")]
-    public float turnSpeed = 180f;
-    [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
-    public float maxVelocity = 3f;
+    // Publiczne atrybuty zmieniane w Vehicle.cs
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
+    public float turnSpeed;
+    [HideInInspector]
+    public float maxVelocity;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    //private PlayerInput playerInput;
-    private PlayerInputSetup playerInput; //Zmienilem na input z gierki jamowej
-
+    private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
+    
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -66,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * 1000f * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
