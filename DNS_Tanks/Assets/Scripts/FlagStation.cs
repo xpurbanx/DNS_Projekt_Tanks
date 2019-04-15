@@ -7,8 +7,10 @@ public class FlagStation : MonoBehaviour
     // Czy flaga została dostarczona?
     [HideInInspector]
     public bool flagInsterted = false;
+
     // Numer bazy, stacji
     private string flagStationNumber = "";
+
     // Czy gra się zakończyła?
     private bool gameEnded = false;
 
@@ -31,6 +33,7 @@ public class FlagStation : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         string shortTag = other.gameObject.tag.Substring(0, 6);
+
         // Jeżeli obiekt, który koliduje z bazą posiada tag Player
         if (shortTag == "Player")
         {
