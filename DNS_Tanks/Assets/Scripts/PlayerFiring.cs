@@ -9,15 +9,19 @@ public class PlayerFiring : MonoBehaviour
 {
     public static PlayerFiring instance; // Utworzenie instancji
 
+    //private Rigidbody turret;
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
+    // Rodzaj amunicji, prowadzonego ognia
+    internal int fireType;
     // Opóźnienie w wystrzeliwaniu pocisku
     internal float firingCooldown = 5f;
     private float timeStamp = 0;
 
     private void Awake()
     {
+        //turret = GetComponent<Rigidbody>();
         rigidbody = GetComponent<Rigidbody>();
 
         // Konstrukcja instancji
@@ -39,7 +43,7 @@ public class PlayerFiring : MonoBehaviour
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
         if (playerInput.AButton() && timeStamp <= Time.time)
         {
-            GameObject bullet = Instantiate(bulletPrefab, rigidbody.position + Vector3.forward,rigidbody.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, rigidbody.position + Vector3.forward, rigidbody.rotation);
             timeStamp = Time.time + firingCooldown;
             Debug.Log("ISTNIEJĘ!");
         }

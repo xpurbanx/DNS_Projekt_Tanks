@@ -17,9 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Prywatne atrybuty zaprzyjaśnione z Vehicle.cs
 
-    internal float speed = 25000f;
-    internal float turnSpeed = 180f;
-    internal float maxVelocity = 3f;
+    internal float speed;
+    internal float turnSpeed;
+    internal float maxVelocity;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime * 10f;
+        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);

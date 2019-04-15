@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 3026002978931135066}
   m_Layer: 0
   m_Name: TurretMain
-  m_TagString: Untagged
+  m_TagString: TurretMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026002978931135064}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.030453479, y: -0.7973066, z: -0.19342598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -476,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3026002978957099789}
   - component: {fileID: 3026002978957099778}
+  - component: {fileID: 8499662449746141579}
   - component: {fileID: 1392516274218456739}
   - component: {fileID: 3026002978957099779}
   - component: {fileID: 3026002978957099776}
@@ -515,11 +516,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc6ae3e69029340be9dd74ba319b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicleType: 0
   health: 100
-  damage: 0
+  machineGunDamage: 2.85
+  antiTankDamage: 52
   speed: 5000
   turnSpeed: 180
   maxVelocity: 3
+  firingCooldown: 0.1
+  fireType: 0
+--- !u!114 &8499662449746141579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026002978957099783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1392516274218456739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +551,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
-  firingCooldown: 5
 --- !u!114 &3026002978957099779
 MonoBehaviour:
   m_ObjectHideFlags: 0
