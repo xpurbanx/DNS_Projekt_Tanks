@@ -9,6 +9,7 @@ public class Vehicle : MonoBehaviour
     int damage; // Zadawane
     float speed;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     [Tooltip("0 - niezdefiniowany, 1 - jeep, 2 - czołg, 3 - helikopter")]
@@ -95,6 +96,27 @@ public class Vehicle : MonoBehaviour
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 }
 
+=======
+
+    // PUBLICZNE:
+
+    public float SPD = 3000f;
+
+    public Vehicle()
+    {
+        speed = SPD;
+        health = 100;
+        damage = 0;
+       // spd = 600f;
+    }
+
+    void Update()
+    {
+        PlayerMovement.instance.speed = SPD;
+    }
+}
+
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 
 
 

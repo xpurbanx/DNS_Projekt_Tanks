@@ -478,8 +478,11 @@ GameObject:
   - component: {fileID: 3026002978957099778}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 8499662449746141579}
   - component: {fileID: 1392516274218456739}
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 =======
@@ -525,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   vehicleType: 0
   health: 100
   machineGunDamage: 2.85
@@ -563,12 +567,17 @@ MonoBehaviour:
 =======
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
   HEALTH: 100
   DAMAGE: 0
   SPEED: 100
   TURN_SPEED: 60
   MAX_VELOCITY: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+=======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
