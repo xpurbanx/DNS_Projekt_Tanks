@@ -7,11 +7,10 @@ public class PlayerFiring : MonoBehaviour
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
-    // Opóźnienie w wystrzeliwaniu pocisku
+    // Opóźnienie w wystrzeliwaniu pocisku, zarządzane też przez klasę Vehicle
     public float firingCooldown = 5f;
     private float timeStamp = 0;
 
-    // Start is called before the first frame update
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -24,8 +23,6 @@ public class PlayerFiring : MonoBehaviour
     private void FixedUpdate()
     {
         Fire();
-
-            
     }
 
     private void Fire()
@@ -38,6 +35,5 @@ public class PlayerFiring : MonoBehaviour
             timeStamp = Time.time + firingCooldown;
             Debug.Log("ISTNIEJĘ!");
         }
-
     }
 }
