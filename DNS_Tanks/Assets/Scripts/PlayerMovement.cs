@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance; // Utworzenie instancji
 
     // Prywatne atrybuty zaprzyjaśnione z Vehicle.cs
-
     internal float speed = 25000f;
     internal float turnSpeed = 180f;
     internal float maxVelocity = 3f;
@@ -26,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    //private PlayerInput playerInput;
     private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
     
     private void Awake()
