@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime * 10f;
+        Vector3 movement = transform.forward * movementInputValue * speed * 1000f * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
