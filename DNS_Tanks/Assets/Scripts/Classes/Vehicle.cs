@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameClasses
 {
-<<<<<<< HEAD
+
     public class Vehicle : PlayerMovement
     {
         // NIEDZIEDZICZONE
@@ -30,7 +30,7 @@ namespace GameClasses
         }
 
     } 
-=======
+
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
 
     [Tooltip("Wytrzymałość pojazdu")]
@@ -66,7 +66,7 @@ namespace GameClasses
     // PRYWATNE ATRYBUTY NIEPOCHODZĄCE ZE SKRYPTÓW ZEWNĘTRZNYCH
     int hp;
     int dmg;
->>>>>>> parent of 87e2f7f... some work
+
 }
 
 
