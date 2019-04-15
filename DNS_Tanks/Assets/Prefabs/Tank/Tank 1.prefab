@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 1392516274218456739}
   - component: {fileID: 3026002978957099779}
   - component: {fileID: 3026002978957099776}
+  - component: {fileID: 8202471750417270752}
   - component: {fileID: 3026002978957099777}
   - component: {fileID: 3026002978957099782}
   m_Layer: 0
@@ -520,6 +521,7 @@ MonoBehaviour:
   speed: 5000
   turnSpeed: 180
   maxVelocity: 3
+  firingCooldown: 5
 --- !u!114 &1392516274218456739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
-  firingCooldown: 5
 --- !u!114 &3026002978957099779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +559,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e354304cf8b394c44816747650c87bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8202471750417270752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026002978957099783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &3026002978957099777
