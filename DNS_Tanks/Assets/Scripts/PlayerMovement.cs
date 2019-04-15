@@ -19,23 +19,20 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Prędkość poruszania się pojazdu")]
     internal float speed;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     internal float speed;
     internal float turnSpeed;
     internal float maxVelocity;
-=======
-=======
->>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
-=======
->>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+
     [Tooltip("Prędkość skręcania pojazdu")]
     internal float turnSpeed = 180f;
 
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
     internal float maxVelocity = 3f;
->>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+
+    internal float speed = 25000f;
+    internal float turnSpeed = 180f;
+    internal float maxVelocity = 3f;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
@@ -92,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * Time.deltaTime * 10f;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);

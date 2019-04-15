@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 3026002978931135066}
   m_Layer: 0
   m_Name: TurretMain
-  m_TagString: TurretMain
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026002978931135064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.030453479, y: -0.7973066, z: -0.19342598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -479,7 +479,10 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 8499662449746141579}
+=======
+>>>>>>> parent of 87e2f7f... some work
   - component: {fileID: 1392516274218456739}
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
@@ -529,27 +532,15 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   vehicleType: 0
+=======
+>>>>>>> parent of 87e2f7f... some work
   health: 100
-  machineGunDamage: 2.85
-  antiTankDamage: 52
+  damage: 0
   speed: 5000
   turnSpeed: 180
   maxVelocity: 3
-  firingCooldown: 0.1
-  fireType: 0
---- !u!114 &8499662449746141579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3026002978957099783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1392516274218456739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
@@ -581,6 +573,9 @@ MonoBehaviour:
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+=======
+  firingCooldown: 5
+>>>>>>> parent of 87e2f7f... some work
 --- !u!114 &3026002978957099779
 MonoBehaviour:
   m_ObjectHideFlags: 0
