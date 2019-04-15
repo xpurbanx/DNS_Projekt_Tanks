@@ -3,12 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
-
 public class PlayerFiring : MonoBehaviour
 {
-    public static PlayerFiring instance; // Utworzenie instancji
-
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
@@ -19,9 +15,6 @@ public class PlayerFiring : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-
-        // Konstrukcja instancji
-        instance = this;
     }
 
     void Start()

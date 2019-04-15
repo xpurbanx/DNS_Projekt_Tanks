@@ -13,7 +13,7 @@ public class Vehicle : MonoBehaviour
     public int damage = 0;
 
     [Tooltip("Prędkość poruszania się pojazdu")]
-    public float speed = 5000f;
+    public float speed = 1000f;
 
     [Tooltip("Prędkość skręcania pojazdu")]
     public float turnSpeed = 180f;
@@ -24,21 +24,23 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Szybkostrzelność pojazdu")]
     public float firingCooldown = 5f;
 
-    // KONSTRUKTOR UNITY:
+    // Zarządzane skrypty
+    private PlayerMovement playerMovement;
+    private PlayerFiring playerFiring;
+
+    private void Awake()
+    {
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        playerFiring = gameObject.GetComponent<PlayerFiring>();
+    }
 
     void Start()
     {
-        hp = health;
-        dmg = damage;
-        PlayerMovement.instance.speed = speed;
-        PlayerMovement.instance.turnSpeed = turnSpeed;
-        PlayerMovement.instance.maxVelocity = maxVelocity;
-        PlayerFiring.instance.firingCooldown = firingCooldown;
+        playerMovement.speed = speed;
+        playerMovement.turnSpeed = turnSpeed;
+        playerMovement.maxVelocity = maxVelocity;
+        playerFiring.firingCooldown = firingCooldown;
     }
-
-    // PRYWATNE ATRYBUTY NIEPOCHODZĄCE ZE SKRYPTÓW ZEWNĘTRZNYCH
-    int hp;
-    int dmg;
 }
 
 /*

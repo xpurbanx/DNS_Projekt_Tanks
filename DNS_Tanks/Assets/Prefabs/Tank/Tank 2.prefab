@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1910960004019847593}
   - component: {fileID: 3394765188771587016}
   - component: {fileID: 3405295648013849742}
+  - component: {fileID: 9150248376383197030}
   - component: {fileID: 1910960004019847595}
   - component: {fileID: 1747875516174512398}
   m_Layer: 0
@@ -51,9 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   damage: 0
-  speed: 925
+  speed: 2000
   turnSpeed: 180
-  maxVelocity: 10
+  maxVelocity: 3
   firingCooldown: 5
 --- !u!114 &1910960004019847593
 MonoBehaviour:
@@ -92,6 +93,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  turnSpeed: 0
+  maxVelocity: 0
+--- !u!114 &9150248376383197030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910960004019847598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec425bb843fcac44a7d2a474311a1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
+    type: 3}
 --- !u!54 &1910960004019847595
 Rigidbody:
   m_ObjectHideFlags: 0

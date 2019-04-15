@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
-
-[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
-    public static PlayerMovement instance; // Utworzenie instancji
-
-    // Prywatne atrybuty zaprzyjaśnione z Vehicle.cs
-    internal float speed = 25000f;
-    internal float turnSpeed = 180f;
-    internal float maxVelocity = 3f;
+    // Publiczne atrybuty zmieniane w Vehicle.cs
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
+    public float turnSpeed;
+    [HideInInspector]
+    public float maxVelocity;
 
     // Vertical - oś od poruszania się
     // Horizontal - oś od skręcania
@@ -30,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-
-        // Konstrukcja instancji
-        instance = this;
     }
 
     // Po włączeniu skryptu upewniamy się, że na czołg mogą działać siły i zerujemy aktualnie działające siły
