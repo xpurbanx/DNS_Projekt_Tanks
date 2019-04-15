@@ -1,31 +1,29 @@
-﻿using System.Runtime.CompilerServices;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
-
 public class PlayerFiring : MonoBehaviour
 {
+<<<<<<< HEAD
     public static PlayerFiring instance; // Utworzenie instancji
 
     //private Rigidbody turret;
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
     // Rodzaj amunicji, prowadzonego ognia
     internal int fireType;
     // Opóźnienie w wystrzeliwaniu pocisku
-    internal float firingCooldown = 5f;
+    public float firingCooldown = 5f;
     private float timeStamp = 0;
 
+    // Start is called before the first frame update
     private void Awake()
     {
         //turret = GetComponent<Rigidbody>();
         rigidbody = GetComponent<Rigidbody>();
-
-        // Konstrukcja instancji
-        instance = this;
     }
 
     void Start()
@@ -35,6 +33,8 @@ public class PlayerFiring : MonoBehaviour
     private void FixedUpdate()
     {
         Fire();
+
+            
     }
 
     private void Fire()
@@ -47,5 +47,6 @@ public class PlayerFiring : MonoBehaviour
             timeStamp = Time.time + firingCooldown;
             Debug.Log("ISTNIEJĘ!");
         }
+
     }
 }

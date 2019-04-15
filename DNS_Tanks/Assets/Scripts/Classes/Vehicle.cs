@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Vehicle : MonoBehaviour
 {
-    // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
+    // NIEDZIEDZICZONE
+    int health; // Zdrowie
+    int damage; // Zadawane
+    float speed;
 
+<<<<<<< HEAD
     [Tooltip("0 - niezdefiniowany, 1 - jeep, 2 - czołg, 3 - helikopter")]
     public int vehicleType = 0;
 
@@ -53,30 +57,25 @@ public class Vehicle : MonoBehaviour
     int hp;
     float mgdmg;
     float atdmg;
+=======
+    // PUBLICZNE:
+
+    public float SPD = 3000f;
+
+    public Vehicle()
+    {
+        speed = SPD;
+        health = 100;
+        damage = 0;
+       // spd = 600f;
+    }
+
+    void Update()
+    {
+        PlayerMovement.instance.speed = SPD;
+    }
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 }
-
-/*
-Ustawianie wartości z zewnętrznych skryptów (np. PlayerMovement.cs) w klasach pojazdów (np. Vehicle.cs) - dla potomnych.
-
-1. W skrypcie zewnętrznym dodaj klauzule: "using System.Runtime.CompilerServices;" oraz "[assembly: InternalsVisibleTo("nazwa_klasy_pojazdu")]"
-
-2. Wszystkie atrybuty prywatne, które chcesz modyfikować w klasie pojazdu, w skrypcie zewnętrznym ustaw na modyfikator internal. Modyfikator internal działa tak jak private,
-   ale jest publiczny dla klasy wymienionej w klauzuli "[assembly: InternalsVisibleTo("nazwa_klasy_pojazdu")]" (jest to taki odpowiednik przyjaźni z C++, ale ch*jowszy)
-
-3. W skrypcie zewnętrznym utwórz następującą instancję: "public static PlayerMovement instance;"
-
-4. W funkcji void Awake() w skrypcie zewnętrznym ustaw instancję w taki sposób: "instance = this;" - spowoduje to jej ustawienie jeszcze przed wywołaniem konstruktora, który
-   z tej instancji będzie korzystał.
-
-5. W klasie pojazdu utwórz:
-            - prywatne atrybuty, których nie ma w skrypcie zewnętrznym (nie tworzymy żadnych kopii atrybutów prywatnych ze skryptu zewnętrznego)
-            - publiczne pola, które będą ustawiały prywatne atrybuty z poziomu inspectora (zauważ, że publiczne atrybuty to odpowiedniki WSZYSTKICH potrzebnych atrybutów:
-              i ze skryptu zewn., i z klasy pojazdu (jest tak, bo przecież wszystkie chcemy ustawiać z poziomu inspectora w klasie pojazdu)
-            - konstruktor Unity: void Start(), który ustawia prywatne atrybuty z klasy pojazdu (żadna magia) oraz prywatne atrybuty ze skryptu zewnętrznego
-              (np. "PlayerMovement.instance.speed = speed;")
-
-6. Komentuj, subskrybuj, klikaj żółty, magiczny guziczek.
-*/
 
 
 
