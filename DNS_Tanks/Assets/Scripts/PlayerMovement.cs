@@ -20,10 +20,13 @@ public class PlayerMovement : MonoBehaviour
     internal float speed;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     internal float speed;
     internal float turnSpeed;
     internal float maxVelocity;
 =======
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
     [Tooltip("Prędkość skręcania pojazdu")]
     internal float turnSpeed = 180f;
 

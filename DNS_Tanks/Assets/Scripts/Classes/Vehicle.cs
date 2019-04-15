@@ -8,14 +8,17 @@ public class Vehicle : MonoBehaviour
     int health; // Zdrowie
     int damage; // Zadawane
     float speed;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     [Tooltip("0 - niezdefiniowany, 1 - jeep, 2 - czołg, 3 - helikopter")]
     public int vehicleType = 0;
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 
-    [Tooltip("Wytrzymałość pojazdu")]
-    public int health = 100;
+    // PUBLICZNE:
 
+<<<<<<< HEAD
     [Tooltip("Obrażenia zadawane przez KM")]
     public float machineGunDamage = 2.85f;
 
@@ -70,10 +73,25 @@ public class Vehicle : MonoBehaviour
        // spd = 600f;
     }
 
+=======
+    public float SPD = 3000f;
+
+    public Vehicle()
+    {
+        speed = SPD;
+        health = 100;
+        damage = 0;
+       // spd = 600f;
+    }
+
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
     void Update()
     {
         PlayerMovement.instance.speed = SPD;
     }
+<<<<<<< HEAD
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
+=======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 }
 

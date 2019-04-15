@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerFiring : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static PlayerFiring instance; // Utworzenie instancji
 
     //private Rigidbody turret;
+=======
+>>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
 =======
 >>>>>>> parent of 9f9fae0... Modyfikowanie atryb. osobnych skryptów z poziomu klasy
     private PlayerInputSetup playerInput;
