@@ -2,31 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vehicle : MonoBehaviour
+namespace GameClasses
 {
-    // NIEDZIEDZICZONE
-    int health; // Zdrowie
-    int damage; // Zadawane
-    float speed;
-
-    // PUBLICZNE:
-
-    public float SPD = 3000f;
-
-    public Vehicle()
+    public class Vehicle : PlayerMovement
     {
-        speed = SPD;
-        health = 100;
-        damage = 0;
-       // spd = 600f;
-    }
+        // NIEDZIEDZICZONE
+        int health; // Zdrowie
+        int damage; // Zadawane
 
-    void Update()
-    {
-        PlayerMovement.instance.speed = SPD;
-    }
+        // PUBLICZNE:
+
+        [Header("Atrybuty klasy:")]
+        public int HEALTH = 100;
+        public int DAMAGE = 0;
+        public float SPEED = 600f;
+        public float TURN_SPEED = 150f;
+        public float MAX_VELOCITY = 30f;
+
+        public Vehicle()
+        {
+            health = HEALTH;
+            damage = DAMAGE;
+            speed = SPEED;
+            turnSpeed = TURN_SPEED;
+            maxVelocity = MAX_VELOCITY;
+        }
+
+    } 
 }
-
-
 
 
