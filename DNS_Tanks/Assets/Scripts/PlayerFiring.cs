@@ -7,20 +7,15 @@ public class PlayerFiring : MonoBehaviour
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
-    private Rigidbody rigidbody;
     // Opóźnienie w wystrzeliwaniu pocisku, zarządzane też przez klasę Vehicle
     public float firingCooldown = 1f;
     private float timeStamp = 0;
-
-    private void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
 
     void Start()
     {
         playerInput = GetComponent<PlayerInputSetup>();
     }
+
     private void FixedUpdate()
     {
         Fire();
@@ -34,7 +29,6 @@ public class PlayerFiring : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
             timeStamp = Time.time + firingCooldown;
-            Debug.Log("ISTNIEJĘ!");
         }
     }
 }
