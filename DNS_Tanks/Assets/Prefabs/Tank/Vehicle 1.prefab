@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3026002978957099777, guid: 1f366062450e69040b5d2b67043dced9,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3026002978221641865, guid: 1f366062450e69040b5d2b67043dced9,
         type: 3}
       propertyPath: m_TagString
@@ -249,6 +254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026002978864702413, guid: 1f366062450e69040b5d2b67043dced9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174946611126436616, guid: 1f366062450e69040b5d2b67043dced9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f366062450e69040b5d2b67043dced9, type: 3}
