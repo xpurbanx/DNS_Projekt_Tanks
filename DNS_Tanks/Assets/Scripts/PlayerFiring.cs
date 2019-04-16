@@ -32,7 +32,7 @@ public class PlayerFiring : MonoBehaviour
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
         if (playerInput.AButton() && timeStamp <= Time.time)
         {
-            GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position + Vector3.forward,bulletOut.transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
             timeStamp = Time.time + firingCooldown;
             Debug.Log("ISTNIEJĘ!");
         }
