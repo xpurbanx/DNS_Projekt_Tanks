@@ -1,25 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Zawartość skryptu PlayerMovement.cs:")]
-    [Tooltip("Numer gracza. Przykład: gracz 1 będzie kierował klawiszami z dopiskiem 1 (sprawdź Project Settings -> Input)")]
-    public int playerNumber = 1;
-    [Tooltip("Prędkość poruszania się pojazdu")]
-    public float speed = 925f;
-    [Tooltip("Prędkość skręcania pojazdu")]
-    public float turnSpeed = 180f;
-    [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
-    public float maxVelocity = 3f;
+    // Na sposób poruszania ma też wpływ samo Rigibody, jego parametry można zmienić w Unity, w inspektorze
+    // Czyli: Drag - tarcie, po jakim czasie od puszczenia przycisków pojazd sam się zatrzyma, oraz jak długo będzie przyśpieszał
+    // W związku z tym, że tworzymy grę, w której poruszamy się tylko po X i Y to zaznaczamy:
+    // "Freeze Position Y" oraz "Freeze Rotation X", "Freeze Rotation Z";
+    // ALE!!! Te modele są trochę poprzekręcane względem osi Y
+    // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
+    // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
-    private string movementAxisName;
-    private string turnAxisName;
-    private Rigidbody rigidbody;
+    // Publiczne atrybuty zmieniane w Vehicle.cs
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
+    public float turnSpeed;
+    [HideInInspector]
+    public float maxVelocity;
+
+    // Vertical - oś od poruszania się
+    // Horizontal - oś od skręcania
+    private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-
+    private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
+    
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -35,17 +40,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        // Ustanawianie konkretnych nazw inputów dla danego czołgu. 
-        movementAxisName = "Vertical" + playerNumber;
-        turnAxisName = "Horizontal" + playerNumber;
-
+        playerInput = GetComponent<PlayerInputSetup>();
     }
 
     void Update()
     {
         // Input gracza
-        movementInputValue = Input.GetAxis(movementAxisName);
-        turnInputValue = Input.GetAxis(turnAxisName);
+        movementInputValue = 0f;
+        turnInputValue = 0f;
+        movementInputValue = playerInput.Vertical();
+        turnInputValue = playerInput.Horizontal();
     }
 
     private void FixedUpdate()
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.up * movementInputValue * speed * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * 1000f * Time.deltaTime;
         
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
@@ -74,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        Quaternion turnRotation = Quaternion.Euler(0f, 0f, turn);
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
         return;
