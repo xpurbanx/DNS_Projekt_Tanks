@@ -1,27 +1,19 @@
-﻿using System.Runtime.CompilerServices;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[assembly: InternalsVisibleTo("Vehicle")] // Klauzula ustawiająca widoczność zmiennych internal dla klasy Vehicle
-
 public class PlayerFiring : MonoBehaviour
 {
-    public static PlayerFiring instance; // Utworzenie instancji
-
     private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
     private Rigidbody rigidbody;
-    // Opóźnienie w wystrzeliwaniu pocisku
-    internal float firingCooldown = 5f;
+    // Opóźnienie w wystrzeliwaniu pocisku, zarządzane też przez klasę Vehicle
+    public float firingCooldown = 5f;
     private float timeStamp = 0;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-
-        // Konstrukcja instancji
-        instance = this;
     }
 
     void Start()
