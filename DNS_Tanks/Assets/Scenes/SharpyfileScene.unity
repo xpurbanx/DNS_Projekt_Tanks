@@ -496,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfad458dc8290e74897ee16ce8522fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flagNumber: 0
 --- !u!1 &477465861
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a4ef95e86a0d84ba33e02d3ea627db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 0}
   startVelocity: 10
 --- !u!114 &493942136
 MonoBehaviour:
@@ -827,6 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagInsterted: 0
+  flagStationNumber: 0
 --- !u!1 &692783923
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagInsterted: 0
+  flagStationNumber: 0
 --- !u!1 &1526364292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfad458dc8290e74897ee16ce8522fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flagNumber: 0
 --- !u!1 &1978499650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1515,7 @@ PrefabInstance:
     - target: {fileID: 6855162925988636317, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.595132
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 6855162925988636317, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
