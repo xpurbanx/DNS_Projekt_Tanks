@@ -40,6 +40,18 @@ public class Vehicle : MonoBehaviour
         playerMovement.turnSpeed = turnSpeed;
         playerMovement.maxVelocity = maxVelocity;
         playerFiring.firingCooldown = firingCooldown;
+        playerFiring.damage = damage;
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+            Die();      
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
 
