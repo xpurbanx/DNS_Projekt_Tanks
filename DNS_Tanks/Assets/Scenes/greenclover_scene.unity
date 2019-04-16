@@ -457,27 +457,22 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.495
       objectReference: {fileID: 0}
-    - target: {fileID: 1622415767158247879, guid: 28fbc280ae3695542bed829c3c9f7d54,
+    - target: {fileID: 1622415766407161369, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: m_TagString
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 1622415765744671482, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1622415767158247883, guid: 28fbc280ae3695542bed829c3c9f7d54,
+    - target: {fileID: 1622415767158247879, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
-      propertyPath: m_Constraints
-      value: 116
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1622415765747139139, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622415766407161369, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_TagString
       value: Player 1
@@ -486,6 +481,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767158247880, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767158247883, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
@@ -817,6 +822,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1999947400}
+    - target: {fileID: 8418738306948585609, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d2ec3710ede7479c6ffccb665caf5, type: 3}
 --- !u!1 &1999947400 stripped

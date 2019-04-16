@@ -105,3 +105,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagInsterted: 0
+  flagStationNumber: 1
