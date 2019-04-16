@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject shootingObject;
+    public float startVelocity = 10f;
+    public int damage;
+
+    private Vehicle vehicle;
+    private Building building;
+
     private PlayerInputSetup playerInput;
+
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
-    // do usuwania siebie samego xD
-    public GameObject gameObject;
-    public float startVelocity = 10f;
     private bool wasIFired = false;
 
     void Awake()
@@ -22,6 +27,31 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Jeżeli przypadkowo wykryliśmy, że kula uderzyła w obiekt, który ją wystrzelił
+        if (collision.gameObject == shootingObject) return;
+
+        // Jeżeli uderzony obiekt jest pojazdem
+        if (collision.gameObject.GetComponent<Vehicle>() != null)
+        {
+            vehicle = collision.gameObject.GetComponent<Vehicle>();
+            vehicle.health -= damage;
+            Destroy(gameObject);
+        }
+
+        // Jeżeli uderzony obiekt jest budynkiem
+        else if (collision.gameObject.GetComponent<Building>() != null)
+        {
+            building = collision.gameObject.GetComponent<Building>();
+            building.health -= damage;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Fly()
     {
@@ -33,10 +63,11 @@ public class Bullet : MonoBehaviour
             wasIFired = true;
 
         }
+
         // Sprawdzanie czy pocisk już "Wylądował"/nie porusza się - jeżeli tak, to zniszcz
         CheckToDestroy();
-
     }
+
     private void CheckToDestroy()
     {
         // W momencie w którym pocisk nie porusza się (velocyti == [0,0,0] i został już wystrzelony
@@ -44,6 +75,6 @@ public class Bullet : MonoBehaviour
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
         if (rigidbody.velocity == Vector3.zero && wasIFired == true)
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
     }
 }
