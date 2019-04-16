@@ -38,13 +38,13 @@ public class FlagStation : MonoBehaviour
             int playerNumber = Utility.ParseToInt(playerNumberString);
 
             // Jeżeli numer player'a jest taki sam jak numer bazy (czyli czy gracz jest w swojej bazie
-            if (tankNumber == flagStationNumber)
+            if (playerNumber == flagStationNumber)
             {
                 // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą Gameobject Find, ale nie mogłem wpaść na inny pomysł
                 GameObject player = GameObject.Find("Tank " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
-                if (other.GetComponent<PlayerEquipment>().holdingFlag == true)
+                if (player.GetComponent<PlayerEquipment>().holdingFlag == true)
                 {
                     // Flaga została dostarczona
                     flagInsterted = true;

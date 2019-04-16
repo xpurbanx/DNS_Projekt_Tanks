@@ -30,12 +30,12 @@ public class Flag : MonoBehaviour
             if (flagNumber != playerNumber && player.GetComponent<PlayerEquipment>().holdingFlag == false)
             {
                 // Czołg bierze flagę
-                PickUpFlag(other.gameObject);
+                PickUpFlag(player);
             }
         }
     }
 
-    private void PickUpFlag(GameObject tank)
+    private void PickUpFlag(GameObject player)
     {
         // Zaznaczamy w Eq czołgu, że nosi on aktualnie flagę
         player.GetComponent<PlayerEquipment>().holdingFlag = true;
