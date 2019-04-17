@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerFiring : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject bulletOut;
 
-    // Opóźnienie w wystrzeliwaniu pocisku oraz zadawany damage, zarządzane przez klasę Vehicle
-    public float firingCooldown = 1f;
-    public int damage;
+    // Atrybuty zarządzane przez klasę Vehicle
+    internal float firingCooldown, damage, startVelocity;
 
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
@@ -32,10 +33,11 @@ public class PlayerFiring : MonoBehaviour
         {
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
-
-            // Nadanie obrażeń pociskowi
-            bullet.GetComponent<Bullet>().damage = damage;
             bullet.GetComponent<Bullet>().shootingObject = gameObject;
+            bullet.GetComponent<Bullet>().startVelocity = startVelocity;
+            // Nadanie obrażeń pociskowi
+            /*bullet.GetComponent<Bullet>().damage = damage;
+            bullet.GetComponent<Bullet>().shootingObject = gameObject;*/
 
             // Cooldown
             timeStamp = Time.time + firingCooldown;
