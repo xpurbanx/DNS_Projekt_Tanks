@@ -1,17 +1,22 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("Building")]
+[assembly: InternalsVisibleTo("PlayerFiring")]
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject shootingObject;
-    public float startVelocity = 10f;
-    public int damage;
+    internal GameObject shootingObject;
+    internal float startVelocity = 10f;
+    //internal float damage;
 
     private Vehicle vehicle;
     private Building building;
 
     private PlayerInputSetup playerInput;
+    private PlayerFiring playerFiring;
 
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
@@ -19,6 +24,7 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
+        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -27,8 +33,14 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
+    private void Update()
+    {
+        playerFiring = shootingObject.GetComponent<PlayerFiring>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        playerFiring = shootingObject.GetComponent<PlayerFiring>();
         // Jeżeli przypadkowo wykryliśmy, że kula uderzyła w obiekt, który ją wystrzelił
         if (collision.gameObject == shootingObject) return;
 
@@ -36,7 +48,8 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
             vehicle = collision.gameObject.GetComponent<Vehicle>();
-            vehicle.health -= damage;
+            vehicle.hp -= playerFiring.damage;
+
             Destroy(gameObject);
         }
 
@@ -44,7 +57,7 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
             building = collision.gameObject.GetComponent<Building>();
-            building.health -= damage;
+            building.hp -= playerFiring.damage;
         }
 
         else
