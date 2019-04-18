@@ -44,8 +44,9 @@ public class FlagStation : MonoBehaviour
                 GameObject player = GameObject.Find("Tank " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
-                if (player.GetComponent<PlayerEquipment>().holdingFlag == true)
+                if (player.GetComponent<PlayerEquipment>().checkFlag() == true)
                 {
+                    player.GetComponent<PlayerEquipment>().dropFlag();
                     // Flaga została dostarczona
                     flagInsterted = true;
                 }
