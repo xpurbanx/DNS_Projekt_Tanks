@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public float turnSpeed;
     [HideInInspector]
+    public float turnTurretSpeed;
+    [HideInInspector]
     public float maxVelocity;
 
     // Vertical - oś od poruszania się
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
+    private float turnTurretInputValue;
     private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
     
     private void Awake()
@@ -48,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
         // Input gracza
         movementInputValue = 0f;
         turnInputValue = 0f;
-        movementInputValue = playerInput.Vertical();
+        //movementInputValue = playerInput.Vertical();
+        movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
 
@@ -65,8 +69,9 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
+        //Vector3 movement = transform.forward * movementInputValue * speed * 100000f * Time.deltaTime;
         Vector3 movement = transform.forward * movementInputValue * speed * 100000f * Time.deltaTime;
-        
+
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
     }
@@ -75,6 +80,18 @@ public class PlayerMovement : MonoBehaviour
     {
         // Stopień skręcania
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
+
+        // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
+        //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+
+        rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
+        return;
+    }
+    private void TurnTurret()
+    {
+        // Stopień skręcania
+        float turn = turnTurretInputValue * turnTurretSpeed * Time.deltaTime;
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);

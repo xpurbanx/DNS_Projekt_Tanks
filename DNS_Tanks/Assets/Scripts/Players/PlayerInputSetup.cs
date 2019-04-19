@@ -15,6 +15,7 @@ public class PlayerInputSetup : MonoBehaviour
     string bButton;
     string xButton;
     string yButton;
+    string trigger;
 
 
     protected void setControls()
@@ -32,6 +33,7 @@ public class PlayerInputSetup : MonoBehaviour
        bButton = "J" + playerNumber + "B_Button";
        xButton = "J" + playerNumber + "X_Button";
        yButton = "J" + playerNumber + "Y_Button";
+       trigger = "J" + playerNumber + "_Trigger";
 
     }
     private void Start()
@@ -67,6 +69,13 @@ public class PlayerInputSetup : MonoBehaviour
         r += Input.GetAxis(JVertical);
         r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -1.0f, 1.0f);
+    }
+    public float Trigger()
+    {
+        float r = 0.0f;
+        r += Input.GetAxisRaw(trigger);
+        r += Input.GetAxis(KVertical);
+        return Mathf.Clamp(r, -10.0f, 10.0f);
     }
 
 }

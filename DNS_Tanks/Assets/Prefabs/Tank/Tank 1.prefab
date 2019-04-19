@@ -593,6 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   turnSpeed: 0
+  turnTurretSpeed: 0
   maxVelocity: 0
 --- !u!114 &1392516274218456739
 MonoBehaviour:
