@@ -6,5 +6,32 @@ public class PlayerEquipment : MonoBehaviour
 {
     // Czy czołg trzyma flagę
     [HideInInspector]
-    public bool holdingFlag = false;
+    private bool holdingFlag = false;
+    private FlagCarrier flagCarrier;
+
+    private void Start()
+    {
+        flagCarrier = GetComponentInChildren<FlagCarrier>();
+    }
+
+
+    // Wprowadzam troche hermetyzacji.
+    public void pickFlag()
+    {
+        holdingFlag = true;
+        flagCarrier.flagMake();
+        
+
+    }
+    public void dropFlag()
+    {
+        holdingFlag = false;
+        flagCarrier.flagDestroy();
+
+
+    }
+    public bool checkFlag()
+    {
+        return holdingFlag;
+    }
 }
