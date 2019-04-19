@@ -7,9 +7,11 @@ public class PlayerInputSetup : MonoBehaviour
     private int playerNumber = 1;
     string JHorizontal;
     string JVertical;
+    string JSecondaryHorizontal;
 
     string KHorizontal;
     string KVertical;
+    string KSecondaryHorizontal; // nie ma duzego sensu, chce tylko zeby ta nazwa odpowiadala temu co jest na padzie
 
     string aButton;
     string bButton;
@@ -34,6 +36,9 @@ public class PlayerInputSetup : MonoBehaviour
        xButton = "J" + playerNumber + "X_Button";
        yButton = "J" + playerNumber + "Y_Button";
        trigger = "J" + playerNumber + "_Trigger";
+
+       JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
+       KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
 
     }
     private void Start()
@@ -70,10 +75,17 @@ public class PlayerInputSetup : MonoBehaviour
         r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
+    public float SecondaryHorizontal()
+    {
+        float r = 0.0f;
+        r += Input.GetAxis(JSecondaryHorizontal);
+        r += Input.GetAxis(KSecondaryHorizontal);
+        return Mathf.Clamp(r, -1.0f, 1.0f);
+    }
     public float Trigger()
     {
         float r = 0.0f;
-        r += Input.GetAxisRaw(trigger);
+        r += Input.GetAxis(trigger);
         r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -10.0f, 10.0f);
     }

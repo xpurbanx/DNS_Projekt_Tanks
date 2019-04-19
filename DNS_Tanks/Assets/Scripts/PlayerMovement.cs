@@ -16,8 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public float turnSpeed;
     [HideInInspector]
-    public float turnTurretSpeed;
-    [HideInInspector]
     public float maxVelocity;
 
     // Vertical - oś od poruszania się
@@ -25,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    private float turnTurretInputValue;
     private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
     
     private void Awake()
@@ -49,9 +46,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input gracza
-        movementInputValue = 0f;
-        turnInputValue = 0f;
-        //movementInputValue = playerInput.Vertical();
         movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
@@ -80,18 +74,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Stopień skręcania
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
-
-        // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
-        //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-
-        rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
-        return;
-    }
-    private void TurnTurret()
-    {
-        // Stopień skręcania
-        float turn = turnTurretInputValue * turnTurretSpeed * Time.deltaTime;
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
