@@ -40,7 +40,7 @@ public class Vehicle : MonoBehaviour
     public float firingCooldown = 5f;
 
     [Tooltip("Prędkość początkowa pocisku")]
-    public float startVelocity = 10f;
+    public float bulletVelocity = 10f;
 
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
@@ -77,7 +77,7 @@ public class Vehicle : MonoBehaviour
         playerMovement.maxVelocity = maxVelocity;
         playerFiring.firingCooldown = firingCooldown;
         playerFiring.damage = damage;
-        playerFiring.startVelocity = startVelocity;
+        playerFiring.startVelocity = bulletVelocity;
 
         //////////////////
         if (damage == 0f)

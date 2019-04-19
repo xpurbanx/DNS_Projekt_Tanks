@@ -41,7 +41,7 @@ public class FlagStation : MonoBehaviour
             if (playerNumber == flagStationNumber)
             {
                 // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą Gameobject Find, ale nie mogłem wpaść na inny pomysł
-                GameObject player = GameObject.Find("Tank " + playerNumberString);
+                GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
                 if (player.GetComponent<PlayerEquipment>().checkFlag() == true)
