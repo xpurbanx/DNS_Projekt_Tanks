@@ -22,7 +22,7 @@ public class Flag : MonoBehaviour
             string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             int playerNumber = Utility.ParseToInt(playerNumberString);
 
-            GameObject player = GameObject.Find("Tank " + playerNumberString);
+            GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
 
             // Jeżeli czołg, z którym kolidujemy nie jest właścicielem tej flagi (czołg nie może nieść swojej flagi)*
             // I jeżeli czołg, z którym kolidujemy nie posiada już flagi (nie może przecież nieść dwóch na raz)

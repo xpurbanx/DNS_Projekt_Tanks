@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
+
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,20 +13,18 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
-    // Publiczne atrybuty zmieniane w Vehicle.cs
-    [HideInInspector]
-    public float speed;
-    [HideInInspector]
-    public float turnSpeed;
-    [HideInInspector]
-    public float maxVelocity;
+    // Prywatne atrybuty zmieniane w Vehicle.cs
+    internal float speed;
+    internal float turnSpeed;
+    internal float maxVelocity;
 
-    // Vertical - oś od poruszania się
+    // Vertical - oś od poruszania się na klawiaturze
+    // Trigger - "oś" od poruszania się
     // Horizontal - oś od skręcania
     private new Rigidbody rigidbody;
     private float movementInputValue;
     private float turnInputValue;
-    private PlayerInputSetup playerInput; // Zmieniłem na input z gierki jamowej
+    private PlayerInputSetup playerInput;
     
     private void Awake()
     {
@@ -46,9 +47,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input gracza
-        movementInputValue = 0f;
-        turnInputValue = 0f;
-        movementInputValue = playerInput.Vertical();
+        movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
 
@@ -66,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
         Vector3 movement = transform.forward * movementInputValue * speed * 100000f * Time.deltaTime;
-        
+
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
     }
@@ -75,9 +74,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Stopień skręcania
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
-
-        // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
-        //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
