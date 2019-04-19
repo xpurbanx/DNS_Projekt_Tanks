@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
         {
             vehicle = collision.gameObject.GetComponent<Vehicle>();
             vehicle.hp -= playerFiring.damage;
-
             Destroy(gameObject);
         }
 
@@ -58,6 +57,7 @@ public class Bullet : MonoBehaviour
         {
             building = collision.gameObject.GetComponent<Building>();
             building.hp -= playerFiring.damage;
+            Destroy(gameObject);
         }
 
         else
