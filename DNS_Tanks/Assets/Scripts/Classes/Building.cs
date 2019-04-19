@@ -18,7 +18,7 @@ public class Building : MonoBehaviour
 
     void Start()
     {
-        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
     }
 
