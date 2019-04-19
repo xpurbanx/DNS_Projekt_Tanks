@@ -27,7 +27,7 @@ public class Flag : MonoBehaviour
             // Jeżeli czołg, z którym kolidujemy nie jest właścicielem tej flagi (czołg nie może nieść swojej flagi)*
             // I jeżeli czołg, z którym kolidujemy nie posiada już flagi (nie może przecież nieść dwóch na raz)
             // *Możemy to jeszcze zmienić
-            if (flagNumber != playerNumber && player.GetComponent<PlayerEquipment>().holdingFlag == false)
+            if (flagNumber != playerNumber && player.GetComponent<PlayerEquipment>().checkFlag() == false)
             {
                 // Czołg bierze flagę
                 PickUpFlag(player);
@@ -38,7 +38,7 @@ public class Flag : MonoBehaviour
     private void PickUpFlag(GameObject player)
     {
         // Zaznaczamy w Eq czołgu, że nosi on aktualnie flagę
-        player.GetComponent<PlayerEquipment>().holdingFlag = true;
+        player.GetComponent<PlayerEquipment>().pickFlag();
 
         // gameObject flagi ustawiamy na nieaktywny, przez co wszystkie skrypty, collidery i mesh zostają wyłączone
         // Dla podkreślenia: SKRYPTY TEŻ PRZESTAJĄ DZIAŁAĆ, a sam obiekt nie zmienia swojej pozycji
