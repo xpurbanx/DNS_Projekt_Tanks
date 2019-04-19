@@ -11,15 +11,29 @@ public class Building : MonoBehaviour
 
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Tooltip("Wytrzymałość budynku")]
-    internal float health = 100;
+    public float health = 100;
+
+    // Czy budynek został zniszczony
+    private bool isDestroyed = false;
 
     void Start()
     {
-        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        hp = health;
     }
 
     void Update()
     {
-        
+        // Jeżeli budynek został właśnie zniszczony
+        if (!isDestroyed && hp <= 0)
+        {
+            DestroyBuilding();
+        }
+    }
+
+    private void DestroyBuilding()
+    {
+        // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
+        gameObject.GetComponent<SpawnFractured>().SpawnFracturedObject();
     }
 }
