@@ -37,7 +37,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2847050967884165641, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2847050967885851312, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241012868419146297, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050968312286954, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966440519777, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966476249662, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966386694651, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784706635717078623, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050968156836496, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050967381448594, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966672645828, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_TagString
       value: Player 1
