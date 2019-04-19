@@ -40,10 +40,7 @@ public class Vehicle : MonoBehaviour
     public float firingCooldown = 5f;
 
     [Tooltip("Prędkość początkowa pocisku")]
-    public float bulletVelocity = 10f;
-
-    [Tooltip("Czy gracz używa pada")]
-    public bool enableJoystick = false;
+    public float startVelocity = 10f;
 
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
@@ -78,10 +75,9 @@ public class Vehicle : MonoBehaviour
         playerMovement.speed = speed;
         playerMovement.turnSpeed = turnSpeed;
         playerMovement.maxVelocity = maxVelocity;
-        playerMovement.enableJoystic = enableJoystick;
         playerFiring.firingCooldown = firingCooldown;
         playerFiring.damage = damage;
-        playerFiring.startVelocity = bulletVelocity;
+        playerFiring.startVelocity = startVelocity;
 
         //////////////////
         if (damage == 0f)
