@@ -13,6 +13,9 @@ public class Vehicle : MonoBehaviour
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Header("Właściwości pojazdu:")]
     ////////////////////////////////
+    [Tooltip("Do którego gracza należy pojazd")]
+    public int playerNumber = 0;
+
     [Tooltip("Typ pojazdu (0: niezdefiniowany, 1: jeep, 2: czołg, 3: śmigłowiec)")]
     public int vehicleType = 0;
 
@@ -75,11 +78,12 @@ public class Vehicle : MonoBehaviour
         playerMovement.speed = speed;
         playerMovement.turnSpeed = turnSpeed;
         playerMovement.maxVelocity = maxVelocity;
+
         playerFiring.firingCooldown = firingCooldown;
         playerFiring.damage = damage;
         playerFiring.startVelocity = bulletVelocity;
+        playerFiring.playerNumber = playerNumber;
 
-        //////////////////
         if (damage == 0f)
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }

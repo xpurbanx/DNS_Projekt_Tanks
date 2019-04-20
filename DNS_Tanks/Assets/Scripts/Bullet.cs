@@ -8,15 +8,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    internal GameObject shootingObject;
+    internal PlayerFiring playerFiring;
     internal float startVelocity = 10f;
+    internal int playerNumber;
     //internal float damage;
 
     private Vehicle vehicle;
     private Building building;
-
-    private PlayerInputSetup playerInput;
-    private PlayerFiring playerFiring;
 
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
@@ -33,20 +31,14 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
-    private void Update()
-    {
-        playerFiring = shootingObject.GetComponent<PlayerFiring>();
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        playerFiring = shootingObject.GetComponent<PlayerFiring>();
-        // Jeżeli przypadkowo wykryliśmy, że kula uderzyła w obiekt, który ją wystrzelił
-        if (collision.gameObject == shootingObject) return;
-
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
+            // Jeżeli wykryliśmy uderzenie w samego siebie
+            if (collision.gameObject.GetComponent<Vehicle>().playerNumber == playerNumber) return;
+
             vehicle = collision.gameObject.GetComponent<Vehicle>();
             vehicle.hp -= playerFiring.damage;
             Destroy(gameObject);
@@ -55,8 +47,12 @@ public class Bullet : MonoBehaviour
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
-            building = collision.gameObject.GetComponent<Building>();
-            building.hp -= playerFiring.damage;
+            if (collision.gameObject.GetComponent<Building>().playerNumber != playerNumber)
+            {
+                building = collision.gameObject.GetComponent<Building>();
+                building.hp -= playerFiring.damage;
+            }
+
             Destroy(gameObject);
         }
 

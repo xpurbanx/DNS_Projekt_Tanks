@@ -13,6 +13,9 @@ public class Building : MonoBehaviour
     [Tooltip("Wytrzymałość budynku")]
     public float health = 100;
 
+    [Tooltip("Numer gracza, do którego należy budynek")]
+    public int playerNumber = 0;
+
     // Czy budynek został zniszczony
     private bool isDestroyed = false;
 
