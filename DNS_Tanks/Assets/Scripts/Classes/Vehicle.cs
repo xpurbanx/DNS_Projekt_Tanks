@@ -42,17 +42,23 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Szybkostrzelność pojazdu")]
     public float firingCooldown = 5f;
 
+    [Tooltip("Szybkość obrotu broni")]
+    public float turnTurretSpeed = 200f;
+
     [Tooltip("Prędkość początkowa pocisku")]
     public float bulletVelocity = 10f;
 
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;
+    private PlayerRotateTurret playerRotateTurret;
 
     private void Awake()
     {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
+        playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
+
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
@@ -83,6 +89,7 @@ public class Vehicle : MonoBehaviour
         playerFiring.damage = damage;
         playerFiring.startVelocity = bulletVelocity;
         playerFiring.playerNumber = playerNumber;
+        playerRotateTurret.turnTurretSpeed = turnTurretSpeed; 
 
         if (damage == 0f)
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");

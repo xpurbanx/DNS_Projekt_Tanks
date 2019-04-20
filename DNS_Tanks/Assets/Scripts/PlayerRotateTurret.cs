@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerRotateTurret : MonoBehaviour
 {
     public GameObject turret;
-    [HideInInspector]
-    public float turnTurretSpeed;
+    internal float turnTurretSpeed;
 
     private PlayerInputSetup playerInput;
     private float turnTurretInputValue;
@@ -32,7 +33,7 @@ public class PlayerRotateTurret : MonoBehaviour
     private void TurnTurret()
     {
         // Stopień skręcania
-        float turnTurret = turnTurretInputValue * turnTurretSpeed * Time.deltaTime;
+        float turnTurret = turnTurretInputValue * turnTurretSpeed * Time.deltaTime * 5f;
 
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
