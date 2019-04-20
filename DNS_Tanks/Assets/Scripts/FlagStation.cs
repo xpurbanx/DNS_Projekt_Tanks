@@ -11,19 +11,6 @@ public class FlagStation : MonoBehaviour
     // Numer bazy / stacji
     public int flagStationNumber;
 
-    // Czy gra się zakończyła?
-    private bool gameEnded = false;
-
-    void Update()
-    {
-        // Jeżeli gra się nie skończyła
-        if (gameEnded == false)
-            // Jeżeli flaga została dostarczona
-            if (flagInsterted == true)
-                // Wygrana
-                Win();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         // Pierwsze 7 znaków tagu. Np. z Player 1 będzie to Player
@@ -49,6 +36,7 @@ public class FlagStation : MonoBehaviour
                     player.GetComponent<PlayerEquipment>().dropFlag();
                     // Flaga została dostarczona
                     flagInsterted = true;
+                    Win();
                 }
             }
         }
@@ -60,7 +48,5 @@ public class FlagStation : MonoBehaviour
         {
             Debug.Log("WIN");
         }
-
-        gameEnded = true;
     }
 }

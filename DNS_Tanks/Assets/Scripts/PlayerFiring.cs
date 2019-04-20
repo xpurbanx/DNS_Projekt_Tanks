@@ -11,6 +11,7 @@ public class PlayerFiring : MonoBehaviour
 
     // Atrybuty zarządzane przez klasę Vehicle
     internal float firingCooldown, damage, startVelocity;
+    internal int playerNumber;
 
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
@@ -33,8 +34,10 @@ public class PlayerFiring : MonoBehaviour
         {
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
-            bullet.GetComponent<Bullet>().shootingObject = gameObject;
-            bullet.GetComponent<Bullet>().startVelocity = startVelocity;
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.playerFiring = this;
+            bulletScript.startVelocity = startVelocity;
+            bulletScript.playerNumber = playerNumber;
             // Nadanie obrażeń pociskowi
             /*bullet.GetComponent<Bullet>().damage = damage;
             bullet.GetComponent<Bullet>().shootingObject = gameObject;*/
