@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc6ae3e69029340be9dd74ba319b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   vehicleType: 2
   health: 150
   speed: 5
@@ -368,7 +369,8 @@ MonoBehaviour:
   damageMG: 2.85
   damageAT: 52
   firingCooldown: 1
-  startVelocity: 100
+  turnTurretSpeed: 30
+  bulletVelocity: 150
 --- !u!114 &2847050966479108410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,9 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  turnSpeed: 0
-  maxVelocity: 0
 --- !u!114 &6580901633640379362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 2847050966440519777}
-  turnTurretSpeed: 180
 --- !u!114 &2103025188140854426
 MonoBehaviour:
   m_ObjectHideFlags: 0

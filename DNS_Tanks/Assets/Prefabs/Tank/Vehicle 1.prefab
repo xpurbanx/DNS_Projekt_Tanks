@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933c1a2c229d33e4b9466bef44f7ebcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5185110339942021616}
+  player: {fileID: 0}
 --- !u!1 &2000161873300779795
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30221857901700260}
+  - component: {fileID: 5348808796385281451}
   m_Layer: 0
   m_Name: Vehicle 1
   m_TagString: Player 1
@@ -128,6 +129,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5348808796385281451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000161873300779795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b133d517d26c184d8da751976169f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentVeh: {fileID: 0}
 --- !u!1001 &5465940348780404945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,14 +174,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878164167225579819, guid: 99dce07f3140b3646b40cb08f0faf4aa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878164167225579819, guid: 99dce07f3140b3646b40cb08f0faf4aa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878164167225579819, guid: 99dce07f3140b3646b40cb08f0faf4aa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99dce07f3140b3646b40cb08f0faf4aa, type: 3}
---- !u!1 &5185110339942021616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 878164167225579809, guid: 99dce07f3140b3646b40cb08f0faf4aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 5465940348780404945}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5185110339942021626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878164167225579819, guid: 99dce07f3140b3646b40cb08f0faf4aa,
