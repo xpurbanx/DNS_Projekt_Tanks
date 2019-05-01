@@ -13,13 +13,15 @@ public class CamFollow : MonoBehaviour
     void Start()
     {
         UpdateCurrentVeh();
-        player = currentVeh.CurrentVehicleTransform().gameObject;
         offset = transform.position - player.transform.position;
     }
 
     public void UpdateCurrentVeh()
     {
+        
         currentVeh = GetComponentInParent<CurrentVehicle>();
+        player = currentVeh.CurrentVehicleTransform().gameObject;
+ 
     }
 
     void LateUpdate()

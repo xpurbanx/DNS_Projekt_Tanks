@@ -19,10 +19,13 @@ public class Flag : MonoBehaviour
         {
             // Pobieramy numer gracza za pomocą tagu (ostatnia cyfra)
             // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą GameObject Find, ale nie mogłem wpaść na inny pomysł
+           // string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             int playerNumber = Utility.ParseToInt(playerNumberString);
 
-            GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
+            // trzeba zmienic zeby dzialalo dla innych pojazdow
+            // GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
+            GameObject player = other.gameObject;
 
             // Jeżeli czołg, z którym kolidujemy nie jest właścicielem tej flagi (czołg nie może nieść swojej flagi)*
             // I jeżeli czołg, z którym kolidujemy nie posiada już flagi (nie może przecież nieść dwóch na raz)
