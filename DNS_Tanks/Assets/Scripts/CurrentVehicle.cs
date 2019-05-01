@@ -8,9 +8,14 @@ public class CurrentVehicle : MonoBehaviour
     // Pozwoli na łatwiejszą zmianę pojazdow, kamera bedzie automatycznie podazac za pojazdem wskazanym przez currentVeh
     void Start()
     {
-        currentVeh = this.transform.GetChild(0).gameObject; // za currentVeh bierze obiekt na samej gorze hierarhii (index 0)
+        UpdateCurrentVeh();
     }
 
+    public void UpdateCurrentVeh()
+    {
+        currentVeh = this.transform.GetChild(0).gameObject; // za currentVeh bierze obiekt na samej gorze hierarhii (index 0)
+
+    }
     public Transform CurrentVehicleTransform()
     {
         return currentVeh.transform;

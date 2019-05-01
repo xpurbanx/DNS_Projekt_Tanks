@@ -8,6 +8,10 @@ TagManager:
   - Player 2
   - Flag 1
   - Flag 2
+  - FlagStation 1
+  - FlagStation 2
+  - Player 1 Spawn
+  - Player 2 Spawn
   layers:
   - Default
   - TransparentFX

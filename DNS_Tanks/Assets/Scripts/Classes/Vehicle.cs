@@ -106,6 +106,7 @@ public class Vehicle : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        GetComponentInParent<Respawn>().RespawnPlayer();
     }
 }
 
