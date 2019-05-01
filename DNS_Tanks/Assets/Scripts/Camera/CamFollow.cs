@@ -12,8 +12,9 @@ public class CamFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         UpdateCurrentVeh();
-        offset = transform.position - player.transform.position;
+        
     }
 
     public void UpdateCurrentVeh()
@@ -21,7 +22,8 @@ public class CamFollow : MonoBehaviour
         
         currentVeh = GetComponentInParent<CurrentVehicle>();
         player = currentVeh.CurrentVehicleTransform().gameObject;
- 
+        offset = transform.position - player.transform.position;
+
     }
 
     void LateUpdate()
