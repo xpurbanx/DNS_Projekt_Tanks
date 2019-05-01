@@ -58,6 +58,7 @@ public class Vehicle : MonoBehaviour
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
         playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
+        gameObject.transform.SetSiblingIndex(0); // ma sprawic, ze obiekt z tym skryptem bedzie na gorze w hierarhii
 
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
