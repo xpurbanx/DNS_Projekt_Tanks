@@ -14,7 +14,6 @@ public class CurrentVehicle : MonoBehaviour
     public void UpdateCurrentVeh()
     {
         currentVeh = this.transform.GetChild(0).gameObject; // za currentVeh bierze obiekt na samej gorze hierarhii (index 0)
-
     }
     public Transform CurrentVehicleTransform()
     {
