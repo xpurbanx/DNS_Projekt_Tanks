@@ -72,5 +72,10 @@ PrefabInstance:
       propertyPath: flagStationNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2389800242668483581, guid: f7a86f14bf0766e48b5291ab045141c1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 375cab824b4aec844ad2e19ff30226c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a86f14bf0766e48b5291ab045141c1, type: 3}
