@@ -7,14 +7,14 @@ public class CamFollow : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private CurrentVehicle currentVeh;
-
+    bool offsetSet = false;
     private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
         
         UpdateCurrentVeh();
-        
+ 
     }
 
     public void UpdateCurrentVeh()
@@ -22,7 +22,11 @@ public class CamFollow : MonoBehaviour
         
         currentVeh = GetComponentInParent<CurrentVehicle>();
         player = currentVeh.CurrentVehicleTransform().gameObject;
-        offset = transform.position - player.transform.position;
+        if(!offsetSet)
+        {
+            offset = transform.position - player.transform.position;
+            offsetSet = true;
+        }
 
     }
 
