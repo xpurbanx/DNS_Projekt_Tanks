@@ -11,19 +11,6 @@ public class FlagStation : MonoBehaviour
     // Numer bazy / stacji
     public int flagStationNumber;
 
-    // Czy gra się zakończyła?
-    private bool gameEnded = false;
-
-    void Update()
-    {
-        // Jeżeli gra się nie skończyła
-        if (gameEnded == false)
-            // Jeżeli flaga została dostarczona
-            if (flagInsterted == true)
-                // Wygrana
-                Win();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         // Pierwsze 7 znaków tagu. Np. z Player 1 będzie to Player
@@ -41,13 +28,15 @@ public class FlagStation : MonoBehaviour
             if (playerNumber == flagStationNumber)
             {
                 // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą Gameobject Find, ale nie mogłem wpaść na inny pomysł
-                GameObject player = GameObject.Find("Tank " + playerNumberString);
+                GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
-                if (player.GetComponent<PlayerEquipment>().holdingFlag == true)
+                if (player.GetComponent<PlayerEquipment>().checkFlag() == true)
                 {
+                    player.GetComponent<PlayerEquipment>().dropFlag();
                     // Flaga została dostarczona
                     flagInsterted = true;
+                    Win();
                 }
             }
         }
@@ -59,7 +48,5 @@ public class FlagStation : MonoBehaviour
         {
             Debug.Log("WIN");
         }
-
-        gameEnded = true;
     }
 }

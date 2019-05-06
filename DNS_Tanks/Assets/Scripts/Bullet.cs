@@ -1,19 +1,28 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("Building")]
+[assembly: InternalsVisibleTo("PlayerFiring")]
 
 public class Bullet : MonoBehaviour
 {
-    private PlayerInputSetup playerInput;
+    internal PlayerFiring playerFiring;
+    internal float startVelocity = 10f;
+    internal int playerNumber;
+    //internal float damage;
+
+    private Vehicle vehicle;
+    private Building building;
+
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
-    // do usuwania siebie samego xD
-    public GameObject gameObject;
-    public float startVelocity = 10f;
     private bool wasIFired = false;
 
     void Awake()
     {
+        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -22,6 +31,36 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Jeżeli uderzony obiekt jest pojazdem
+        if (collision.gameObject.GetComponent<Vehicle>() != null)
+        {
+            // Jeżeli wykryliśmy uderzenie w samego siebie
+            if (collision.gameObject.GetComponent<Vehicle>().playerNumber == playerNumber) return;
+
+            vehicle = collision.gameObject.GetComponent<Vehicle>();
+            vehicle.hp -= playerFiring.damage;
+            Destroy(gameObject);
+        }
+
+        // Jeżeli uderzony obiekt jest budynkiem
+        else if (collision.gameObject.GetComponent<Building>() != null)
+        {
+            if (collision.gameObject.GetComponent<Building>().playerNumber != playerNumber)
+            {
+                building = collision.gameObject.GetComponent<Building>();
+                building.hp -= playerFiring.damage;
+            }
+
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Fly()
     {
@@ -33,10 +72,11 @@ public class Bullet : MonoBehaviour
             wasIFired = true;
 
         }
+
         // Sprawdzanie czy pocisk już "Wylądował"/nie porusza się - jeżeli tak, to zniszcz
         CheckToDestroy();
-
     }
+
     private void CheckToDestroy()
     {
         // W momencie w którym pocisk nie porusza się (velocyti == [0,0,0] i został już wystrzelony
@@ -44,6 +84,6 @@ public class Bullet : MonoBehaviour
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
         if (rigidbody.velocity == Vector3.zero && wasIFired == true)
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
     }
 }

@@ -1,25 +1,26 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerFiring : MonoBehaviour
 {
-    private PlayerInputSetup playerInput;
     public GameObject bulletPrefab;
-    private Rigidbody rigidbody;
-    // Opóźnienie w wystrzeliwaniu pocisku, zarządzane też przez klasę Vehicle
-    public float firingCooldown = 5f;
-    private float timeStamp = 0;
+    public GameObject bulletOut;
 
-    private void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
+    // Atrybuty zarządzane przez klasę Vehicle
+    internal float firingCooldown, damage, startVelocity;
+    internal int playerNumber;
+
+    private PlayerInputSetup playerInput;
+    private float timeStamp = 0;
 
     void Start()
     {
         playerInput = GetComponent<PlayerInputSetup>();
     }
+
     private void FixedUpdate()
     {
         Fire();
@@ -31,9 +32,18 @@ public class PlayerFiring : MonoBehaviour
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
         if (playerInput.AButton() && timeStamp <= Time.time)
         {
-            GameObject bullet = Instantiate(bulletPrefab, rigidbody.position + Vector3.forward,rigidbody.rotation);
+            // Tworzenie pocisku
+            GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.playerFiring = this;
+            bulletScript.startVelocity = startVelocity;
+            bulletScript.playerNumber = playerNumber;
+            // Nadanie obrażeń pociskowi
+            /*bullet.GetComponent<Bullet>().damage = damage;
+            bullet.GetComponent<Bullet>().shootingObject = gameObject;*/
+
+            // Cooldown
             timeStamp = Time.time + firingCooldown;
-            Debug.Log("ISTNIEJĘ!");
         }
     }
 }

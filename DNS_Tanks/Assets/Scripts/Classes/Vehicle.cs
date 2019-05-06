@@ -1,16 +1,26 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Bullet")]
 
 public class Vehicle : MonoBehaviour
 {
+    // PRYWATNE ATRYBUTY KLASY W TYM PLIKU:
+    internal int vehType;
+    internal float hp, damage;
+
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
+    [Header("Właściwości pojazdu:")]
+    ////////////////////////////////
+    [Tooltip("Do którego gracza należy pojazd")]
+    public int playerNumber = 0;
+
+    [Tooltip("Typ pojazdu (0: niezdefiniowany, 1: jeep, 2: czołg, 3: śmigłowiec)")]
+    public int vehicleType = 0;
 
     [Tooltip("Wytrzymałość pojazdu")]
-    public int health = 100;
-
-    [Tooltip("Obrażenia zadawane przez pojazd")]
-    public int damage = 0;
+    public float health = 100;
 
     [Tooltip("Prędkość poruszania się pojazdu")]
     public float speed = 1000f;
@@ -21,25 +31,97 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Maksymalna prędkość, którą może osiągnąć pojazd")]
     public float maxVelocity = 3f;
 
+    [Header("Właściwości broni:")]
+    //////////////////////////////
+    [Tooltip("Obrażenia zadawane przez działko maszynowe")]
+    public float damageMG = 2.85f;
+
+    [Tooltip("Obrażenia zadawane przez działo ppanc")]
+    public float damageAT = 52f;
+
     [Tooltip("Szybkostrzelność pojazdu")]
     public float firingCooldown = 5f;
+
+    [Tooltip("Szybkość obrotu broni")]
+    public float turnTurretSpeed = 200f;
+
+    [Tooltip("Prędkość początkowa pocisku")]
+    public float bulletVelocity = 10f;
 
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;
+    private PlayerRotateTurret playerRotateTurret;
+    private Rigidbody rb;
 
     private void Awake()
     {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
+        playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
+        rb = GetComponent<Rigidbody>();
+        gameObject.transform.SetSiblingIndex(0); // ma sprawic, ze obiekt z tym skryptem bedzie na gorze w hierarhii
+
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
     void Start()
     {
+        vehType = vehicleType;
+        switch(vehType)
+        {
+            case 1:
+                damage = damageMG;
+                break;
+            case 2:
+                damage = damageAT;
+                break;
+            case 3:
+                damage = 0f; // Na razie nie ustalono broni dla śmigłowca
+                break;
+            default:
+                damage = 0f;
+                break;
+        }
+        hp = health;
         playerMovement.speed = speed;
         playerMovement.turnSpeed = turnSpeed;
         playerMovement.maxVelocity = maxVelocity;
+
         playerFiring.firingCooldown = firingCooldown;
+        playerFiring.damage = damage;
+        playerFiring.startVelocity = bulletVelocity;
+        playerFiring.playerNumber = playerNumber;
+        playerRotateTurret.turnTurretSpeed = turnTurretSpeed; 
+
+        if (damage == 0f)
+            Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
+    }
+
+    private void Update()
+    {
+        if (hp <= 0)
+            Die();
+        Debug.Log(gameObject.name+": "+ hp);
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GetComponentInParent<Respawn>().RespawnPlayer();
+    }
+
+    public float GetHealth()
+    {
+        return hp;
+    }
+
+    public int GetSpeed()
+    {
+        int currentSpeed;
+        currentSpeed = (int)rb.velocity.magnitude;
+        //currentSpeed = System.Math.Round(currentSpeed, 2);
+        return currentSpeed;
     }
 }
 

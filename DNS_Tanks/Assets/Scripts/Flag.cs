@@ -19,15 +19,18 @@ public class Flag : MonoBehaviour
         {
             // Pobieramy numer gracza za pomocą tagu (ostatnia cyfra)
             // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą GameObject Find, ale nie mogłem wpaść na inny pomysł
+           // string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             int playerNumber = Utility.ParseToInt(playerNumberString);
 
-            GameObject player = GameObject.Find("Tank " + playerNumberString);
+            // trzeba zmienic zeby dzialalo dla innych pojazdow
+            // GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
+            GameObject player = other.gameObject;
 
             // Jeżeli czołg, z którym kolidujemy nie jest właścicielem tej flagi (czołg nie może nieść swojej flagi)*
             // I jeżeli czołg, z którym kolidujemy nie posiada już flagi (nie może przecież nieść dwóch na raz)
             // *Możemy to jeszcze zmienić
-            if (flagNumber != playerNumber && player.GetComponent<PlayerEquipment>().holdingFlag == false)
+            if (flagNumber != playerNumber && player.GetComponent<PlayerEquipment>().checkFlag() == false)
             {
                 // Czołg bierze flagę
                 PickUpFlag(player);
@@ -38,7 +41,7 @@ public class Flag : MonoBehaviour
     private void PickUpFlag(GameObject player)
     {
         // Zaznaczamy w Eq czołgu, że nosi on aktualnie flagę
-        player.GetComponent<PlayerEquipment>().holdingFlag = true;
+        player.GetComponent<PlayerEquipment>().pickFlag();
 
         // gameObject flagi ustawiamy na nieaktywny, przez co wszystkie skrypty, collidery i mesh zostają wyłączone
         // Dla podkreślenia: SKRYPTY TEŻ PRZESTAJĄ DZIAŁAĆ, a sam obiekt nie zmienia swojej pozycji
