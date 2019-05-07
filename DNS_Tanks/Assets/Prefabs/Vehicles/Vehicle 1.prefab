@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5348808796385281451}
   - component: {fileID: 7265895560688098014}
   - component: {fileID: 5881938812465798277}
+  - component: {fileID: 5200004583024529183}
   m_Layer: 0
   m_Name: Vehicle 1
   m_TagString: Player 1
@@ -176,6 +177,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 4693487847661347370}
   speedText: {fileID: 6484334669896931552}
+--- !u!114 &5200004583024529183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000161873300779795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a273a55269b0c547a87ea4df39c09b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6214486367715119843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,11 +196,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1622415767335028708}
     m_Modifications:
-    - target: {fileID: 2231124376861679307, guid: 395c1ff046aa13c47b1cb1fe468301d0,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas HUD
-      objectReference: {fileID: 0}
     - target: {fileID: 5261838445211445755, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,6 +300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231124376861679307, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas HUD
       objectReference: {fileID: 0}
     - target: {fileID: 8110828874945578772, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}

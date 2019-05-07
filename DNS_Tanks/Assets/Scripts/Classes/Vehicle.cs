@@ -92,7 +92,11 @@ public class Vehicle : MonoBehaviour
         playerFiring.damage = damage;
         playerFiring.startVelocity = bulletVelocity;
         playerFiring.playerNumber = playerNumber;
-        playerRotateTurret.turnTurretSpeed = turnTurretSpeed; 
+
+        if (playerRotateTurret != null)
+        {
+            playerRotateTurret.turnTurretSpeed = turnTurretSpeed;
+        }
 
         if (damage == 0f)
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");

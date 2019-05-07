@@ -319,7 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2847050966479108404}
   - component: {fileID: 2847050966479108411}
-  - component: {fileID: 2847050966479108410}
   - component: {fileID: 2847050966479108409}
   - component: {fileID: 9198968313791921625}
   - component: {fileID: 6580901633640379362}
@@ -371,18 +370,6 @@ MonoBehaviour:
   firingCooldown: 1
   turnTurretSpeed: 30
   bulletVelocity: 150
---- !u!114 &2847050966479108410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847050966479108414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a273a55269b0c547a87ea4df39c09b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2847050966479108409
 MonoBehaviour:
   m_ObjectHideFlags: 0

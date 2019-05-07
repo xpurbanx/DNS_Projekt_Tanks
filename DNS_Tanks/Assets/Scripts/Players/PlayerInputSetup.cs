@@ -47,7 +47,8 @@ public class PlayerInputSetup : MonoBehaviour
     }
     public bool AButton()
     {
-        return Input.GetButton(aButton);
+        //return Input.GetButton(aButton);
+        return false;
     }
     public bool BButton()
     {
