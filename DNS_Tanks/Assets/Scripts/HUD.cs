@@ -33,8 +33,12 @@ public class HUD : MonoBehaviour
             Debug.Log("UPDATED VEH IN HUD SCRIPT");
         }
 
-        healthText.text = "Health: " + currentVeh.GetHealth();
-        speedText.text = "Speed: " + currentVeh.GetSpeed();
+        if (currentVeh != null)
+        {
+            healthText.text = "Health: " + currentVeh.GetHealth();
+            speedText.text = "Speed: " + currentVeh.GetSpeed();
+        }
+
 
 
     }
