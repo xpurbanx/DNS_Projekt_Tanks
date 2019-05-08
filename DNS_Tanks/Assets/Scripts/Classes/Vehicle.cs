@@ -52,15 +52,17 @@ public class Vehicle : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;
     private PlayerRotateTurret playerRotateTurret;
+    private Rigidbody rb;
 
     private void Awake()
     {
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
         playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
+        rb = GetComponent<Rigidbody>();
         gameObject.transform.SetSiblingIndex(0); // ma sprawic, ze obiekt z tym skryptem bedzie na gorze w hierarhii
 
-        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
     void Start()
@@ -90,7 +92,11 @@ public class Vehicle : MonoBehaviour
         playerFiring.damage = damage;
         playerFiring.startVelocity = bulletVelocity;
         playerFiring.playerNumber = playerNumber;
-        playerRotateTurret.turnTurretSpeed = turnTurretSpeed; 
+
+        if (playerRotateTurret != null)
+        {
+            playerRotateTurret.turnTurretSpeed = turnTurretSpeed;
+        }
 
         if (damage == 0f)
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
@@ -107,6 +113,19 @@ public class Vehicle : MonoBehaviour
     {
         Destroy(gameObject);
         GetComponentInParent<Respawn>().RespawnPlayer();
+    }
+
+    public float GetHealth()
+    {
+        return hp;
+    }
+
+    public int GetSpeed()
+    {
+        int currentSpeed;
+        currentSpeed = (int)rb.velocity.magnitude;
+        //currentSpeed = System.Math.Round(currentSpeed, 2);
+        return currentSpeed;
     }
 }
 

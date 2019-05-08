@@ -10,7 +10,6 @@ public class FlagCarrier : MonoBehaviour
     public void flagMake()
     {
         flag = Instantiate(flagPrefab, transform.position, transform.rotation, transform);
-
     }
 
     public void flagDestroy()

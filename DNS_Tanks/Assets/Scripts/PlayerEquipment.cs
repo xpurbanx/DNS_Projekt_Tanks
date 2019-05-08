@@ -11,25 +11,23 @@ public class PlayerEquipment : MonoBehaviour
 
     private void Start()
     {
-        flagCarrier = GetComponentInChildren<FlagCarrier>();
+        flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
+        Debug.Log(flagCarrier);
     }
-
 
     // Wprowadzam troche hermetyzacji.
     public void pickFlag()
     {
         holdingFlag = true;
         flagCarrier.flagMake();
-        
-
     }
+
     public void dropFlag()
     {
         holdingFlag = false;
         flagCarrier.flagDestroy();
-
-
     }
+
     public bool checkFlag()
     {
         return holdingFlag;

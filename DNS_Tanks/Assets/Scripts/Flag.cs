@@ -25,7 +25,7 @@ public class Flag : MonoBehaviour
 
             // trzeba zmienic zeby dzialalo dla innych pojazdow
             // GameObject player = GameObject.Find("Tank Variant " + playerNumberString);
-            GameObject player = other.gameObject;
+            GameObject player = GameObject.Find("Vehicle " + playerNumberString);
 
             // Jeżeli czołg, z którym kolidujemy nie jest właścicielem tej flagi (czołg nie może nieść swojej flagi)*
             // I jeżeli czołg, z którym kolidujemy nie posiada już flagi (nie może przecież nieść dwóch na raz)

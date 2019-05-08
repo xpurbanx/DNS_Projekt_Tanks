@@ -11,7 +11,8 @@ public class Respawn : MonoBehaviour
     Transform spawner;
     Vector3 spawnLocation;
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
         spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
