@@ -18,7 +18,7 @@ public class PlayerFiring : MonoBehaviour
 
     void Start()
     {
-        playerInput = GetComponent<PlayerInputSetup>();
+        playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
     private void FixedUpdate()
