@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("PlayerIsGrounded")]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     internal float speed;
     internal float turnSpeed;
     internal float maxVelocity;
+
+    // Prywatny atrybut zmieniany przez skrypt w gąsiennicach
+    internal bool touchingGroundOne;
+    internal bool touchingGroundTwo;
 
     // Vertical - oś od poruszania się na klawiaturze
     // Trigger - "oś" od poruszania się
@@ -55,8 +60,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        Move();
-        Turn();
+        if (touchingGroundOne || touchingGroundTwo)
+        {
+            Move();
+            Turn();
+        }
 
         // Maksymalna prędkość pojazdu
         rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
@@ -65,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * 100000f * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * 1000f;
 
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
