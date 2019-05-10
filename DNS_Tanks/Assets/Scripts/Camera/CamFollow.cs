@@ -52,24 +52,20 @@ public class CamFollow : MonoBehaviour
          if (playerInput.XButton())
          {
             float rotationOffset = transform.transform.eulerAngles.y - player.transform.eulerAngles.y;
+            Debug.Log(rotationOffset);
 
-
-            if (Mathf.Abs(rotationOffset) > 1)
+            if (Mathf.Abs(rotationOffset) > 2)
             {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
 
                 Vector3 direction = Vector3.up; //clockwise
-               // if (transform.transform.eulerAngles.y <= player.transform.eulerAngles.y)
-               //     direction = Vector3.up;   //clockwise
-                if (transform.transform.eulerAngles.y > player.transform.eulerAngles.y)
+                if (rotationOffset < 0 && rotationOffset > -180 || rotationOffset > 180 && rotationOffset < 360)
+                    direction = Vector3.up;   //clockwise
+                else
                     direction = Vector3.down; //counter clockwise
                 transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
                     offset = transform.position - player.transform.position;
                     transform.LookAt(player.transform);
             }
-
-           
-
-
 
         }
         
