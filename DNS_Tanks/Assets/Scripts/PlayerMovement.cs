@@ -41,12 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        playerInput = GetComponent<PlayerInputSetup>();
+        playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
     void Update()
     {
         // Input gracza
+       
         movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
