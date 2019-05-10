@@ -318,6 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847050966479108404}
+  - component: {fileID: 2824777725202945385}
   - component: {fileID: 2847050966479108411}
   - component: {fileID: 9198968313791921625}
   - component: {fileID: 6580901633640379362}
@@ -346,7 +347,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2847050966479108411
+--- !u!114 &2824777725202945385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,6 +355,29 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2847050966479108414}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b6dfa19ccd6644086438f17dc99e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 0
+  vehicleType: 2
+  health: 150
+  speed: 9
+  turnSpeed: 180
+  maxVelocity: 3
+  damageMG: 2.85
+  damageAT: 52
+  firingCooldown: 3
+  turnTurretSpeed: 30
+  bulletVelocity: 100
+--- !u!114 &2847050966479108411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847050966479108414}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36bc6ae3e69029340be9dd74ba319b37, type: 3}
   m_Name: 
