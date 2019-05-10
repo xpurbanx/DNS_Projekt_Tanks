@@ -22,16 +22,6 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2847050966479108411, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: maxVelocity
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2847050966479108411, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2847050966479108408, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_Constraints
