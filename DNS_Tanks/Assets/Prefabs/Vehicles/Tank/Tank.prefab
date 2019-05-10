@@ -368,7 +368,7 @@ MonoBehaviour:
   damageAT: 52
   firingCooldown: 1
   turnTurretSpeed: 30
-  bulletVelocity: 150
+  bulletVelocity: 100
 --- !u!114 &9198968313791921625
 MonoBehaviour:
   m_ObjectHideFlags: 0
