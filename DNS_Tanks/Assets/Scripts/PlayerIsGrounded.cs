@@ -13,7 +13,7 @@ public class PlayerIsGrounded : MonoBehaviour
 
         if (other.gameObject.tag == "Terrain" && gameObject.name == "Collider2")
         {
-            GetComponentInParent<PlayerMovement>().touchingGroundOne = true;
+            GetComponentInParent<PlayerMovement>().touchingGroundTwo = true;
         }
     }
 
@@ -26,7 +26,7 @@ public class PlayerIsGrounded : MonoBehaviour
 
         if (other.gameObject.tag == "Terrain" && gameObject.name == "Collider2")
         {
-            GetComponentInParent<PlayerMovement>().touchingGroundOne = false;
+            GetComponentInParent<PlayerMovement>().touchingGroundTwo = false;
         }
     }
 }

@@ -60,14 +60,18 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
+        // Tylko jedna gąsiennica musi dotykać ziemi (?)
         if (touchingGroundOne || touchingGroundTwo)
         {
             Move();
             Turn();
         }
+        Debug.Log(touchingGroundOne + " " + touchingGroundTwo);
 
+        // Dodatkowa grawitacja (?)
+        rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);
         // Maksymalna prędkość pojazdu
-        rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+        MaxSpeed();
     }
 
     private void Move()
@@ -87,5 +91,15 @@ public class PlayerMovement : MonoBehaviour
 
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
         return;
+    }
+
+    private void MaxSpeed()
+    {
+        Vector3 velocity = rigidbody.velocity;
+        float y = velocity.y;
+        velocity.y = 0f;
+        velocity = Vector3.ClampMagnitude(velocity, maxVelocity);
+        velocity.y = y;
+        rigidbody.velocity = velocity;
     }
 }
