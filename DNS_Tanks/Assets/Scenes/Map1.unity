@@ -2710,6 +2710,16 @@ PrefabInstance:
       propertyPath: startVehicle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8528490572047619749, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528490572047619749, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3941017635512615271, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_IsActive
