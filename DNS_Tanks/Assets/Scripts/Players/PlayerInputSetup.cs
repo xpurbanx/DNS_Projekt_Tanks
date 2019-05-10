@@ -19,6 +19,8 @@ public class PlayerInputSetup : MonoBehaviour
     string yButton;
     string trigger;
 
+    string rightAnalogButton;
+
 
     protected void setControls()
     {
@@ -39,6 +41,7 @@ public class PlayerInputSetup : MonoBehaviour
 
        JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
        KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
+       rightAnalogButton = "J" + playerNumber + "_RightAnalogButton";
 
     }
     private void Start()
@@ -61,6 +64,10 @@ public class PlayerInputSetup : MonoBehaviour
     public bool YButton()
     {
         return Input.GetButton(yButton);
+    }
+    public bool RightAnalogButton()
+    {
+        return Input.GetButton(rightAnalogButton);
     }
     public float Horizontal()
     {
@@ -87,7 +94,7 @@ public class PlayerInputSetup : MonoBehaviour
     {
         float r = 0.0f;
         r += Input.GetAxis(trigger);
-        r += Input.GetAxis(KVertical);
+       // r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -10.0f, 10.0f);
     }
 
