@@ -30,6 +30,7 @@ public class CamFollow : MonoBehaviour
         {
             offset = transform.position - player.transform.position;
             offsetSet = true;
+            transform.LookAt(player.transform);
         }
 
     }
@@ -49,11 +50,9 @@ public class CamFollow : MonoBehaviour
 
         //transform.position = player.transform.position + offset;
 
-         if (playerInput.XButton())
+         if (playerInput.RightAnalogButton())
          {
             float rotationOffset = transform.transform.eulerAngles.y - player.transform.eulerAngles.y;
-            Debug.Log(rotationOffset);
-
             if (Mathf.Abs(rotationOffset) > 2)
             {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
 
