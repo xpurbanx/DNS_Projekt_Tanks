@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Input gracza
        
-        movementInputValue = playerInput.Trigger();
+        movementInputValue = playerInput.Vertical();
         turnInputValue = playerInput.Horizontal();
     }
 
