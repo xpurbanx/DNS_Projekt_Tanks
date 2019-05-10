@@ -6,15 +6,19 @@ public class CamFollow : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private float rotationSpeed = 20f;
     private CurrentVehicle currentVeh;
+    private PlayerInputSetup playerInput;
     bool offsetSet = false;
     private Vector3 offset;
+
     // Start is called before the first frame update
     void Start()
     {
         
         UpdateCurrentVeh();
- 
+        playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
     public void UpdateCurrentVeh()
@@ -30,10 +34,44 @@ public class CamFollow : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    void Update()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if(player != null)
             transform.position = player.transform.position + offset;
+
+
+        RotateCamera();
+    }
+    
+    private void RotateCamera()
+    {
+
+        //transform.position = player.transform.position + offset;
+
+         if (playerInput.XButton())
+         {
+            float rotationOffset = transform.transform.eulerAngles.y - player.transform.eulerAngles.y;
+
+
+            if (Mathf.Abs(rotationOffset) > 1)
+            {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
+
+                Vector3 direction = Vector3.up; //clockwise
+               // if (transform.transform.eulerAngles.y <= player.transform.eulerAngles.y)
+               //     direction = Vector3.up;   //clockwise
+                if (transform.transform.eulerAngles.y > player.transform.eulerAngles.y)
+                    direction = Vector3.down; //counter clockwise
+                transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
+                    offset = transform.position - player.transform.position;
+                    transform.LookAt(player.transform);
+            }
+
+           
+
+
+
+        }
+        
     }
 }

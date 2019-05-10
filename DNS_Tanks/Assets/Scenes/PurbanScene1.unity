@@ -3126,11 +3126,6 @@ PrefabInstance:
       propertyPath: currentVeh
       value: 
       objectReference: {fileID: 1302816110}
-    - target: {fileID: 4409473839784531215, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: startVehicle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5161958051026132967, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_LocalPosition.z
