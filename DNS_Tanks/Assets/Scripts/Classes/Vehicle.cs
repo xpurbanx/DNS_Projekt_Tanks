@@ -106,7 +106,6 @@ public class Vehicle : MonoBehaviour
     {
         if (hp <= 0)
             Die();
-        Debug.Log(gameObject.name+": "+ hp);
     }
 
     private void Die()

@@ -34,10 +34,13 @@ public class PlayerFiring : MonoBehaviour
         {
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
+
+            // Nadawanie wartości pociskowi
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.playerFiring = this;
             bulletScript.startVelocity = startVelocity;
             bulletScript.playerNumber = playerNumber;
+            bulletScript.forward = bulletOut.transform.forward;
             // Nadanie obrażeń pociskowi
             /*bullet.GetComponent<Bullet>().damage = damage;
             bullet.GetComponent<Bullet>().shootingObject = gameObject;*/

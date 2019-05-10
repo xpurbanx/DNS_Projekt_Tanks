@@ -9,6 +9,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     internal PlayerFiring playerFiring;
+    internal Vector3 forward;
     internal float startVelocity = 10f;
     internal int playerNumber;
     //internal float damage;
@@ -47,11 +48,8 @@ public class Bullet : MonoBehaviour
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
-            if (collision.gameObject.GetComponent<Building>().playerNumber != playerNumber)
-            {
-                building = collision.gameObject.GetComponent<Building>();
-                building.hp -= playerFiring.damage;
-            }
+            building = collision.gameObject.GetComponent<Building>();
+            building.hp -= playerFiring.damage;
 
             Destroy(gameObject);
         }
@@ -67,10 +65,9 @@ public class Bullet : MonoBehaviour
         // Pocisk porusza sie z prędkością początkową startVelocity i z każdą sekundę jego prędkość obecna maleje
         if (!wasIFired)
         {
-            Vector3 movement = transform.forward * startVelocity / Time.deltaTime;
+            Vector3 movement = forward * startVelocity / Time.deltaTime;
             rigidbody.AddForce(movement);
             wasIFired = true;
-
         }
 
         // Sprawdzanie czy pocisk już "Wylądował"/nie porusza się - jeżeli tak, to zniszcz
