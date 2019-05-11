@@ -8,14 +8,21 @@ public class CamFollow : MonoBehaviour
     private GameObject player;
     private GameObject turret;
     [SerializeField]
-    private float rotationSpeed = 20f;
+    private float defaultRotationSpeed = 30f;
+    private float rotationSpeed = 30f;
     private CurrentVehicle currentVeh;
     private PlayerInputSetup playerInput;
     bool offsetSet = false;
     private Vector3 offset;
+
+    [SerializeField]
     bool thirdPerson = true;
     float turretFrontOffset;
     bool startedRotating = false;
+    [SerializeField]
+    int leftAngle = 220;
+    [SerializeField]
+    int rightAngle = 178;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,17 +81,34 @@ public class CamFollow : MonoBehaviour
             }
 
         }
-        rotationSpeed = 30f;
         if (thirdPerson)
         {
+            rotationSpeed = defaultRotationSpeed;
+            int left, right;
             if (playerInput.RightAnalogButton())
-                rotationSpeed = 200f;
+            {
+                rotationSpeed = 200f; // gotta go fast
+                left = 184; // wtedy jest na srodku
+                right = 176;
+            }
+            else
+            {
+                left = leftAngle;
+                right = rightAngle;
+            }
+                
 
             //Debug.Log("Rotate to turret");
 
             float turretFrontOffset = turret.transform.eulerAngles.y - transform.transform.eulerAngles.y;
             //Debug.Log("turret rotation relative to body:  " + turret.transform.eulerAngles.y + "   Body rotation " + transform.eulerAngles.y + "   turretOffset " + turretFrontOffset);
-            if (Mathf.Abs(turretFrontOffset) > 220 || Mathf.Abs(turretFrontOffset) < 160)
+            if (Mathf.Abs(turretFrontOffset) > left || Mathf.Abs(turretFrontOffset) < right)
+            {
+                startedRotating = true;
+            }
+                
+
+            if (startedRotating)
             {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
                 turretFrontOffset = turretFrontOffset * -1;
                 Vector3 direction = Vector3.down; //clockwise
@@ -96,6 +120,11 @@ public class CamFollow : MonoBehaviour
                 transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
                 offset = transform.position - player.transform.position;
                 transform.LookAt(player.transform);
+                if (Mathf.Abs(turretFrontOffset) < left && Mathf.Abs(turretFrontOffset) > right)
+                {
+                    startedRotating = false;
+                }
+                    
             }
 
         }
