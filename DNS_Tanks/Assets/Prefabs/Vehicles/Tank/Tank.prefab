@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2847050966440519805}
   - component: {fileID: 2847050966440519804}
   - component: {fileID: 2847050966440519779}
+  - component: {fileID: 6780681677741125776}
   m_Layer: 0
   m_Name: TurretMain
   m_TagString: Untagged
@@ -215,6 +216,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: e56b100970188e548a21a9a435ea4e97, type: 3}
+--- !u!114 &6780681677741125776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847050966440519777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd8fc801603e9945879f54ec884e9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 2847050966440519777}
 --- !u!1 &2847050966476249662
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +334,6 @@ GameObject:
   - component: {fileID: 2847050966479108404}
   - component: {fileID: 2847050966479108411}
   - component: {fileID: 9198968313791921625}
-  - component: {fileID: 6580901633640379362}
   - component: {fileID: 2103025188140854426}
   - component: {fileID: 2847050966479108408}
   - component: {fileID: 2847050966479108415}
@@ -381,19 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239655b99d1cce44bf38053e5c06c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6580901633640379362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847050966479108414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd8fc801603e9945879f54ec884e9ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 2847050966440519777}
 --- !u!114 &2103025188140854426
 MonoBehaviour:
   m_ObjectHideFlags: 0
