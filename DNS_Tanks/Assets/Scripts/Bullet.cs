@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     internal Vector3 forward;
     internal float startVelocity = 10f;
     internal int playerNumber;
-    //internal float damage;
+    internal int firedBy; // ID pozjazdu, który wystrzelił pocisk
 
     private Vehicle vehicle;
     private Building building;
@@ -23,8 +23,24 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
+        
+
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    void Start()
+    {
+        // Ustawienie rozmiaru pocisku w zależności od pojazdu
+        switch (firedBy)
+        {
+            default:
+                break;
+            case 1:
+                Vector3 smaller = new Vector3(0.4f, 0.4f, 0.4f);
+                gameObject.transform.localScale = smaller;
+                break;
+        }
     }
 
     private void FixedUpdate()
@@ -41,7 +57,10 @@ public class Bullet : MonoBehaviour
             if (collision.gameObject.GetComponent<Vehicle>().playerNumber == playerNumber) return;
 
             vehicle = collision.gameObject.GetComponent<Vehicle>();
-            vehicle.hp -= playerFiring.damage;
+
+            // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
+            if (firedBy != 1 && vehicle.vehType != 2)
+                vehicle.hp -= playerFiring.damage;
             Destroy(gameObject);
         }
 
