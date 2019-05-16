@@ -464,8 +464,8 @@ MonoBehaviour:
   vehicleType: 2
   health: 150
   speed: 5
-  turnSpeed: 150
-  maxVelocity: 15
+  turnSpeed: 115
+  maxVelocity: 9
   damageMG: 2.85
   damageAT: 52
   firingCooldown: 2.5
