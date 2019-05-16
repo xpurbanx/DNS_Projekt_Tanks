@@ -13,12 +13,14 @@ public class PlayerFiring : MonoBehaviour
     internal float firingCooldown, damage, startVelocity;
     internal int playerNumber;
 
+    private Vehicle vehicle;
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
 
     void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
+        vehicle = GetComponent<Vehicle>();
     }
 
     private void FixedUpdate()
@@ -35,8 +37,10 @@ public class PlayerFiring : MonoBehaviour
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
 
+
             // Nadawanie wartości pociskowi
             Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.firedBy = vehicle.vehType;
             bulletScript.playerFiring = this;
             bulletScript.startVelocity = startVelocity;
             bulletScript.playerNumber = playerNumber;

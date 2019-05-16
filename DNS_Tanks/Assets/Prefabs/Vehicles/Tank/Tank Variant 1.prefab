@@ -136,6 +136,9 @@ PrefabInstance:
     - target: {fileID: 3727088331141948609, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_RootOrder
+    - target: {fileID: 2824777725202945385, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -190,7 +190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6627300ff56c6f04faa406d8ca151a42, type: 2}
+  - {fileID: 2100000, guid: 1f4c0b57e6c670040bc6e8e21d15fe76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
   maxVelocity: 15
   damageMG: 2.85
   damageAT: 52
-  firingCooldown: 1
+  firingCooldown: 2.5
   turnTurretSpeed: 30
   bulletVelocity: 100
 --- !u!114 &9198968313791921625
