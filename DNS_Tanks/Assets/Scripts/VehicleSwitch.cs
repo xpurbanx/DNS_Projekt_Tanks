@@ -17,8 +17,11 @@ public class VehicleSwitch : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent.tag == "Player " + playerNumber)
-            Debug.Log("Można wyświetlić panel!");
+        if (other.transform.parent != null)
+        {
+            if (other.transform.parent.tag == "Player " + playerNumber)
+                Debug.Log("Można wyświetlić panel!");
+        }
     }
 
     void Update()
