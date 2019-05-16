@@ -44,7 +44,7 @@ public class CamFollow : MonoBehaviour
 
         RotateCamera();
     }
-    
+
     private void RotateCamera()
     {
 
@@ -52,7 +52,7 @@ public class CamFollow : MonoBehaviour
 
          if (playerInput.RightAnalogButton())
          {
-            float rotationOffset = transform.transform.eulerAngles.y - player.transform.eulerAngles.y;
+            float rotationOffset = (transform.transform.eulerAngles.y - player.transform.eulerAngles.y);
             if (Mathf.Abs(rotationOffset) > 2)
             {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
 
@@ -62,7 +62,7 @@ public class CamFollow : MonoBehaviour
                 else
                     direction = Vector3.down; //counter clockwise
                 transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
-                    offset = transform.position - player.transform.position;
+                    offset = (transform.position - player.transform.position);
                     transform.LookAt(player.transform);
             }
 
