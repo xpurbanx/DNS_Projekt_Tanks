@@ -60,10 +60,12 @@ public class CamFollow : MonoBehaviour
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if (player != null)
+        {
             transform.position = player.transform.position + offset;
 
-
-        RotateCamera();
+            RotateCamera();
+        }
+  
     }
 
     private void RotateCamera()
@@ -151,7 +153,7 @@ public class CamFollow : MonoBehaviour
         frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {
-            Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
+           // Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
             startedRotating = true;
         }
 
