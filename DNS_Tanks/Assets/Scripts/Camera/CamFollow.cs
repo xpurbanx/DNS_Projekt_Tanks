@@ -8,21 +8,27 @@ public class CamFollow : MonoBehaviour
     private GameObject player;
     private GameObject turret;
     [SerializeField]
-    private float defaultRotationSpeed = 30f;
-    private float rotationSpeed = 30f;
+    private float defaultRotationSpeed = 10f;
+    private float rotationSpeed = 10f;
     private CurrentVehicle currentVeh;
     private PlayerInputSetup playerInput;
     bool offsetSet = false;
     private Vector3 offset;
 
     [SerializeField]
-    bool thirdPerson = true;
-    float turretFrontOffset;
+    bool autoRotate = true;
+    [SerializeField]
+    bool followTurret = true;
+    float frontOffset;
     bool startedRotating = false;
-    [SerializeField]
-    int leftAngle = 220;
-    [SerializeField]
-    int rightAngle = 178;
+    [SerializeField][Tooltip("followTurret max angle left on autoRotate")]
+    int leftDefault = 220;
+    [SerializeField][Tooltip("followTurret max angle right on autoRotate")]
+    int rightDefault = 168;
+    [SerializeField][Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
+    int angleDefault = 20;
+
+    int left, right;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,96 +67,108 @@ public class CamFollow : MonoBehaviour
 
     private void RotateCamera()
     {
-
-        //transform.position = player.transform.position + offset;
-
-        if (playerInput.RightAnalogButton() && !thirdPerson)
+        if (followTurret)
         {
-            float vehFrontOffset = transform.transform.eulerAngles.y - player.transform.eulerAngles.y;
-            if (Mathf.Abs(vehFrontOffset) > 2)
-            {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
+            RotateTurretFront();
+        }
+        else
+        {
+            RotateBodyFront();
+        }
 
-                Vector3 direction = Vector3.up; //clockwise
-                if (vehFrontOffset < 0 && vehFrontOffset > -180 || vehFrontOffset > 180 && vehFrontOffset < 360)
-                    direction = Vector3.up;   //clockwise
-                else
-                    direction = Vector3.down; //counter clockwise
-                transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
-                offset = transform.position - player.transform.position;
-                transform.LookAt(player.transform);
+
+    }
+    private void RotateBodyFront()
+    {
+        int angle;
+        float frontOffset;
+        if (autoRotate)
+        {
+            rotationSpeed = defaultRotationSpeed;
+            angle = angleDefault; // daje margines bledu
+        }
+        else
+        {
+            rotationSpeed = 0;
+            angle = 2; // wtedy jest na srodku
+
+        }
+
+        if (playerInput.RightAnalogButton())
+        {
+            rotationSpeed = 100f; // gotta go fast
+            angle = 2; // wtedy jest na srodku
+        }
+
+        frontOffset = player.transform.eulerAngles.y - transform.transform.eulerAngles.y;
+        if ((Mathf.Abs(frontOffset) > angle) && (playerInput.RightAnalogButton() || autoRotate))
+        {
+            startedRotating = true;
+        }
+
+
+        if (startedRotating)
+        {
+            Vector3 direction = Vector3.down; //clockwise
+            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)
+                direction = Vector3.down;   //clockwise
+            else
+                direction = Vector3.up; //counter clockwise
+            transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
+            offset = transform.position - player.transform.position;
+            transform.LookAt(player.transform);
+            if (Mathf.Abs(frontOffset) < angle)
+            {
+                startedRotating = false;
             }
 
         }
-        if (thirdPerson)
+    }
+    private void RotateTurretFront()
+    {
+        int left, right;
+        if (autoRotate)
         {
             rotationSpeed = defaultRotationSpeed;
-            int left, right;
-            if (playerInput.RightAnalogButton())
-            {
-                rotationSpeed = 200f; // gotta go fast
-                left = 184; // wtedy jest na srodku
-                right = 176;
-            }
+            left = leftDefault; // daje margines bledu
+            right = rightDefault;
+        }
+        else
+        {
+            rotationSpeed = 0;
+            left = 184; // wtedy jest na srodku
+            right = 176;
+        }
+        if (playerInput.RightAnalogButton())
+        {
+            rotationSpeed = 100f; // gotta go fast
+            left = 184; // wtedy jest na srodku
+            right = 176;
+        }
+        float frontOffset = turret.transform.eulerAngles.y - transform.transform.eulerAngles.y;
+        if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
+        {
+            Debug.Log(frontOffset);
+            startedRotating = true;
+        }
+
+
+        if (startedRotating)
+        {  
+            Vector3 direction = Vector3.up; //clockwise
+            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)
+                direction = Vector3.up;   //clockwise
             else
+                direction = Vector3.down; //counter clockwise
+            transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
+            offset = transform.position - player.transform.position;
+            transform.LookAt(player.transform);
+            if ((Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right))
             {
-                left = leftAngle;
-                right = rightAngle;
-            }
-                
-
-            //Debug.Log("Rotate to turret");
-
-            float turretFrontOffset = turret.transform.eulerAngles.y - transform.transform.eulerAngles.y;
-            //Debug.Log("turret rotation relative to body:  " + turret.transform.eulerAngles.y + "   Body rotation " + transform.eulerAngles.y + "   turretOffset " + turretFrontOffset);
-            if (Mathf.Abs(turretFrontOffset) > left || Mathf.Abs(turretFrontOffset) < right)
-            {
-                startedRotating = true;
-            }
-                
-
-            if (startedRotating)
-            {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
-                turretFrontOffset = turretFrontOffset * -1;
-                Vector3 direction = Vector3.down; //clockwise
-                if (turretFrontOffset < 0 && turretFrontOffset > -180 || turretFrontOffset > 180 && turretFrontOffset < 360)
-
-                    direction = Vector3.down;   //clockwise
-                else
-                    direction = Vector3.up; //counter clockwise
-                transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
-                offset = transform.position - player.transform.position;
-                transform.LookAt(player.transform);
-                if (Mathf.Abs(turretFrontOffset) < left && Mathf.Abs(turretFrontOffset) > right)
-                {
-                    startedRotating = false;
-                }
-                    
+                startedRotating = false;
             }
 
         }
 
     }
 }
-        /*if (thirdPerson)
-        {
-            if(playerInput.RightAnalogButton())
-                rotationSpeed = 200f;
-
-            //Debug.Log("Rotate to turret");
-
-            float turretFrontOffset = turret.transform.eulerAngles.y - transform.transform.eulerAngles.y;
-            //Debug.Log("turret rotation relative to body:  " + turret.transform.eulerAngles.y + "   Body rotation " + transform.eulerAngles.y + "   turretOffset " + turretFrontOffset);
-            if (Mathf.Abs(turretFrontOffset) > 220 || Mathf.Abs(turretFrontOffset) < 160)
-            {        //transform.RotateAround(player.transform.position, transform.right * playerInput.SecondaryHorizontal() * rotationSpeed * Time.deltaTime);
-                turretFrontOffset = turretFrontOffset* -1;
-                Vector3 direction = Vector3.down; //clockwise
-                if (turretFrontOffset< 0 && turretFrontOffset> -180 || turretFrontOffset > 180 && turretFrontOffset< 360)
-
-                  direction = Vector3.down;   //clockwise
-                else
-                    direction = Vector3.up; //counter clockwise
-                transform.RotateAround(player.transform.position, direction, rotationSpeed* Time.deltaTime);
-                offset = transform.position - player.transform.position;
-                transform.LookAt(player.transform);
-            }
-        }*/
