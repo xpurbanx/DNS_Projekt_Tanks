@@ -270,9 +270,9 @@ MonoBehaviour:
   playerNumber: 0
   vehicleType: 1
   health: 70
-  speed: 12.5
-  turnSpeed: 150
-  maxVelocity: 3
+  speed: 5
+  turnSpeed: 170
+  maxVelocity: 20
   damageMG: 2.85
   damageAT: 52
   firingCooldown: 0.1

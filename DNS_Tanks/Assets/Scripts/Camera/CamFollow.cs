@@ -9,7 +9,7 @@ public class CamFollow : MonoBehaviour
     private GameObject turret;
     [SerializeField]
     private float defaultRotationSpeed = 10f;
-    private float rotationSpeed = 10f;
+    private float rotationSpeed = 25f;
     private CurrentVehicle currentVeh;
     private PlayerInputSetup playerInput;
     bool offsetSet = false;

@@ -97,14 +97,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  turret: {fileID: 0}
-  defaultRotationSpeed: 30
+  defaultRotationSpeed: 60
   cameraOffset: 10
   autoRotate: 1
   followTurret: 1
   leftDefault: 220
   rightDefault: 168
   angleDefault: 20
+  classicCam: 0
+  classicOffset: {x: 0, y: 0, z: -17.5}
 --- !u!1 &6129786785379115946
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +218,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8528490572047619749}
     m_Modifications:
+    - target: {fileID: 2231124376861679307, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas HUD
+      objectReference: {fileID: 0}
     - target: {fileID: 5261838445211445755, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,11 +327,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231124376861679307, guid: 395c1ff046aa13c47b1cb1fe468301d0,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas HUD
       objectReference: {fileID: 0}
     - target: {fileID: 8110828874945578772, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
