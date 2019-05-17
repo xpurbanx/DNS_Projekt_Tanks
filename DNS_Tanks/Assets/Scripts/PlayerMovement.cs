@@ -66,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
             Move();
             Turn();
         }
-        Debug.Log(touchingGroundOne + " " + touchingGroundTwo);
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);

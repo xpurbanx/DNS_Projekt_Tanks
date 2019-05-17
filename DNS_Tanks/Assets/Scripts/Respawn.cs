@@ -22,7 +22,7 @@ public class Respawn : MonoBehaviour
     public void SpawnVehicle(int vehicleIndex)
     {
         transform.position = spawner.position;
-        Instantiate(vehicles[vehicleIndex], spawnLocation, this.transform.rotation, this.transform);
+        Instantiate(vehicles[vehicleIndex], spawnLocation, transform.rotation, transform);
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();
         GetComponentInChildren<CamFollow>().UpdateCurrentVeh();
     }
@@ -30,8 +30,6 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer()
     {
         StartCoroutine(Respawning());
-
-
     }
 
     public IEnumerator Respawning() // czeka 'respawnTimer' sekund
@@ -39,6 +37,7 @@ public class Respawn : MonoBehaviour
        yield return new WaitForSeconds(respawnTimer);
        SpawnVehicle(startVehicle);
     }
+
     [ExecuteInEditMode]
     private void OnDrawGizmos()
     {
