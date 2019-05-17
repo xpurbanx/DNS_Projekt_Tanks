@@ -14,7 +14,8 @@ public class CamFollow : MonoBehaviour
     private PlayerInputSetup playerInput;
     bool offsetSet = false;
     private Vector3 offset;
-
+    [SerializeField]
+    int cameraOffset = 10;
     [SerializeField]
     bool autoRotate = true;
     [SerializeField]
@@ -50,7 +51,7 @@ public class CamFollow : MonoBehaviour
         {
             offset = transform.position - player.transform.position;
             offsetSet = true;
-            transform.LookAt(player.transform);
+            //transform.LookAt(player.transform);
         }
 
     }
@@ -116,7 +117,7 @@ public class CamFollow : MonoBehaviour
                 direction = Vector3.up; //counter clockwise
             transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
-            transform.LookAt(player.transform);
+            //transform.LookAt(player.transform);
             if (Mathf.Abs(frontOffset) < angle)
             {
                 startedRotating = false;
@@ -145,10 +146,12 @@ public class CamFollow : MonoBehaviour
             left = 184; // wtedy jest na srodku
             right = 176;
         }
-        float frontOffset = turret.transform.rotation.eulerAngles.z + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 90;
+        //dla czolgu dziala, mozna zrobic jakies ladniejsze rozwiazanie
+        float frontOffset = turret.transform.localEulerAngles.z + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
+        frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {
-            Debug.Log("TURRET: " + turret.transform.rotation.eulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "offset: " + frontOffset);
+            Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
             startedRotating = true;
         }
 
@@ -160,9 +163,10 @@ public class CamFollow : MonoBehaviour
                 direction = Vector3.up;   //clockwise
             else
                 direction = Vector3.down; //counter clockwise
-            transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
+            Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+            transform.RotateAround(playerPos, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
-            transform.LookAt(player.transform);
+            //transform.LookAt(player.transform);
             if ((Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right))
             {
                 startedRotating = false;
