@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  turret: {fileID: 0}
   defaultRotationSpeed: 30
   cameraOffset: 10
   autoRotate: 1
@@ -105,6 +104,8 @@ MonoBehaviour:
   leftDefault: 220
   rightDefault: 168
   angleDefault: 20
+  classicCam: 0
+  classicOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2000161873300779795
 GameObject:
   m_ObjectHideFlags: 0

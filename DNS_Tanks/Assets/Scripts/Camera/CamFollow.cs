@@ -29,6 +29,12 @@ public class CamFollow : MonoBehaviour
     [SerializeField][Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
     int angleDefault = 20;
 
+
+    [SerializeField]
+    bool classicCam = false;
+    [SerializeField][Tooltip("Ustaw na np. 0, 15, -10")]
+    Vector3 classicOffset;
+
     int left, right;
     // Start is called before the first frame update
     void Start()
@@ -49,9 +55,16 @@ public class CamFollow : MonoBehaviour
         Debug.Log(turret);
         if (!offsetSet)
         {
+
+            if(classicCam)
+            {
+               // transform.rotation.SetEulerAngles(66, transform.rotation.y, transform.rotation.z);
+                transform.Translate(classicOffset);
+                transform.LookAt(player.transform);
+            }
             offset = transform.position - player.transform.position;
             offsetSet = true;
-            //transform.LookAt(player.transform);
+
         }
 
     }
