@@ -59,8 +59,11 @@ public class Bullet : MonoBehaviour
             vehicle = collision.gameObject.GetComponent<Vehicle>();
 
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
-            if (firedBy != 1 && vehicle.vehType != 2)
+            if (firedBy == 1 && vehicle.vehicleType == 2)
+                return;
+            else
                 vehicle.hp -= playerFiring.damage;
+
             Destroy(gameObject);
         }
 
