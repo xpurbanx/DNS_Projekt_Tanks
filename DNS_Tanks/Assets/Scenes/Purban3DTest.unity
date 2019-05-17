@@ -1236,25 +1236,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
+    - target: {fileID: 7539842409993086921, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.25460193
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.967046
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
@@ -1270,11 +1255,6 @@ PrefabInstance:
         type: 3}
       propertyPath: thirdPerson
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539842409993086921, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
@@ -3151,11 +3131,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8453913074164350546, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.495
-      objectReference: {fileID: 0}
     - target: {fileID: 8418738306948585609, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_Mass
@@ -3195,6 +3170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453913074164350546, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.495
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d2ec3710ede7479c6ffccb665caf5, type: 3}
