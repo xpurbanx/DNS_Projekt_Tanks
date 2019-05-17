@@ -32,7 +32,7 @@ public class CamFollow : MonoBehaviour
 
     [SerializeField]
     bool classicCam = false;
-    [SerializeField][Tooltip("Ustaw na np. 0, 15, -10")]
+    [SerializeField]
     Vector3 classicOffset;
 
     int left, right;
