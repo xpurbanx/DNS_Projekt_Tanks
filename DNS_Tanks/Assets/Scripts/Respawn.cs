@@ -39,5 +39,10 @@ public class Respawn : MonoBehaviour
        yield return new WaitForSeconds(respawnTimer);
        SpawnVehicle(startVehicle);
     }
-
+    [ExecuteInEditMode]
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(spawnLocation, 1f);
+    }
 }

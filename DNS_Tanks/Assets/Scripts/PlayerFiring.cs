@@ -13,6 +13,7 @@ public class PlayerFiring : MonoBehaviour
     internal float firingCooldown, damage, startVelocity;
     internal int playerNumber;
 
+    private LineRenderer trajectory;
     private Vehicle vehicle;
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
@@ -20,12 +21,14 @@ public class PlayerFiring : MonoBehaviour
     void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
+        trajectory = bulletOut.GetComponent<LineRenderer>();
         vehicle = GetComponent<Vehicle>();
     }
 
     private void FixedUpdate()
     {
         Fire();
+        DrawTrajectory();
     }
 
     private void Fire()
@@ -52,5 +55,12 @@ public class PlayerFiring : MonoBehaviour
             // Cooldown
             timeStamp = Time.time + firingCooldown;
         }
+    }
+
+    private void DrawTrajectory()
+    {
+        trajectory.positionCount = 2;
+        trajectory.SetPosition(0, bulletOut.transform.position);
+        trajectory.SetPosition(1, bulletOut.transform.forward * 80 + transform.position);
     }
 }

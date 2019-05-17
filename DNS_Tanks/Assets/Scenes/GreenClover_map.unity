@@ -323,6 +323,56 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028708, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 36.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: defaultRotationSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: followTurret
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCam.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCam.y
+      value: 21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCam.z
+      value: -16.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCam
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicOffset.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicOffset.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!1 &1039176567
@@ -713,11 +763,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8453913074164350546, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.495
-      objectReference: {fileID: 0}
     - target: {fileID: 8418738306948585609, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_Mass
@@ -728,11 +773,6 @@ PrefabInstance:
       propertyPath: currentVeh
       value: 
       objectReference: {fileID: 1302816110}
-    - target: {fileID: 4409473839784531215, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: startVehicle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5161958051026132967, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -757,6 +797,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -12.400391
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409473839784531215, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: startVehicle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453913074164350546, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717553577339580510, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: defaultRotationSpeed
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d2ec3710ede7479c6ffccb665caf5, type: 3}
