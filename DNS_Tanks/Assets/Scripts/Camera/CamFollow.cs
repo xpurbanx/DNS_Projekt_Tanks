@@ -55,7 +55,7 @@ public class CamFollow : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if (player != null)
@@ -85,12 +85,12 @@ public class CamFollow : MonoBehaviour
         if (autoRotate)
         {
             rotationSpeed = defaultRotationSpeed;
-            angle = angleDefault; // daje margines bledu
+            angle = angleDefault; // powyzej tej wartosci zaczyna obracac do srodka
         }
         else
         {
             rotationSpeed = 0;
-            angle = 2; // wtedy jest na srodku
+            angle = 2; // wtedy jest na srodku, 
 
         }
 
@@ -110,7 +110,7 @@ public class CamFollow : MonoBehaviour
         if (startedRotating)
         {
             Vector3 direction = Vector3.down; //clockwise
-            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)
+            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)// okresla w ktora strone sie obraca
                 direction = Vector3.down;   //clockwise
             else
                 direction = Vector3.up; //counter clockwise
@@ -145,10 +145,10 @@ public class CamFollow : MonoBehaviour
             left = 184; // wtedy jest na srodku
             right = 176;
         }
-        float frontOffset = turret.transform.eulerAngles.y - transform.transform.eulerAngles.y;
+        float frontOffset = turret.transform.rotation.eulerAngles.z + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 90;
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {
-            Debug.Log(frontOffset);
+            Debug.Log("TURRET: " + turret.transform.rotation.eulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "offset: " + frontOffset);
             startedRotating = true;
         }
 
@@ -156,7 +156,7 @@ public class CamFollow : MonoBehaviour
         if (startedRotating)
         {  
             Vector3 direction = Vector3.up; //clockwise
-            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)
+            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360) // okresla w ktora strone sie obraca
                 direction = Vector3.up;   //clockwise
             else
                 direction = Vector3.down; //counter clockwise
