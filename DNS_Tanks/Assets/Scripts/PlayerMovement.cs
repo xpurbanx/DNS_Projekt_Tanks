@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("PlayerIsGrounded")]
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     internal float speed;
     internal float turnSpeed;
     internal float maxVelocity;
+
+    // Prywatny atrybut zmieniany przez skrypt w gąsiennicach
+    internal bool touchingGroundOne;
+    internal bool touchingGroundTwo;
 
     // Vertical - oś od poruszania się na klawiaturze
     // Trigger - "oś" od poruszania się
@@ -55,17 +60,24 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        Move();
-        Turn();
+        // Tylko jedna gąsiennica musi dotykać ziemi (?)
+        if (touchingGroundOne || touchingGroundTwo)
+        {
+            Move();
+            Turn();
+        }
+        Debug.Log(touchingGroundOne + " " + touchingGroundTwo);
 
+        // Dodatkowa grawitacja (?)
+        rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);
         // Maksymalna prędkość pojazdu
-        rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+        MaxSpeed();
     }
 
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * 100000f * Time.deltaTime;
+        Vector3 movement = transform.forward * movementInputValue * speed * 1000f;
 
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rigidbody.AddForce(movement);
@@ -79,5 +91,15 @@ public class PlayerMovement : MonoBehaviour
 
         rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
         return;
+    }
+
+    private void MaxSpeed()
+    {
+        Vector3 velocity = rigidbody.velocity;
+        float y = velocity.y;
+        velocity.y = 0f;
+        velocity = Vector3.ClampMagnitude(velocity, maxVelocity);
+        velocity.y = y;
+        rigidbody.velocity = velocity;
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - FlagStation 2
   - Player 1 Spawn
   - Player 2 Spawn
+  - Terrain
   layers:
   - Default
   - TransparentFX
