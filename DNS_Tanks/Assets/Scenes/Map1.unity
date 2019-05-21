@@ -1119,6 +1119,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 36.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: autoRotate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: followTurret
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: classicCam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!1 &803711156 stripped
@@ -2809,6 +2824,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -12.400391
       objectReference: {fileID: 0}
+    - target: {fileID: 3941017635512615271, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4409473839784531215, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: startVehicle
@@ -2818,11 +2838,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 36.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941017635512615271, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d2ec3710ede7479c6ffccb665caf5, type: 3}

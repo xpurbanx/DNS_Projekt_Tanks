@@ -52,8 +52,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input gracza
-       
+
         movementInputValue = playerInput.Vertical();
+        //movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
 
