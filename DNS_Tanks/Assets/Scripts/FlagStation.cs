@@ -31,9 +31,9 @@ public class FlagStation : MonoBehaviour
                 GameObject player = GameObject.Find("Vehicle " + playerNumberString);
 
                 // Jeżeli gracz posiada jakąś flagę
-                if (player.GetComponent<PlayerEquipment>().checkFlag() == true)
+                if (player.GetComponent<PlayerFlagManager>().CheckFlag() == true)
                 {
-                    player.GetComponent<PlayerEquipment>().dropFlag();
+                    player.GetComponent<PlayerFlagManager>().DropFlag();
                     // Flaga została dostarczona
                     flagInsterted = true;
                     Win();

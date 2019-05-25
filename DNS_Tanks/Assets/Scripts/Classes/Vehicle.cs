@@ -102,13 +102,7 @@ public class Vehicle : MonoBehaviour
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }
 
-    private void Update()
-    {
-        if (hp <= 0)
-            Die();
-    }
-
-    private void Die()
+    private void DestroyVehicle()
     {
         Destroy(gameObject);
         GetComponentInParent<Respawn>().RespawnPlayer();
@@ -125,6 +119,18 @@ public class Vehicle : MonoBehaviour
         currentSpeed = (int)rb.velocity.magnitude;
         //currentSpeed = System.Math.Round(currentSpeed, 2);
         return currentSpeed;
+    }
+
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        CheckIfDestroyed();
+    }
+
+    private void CheckIfDestroyed()
+    {
+        if (hp <= 0)
+            DestroyVehicle();
     }
 }
 
