@@ -25,18 +25,21 @@ public class Building : MonoBehaviour
         hp = health;
     }
 
-    void Update()
-    {
-        // Jeżeli budynek został właśnie zniszczony
-        if (!isDestroyed && hp <= 0)
-        {
-            DestroyBuilding();
-        }
-    }
-
     private void DestroyBuilding()
     {
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
         gameObject.GetComponent<SpawnFractured>().SpawnFracturedObject();
+    }
+
+    private void CheckIfDestroyed()
+    {
+        if (hp <= 0)
+            DestroyBuilding();
+    }
+
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        CheckIfDestroyed();
     }
 }

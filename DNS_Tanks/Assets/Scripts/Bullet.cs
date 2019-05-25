@@ -23,8 +23,6 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-        
-
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
     }
@@ -59,8 +57,11 @@ public class Bullet : MonoBehaviour
             vehicle = collision.gameObject.GetComponent<Vehicle>();
 
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
-            if (firedBy != 1 && vehicle.vehType != 2)
-                vehicle.hp -= playerFiring.damage;
+            if (firedBy == 1 && vehicle.vehicleType == 2)
+                return;
+            else
+                vehicle.Damage(playerFiring.damage);
+
             Destroy(gameObject);
         }
 
@@ -68,7 +69,7 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
             building = collision.gameObject.GetComponent<Building>();
-            building.hp -= playerFiring.damage;
+            building.Damage(playerFiring.damage);
 
             Destroy(gameObject);
         }

@@ -270,9 +270,9 @@ MonoBehaviour:
   playerNumber: 0
   vehicleType: 1
   health: 70
-  speed: 12.5
-  turnSpeed: 150
-  maxVelocity: 3
+  speed: 5
+  turnSpeed: 170
+  maxVelocity: 20
   damageMG: 2.85
   damageAT: 52
   firingCooldown: 0.1
@@ -917,7 +917,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dfd93e7beb351444ca0b39db8dca201d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -955,6 +955,15 @@ LineRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7298246
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

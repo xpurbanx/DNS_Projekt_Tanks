@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEquipment : MonoBehaviour
+public class PlayerFlagManager : MonoBehaviour
 {
     // Czy czołg trzyma flagę
     [HideInInspector]
@@ -12,24 +12,28 @@ public class PlayerEquipment : MonoBehaviour
     private void Start()
     {
         flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
-        Debug.Log(flagCarrier);
     }
 
     // Wprowadzam troche hermetyzacji.
-    public void pickFlag()
+    public void PickFlag()
     {
         holdingFlag = true;
         flagCarrier.flagMake();
     }
 
-    public void dropFlag()
+    public void DropFlag()
     {
         holdingFlag = false;
         flagCarrier.flagDestroy();
     }
 
-    public bool checkFlag()
+    public bool CheckFlag()
     {
         return holdingFlag;
+    }
+
+    public void UpdateAfterDeath()
+    {
+        flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
     }
 }
