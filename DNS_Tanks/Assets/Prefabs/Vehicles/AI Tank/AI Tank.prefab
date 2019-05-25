@@ -531,12 +531,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2847050966479108404}
   - component: {fileID: 2847050966479108411}
+  - component: {fileID: 8831710627981047254}
   - component: {fileID: 9198968313791921625}
   - component: {fileID: 2103025188140854426}
   - component: {fileID: 2847050966479108408}
   - component: {fileID: 2847050966479108415}
+  - component: {fileID: 4547596176031265924}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: AI Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 2847050966479108414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 2847050967884165642}
   m_Father: {fileID: 0}
@@ -580,6 +582,18 @@ MonoBehaviour:
   firingCooldown: 2.5
   turnTurretSpeed: 30
   bulletVelocity: 100
+--- !u!114 &8831710627981047254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847050966479108414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131805cd8f734a742a25e251f7bba972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9198968313791921625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +650,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1, z: 2.92}
   m_Center: {x: 0, y: 0, z: -0.15}
+--- !u!195 &4547596176031265924
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847050966479108414}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2847050966672645828
 GameObject:
   m_ObjectHideFlags: 0
