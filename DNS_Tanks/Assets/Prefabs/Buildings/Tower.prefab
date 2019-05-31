@@ -160,7 +160,7 @@ MonoBehaviour:
   fireRate: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 4621248275744676284}
-  turnSpeed: 2
+  turnSpeed: 3
   firePoint: {fileID: 6287959993432940514}
 --- !u!65 &3857854197524639531
 BoxCollider:
@@ -295,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 3581748604005973220}
   m_LocalRotation: {x: 0.011257162, y: 0, z: 0.99993664, w: 0}
   m_LocalPosition: {x: 0.051, y: 0.07, z: -0.49}
-  m_LocalScale: {x: 0.9997734, y: 4.5454545, z: -0.552713}
+  m_LocalScale: {x: 0.63, y: 2.71, z: -0.38}
   m_Children:
   - {fileID: 3015376577907373186}
   - {fileID: 6287959993432940514}
@@ -418,8 +418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8715013063975081301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.11, z: 0.78}
-  m_LocalScale: {x: 1, y: 0.22, z: -1.81}
+  m_LocalPosition: {x: 0.01, y: -0.128, z: 0.78}
+  m_LocalScale: {x: 1, y: 0.17, z: -1.81}
   m_Children:
   - {fileID: 8757605479171199728}
   m_Father: {fileID: 314678822997180972}

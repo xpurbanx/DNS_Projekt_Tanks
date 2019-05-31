@@ -65,6 +65,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Shield") return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
