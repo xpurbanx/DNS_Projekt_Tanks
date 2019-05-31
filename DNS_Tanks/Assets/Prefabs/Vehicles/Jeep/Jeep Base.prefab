@@ -273,11 +273,11 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 170
   maxVelocity: 20
-  damageMG: 2.85
+  damageMG: 3.85
   damageAT: 52
-  firingCooldown: 0.1
+  firingCooldown: 0.2
   turnTurretSpeed: 45
-  bulletVelocity: 100
+  bulletVelocity: 30
 --- !u!114 &1014393111874676535
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -85,6 +85,8 @@ public class Bullet : MonoBehaviour
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
+            if (collision.gameObject.GetComponent<Building>().playerNumber == playerNumber) return;
+
             building = collision.gameObject.GetComponent<Building>();
             building.Damage(DealDamage());
 
