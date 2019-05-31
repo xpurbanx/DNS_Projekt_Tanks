@@ -10,6 +10,7 @@ public class FlagCarrier : MonoBehaviour
     public void flagMake()
     {
         flag = Instantiate(flagPrefab, transform.position, transform.rotation, transform);
+        flag.GetComponent<Flag>().isTaken = true;
     }
 
     public void flagDestroy()

@@ -8,6 +8,12 @@ public class Flag : MonoBehaviour
     [Header("Numer flagi, odpowiada numerowi gracza, do którego należy flaga:")]
     public int flagNumber = 0;
 
+    [HideInInspector]
+    public bool isTaken = false;
+
+    private float speed = 3f;
+    private float height = 0.009f;
+
     private void OnTriggerEnter(Collider other)
     {
         // Pierwsze 7 znaków tagu. Np. z Player 1 będzie to Player
@@ -35,6 +41,17 @@ public class Flag : MonoBehaviour
                 // Czołg bierze flagę
                 PickUpFlag(player);
             }
+        }
+    }
+
+    private void Update()
+    {
+        // Skrypt odpowiadający za lewitowanie flagi
+        if (!isTaken)
+        {
+            Vector3 position = transform.position;
+            float newY = Mathf.Sin(Time.time * speed) * height + position.y;
+            transform.position = new Vector3(position.x, newY, position.z);
         }
     }
 

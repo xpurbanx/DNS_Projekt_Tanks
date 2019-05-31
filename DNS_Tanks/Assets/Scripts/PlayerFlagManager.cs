@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerFlagManager : MonoBehaviour
 {
     // Czy czołg trzyma flagę
-    [HideInInspector]
     private bool holdingFlag = false;
     private FlagCarrier flagCarrier;
 
