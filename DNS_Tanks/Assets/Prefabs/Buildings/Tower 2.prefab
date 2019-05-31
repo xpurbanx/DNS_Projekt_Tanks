@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: m_Name
-      value: Tower 1
+      value: Tower 2
       objectReference: {fileID: 0}
     - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 5263368483500078495, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
@@ -72,10 +72,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7021374846251610771, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50b77ab9212ff9949b22b7947e4d421a, type: 2}
     - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: enemyTag
-      value: Player 2
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
@@ -87,15 +97,10 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1978329880745865272}
-    - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
-        type: 3}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6044379771771063886, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: playerNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e0fe26572ad01419be31eaf6d0beb6, type: 3}

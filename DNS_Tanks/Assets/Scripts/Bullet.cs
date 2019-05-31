@@ -9,6 +9,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     internal PlayerFiring playerFiring;
+    internal AITower towerFiring;
     internal Vector3 forward;
     internal float startVelocity = 10f;
     internal int playerNumber;
@@ -46,6 +47,22 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
+    private float DealDamage()
+    {
+        float damage;
+        if(playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
+        {
+            damage = towerFiring.damage;
+        }
+        else
+        {
+            damage = playerFiring.damage;
+        }
+        return damage;
+    }
+
+
+
     private void OnCollisionEnter(Collision collision)
     {
         // Jeżeli uderzony obiekt jest pojazdem
@@ -60,7 +77,7 @@ public class Bullet : MonoBehaviour
             if (firedBy == 1 && vehicle.vehicleType == 2)
                 return;
             else
-                vehicle.Damage(playerFiring.damage);
+                vehicle.Damage(DealDamage());
 
             Destroy(gameObject);
         }
@@ -69,11 +86,10 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
             building = collision.gameObject.GetComponent<Building>();
-            building.Damage(playerFiring.damage);
+            building.Damage(DealDamage());
 
             Destroy(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
@@ -100,7 +116,7 @@ public class Bullet : MonoBehaviour
         // uznajemy go za taki, który już uderzył w inny obiekt (np. czołg)
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
-        if (rigidbody.velocity == Vector3.zero && wasIFired == true)
-            Destroy(gameObject);
+        //if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+            //Destroy(gameObject);
     }
 }

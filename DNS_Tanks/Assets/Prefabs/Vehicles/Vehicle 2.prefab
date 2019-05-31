@@ -99,12 +99,12 @@ MonoBehaviour:
   player: {fileID: 0}
   defaultRotationSpeed: 60
   cameraOffset: 10
-  autoRotate: 1
+  autoRotate: 0
   followTurret: 1
   leftDefault: 220
   rightDefault: 168
   angleDefault: 20
-  classicCam: 0
+  classicCam: 1
   classicOffset: {x: 0, y: 0, z: -17.5}
 --- !u!1 &6129786785379115946
 GameObject:
