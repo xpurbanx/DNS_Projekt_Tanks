@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     internal int playerNumber;
     internal int firedBy; // ID pozjazdu, który wystrzelił pocisk
 
+    private TrailRenderer trail;
+
     private Vehicle vehicle;
     private Building building;
 
@@ -26,10 +28,22 @@ public class Bullet : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
     }
 
     void Start()
     {
+        if(playerNumber == 1)
+        {
+            trail.endColor = Color.green;
+            trail.startColor = Color.green;
+        }
+        else
+        {
+            trail.endColor = Color.red;
+            trail.startColor = Color.red;
+        }
+
         // Ustawienie rozmiaru pocisku w zależności od pojazdu
         switch (firedBy)
         {
@@ -110,7 +124,8 @@ public class Bullet : MonoBehaviour
         }
 
         // Sprawdzanie czy pocisk już "Wylądował"/nie porusza się - jeżeli tak, to zniszcz
-        CheckToDestroy();
+        //Wykomentowalem bo nie dzialalo z tym, bez tego pociski tez znikaja
+        //CheckToDestroy();
     }
 
     private void CheckToDestroy()
@@ -119,7 +134,7 @@ public class Bullet : MonoBehaviour
         // uznajemy go za taki, który już uderzył w inny obiekt (np. czołg)
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
-        //if (rigidbody.velocity == Vector3.zero && wasIFired == true)
-            //Destroy(gameObject);
+        if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+            Destroy(gameObject);
     }
 }
