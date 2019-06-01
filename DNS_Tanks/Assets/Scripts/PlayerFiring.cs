@@ -35,7 +35,8 @@ public class PlayerFiring : MonoBehaviour
     {
         // Pocisk zostaje wystrzelony w momencie w którym dostaje input dla AButton
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
-        if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
+        //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
+        if ((playerInput.AButton()) && timeStamp <= Time.time)
         {
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);

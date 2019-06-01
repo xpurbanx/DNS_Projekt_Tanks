@@ -8,6 +8,7 @@ public class Respawn : MonoBehaviour
     public string spawnerTag;
     public int startVehicle = 0;
     public int respawnTimer = 2;
+    private bool isSpawning = false;
     Transform spawner;
     Vector3 spawnLocation;
     // Start is called before the first frame update
@@ -22,23 +23,25 @@ public class Respawn : MonoBehaviour
     public void SpawnVehicle(int vehicleIndex)
     {
         transform.position = spawner.position;
-        Instantiate(vehicles[vehicleIndex], spawnLocation, this.transform.rotation, this.transform);
+        Instantiate(vehicles[vehicleIndex], spawnLocation, transform.rotation, transform);
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();
         GetComponentInChildren<CamFollow>().UpdateCurrentVeh();
+        isSpawning = false;
     }
 
     public void RespawnPlayer()
     {
-        StartCoroutine(Respawning());
-
-
+        if(!isSpawning)
+         StartCoroutine(Respawning());
     }
 
     public IEnumerator Respawning() // czeka 'respawnTimer' sekund
     {
+       isSpawning = true;
        yield return new WaitForSeconds(respawnTimer);
        SpawnVehicle(startVehicle);
     }
+
     [ExecuteInEditMode]
     private void OnDrawGizmos()
     {

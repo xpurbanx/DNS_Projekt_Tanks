@@ -18,25 +18,33 @@ public class Building : MonoBehaviour
 
     // Czy budynek został zniszczony
     private bool isDestroyed = false;
+    private SpawnFractured fractured;
 
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
-    }
-
-    void Update()
-    {
-        // Jeżeli budynek został właśnie zniszczony
-        if (!isDestroyed && hp <= 0)
-        {
-            DestroyBuilding();
-        }
+        fractured = GetComponent<SpawnFractured>();
     }
 
     private void DestroyBuilding()
     {
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
-        gameObject.GetComponent<SpawnFractured>().SpawnFracturedObject();
+        Destroy(gameObject);
+        if(fractured != null)
+            fractured.SpawnFracturedObject();
+        
+    }
+
+    private void CheckIfDestroyed()
+    {
+        if (hp <= 0)
+            DestroyBuilding();
+    }
+
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        CheckIfDestroyed();
     }
 }

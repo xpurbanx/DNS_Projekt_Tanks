@@ -52,8 +52,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input gracza
-       
+
         movementInputValue = playerInput.Vertical();
+        //movementInputValue = playerInput.Trigger();
         turnInputValue = playerInput.Horizontal();
     }
 
@@ -66,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
             Move();
             Turn();
         }
-        Debug.Log(touchingGroundOne + " " + touchingGroundTwo);
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);

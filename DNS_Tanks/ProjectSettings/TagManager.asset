@@ -13,6 +13,7 @@ TagManager:
   - Player 1 Spawn
   - Player 2 Spawn
   - Terrain
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - 
   - PostProcessing
   - Players
-  - 
-  - 
+  - Player 1
+  - Player 2
   - 
   - 
   - 
