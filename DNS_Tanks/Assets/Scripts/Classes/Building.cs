@@ -19,6 +19,7 @@ public class Building : MonoBehaviour
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
+        fractured = GetComponent<SpawnFractured>();
     }
 
     private void DestroyBuilding()
