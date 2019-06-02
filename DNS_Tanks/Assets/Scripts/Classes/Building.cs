@@ -15,6 +15,7 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
+    private SpawnFractured fractured; 
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
@@ -28,9 +29,9 @@ public class Building : MonoBehaviour
         GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().DeleteBuildingFromArray(gameObject);
 
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
-        if (gameObject.GetComponent<SpawnFractured>() != null)
+        if (fractured != null)
         {
-            gameObject.GetComponent<SpawnFractured>().SpawnFracturedObject();
+            fractured.SpawnFracturedObject();
         }
 
         if (hasFlag)
