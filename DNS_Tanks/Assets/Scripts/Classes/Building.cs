@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
-[assembly: InternalsVisibleTo("Bullet")]
 
 public class Building : MonoBehaviour
 {

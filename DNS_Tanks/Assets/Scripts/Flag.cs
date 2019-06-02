@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Runtime.CompilerServices;
 using UnityEngine;
+[assembly: InternalsVisibleTo("PlayerFlagManager")]
 
 public class Flag : MonoBehaviour
 {
     [Header("Numer flagi, odpowiada numerowi gracza, do którego należy flaga:")]
     public int flagNumber = 0;
 
-    [HideInInspector]
-    public bool isTaken = false;
+    internal bool isTaken = false;
 
     private float speed = 3f;
     private float height = 0.009f;
@@ -60,8 +58,6 @@ public class Flag : MonoBehaviour
         // Zaznaczamy w Eq czołgu, że nosi on aktualnie flagę
         player.GetComponent<PlayerFlagManager>().PickFlag();
 
-        // gameObject flagi ustawiamy na nieaktywny, przez co wszystkie skrypty, collidery i mesh zostają wyłączone
-        // Dla podkreślenia: SKRYPTY TEŻ PRZESTAJĄ DZIAŁAĆ, a sam obiekt nie zmienia swojej pozycji
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

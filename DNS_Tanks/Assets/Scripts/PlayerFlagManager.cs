@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerFlagManager : MonoBehaviour
 {
     // Czy czołg trzyma flagę
     private bool holdingFlag = false;
     private FlagCarrier flagCarrier;
+    private GameObject flagObject;
 
     private void Start()
     {
@@ -17,7 +16,7 @@ public class PlayerFlagManager : MonoBehaviour
     public void PickFlag()
     {
         holdingFlag = true;
-        flagCarrier.flagMake();
+        flagObject = flagCarrier.flagMake();
     }
 
     public void DropFlag()
@@ -34,5 +33,14 @@ public class PlayerFlagManager : MonoBehaviour
     public void UpdateAfterDeath()
     {
         flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
+    }
+
+    public void DropFlagAfterDeath(Vector3 position)
+    {
+        if (holdingFlag)
+        {
+            GameObject flag = Instantiate(flagObject, position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+            flag.GetComponent<Flag>().isTaken = false;
+        }
     }
 }
