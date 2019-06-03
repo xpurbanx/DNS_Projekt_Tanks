@@ -1,6 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
 
@@ -8,6 +6,7 @@ public class Building : MonoBehaviour
 {
     // PRYWATNE ATRYBUTY KLASY W TYM PLIKU:
     internal float hp;
+    internal bool hasFlag;
 
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Tooltip("Wytrzymałość budynku")]
@@ -16,10 +15,7 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
-    // Czy budynek został zniszczony
-    private bool isDestroyed = false;
-    private SpawnFractured fractured;
-
+    private SpawnFractured fractured; 
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
@@ -29,11 +25,21 @@ public class Building : MonoBehaviour
 
     private void DestroyBuilding()
     {
+        // Usuwa budynek z listy budynków
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().DeleteBuildingFromArray(gameObject);
+
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
-        Destroy(gameObject);
-        if(fractured != null)
+        if (fractured != null)
+        {
             fractured.SpawnFracturedObject();
-        
+        }
+
+        if (hasFlag)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().SpawnFlag(gameObject);
+        }
+
+        Destroy(gameObject);
     }
 
     private void CheckIfDestroyed()
