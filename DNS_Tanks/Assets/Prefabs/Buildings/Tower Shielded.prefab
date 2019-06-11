@@ -251,7 +251,7 @@ MonoBehaviour:
   fireRate: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 4621248275744676284}
-  turnSpeed: 1
+  turnSpeed: 0.6
   firePoint: {fileID: 6287959993432940514}
 --- !u!65 &3857854197524639531
 BoxCollider:

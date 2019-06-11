@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     // PRYWATNE ATRYBUTY KLASY W TYM PLIKU:
     internal float hp;
     internal bool hasFlag;
+    internal bool tower;
 
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Tooltip("Wytrzymałość budynku")]
@@ -15,10 +16,14 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
+    [Tooltip("Numer gracza, do którego należy budynek")]
+    public bool isTower = false;
+
     private SpawnFractured fractured; 
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        tower = isTower;
         hp = health;
         fractured = GetComponent<SpawnFractured>();
     }

@@ -10526,7 +10526,7 @@ PrefabInstance:
     - target: {fileID: 4409473839784531215, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: startVehicle
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8453913074164350546, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
@@ -10798,7 +10798,7 @@ GameObject:
   - component: {fileID: 2056688189}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

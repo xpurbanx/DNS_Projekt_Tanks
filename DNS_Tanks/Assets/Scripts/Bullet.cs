@@ -64,7 +64,7 @@ public class Bullet : MonoBehaviour
     private float DealDamage()
     {
         float damage;
-        if(playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
+        if (playerFiring == null && towerFiring != null) // jeżeli nie ma playerFiring to jest to wiezyczka
         {
             damage = towerFiring.damage;
         }

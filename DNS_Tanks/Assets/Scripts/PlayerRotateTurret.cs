@@ -24,7 +24,7 @@ public class PlayerRotateTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turnTurretInputValue = playerInput.SecondaryHorizontal() * turnTurretSpeed / 30f;
+        turnTurretInputValue = playerInput.SecondaryHorizontal(); // * turnTurretSpeed / 30f; UZALEŻNIĆ OD TURNTURRETSPEED!
     }
 
     private void FixedUpdate()
