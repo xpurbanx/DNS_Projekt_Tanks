@@ -155,6 +155,7 @@ MonoBehaviour:
   range: 60
   damage: 40
   startVelocity: 50
+  lockonRange: 10
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
   fireRate: 0.2
@@ -163,6 +164,8 @@ MonoBehaviour:
   partToRotate: {fileID: 4621248275744676284}
   turnSpeed: 0.8
   firePoint: {fileID: 6287959993432940514}
+  enemies: []
+  idleRotationSpeed: 0.5
 --- !u!65 &3857854197524639531
 BoxCollider:
   m_ObjectHideFlags: 0
