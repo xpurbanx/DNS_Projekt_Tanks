@@ -23,27 +23,41 @@ public class AITower : MonoBehaviour
 
     [Header("Unity Setup Fields")]
 
-    public string enemyTag = "Enemy";
+    public string enemyTag1 = "Enemy";
+    public string enemyTag2 = "Empire";
 
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
     public Transform firePoint;
 
+    public List<GameObject> enemies;
     // Use this for initialization
     void Start()
     {
+        
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateList", 0f, 5f); 
         building = GetComponent<Building>();
+    }
+    private void UpdateList()
+    {
+        enemies.Clear();
+        enemies.AddRange(ActiveEntities.Instance.GetList(enemyTag1));
+        enemies.AddRange(ActiveEntities.Instance.GetList(enemyTag2));
     }
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
         {
+            if (enemy == null)
+            {
+                UpdateList();
+                return;
+            }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
             {

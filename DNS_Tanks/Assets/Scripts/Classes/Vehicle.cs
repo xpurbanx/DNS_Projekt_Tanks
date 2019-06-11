@@ -64,6 +64,10 @@ public class Vehicle : MonoBehaviour
 
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
+    private void OnEnable()
+    {
+        ActiveEntities.Instance.AddToList(this.tag, this.gameObject);
+    }
 
     void Start()
     {
@@ -107,6 +111,7 @@ public class Vehicle : MonoBehaviour
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         Destroy(gameObject);
         GetComponentInParent<Respawn>().RespawnPlayer();
+        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
     public float GetHealth()
