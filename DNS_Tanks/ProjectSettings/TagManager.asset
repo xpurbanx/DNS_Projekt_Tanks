@@ -14,6 +14,7 @@ TagManager:
   - Player 2 Spawn
   - Terrain
   - Shield
+  - Empire
   layers:
   - Default
   - TransparentFX

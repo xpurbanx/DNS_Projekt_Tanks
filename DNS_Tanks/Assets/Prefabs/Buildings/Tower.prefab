@@ -157,7 +157,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
   fireRate: 0.5
-  enemyTag: Enemy
+  enemyTag1: Player 2
+  enemyTag2: Empire
   partToRotate: {fileID: 4621248275744676284}
   turnSpeed: 4
   firePoint: {fileID: 6287959993432940514}
