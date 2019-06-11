@@ -1,17 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FlagManager : MonoBehaviour
 {
-    public int flagNumber;
+    public RectTransform panelGameOver;
+    public Text txtGameOver;
+
+    public int numberOfFlags;
     public GameObject flag1;
     public GameObject flag2;
     public List<GameObject> buildingsOne;
     public List<GameObject> buildingsTwo;
 
+    private int flagsLeftOne;
+    private int flagsLeftTwo;
+
     void Start()
     {
-        if (flagNumber > buildingsOne.Count)
+        flagsLeftOne = numberOfFlags;
+        flagsLeftTwo = numberOfFlags;
+
+        if (numberOfFlags > buildingsOne.Count)
         {
             Debug.Log("Błąd w: FlagManager. Flag jest więcej niż budynków");
             return;
@@ -23,7 +35,7 @@ public class FlagManager : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < flagNumber; i++)
+        for (int i = 0; i < numberOfFlags; i++)
         {
             int random = -1;
             bool assigned = false;
@@ -41,7 +53,7 @@ public class FlagManager : MonoBehaviour
             } while (!assigned);
         }
 
-        for (int i = 0; i < flagNumber; i++)
+        for (int i = 0; i < numberOfFlags; i++)
         {
             int random = -1;
             bool assigned = false;
@@ -76,6 +88,29 @@ public class FlagManager : MonoBehaviour
         }
     }
 
+    public void DecreaseLeftFlagNumber(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            flagsLeftOne = flagsLeftOne - 1;
+
+            if (flagsLeftOne == 0)
+            {
+                Win(playerNumber);
+            }
+        }
+
+        if (playerNumber == 2)
+        {
+            flagsLeftTwo = flagsLeftTwo - 1;
+
+            if (flagsLeftTwo == 0)
+            {
+                Win(playerNumber);
+            }
+        }
+    }
+
     public void SpawnFlag(GameObject building)
     {
         if (building.GetComponent<Building>().playerNumber == 1)
@@ -89,5 +124,18 @@ public class FlagManager : MonoBehaviour
             GameObject flag = Instantiate(flag2, building.transform.position, Quaternion.identity);
             return;
         }
+    }
+
+    private void Win(int winnerNumber)
+    {
+        panelGameOver.gameObject.SetActive(true);
+        txtGameOver.text = $"Wygrywa gracz numer {winnerNumber}";
+        StartCoroutine(RestartGame());
+    }
+
+    private IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
