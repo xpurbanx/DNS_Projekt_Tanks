@@ -31,7 +31,11 @@ public class Building : MonoBehaviour
     private void DestroyBuilding()
     {
         // Usuwa budynek z listy budynków
-       // GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().DeleteBuildingFromArray(gameObject);
+        if (hasFlag)
+        {
+            //GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().DeleteBuildingFromArray(gameObject);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().SpawnFlag(gameObject);
+        }
 
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
         if (fractured != null)
@@ -39,11 +43,6 @@ public class Building : MonoBehaviour
             fractured.SpawnFracturedObject();
         }
 
-        if (hasFlag)
-        {
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().SpawnFlag(gameObject);
-        }
-        Debug.Log(gameObject + " is destroyed");
         Destroy(gameObject);
         
     }
