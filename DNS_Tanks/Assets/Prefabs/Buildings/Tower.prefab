@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 4104331673768271744}
   - component: {fileID: 6044379771771063886}
   - component: {fileID: 6163640799554777988}
-  - component: {fileID: 3857854197524639531}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -62,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 2237511722881310783}
   m_LocalRotation: {x: 0, y: -0.027921675, z: 0, w: 0.9996101}
   m_LocalPosition: {x: 272.78253, y: 1.23, z: 206.86417}
-  m_LocalScale: {x: 1, y: 2.64, z: 1}
+  m_LocalScale: {x: 1, y: 2.03, z: 1}
   m_Children:
   - {fileID: 314678822997180972}
   m_Father: {fileID: 0}
@@ -124,7 +123,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.33, y: 1.41, z: 1}
+  m_Size: {x: 1, y: 1.32, z: 1}
   m_Center: {x: 0, y: 0.14, z: 0}
 --- !u!114 &6044379771771063886
 MonoBehaviour:
@@ -158,23 +157,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
   fireRate: 0.5
-  enemyTag: Enemy
+  enemyTag1: Player 2
+  enemyTag2: Empire
   partToRotate: {fileID: 4621248275744676284}
-  turnSpeed: 3
+  turnSpeed: 4
   firePoint: {fileID: 6287959993432940514}
---- !u!65 &3857854197524639531
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237511722881310783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.43, z: 2.7}
-  m_Center: {x: 0.06, y: 0.67, z: 0.46}
 --- !u!1 &3426798285184262993
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +173,6 @@ GameObject:
   - component: {fileID: 3015376577907373186}
   - component: {fileID: 2492246345699400240}
   - component: {fileID: 4589904544313817357}
-  - component: {fileID: 5703033435000783231}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -253,20 +239,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5703033435000783231
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426798285184262993}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: e56b100970188e548a21a9a435ea4e97, type: 3}
 --- !u!1 &3581748604005973220
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +250,6 @@ GameObject:
   - component: {fileID: 8757605479171199728}
   - component: {fileID: 273227391084273564}
   - component: {fileID: 7446844750420057041}
-  - component: {fileID: 4093508857311754468}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -347,20 +318,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4093508857311754468
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3581748604005973220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: e56b100970188e548a21a9a435ea4e97, type: 3}
 --- !u!1 &6346388516581487205
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +359,6 @@ GameObject:
   - component: {fileID: 4621248275744676284}
   - component: {fileID: 8156849089436742985}
   - component: {fileID: 7021374846251610771}
-  - component: {fileID: 3457861167347859682}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -470,16 +426,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3457861167347859682
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8715013063975081301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0.000015258789}
