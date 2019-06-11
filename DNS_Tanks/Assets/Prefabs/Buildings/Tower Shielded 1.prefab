@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Shielded 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2237511722881310783, guid: b7685a9839b3e0147a00caa7c84f20ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5263368483500078495, guid: b7685a9839b3e0147a00caa7c84f20ec,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerNumber: 0
+  isTower: 1
 --- !u!114 &6163640799554777988
 MonoBehaviour:
   m_ObjectHideFlags: 0

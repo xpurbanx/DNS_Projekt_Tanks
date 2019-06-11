@@ -50,7 +50,16 @@ public class Building : MonoBehaviour
     private void CheckIfDestroyed()
     {
         if (hp <= 0)
-            DestroyBuilding();
+            switch(isTower)
+            {
+                case true:
+                    Destroy(gameObject);
+                    break;
+                case false:
+                    DestroyBuilding();
+                    break;
+            }
+            
     }
 
     public void Damage(float damage)
