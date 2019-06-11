@@ -83,10 +83,10 @@ public class Bullet : MonoBehaviour
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
-            // Jeżeli wykryliśmy uderzenie w samego siebie
-            if (collision.gameObject.GetComponent<Vehicle>().playerNumber == playerNumber) return;
-
             vehicle = collision.gameObject.GetComponent<Vehicle>();
+
+            // Jeżeli wykryliśmy uderzenie w samego siebie
+            if (vehicle.playerNumber == playerNumber) return;
 
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
             if (firedBy == 1 && vehicle.vehicleType == 2)
@@ -100,9 +100,10 @@ public class Bullet : MonoBehaviour
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
-            if (collision.gameObject.GetComponent<Building>().playerNumber == playerNumber) return;
-
             building = collision.gameObject.GetComponent<Building>();
+
+            if (building.playerNumber == playerNumber) return;
+
             building.Damage(DealDamage());
 
             Destroy(gameObject);
