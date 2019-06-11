@@ -14,6 +14,8 @@ public class AITower : MonoBehaviour
     public float range = 30f;
     public float damage = 20f;
     public float startVelocity = 5f;
+    [Tooltip("Added to range, tower will lock on you while in this range, but won't shoot yet")]
+    public float lockonRange = 5f;
 
 
     [Header("Use Bullets (default)")]
@@ -32,6 +34,10 @@ public class AITower : MonoBehaviour
     public Transform firePoint;
 
     public List<GameObject> enemies;
+
+    private bool idle = true;
+    public float idleRotationSpeed = 2f;
+    float shortestDistance;
     // Use this for initialization
     void Start()
     {
@@ -49,7 +55,7 @@ public class AITower : MonoBehaviour
 
     void UpdateTarget()
     {
-        float shortestDistance = Mathf.Infinity;
+        shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
         {
@@ -61,18 +67,20 @@ public class AITower : MonoBehaviour
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
             {
+                idle = false;
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= range+lockonRange)
         {
             target = nearestEnemy.transform;
             targetEnemy = nearestEnemy.GetComponent<Vehicle>();
         }
         else
         {
+            idle = true;
             target = null;
         }
 
@@ -81,9 +89,10 @@ public class AITower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (idle) RotateOnIdle();
         LockOnTarget();
 
-        if (target != null && fireCountdown <= 0f)
+        if (target != null && fireCountdown <= 0f && shortestDistance <= range)
         {
           Shoot();
           fireCountdown = 1f / fireRate;
@@ -94,6 +103,10 @@ public class AITower : MonoBehaviour
 
     }
 
+    void RotateOnIdle()
+    {
+        partToRotate.transform.Rotate(new Vector3(0,idleRotationSpeed,0));
+    }
     void LockOnTarget()
     {
         if(target != null)
