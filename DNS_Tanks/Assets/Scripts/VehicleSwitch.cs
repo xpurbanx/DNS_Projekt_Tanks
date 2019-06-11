@@ -14,7 +14,6 @@ public class VehicleSwitch : MonoBehaviour
     private Vector3 center = Vector3.zero;
     public float radius = 0.5f;
 
-    GameObject enteringPlayer;
     GameObject panel;
     internal bool menuAvailable;
     internal bool closeNow;
@@ -58,24 +57,8 @@ public class VehicleSwitch : MonoBehaviour
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
 
-        for (int i = 0; i <= 2; i++)
-        { enteringPlayer = GameObject.FindGameObjectWithTag("Player " + playerNumber);
-        if (enteringPlayer.GetComponentInChildren<VehSwitchAvailable>() != null)
-        {
-            enteringPlayer.GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-            enteringPlayer.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
-        }
-        else
-            return;
-        }
-
-        
-
-
-
-        
-        /*GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-        GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;*/
+        GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
+        GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
     }
 
 

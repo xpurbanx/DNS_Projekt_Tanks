@@ -21,28 +21,9 @@ public class VehSwitchAvailable : MonoBehaviour
 
     public void Update()
     {
-        OverlayMechanism();
-    }
-
-    public void OpenMenu()
-    {
-        timeStamp = Time.time + cooldown;
-        if (menu != null)
-        {
-
-            Animator animator = menu.GetComponent<Animator>();
-            if (animator != null)
-            {
-                bool isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
-            }
-        }
-    }
-
-    public void OverlayMechanism()
-    {
         if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
             OpenMenu();
+
         if (closeNow == true)
         {
             timeStamp = Time.time + cooldown;
@@ -55,6 +36,21 @@ public class VehSwitchAvailable : MonoBehaviour
                     bool isOpen = animator.GetBool("open");
                     animator.SetBool("open", false);
                 }
+            }
+        }
+    }
+
+    public void OpenMenu()
+    { 
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
+        {
+
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                bool isOpen = animator.GetBool("open");
+                animator.SetBool("open", !isOpen);
             }
         }
     }

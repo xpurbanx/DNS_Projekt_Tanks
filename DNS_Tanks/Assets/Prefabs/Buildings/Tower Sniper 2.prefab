@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Sniper 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2237511722881310783, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5263368483500078495, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6044379771771063886, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: partToRotate
@@ -86,11 +86,6 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyTag
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6044379771771063886, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: playerNumber
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7021374846251610771, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}

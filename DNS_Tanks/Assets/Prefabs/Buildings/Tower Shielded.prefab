@@ -231,7 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerNumber: 0
-  isTower: 1
 --- !u!114 &6163640799554777988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +251,7 @@ MonoBehaviour:
   fireRate: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 4621248275744676284}
-  turnSpeed: 0.6
+  turnSpeed: 1
   firePoint: {fileID: 6287959993432940514}
 --- !u!65 &3857854197524639531
 BoxCollider:
