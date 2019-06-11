@@ -137,5 +137,7 @@ public class FlagManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        panelGameOver.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
