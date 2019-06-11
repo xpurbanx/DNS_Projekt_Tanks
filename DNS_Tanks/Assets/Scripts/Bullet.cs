@@ -35,13 +35,18 @@ public class Bullet : MonoBehaviour
     {
         if(playerNumber == 1)
         {
-            trail.endColor = Color.green;
-            trail.startColor = Color.green;
+            trail.endColor = Color.blue;
+            trail.startColor = Color.blue;
         }
-        else
+        else if (playerNumber == 2)
         {
             trail.endColor = Color.red;
             trail.startColor = Color.red;
+        }
+        else
+        {
+            trail.endColor = Color.white;
+            trail.startColor = Color.white;
         }
 
         // Ustawienie rozmiaru pocisku w zależności od pojazdu
@@ -79,7 +84,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Shield") return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
+        if (collision.gameObject.tag == "Shield")
+        {
+            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
+        }
+
+
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {

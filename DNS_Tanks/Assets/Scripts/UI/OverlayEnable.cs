@@ -27,18 +27,16 @@ public class OverlayEnable : MonoBehaviour
         timeStamp = Time.time + cooldown;
         if (panel != null)
         {
-            
+
             Animator animator = panel.GetComponent<Animator>();
             if (animator != null)
             {
-                
+
                 bool isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
                 Debug.Log(isOpen + " Halo");
-                
+
             }
         }
     }
-
-
 }
