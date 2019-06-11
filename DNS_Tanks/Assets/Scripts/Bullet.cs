@@ -35,8 +35,8 @@ public class Bullet : MonoBehaviour
     {
         if(playerNumber == 1)
         {
-            trail.endColor = Color.green;
-            trail.startColor = Color.green;
+            trail.endColor = Color.blue;
+            trail.startColor = Color.blue;
         }
         else
         {
