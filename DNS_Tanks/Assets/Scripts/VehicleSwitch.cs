@@ -7,7 +7,7 @@ using UnityEngine;
 public class VehicleSwitch : MonoBehaviour
 {
     public int playerNumber = 0;
-
+    public GameObject[] withPlayerTag;
     public double cooldown = 3;
     private double timeStamp;
 
@@ -24,6 +24,10 @@ public class VehicleSwitch : MonoBehaviour
         c.radius = radius;
         center = transform.position;
         menuAvailable = false;
+
+        ///////////////////////////
+        withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
+        //for(i = 0)... przepatrzenie tablicy i znalezienie gracza
     }
 
 
@@ -56,6 +60,8 @@ public class VehicleSwitch : MonoBehaviour
     {
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
+
+
 
         //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
         //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
