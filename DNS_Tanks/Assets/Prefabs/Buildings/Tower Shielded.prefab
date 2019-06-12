@@ -246,13 +246,17 @@ MonoBehaviour:
   range: 37
   damage: 20
   startVelocity: 30
+  lockonRange: 6
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
   fireRate: 0.5
-  enemyTag: Enemy
+  enemyTag1: Player 2
+  enemyTag2: Empire
   partToRotate: {fileID: 4621248275744676284}
   turnSpeed: 1
   firePoint: {fileID: 6287959993432940514}
+  enemies: []
+  idleRotationSpeed: 0.5
 --- !u!65 &3857854197524639531
 BoxCollider:
   m_ObjectHideFlags: 0

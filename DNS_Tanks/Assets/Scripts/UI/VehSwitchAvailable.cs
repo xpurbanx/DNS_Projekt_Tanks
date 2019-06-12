@@ -23,8 +23,7 @@ public class VehSwitchAvailable : MonoBehaviour
     {
         if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
             OpenMenu();
-
-        if (closeNow == true)
+        if(closeNow == true)
         {
             timeStamp = Time.time + cooldown;
             if (menu != null)
@@ -41,7 +40,7 @@ public class VehSwitchAvailable : MonoBehaviour
     }
 
     public void OpenMenu()
-    { 
+    {
         timeStamp = Time.time + cooldown;
         if (menu != null)
         {
