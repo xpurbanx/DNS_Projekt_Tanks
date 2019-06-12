@@ -7,6 +7,7 @@ public class Flag : MonoBehaviour
     [Header("Numer flagi, odpowiada numerowi gracza, do którego należy flaga:")]
     public int flagNumber = 0;
 
+    [SerializeField]
     internal bool isTaken = false;
 
     private float speed = 3f;
