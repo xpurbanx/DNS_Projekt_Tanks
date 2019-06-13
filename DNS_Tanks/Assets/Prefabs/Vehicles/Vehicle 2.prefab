@@ -311,6 +311,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8528490572047619749}
     m_Modifications:
+    - target: {fileID: 3128537748027441385, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128537748027441385, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2231124376861679307, guid: 25a8b955a656d2041bf51d1fb99bacd0,
         type: 3}
       propertyPath: m_Name
@@ -419,6 +429,26 @@ PrefabInstance:
     - target: {fileID: 5261838445211445755, guid: 25a8b955a656d2041bf51d1fb99bacd0,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652760053110489942, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652760053110489942, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258303372932550086, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4258303372932550086, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

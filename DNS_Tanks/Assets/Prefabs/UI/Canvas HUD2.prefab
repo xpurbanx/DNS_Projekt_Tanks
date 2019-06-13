@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe106a553818b1b4a98dbf4779a8cea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
+  panel: {fileID: 140472367554991026}
   cooldown: 0.4
 --- !u!1 &2524909948947583820
 GameObject:
