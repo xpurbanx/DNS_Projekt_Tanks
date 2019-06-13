@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("OverlayEnable")]
+[assembly: InternalsVisibleTo("VehicleSwitch")]
 
 public class VehSwitchAvailable : MonoBehaviour
 {

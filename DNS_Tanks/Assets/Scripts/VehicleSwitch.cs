@@ -8,6 +8,7 @@ public class VehicleSwitch : MonoBehaviour
 {
     public int playerNumber = 0;
     public GameObject[] withPlayerTag;
+    public GameObject player;
     public double cooldown = 3;
     private double timeStamp;
 
@@ -27,7 +28,12 @@ public class VehicleSwitch : MonoBehaviour
 
         ///////////////////////////
         withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
-        //for(i = 0)... przepatrzenie tablicy i znalezienie gracza
+        //Debug.Log(withPlayerTag[7].name);
+        for(int i = 0; i <= withPlayerTag.Length-1; i++)
+        {
+            if (withPlayerTag[i].GetComponentInChildren<CamFollow>()) // Jeżeli object ma skrypt "CamFollow", to znaczy, że jest to kamera pojazdu gracza
+                player = withPlayerTag[i];
+        }
     }
 
 
@@ -62,9 +68,11 @@ public class VehicleSwitch : MonoBehaviour
         c.radius = radius;
 
 
-
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+        if(player.GetComponentInChildren<VehSwitchAvailable>()!=null)
+        {
+            player.GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
+            player.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+        }
     }
 
 
