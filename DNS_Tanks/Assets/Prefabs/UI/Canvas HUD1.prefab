@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1654730862408117644}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &2409844777747765279
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!114 &5753684380778488244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!1001 &3591765211663719490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,6 +97,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas HUD1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402104969994547944, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthText1
       objectReference: {fileID: 0}
     - target: {fileID: 5261838445211445755, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
@@ -203,15 +208,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 438779485480598664, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedText1
+      objectReference: {fileID: 0}
     - target: {fileID: 8138854418133585239, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8138854418133585239, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2823277157602849230, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
@@ -222,31 +232,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2219802233014915714}
+    - target: {fileID: 3393129376171904704, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 1229161475146943201}
     - target: {fileID: 1982087621370693999, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1982087621370693999, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6930534240296308936, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_Name
       value: TankButton1
       objectReference: {fileID: 0}
+    - target: {fileID: 2366176199319279267, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 2219802233014915714}
+    - target: {fileID: 2366176199319279267, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 1229161475146943201}
     - target: {fileID: 4257209509540640132, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257209509540640132, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 395c1ff046aa13c47b1cb1fe468301d0, type: 3}
@@ -256,3 +281,33 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3591765211663719490}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1654730862408117644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823277157602849230, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3591765211663719490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2219802233014915714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3393129376171904704, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3591765211663719490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654730862408117644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1229161475146943201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2366176199319279267, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3591765211663719490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
