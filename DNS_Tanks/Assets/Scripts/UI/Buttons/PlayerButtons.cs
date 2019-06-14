@@ -2,30 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Buttons : MonoBehaviour
+public class PlayerButtons : MonoBehaviour
 {
     Respawn respawn;
     GameObject player;
-    GameObject[] withPlayerTag;
 
 
-    public void Jeep1()
+    public void Switch(int vehType)
     {
-        withPlayerTag = GameObject.FindGameObjectsWithTag("Player 1");
-        for (int i = 0; i <= withPlayerTag.Length - 1; i++)
-        {
-            if (withPlayerTag[i].GetComponent<PlayerFiring>() && withPlayerTag[i].tag == "Player 1") // Jeżeli jest to KONKRETNIE pojazd tego gracza
-                player = withPlayerTag[i];
-        }
-
+        player = GetComponentInParent<CurrentVehicle>().CurrentVehicleObject();
         if (gameObject.GetComponentInParent<VehSwitchAvailable>() && gameObject.GetComponentInParent<VehSwitchAvailable>().isOpen == true)
         {
             player.GetComponent<Vehicle>().ForVehicleChooseDestroy();
             respawn = gameObject.GetComponentInParent<Respawn>();
-            respawn.startVehicle = 1;
+            respawn.startVehicle = vehType;
             respawn.RespawnPlayer();
             gameObject.GetComponentInParent<VehSwitchAvailable>().closeNow = true;
         }
 
     }
+
 }

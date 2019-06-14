@@ -69,8 +69,15 @@ public class VehicleSwitch : MonoBehaviour
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
 
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+
+        if (player.GetComponentInChildren<VehSwitchAvailable>() != null)
+        {
+            player.GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
+            player.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+        }
+
+
+
     }
 
 

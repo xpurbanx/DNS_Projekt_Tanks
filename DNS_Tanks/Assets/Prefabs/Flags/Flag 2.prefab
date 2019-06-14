@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flag 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6550005159037734008, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Flag 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550005159037734007, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: flagNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6550005159037734004, guid: 400f88facbf75b54e87f4cee640ab1d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,10 +77,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6550005159037734007, guid: 400f88facbf75b54e87f4cee640ab1d0,
+    - target: {fileID: 6550005158615071264, guid: 400f88facbf75b54e87f4cee640ab1d0,
         type: 3}
-      propertyPath: flagNumber
-      value: 2
+      propertyPath: m_TagString
+      value: Flag 2
       objectReference: {fileID: 0}
     - target: {fileID: 6550005158615071325, guid: 400f88facbf75b54e87f4cee640ab1d0,
         type: 3}
