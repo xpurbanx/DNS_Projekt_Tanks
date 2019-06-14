@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
+[assembly: InternalsVisibleTo("Player1Buttons")]
 
 public class Vehicle : MonoBehaviour
 {
@@ -111,6 +112,13 @@ public class Vehicle : MonoBehaviour
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         Destroy(gameObject);
         GetComponentInParent<Respawn>().RespawnPlayer();
+        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
+    }
+
+    internal void ForVehicleChooseDestroy()
+    {
+        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        Destroy(gameObject);
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 

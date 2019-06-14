@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class VehicleSwitch : MonoBehaviour
 {
+    internal GameObject[] withPlayerTag;
+    internal GameObject player;
     public int playerNumber = 0;
-
     public double cooldown = 3;
     private double timeStamp;
 
@@ -18,12 +19,23 @@ public class VehicleSwitch : MonoBehaviour
     internal bool menuAvailable;
     internal bool closeNow;
 
-    void Start()
+    void Awake()
     {
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
         center = transform.position;
         menuAvailable = false;
+
+        withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
+        for (int i = 0; i <= withPlayerTag.Length - 1; i++)
+        {
+            if (withPlayerTag[i].GetComponent<CamFollow>() && withPlayerTag[i].tag == "Player " + playerNumber) // Jeżeli jest to kamera TEGO gracza
+            {
+                player = withPlayerTag[i];
+            }
+
+
+        }
     }
 
 
@@ -57,8 +69,15 @@ public class VehicleSwitch : MonoBehaviour
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
 
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+
+        if (player.GetComponentInChildren<VehSwitchAvailable>() != null)
+        {
+            player.GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
+            player.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+        }
+
+
+
     }
 
 

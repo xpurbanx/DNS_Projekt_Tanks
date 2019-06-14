@@ -1,19 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("Player1Buttons")]
 
 public class Respawn : MonoBehaviour
 {
+
+
     public List<GameObject> vehicles;
     public string spawnerTag;
     public int startVehicle = 0;
     public int respawnTimer = 2;
-    private bool isSpawning = false;
+    internal bool isSpawning = false;
     Transform spawner;
     Vector3 spawnLocation;
     // Start is called before the first frame update
 
     void Awake()
+    {
+        Launch();
+    }
+
+    internal void Launch()
     {
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
         spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
@@ -43,7 +52,7 @@ public class Respawn : MonoBehaviour
     }
 
     [ExecuteInEditMode]
-    private void OnDrawGizmos()
+    internal void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnLocation, 1f);
