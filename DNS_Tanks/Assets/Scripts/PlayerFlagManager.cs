@@ -7,7 +7,7 @@ public class PlayerFlagManager : MonoBehaviour
     private FlagCarrier flagCarrier;
     private GameObject flagObject;
 
-    private void Start()
+    private void OnEnable()
     {
         flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
     }
@@ -30,10 +30,10 @@ public class PlayerFlagManager : MonoBehaviour
         return holdingFlag;
     }
 
-    public void UpdateAfterDeath()
-    {
+   public void UpdateAfterDeath()
+   {
         flagCarrier = gameObject.GetComponentInChildren<FlagCarrier>(true);
-    }
+   }
 
     public void DropFlagAfterDeath(Vector3 position)
     {
@@ -41,6 +41,7 @@ public class PlayerFlagManager : MonoBehaviour
         {
             GameObject flag = Instantiate(flagObject, position + new Vector3(0, 0.3f, 0), Quaternion.identity);
             flag.GetComponent<Flag>().isTaken = false;
+            holdingFlag = false;
         }
     }
 }

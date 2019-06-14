@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 34
   damage: 20
-  startVelocity: 30
+  startVelocity: 34.06
   lockonRange: 5
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
