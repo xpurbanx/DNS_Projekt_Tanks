@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerFiring : MonoBehaviour
 {
+    public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
 
@@ -38,9 +39,10 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
+            animator.SetTrigger("Shot");
+
             // Tworzenie pocisku
             GameObject bullet = Instantiate(bulletPrefab, bulletOut.transform.position, bulletOut.transform.rotation);
-
 
             // Nadawanie wartości pociskowi
             Bullet bulletScript = bullet.GetComponent<Bullet>();
