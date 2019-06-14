@@ -115,13 +115,6 @@ public class Vehicle : MonoBehaviour
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
-    internal void ForVehicleChooseDestroy()
-    {
-        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
-        Destroy(gameObject);
-        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
-    }
-
     public float GetHealth()
     {
         return hp;
