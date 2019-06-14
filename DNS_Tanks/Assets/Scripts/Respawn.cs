@@ -31,7 +31,6 @@ public class Respawn : MonoBehaviour
 
     public void SpawnVehicle(int vehicleIndex)
     {
-        Debug.Log(transform.name + "TO TRANSFORM JEST");
         transform.position = spawner.position;
         Instantiate(vehicles[vehicleIndex], spawnLocation, transform.rotation, transform);
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();

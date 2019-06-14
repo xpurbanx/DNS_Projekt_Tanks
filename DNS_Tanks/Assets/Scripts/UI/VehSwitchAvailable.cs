@@ -13,6 +13,7 @@ public class VehSwitchAvailable : MonoBehaviour
 
     internal bool menuAvailable;
     internal bool closeNow;
+    internal bool isOpen;
 
     public void Start()
     {
@@ -23,7 +24,7 @@ public class VehSwitchAvailable : MonoBehaviour
     {
         if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
             OpenMenu();
-        if(closeNow == true)
+        if (closeNow == true)
         {
             timeStamp = Time.time + cooldown;
             if (menu != null)
@@ -32,8 +33,9 @@ public class VehSwitchAvailable : MonoBehaviour
                 Animator animator = menu.GetComponent<Animator>();
                 if (animator != null)
                 {
-                    bool isOpen = animator.GetBool("open");
+                    isOpen = animator.GetBool("open");
                     animator.SetBool("open", false);
+                    isOpen = false;
                 }
             }
         }
@@ -48,8 +50,9 @@ public class VehSwitchAvailable : MonoBehaviour
             Animator animator = menu.GetComponent<Animator>();
             if (animator != null)
             {
-                bool isOpen = animator.GetBool("open");
+                isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
+                isOpen = !isOpen;
             }
         }
     }
