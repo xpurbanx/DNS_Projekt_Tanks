@@ -92,9 +92,10 @@ GameObject:
   - component: {fileID: 716408716073822132}
   - component: {fileID: 1768268439436886077}
   - component: {fileID: 7554122721632077694}
+  - component: {fileID: 5796397620859036672}
   m_Layer: 0
   m_Name: Menu1
-  m_TagString: Untagged
+  m_TagString: Menu 1
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,6 +194,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1284314205732798358}
   cooldown: 0.4
+--- !u!114 &5796397620859036672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284314205732798358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c80f32854f5584bb4fb77fe727b5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2231124376861679307
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +601,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6987347393732931133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5796397620859036672}
+        m_MethodName: Switch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventSystem: {fileID: 5399243650018099599}
@@ -857,7 +881,6 @@ GameObject:
   - component: {fileID: 7992126248651063095}
   - component: {fileID: 1279226889408826929}
   - component: {fileID: 2251544223363965805}
-  - component: {fileID: 5071557358586516764}
   m_Layer: 0
   m_Name: Jeep1
   m_TagString: Untagged
@@ -962,13 +985,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5071557358586516764}
-        m_MethodName: Jeep1
-        m_Mode: 1
+      - m_Target: {fileID: 5796397620859036672}
+        m_MethodName: Switch
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -989,18 +1012,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 5399243650018099599}
---- !u!114 &5071557358586516764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7263655859816464164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c80f32854f5584bb4fb77fe727b5c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7695139723393568807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1367,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305053588382788607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1375,7 +1386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305053588382788607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

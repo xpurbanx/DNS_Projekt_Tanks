@@ -20,6 +20,7 @@ public class Respawn : MonoBehaviour
     void Awake()
     {
         Launch();
+
     }
 
     internal void Launch()
@@ -27,6 +28,11 @@ public class Respawn : MonoBehaviour
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
         spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
         SpawnVehicle(startVehicle);
+        if(transform.GetChild(0).GetComponent<PlayerFiring>())
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+        }
     }
 
     public void SpawnVehicle(int vehicleIndex)
