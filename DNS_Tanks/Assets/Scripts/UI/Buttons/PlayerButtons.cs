@@ -33,7 +33,7 @@ public class PlayerButtons : MonoBehaviour
         {
             prefabs = gameObject.GetComponent<SuppliesAvailable>().prefabs;
             GameObject prefab = prefabs[supply];
-            Vector3 offset = new Vector3(3f, 1.5f, 0f);
+            Vector3 offset = new Vector3(-3f, 1.25f, 3f);
             player.GetComponent<Vehicle>().SetSupply(player, offset, supply, prefab);
             GetComponent<SuppliesAvailable>().OpenMenu();
         }
