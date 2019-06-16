@@ -17,6 +17,8 @@ TagManager:
   - Empire
   - Menu 1
   - Menu 2
+  - Supplies 1
+  - Supplies 2
   layers:
   - Default
   - TransparentFX

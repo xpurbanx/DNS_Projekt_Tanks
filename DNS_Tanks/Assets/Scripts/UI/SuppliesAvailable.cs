@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("OverlayEnable")]
 
-public class VehSwitchAvailable : MonoBehaviour
+public class SuppliesAvailable : MonoBehaviour
 {
+    public List<GameObject> supplies;
+    public List<GameObject> prefabs;
     public GameObject menu;
     public double cooldown = 3;
     private double timeStamp;

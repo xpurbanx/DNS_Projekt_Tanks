@@ -146,6 +146,11 @@ public class Vehicle : MonoBehaviour
         if (hp <= 0)
             DestroyVehicle();
     }
+
+    public void SetSupply(GameObject plr, Vector3 off, int supp, GameObject[] prefs)//, Vector3 pos, Quaternion rot, Transform tf)
+    {
+        Instantiate(prefs[supp], plr.transform.position + off, transform.rotation, transform);
+    }
 }
 
 /*
