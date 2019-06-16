@@ -64,4 +64,10 @@ public class Respawn : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnLocation, 1f);
     }
+
+    public GameObject CurrentVeh()
+    {
+        GameObject veh = transform.GetChild(0).gameObject;
+        return veh;
+    }
 }

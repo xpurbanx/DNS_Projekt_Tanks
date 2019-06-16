@@ -147,9 +147,9 @@ public class Vehicle : MonoBehaviour
             DestroyVehicle();
     }
 
-    public void SetSupply(GameObject plr, Vector3 off, int supp, GameObject[] prefs)//, Vector3 pos, Quaternion rot, Transform tf)
+    public void SetSupply(GameObject plr, Vector3 off, int supp, GameObject pref)//, Vector3 pos, Quaternion rot, Transform tf)
     {
-        Instantiate(prefs[supp], plr.transform.position + off, transform.rotation, transform);
+        Instantiate(pref, plr.transform.localPosition + off, transform.rotation, transform);
     }
 }
 

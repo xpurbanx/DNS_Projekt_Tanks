@@ -39,7 +39,7 @@ public class SupplyStation : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent != null)
+        if (other.transform.parent != null && other.GetComponentInParent<Vehicle>().vehType == 1)
         {
             if (other.transform.parent.tag == "Player " + playerNumber)
             {
@@ -53,7 +53,7 @@ public class SupplyStation : MonoBehaviour
     {
         if (other.transform.parent != null)
         {
-            if (other.transform.parent.tag == "Player " + playerNumber)
+            if (other.transform.parent.tag == "Player " + playerNumber && other.GetComponentInParent<Vehicle>().vehType == 1)
             {
                 menuAvailable = false;
                 closeNow = true;

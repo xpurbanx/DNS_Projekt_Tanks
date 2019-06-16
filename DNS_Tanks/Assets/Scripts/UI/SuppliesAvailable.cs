@@ -16,6 +16,7 @@ public class SuppliesAvailable : MonoBehaviour
     internal bool menuAvailable;
     internal bool closeNow;
     internal bool isOpen;
+    int t;
 
     public void Start()
     {
@@ -23,6 +24,27 @@ public class SuppliesAvailable : MonoBehaviour
     }
 
     public void Update()
+    {
+        CheckForOpen();
+    }
+
+    public void OpenMenu()
+    {
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
+        {
+
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", !isOpen);
+                isOpen = !isOpen;
+            }
+        }
+    }
+
+    public void CheckForOpen()
     {
         if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
             OpenMenu();
@@ -39,22 +61,6 @@ public class SuppliesAvailable : MonoBehaviour
                     animator.SetBool("open", false);
                     isOpen = false;
                 }
-            }
-        }
-    }
-
-    public void OpenMenu()
-    {
-        timeStamp = Time.time + cooldown;
-        if (menu != null)
-        {
-
-            Animator animator = menu.GetComponent<Animator>();
-            if (animator != null)
-            {
-                isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
-                isOpen = !isOpen;
             }
         }
     }
