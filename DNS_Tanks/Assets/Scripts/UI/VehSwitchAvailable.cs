@@ -51,7 +51,7 @@ public class VehSwitchAvailable : MonoBehaviour
             if (animator != null)
             {
                 isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
+                animator.SetBool("open", true);
                 isOpen = !isOpen;
             }
         }
