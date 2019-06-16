@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("Player1Buttons")]
+[assembly: InternalsVisibleTo("PlayerButtons")]
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class Respawn : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class Respawn : MonoBehaviour
     public int startVehicle = 0;
     public int respawnTimer = 2;
     internal bool isSpawning = false;
-    Transform spawner;
-    Vector3 spawnLocation;
+    internal Transform spawner;
+    internal Vector3 spawnLocation;
     // Start is called before the first frame update
 
     void Awake()
