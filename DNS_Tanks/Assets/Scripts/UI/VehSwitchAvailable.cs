@@ -20,8 +20,13 @@ public class VehSwitchAvailable : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
+    Animator animator;
+
     public void Update()
     {
+        animator = menu.GetComponent<Animator>();
+        Debug.Log("Menu: "+menu+", ANIMATOR: "+animator+", isOpen: "+isOpen+", animator.GetBool(\"open\"): "+animator.GetBool("open"));
+
         if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
             OpenMenu();
         if (closeNow == true)
@@ -51,7 +56,7 @@ public class VehSwitchAvailable : MonoBehaviour
             if (animator != null)
             {
                 isOpen = animator.GetBool("open");
-                animator.SetBool("open", true);
+                animator.SetBool("open", !isOpen);
                 isOpen = !isOpen;
             }
         }
