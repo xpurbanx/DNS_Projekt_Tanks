@@ -12,6 +12,8 @@ public class VehicleSwitch : MonoBehaviour
     public double cooldown = 3;
     private double timeStamp;
 
+    GameObject vehicle;
+    PlayerInputSetup playerInput;
     private Vector3 center = Vector3.zero;
     public float radius = 0.5f;
 
@@ -33,6 +35,11 @@ public class VehicleSwitch : MonoBehaviour
             {
                 player = withPlayerTag[i];
             }
+            if (withPlayerTag[i].GetComponent<Respawn>() && withPlayerTag[i].tag == "Player " + playerNumber) // Jeżeli jest to vehicle
+            {
+                vehicle = withPlayerTag[i];
+                playerInput = vehicle.GetComponent<PlayerInputSetup>();
+            }
 
 
         }
@@ -45,8 +52,11 @@ public class VehicleSwitch : MonoBehaviour
         {
             if (other.transform.parent.tag == "Player " + playerNumber)
             {
-                menuAvailable = true;
-                closeNow = false;
+                Debug.Log(vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen +" isopen");
+                if (playerInput.XButton() && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == false)
+                    player.GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+                if (playerInput.XButton() && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == true) //////// TU
+                    player.GetComponentInChildren<VehSwitchAvailable>().CloseMenu();
             }
         }
     }
@@ -57,8 +67,7 @@ public class VehicleSwitch : MonoBehaviour
         {
             if (other.transform.parent.tag == "Player " + playerNumber)
             {
-                menuAvailable = false;
-                closeNow = true;
+                player.GetComponentInChildren<VehSwitchAvailable>().CloseMenu();
             }
 
         }
@@ -76,8 +85,8 @@ public class VehicleSwitch : MonoBehaviour
             player.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
         }
 
-
-
+        //if (playerInput.XButton() && timeStamp < Time.time)// && player.GetComponentInChildren<VehSwitchAvailable>().isOpen == true)
+          //  player.GetComponentInChildren<VehSwitchAvailable>().SwitchMenu();
     }
 
 

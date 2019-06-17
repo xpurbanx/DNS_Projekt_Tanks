@@ -21,7 +21,6 @@ public class Respawn : MonoBehaviour
     void Awake()
     {
         Launch();
-
     }
 
     internal void Launch()

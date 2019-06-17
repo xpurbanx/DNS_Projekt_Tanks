@@ -20,7 +20,8 @@ public class PlayerButtons : MonoBehaviour
             respawn = gameObject.GetComponentInParent<Respawn>();
             respawn.startVehicle = vehType;
             respawn.RespawnPlayer();
-            gameObject.GetComponent<VehSwitchAvailable>().closeNow = true;
+            gameObject.GetComponent<VehSwitchAvailable>().CloseMenu();
+            //GetComponentInChildren<VehSwitchAvailable>().isOpen = false;
         }
 
     }
@@ -35,7 +36,7 @@ public class PlayerButtons : MonoBehaviour
             GameObject prefab = prefabs[supply];
             Vector3 offset = new Vector3(-3f, 1.25f, 3f);
             player.GetComponent<Vehicle>().SetSupply(player, offset, supply, prefab);
-            GetComponent<SuppliesAvailable>().OpenMenu();
+            //GetComponent<SuppliesAvailable>().c
         }
     }
 

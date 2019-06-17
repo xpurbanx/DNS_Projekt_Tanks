@@ -13,7 +13,7 @@ public class VehSwitchAvailable : MonoBehaviour
 
     internal bool menuAvailable;
     internal bool closeNow;
-    internal bool isOpen;
+    internal bool isOpen = false;
 
     public void Start()
     {
@@ -22,26 +22,45 @@ public class VehSwitchAvailable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
-            OpenMenu();
-        if (closeNow == true)
-        {
-            timeStamp = Time.time + cooldown;
-            if (menu != null)
-            {
+        //if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
+            //OpenMenu();
+        //else
+            //CloseMenu();
+    }
 
-                Animator animator = menu.GetComponent<Animator>();
-                if (animator != null)
-                {
-                    isOpen = animator.GetBool("open");
-                    animator.SetBool("open", false);
-                    isOpen = false;
-                }
+    public void OpenMenu()
+    {
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
+        {
+
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", true);
+                isOpen = true;
             }
         }
     }
 
-    public void OpenMenu()
+    public void CloseMenu()
+    {
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
+        {
+
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", false);
+                isOpen = false;
+            }
+        }
+    }
+
+    public void SwitchMenu()
     {
         timeStamp = Time.time + cooldown;
         if (menu != null)
