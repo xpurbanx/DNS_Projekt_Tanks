@@ -19,8 +19,6 @@ TagManager:
   - Menu 2
   - Supplies 1
   - Supplies 2
-  - Supply Spawn 1
-  - Supply Spawn 2
   layers:
   - Default
   - TransparentFX

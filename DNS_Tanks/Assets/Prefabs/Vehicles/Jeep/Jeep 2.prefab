@@ -148,11 +148,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4134183687110081508, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Supply Spawn 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1014393113148093630, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -3,12 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Vehicle")]
-[assembly: InternalsVisibleTo("LockActions")]
 
 public class PlayerFiring : MonoBehaviour
 {
-    internal bool locked = false; // Zmienna określająca, czy sterowanie jest zamrożone (np. podczas otwarcia nakładek)
-
     public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
@@ -40,7 +37,7 @@ public class PlayerFiring : MonoBehaviour
         // Pocisk zostaje wystrzelony w momencie w którym dostaje input dla AButton
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
-        if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time && locked == false)
+        if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
             animator.SetTrigger("Shot");
 
