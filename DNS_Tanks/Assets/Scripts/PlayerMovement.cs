@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("LockActions")]
 [assembly: InternalsVisibleTo("PlayerIsGrounded")]
 
 public class PlayerMovement : MonoBehaviour
@@ -30,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private float movementInputValue;
     private float turnInputValue;
     private PlayerInputSetup playerInput;
-    
+    internal bool locked = false; // Zmienna określająca, czy sterowanie jest zamrożone (np. podczas otwarcia nakładek)
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
         // Tylko jedna gąsiennica musi dotykać ziemi (?)
-        if (touchingGroundOne || touchingGroundTwo)
+        if ((touchingGroundOne || touchingGroundTwo) && locked == false)
         {
             Move();
             Turn();
