@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("OverlayEnable")]
+[assembly: InternalsVisibleTo("VehicleSwitch")]
 
 public class VehSwitchAvailable : MonoBehaviour
 {
     public GameObject menu;
     public double cooldown = 3;
-    private double timeStamp;
+    internal double timeStamp;
     private PlayerInputSetup playerInput;
 
     internal bool menuAvailable;
@@ -18,14 +19,6 @@ public class VehSwitchAvailable : MonoBehaviour
     public void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
-    }
-
-    public void Update()
-    {
-        //if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
-            //OpenMenu();
-        //else
-            //CloseMenu();
     }
 
     public void OpenMenu()
