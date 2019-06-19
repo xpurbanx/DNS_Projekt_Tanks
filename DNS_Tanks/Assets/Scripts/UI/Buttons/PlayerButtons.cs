@@ -21,7 +21,6 @@ public class PlayerButtons : MonoBehaviour
             respawn.startVehicle = vehType;
             respawn.RespawnPlayer();
             gameObject.GetComponent<VehSwitchAvailable>().SwitchMenu();
-            //GetComponentInChildren<VehSwitchAvailable>().isOpen = false;
         }
 
     }
@@ -29,14 +28,13 @@ public class PlayerButtons : MonoBehaviour
     public void ChooseSupply(int supply)
     {
         player = GetComponentInParent<CurrentVehicle>().CurrentVehicleObject();
-        p = gameObject.GetComponent<SuppliesAvailable>();
-        if (GetComponent<SuppliesAvailable>() && p.isOpen == true)
+        if (gameObject.GetComponent<SuppliesAvailable>() && gameObject.GetComponentInParent<SuppliesAvailable>().isOpen == true)
         {
             prefabs = gameObject.GetComponent<SuppliesAvailable>().prefabs;
             GameObject prefab = prefabs[supply];
             Vector3 offset = new Vector3(-3f, 1.25f, 3f);
             player.GetComponent<Vehicle>().SetSupply(player, offset, supply, prefab);
-            //GetComponent<SuppliesAvailable>().c
+            gameObject.GetComponent<SuppliesAvailable>().SwitchMenu();
         }
     }
 

@@ -3,29 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("OverlayEnable")]
+[assembly: InternalsVisibleTo("SupplyStation")]
 
 public class SuppliesAvailable : MonoBehaviour
 {
-    public List<GameObject> supplies;
-    public List<GameObject> prefabs;
     public GameObject menu;
+    public List<GameObject> prefabs;
     public double cooldown = 3;
-    private double timeStamp;
+    internal double timeStamp;
     private PlayerInputSetup playerInput;
 
     internal bool menuAvailable;
     internal bool closeNow;
-    internal bool isOpen;
-    int t;
+    internal bool isOpen = false;
 
     public void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
-    }
-
-    public void Update()
-    {
-        CheckForOpen();
     }
 
     public void OpenMenu()
@@ -38,29 +32,40 @@ public class SuppliesAvailable : MonoBehaviour
             if (animator != null)
             {
                 isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
-                isOpen = !isOpen;
+                animator.SetBool("open", true);
+                isOpen = true;
             }
         }
     }
 
-    public void CheckForOpen()
+    public void CloseMenu()
     {
-        if (playerInput.XButton() && timeStamp < Time.time && menuAvailable == true && closeNow == false)
-            OpenMenu();
-        if (closeNow == true)
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
         {
-            timeStamp = Time.time + cooldown;
-            if (menu != null)
-            {
 
-                Animator animator = menu.GetComponent<Animator>();
-                if (animator != null)
-                {
-                    isOpen = animator.GetBool("open");
-                    animator.SetBool("open", false);
-                    isOpen = false;
-                }
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", false);
+                isOpen = false;
+            }
+        }
+    }
+
+    public void SwitchMenu()
+    {
+        timeStamp = Time.time + cooldown;
+        if (menu != null)
+        {
+
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", !isOpen);
+                isOpen = !isOpen;
             }
         }
     }

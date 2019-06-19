@@ -29,7 +29,7 @@ public class VehicleSwitch : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && (playerInput.XButton() && timeStamp < Time.time))
             vehSwitch.SwitchMenu();
     }
 
@@ -55,8 +55,8 @@ public class VehicleSwitch : MonoBehaviour
             {
                 vehicle = withPlayerTag[i];
                 playerInput = vehicle.GetComponent<PlayerInputSetup>();
-                timeStamp = vehicle.GetComponentInChildren<VehSwitchAvailable>().timeStamp;
                 vehSwitch = vehicle.GetComponentInChildren<VehSwitchAvailable>();
+                timeStamp = vehSwitch.timeStamp;
             }
         }
     }

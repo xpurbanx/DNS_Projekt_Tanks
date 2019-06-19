@@ -1855,11 +1855,42 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2736111174310170675, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1041581620684809322, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
     - {fileID: 1393853580629421921, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
     - {fileID: 2807154815230297551, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
+    - {fileID: 2736111174310170675, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
+--- !u!1 &792264052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7840390343321438472, guid: 28fbc280ae3695542bed829c3c9f7d54,
+    type: 3}
+  m_PrefabInstance: {fileID: 792264051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &792264053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792264052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f458ef93a90c043b15cdc8cdf2c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 792264052}
+  prefabs:
+  - {fileID: 5997140803741880293, guid: fb237376a2f84f34b88924de8d9ef2e0, type: 3}
+  - {fileID: 7497638002668326863, guid: cbee0fffd3b69f44485bc56d39248a6a, type: 3}
+  - {fileID: 9170788181714542441, guid: 5796ffc6fcdd47d4babcac2f7da98a72, type: 3}
+  - {fileID: 2175077490921917704, guid: f09b8e7620edb5c4b881c85ed757f452, type: 3}
+  cooldown: 0.4
 --- !u!1 &798961974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4535323949748743363, guid: 33b2346dd75dbcf479fe8f5db8c6180b,
@@ -5083,6 +5114,11 @@ PrefabInstance:
     - target: {fileID: 6738712830362553111, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204098198639287781, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
