@@ -163,6 +163,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7589855976957382298, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply Holder 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8270042434258595311, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a, type: 3}

@@ -29,12 +29,14 @@ public class SupplyStation : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        timeStamp = supp.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
             supp.SwitchMenu();
     }
 
     void OnTriggerExit(Collider other)
     {
+        timeStamp = supp.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<SuppliesAvailable>().isOpen == true)
             supp.CloseMenu();
     }

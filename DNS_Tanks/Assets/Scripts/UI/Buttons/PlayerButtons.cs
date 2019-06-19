@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerButtons : MonoBehaviour
 {
-    SuppliesAvailable p;
+    SuppliesAvailable suppliesAvailable;
     Respawn respawn;
     GameObject player;
     GameObject parent;
     List<GameObject> prefabs;
+    int playerNumber;
 
 
     public void Switch(int vehType)
@@ -28,13 +29,17 @@ public class PlayerButtons : MonoBehaviour
     public void ChooseSupply(int supply)
     {
         player = GetComponentInParent<CurrentVehicle>().CurrentVehicleObject();
-        if (gameObject.GetComponent<SuppliesAvailable>() && gameObject.GetComponentInParent<SuppliesAvailable>().isOpen == true)
+        playerNumber = player.GetComponentInChildren<PlayerFiring>().playerNumber;
+        suppliesAvailable = gameObject.GetComponent<SuppliesAvailable>();
+        
+        ///////////////////////////////////////////////////////////////////////////
+        if (suppliesAvailable && suppliesAvailable.isOpen == true)
         {
-            prefabs = gameObject.GetComponent<SuppliesAvailable>().prefabs;
+            Vector3 position = GameObject.FindGameObjectWithTag("Supply Holder " + playerNumber).transform.position;
+            prefabs = suppliesAvailable.prefabs;
             GameObject prefab = prefabs[supply];
-            Vector3 offset = new Vector3(-3f, 1.25f, 3f);
-            player.GetComponent<Vehicle>().SetSupply(player, offset, supply, prefab);
-            gameObject.GetComponent<SuppliesAvailable>().SwitchMenu();
+            player.GetComponent<Vehicle>().SetSupply(player, position, supply, prefab);
+            suppliesAvailable.SwitchMenu();
         }
     }
 

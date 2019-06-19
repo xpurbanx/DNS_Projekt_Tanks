@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("PlayerButtons")]
 
 public class PlayerFiring : MonoBehaviour
 {

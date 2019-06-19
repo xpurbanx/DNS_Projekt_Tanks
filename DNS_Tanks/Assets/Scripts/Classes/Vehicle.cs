@@ -73,7 +73,7 @@ public class Vehicle : MonoBehaviour
     void Start()
     {
         vehType = vehicleType;
-        switch(vehType)
+        switch (vehType)
         {
             case 1:
                 damage = damageMG;
@@ -104,7 +104,7 @@ public class Vehicle : MonoBehaviour
         }
 
         if (damage == 0f)
-            Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
+            Debug.Log("Pojazd \"" + gameObject.name + "\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }
 
     private void DestroyVehicle()
@@ -147,9 +147,31 @@ public class Vehicle : MonoBehaviour
             DestroyVehicle();
     }
 
-    public void SetSupply(GameObject plr, Vector3 off, int supp, GameObject pref)//, Vector3 pos, Quaternion rot, Transform tf)
+    public void SetSupply(GameObject plr, Vector3 pos, int supp, GameObject pref)//, Vector3 pos, Quaternion rot, Transform tf)
     {
-        Instantiate(pref, plr.transform.position + off, transform.rotation, transform); // do naprawy
+        Instantiate(pref, pos, transform.rotation, transform);
+        Transform supply = gameObject.transform.GetChild(1);
+
+
+        ////////////////////////////////////////////////////////
+        MeshRenderer gameObjectRenderer = supply.GetComponent<MeshRenderer>(); // Deklaracja wszystkich parametrów potrzebnych do ustawienia przezroczystości
+        Material newMaterial;
+        newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material;
+        gameObjectRenderer.material = newMaterial;
+
+        supply.GetComponent<BoxCollider>().enabled = false; // Ustawienie wieżyczki/obstacla przezroczystym, wyłączenie kolizji, czyli utworzenie "duszka"
+
+        if (supply.GetComponent<AITower>())
+            supply.GetComponent<AITower>().enabled = false;
+
+        if (supply.transform.GetChild(0))
+        {
+            supply.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = newMaterial;
+            supply.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = newMaterial;
+        }
+
+
+
     }
 }
 

@@ -29,12 +29,14 @@ public class VehicleSwitch : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && (playerInput.XButton() && timeStamp < Time.time))
+        timeStamp = vehSwitch.timeStamp;
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
             vehSwitch.SwitchMenu();
     }
 
     void OnTriggerExit(Collider other)
     {
+        timeStamp = vehSwitch.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == true)
             vehSwitch.CloseMenu();
     }
