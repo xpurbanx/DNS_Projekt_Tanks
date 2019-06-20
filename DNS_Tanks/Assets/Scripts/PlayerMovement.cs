@@ -14,6 +14,14 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
+    // Kod wymagany do blokady sterowania
+
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     // Prywatne atrybuty zmieniane w Vehicle.cs
     internal float speed;
     internal float turnSpeed;

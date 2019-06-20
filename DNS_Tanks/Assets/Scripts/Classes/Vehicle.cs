@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
-[assembly: InternalsVisibleTo("Player1Buttons")]
+[assembly: InternalsVisibleTo("PlayerButtons")]
 
 public class Vehicle : MonoBehaviour
 {
@@ -53,10 +53,12 @@ public class Vehicle : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;
     private PlayerRotateTurret playerRotateTurret;
+    private PlayerInputSetup playerInput;
     private Rigidbody rb;
 
     private void Awake()
     {
+        playerInput = gameObject.GetComponentInParent<PlayerInputSetup>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
         playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
@@ -73,7 +75,7 @@ public class Vehicle : MonoBehaviour
     void Start()
     {
         vehType = vehicleType;
-        switch(vehType)
+        switch (vehType)
         {
             case 1:
                 damage = damageMG;
@@ -104,14 +106,14 @@ public class Vehicle : MonoBehaviour
         }
 
         if (damage == 0f)
-            Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
+            Debug.Log("Pojazd \"" + gameObject.name + "\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }
 
     private void DestroyVehicle()
     {
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         Destroy(gameObject);
-        GetComponentInParent<Respawn>().RespawnPlayer();
+        GetComponentInParent<Respawn>().Launch();
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
@@ -145,6 +147,87 @@ public class Vehicle : MonoBehaviour
     {
         if (hp <= 0)
             DestroyVehicle();
+    }
+
+    public SuppliesAvailable SuppliesAvailable()
+    {
+        SuppliesAvailable suppliesAvailable = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<SuppliesAvailable>();
+        return suppliesAvailable;
+    }
+
+    void InstantiateSupply(Vector3 pos, GameObject pref)
+    {
+        Instantiate(pref, pos, transform.rotation, transform);
+    }
+
+    public void SetSupply(Vector3 pos, GameObject pref)
+    {
+        Lock().shootingLOCKED = true;
+        SuppliesAvailable().hasSupply = true;
+        InstantiateSupply(pos, pref); // Utworzenie prefaba supply'a w przed pojazdem
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+
+        Material newMaterial; // Utworzenie nowego materiału
+        newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
+
+        supply.tag = "Untagged"; // Usunięcie taga w celu ignorowania supply'a przez wrogie wieżyczki
+
+        MeshRenderer[] renderers = supply.transform.GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i <= renderers.Length - 1; i++)
+        {
+            renderers[i].material = newMaterial;
+            renderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Nadanie przezroczystości supply'owi oraz wyłączenie cieni
+        }
+
+        BoxCollider[] colliders = supply.transform.GetComponentsInChildren<BoxCollider>();
+        for (int i = 0; i <= colliders.Length - 1; i++)
+        {
+            colliders[i].isTrigger = true; // Przełączenie kolizji na trigger
+        }
+
+        if (supply.GetComponent<AITower>() != null) // Wyłączenie właściwości i AI, jeśli wybraliśmy wieżyczkę
+        {
+            supply.GetComponent<AITower>().enabled = false;
+            supply.GetComponent<Building>().enabled = false;
+        }
+
+        StartCoroutine(Wait());
+        
+    }
+
+    public void PutSupply()
+    {
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+        Vector3 supplyPos = new Vector3(supply.position.x, 0, supply.position.z);
+        GameObject chosenSupply = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<PlayerButtons>().prefab;
+        InstantiateSupply(supplyPos, chosenSupply);
+
+        Destroy(supply.gameObject); // Zniszczenie "duszka"
+        supply = gameObject.transform.GetChild(1);
+        //supply.transform.SetParent(GameObject.FindGameObjectWithTag("GameController").transform);
+        transform.GetChild(1).SetParent(GameObject.FindGameObjectWithTag("GameController").transform);
+        SuppliesAvailable().hasSupply = false;
+        SuppliesAvailable().canBeSet = false;
+    }
+
+    public IEnumerator Wait()
+    {
+        SuppliesAvailable().canBeSet = false;
+        yield return new WaitForSecondsRealtime(1);
+        Lock().shootingLOCKED = false;
+        SuppliesAvailable().canBeSet = true;
+    }
+
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
+    private void Update()
+    {
+        if (SuppliesAvailable().hasSupply && playerInput.AButton() && SuppliesAvailable().canBeSet)
+            PutSupply();
     }
 }
 

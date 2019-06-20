@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[assembly: InternalsVisibleTo("VehSwitchAvailable")]
+[assembly: InternalsVisibleTo("SuppliesAvailable")]
 
-public class VehicleSwitch : MonoBehaviour
+public class SupplyStation : MonoBehaviour
 {
     public int playerNumber = 0;
     public double cooldown = 3;
-    private double timeStamp;
+    internal double timeStamp;
 
     internal GameObject[] withPlayerTag;
     internal GameObject player;
@@ -16,7 +16,7 @@ public class VehicleSwitch : MonoBehaviour
     GameObject vehicle;
 
     PlayerInputSetup playerInput;
-    VehSwitchAvailable vehSwitch;
+    SuppliesAvailable supp;
 
     private Vector3 center = Vector3.zero;
     public float radius = 0.5f;
@@ -29,16 +29,16 @@ public class VehicleSwitch : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        timeStamp = vehSwitch.timeStamp;
+        timeStamp = supp.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
-            vehSwitch.SwitchMenu();
+            supp.SwitchMenu();
     }
 
     void OnTriggerExit(Collider other)
     {
-        timeStamp = vehSwitch.timeStamp;
-        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == true)
-            vehSwitch.CloseMenu();
+        timeStamp = supp.timeStamp;
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<SuppliesAvailable>().isOpen == true)
+            supp.CloseMenu();
     }
 
     void RadiusSetUp()
@@ -57,8 +57,8 @@ public class VehicleSwitch : MonoBehaviour
             {
                 vehicle = withPlayerTag[i];
                 playerInput = vehicle.GetComponent<PlayerInputSetup>();
-                vehSwitch = vehicle.GetComponentInChildren<VehSwitchAvailable>();
-                timeStamp = vehSwitch.timeStamp;
+                supp = vehicle.GetComponentInChildren<SuppliesAvailable>();
+                timeStamp = supp.timeStamp;
             }
         }
     }

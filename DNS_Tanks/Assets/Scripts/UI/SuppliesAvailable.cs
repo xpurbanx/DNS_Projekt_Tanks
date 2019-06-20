@@ -3,28 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("OverlayEnable")]
-[assembly: InternalsVisibleTo("VehicleSwitch")]
+[assembly: InternalsVisibleTo("SupplyStation")]
 
-public class VehSwitchAvailable : MonoBehaviour
+public class SuppliesAvailable : MonoBehaviour
 {
     public GameObject menu;
+    public List<GameObject> prefabs;
     public double cooldown = 3;
     internal double timeStamp;
     private PlayerInputSetup playerInput;
 
+    internal bool canBeSet = false;
+    internal bool hasSupply = false;
     internal bool menuAvailable;
     internal bool closeNow;
     internal bool isOpen = false;
-
-    public void Start()
-    {
-        playerInput = GetComponentInParent<PlayerInputSetup>();
-    }
 
     private LockActions Lock()
     {
         LockActions lockActions = GetComponentInParent<LockActions>();
         return lockActions;
+    }
+
+    public void Start()
+    {
+        playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
     public void OpenMenu()
