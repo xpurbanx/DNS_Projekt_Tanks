@@ -22,6 +22,7 @@ TagManager:
   - Supply Holder 1
   - Supply Holder 2
   - Transparent
+  - Towers
   layers:
   - Default
   - TransparentFX

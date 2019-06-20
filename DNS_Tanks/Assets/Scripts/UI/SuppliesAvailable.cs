@@ -13,9 +13,17 @@ public class SuppliesAvailable : MonoBehaviour
     internal double timeStamp;
     private PlayerInputSetup playerInput;
 
+    internal bool canBeSet = false;
+    internal bool hasSupply = false;
     internal bool menuAvailable;
     internal bool closeNow;
     internal bool isOpen = false;
+
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
 
     public void Start()
     {
@@ -25,7 +33,7 @@ public class SuppliesAvailable : MonoBehaviour
     public void OpenMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();
@@ -41,7 +49,7 @@ public class SuppliesAvailable : MonoBehaviour
     public void CloseMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();
@@ -57,7 +65,7 @@ public class SuppliesAvailable : MonoBehaviour
     public void SwitchMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();

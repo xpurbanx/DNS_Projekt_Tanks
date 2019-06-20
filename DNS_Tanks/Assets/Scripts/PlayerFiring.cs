@@ -20,6 +20,12 @@ public class PlayerFiring : MonoBehaviour
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
@@ -29,8 +35,12 @@ public class PlayerFiring : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Fire();
-        DrawTrajectory();
+        if (Lock().shootingLocked == false && Lock().allLocked == false)
+        {
+            Fire();
+            DrawTrajectory();
+        }
+
     }
 
     private void Fire()

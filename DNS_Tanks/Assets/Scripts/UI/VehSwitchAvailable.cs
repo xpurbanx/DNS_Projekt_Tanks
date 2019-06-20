@@ -21,10 +21,16 @@ public class VehSwitchAvailable : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     public void OpenMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();
@@ -40,7 +46,7 @@ public class VehSwitchAvailable : MonoBehaviour
     public void CloseMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();
@@ -56,7 +62,7 @@ public class VehSwitchAvailable : MonoBehaviour
     public void SwitchMenu()
     {
         timeStamp = Time.time + cooldown;
-        if (menu != null)
+        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
             Animator animator = menu.GetComponent<Animator>();

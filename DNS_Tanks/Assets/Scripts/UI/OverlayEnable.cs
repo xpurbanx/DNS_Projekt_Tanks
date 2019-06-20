@@ -14,12 +14,16 @@ public class OverlayEnable : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     public void Update()
     {
-
-        if (playerInput.BButton() && timeStamp < Time.time)
-            OpenPanel();            
-            
+        if (playerInput.BButton() && timeStamp < Time.time && Lock().menusLocked == false && Lock().allLocked == false)
+            OpenPanel();
     }
 
     public void OpenPanel()

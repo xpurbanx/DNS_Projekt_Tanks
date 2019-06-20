@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[assembly: InternalsVisibleTo("Vehicle")]
 
 public class PlayerButtons : MonoBehaviour
 {
     SuppliesAvailable suppliesAvailable;
     Respawn respawn;
-    GameObject player;
-    GameObject parent;
+    internal GameObject player, prefab, parent;
     List<GameObject> prefabs;
     int playerNumber;
 
@@ -33,12 +34,12 @@ public class PlayerButtons : MonoBehaviour
         suppliesAvailable = gameObject.GetComponent<SuppliesAvailable>();
         
         ///////////////////////////////////////////////////////////////////////////
-        if (suppliesAvailable && suppliesAvailable.isOpen == true)
+        if (suppliesAvailable != null && suppliesAvailable.isOpen == true)
         {
             Vector3 position = GameObject.FindGameObjectWithTag("Supply Holder " + playerNumber).transform.position;
             prefabs = suppliesAvailable.prefabs;
-            GameObject prefab = prefabs[supply];
-            player.GetComponent<Vehicle>().SetSupply(player, position, supply, prefab);
+            prefab = prefabs[supply];
+            player.GetComponent<Vehicle>().SetSupply(position, prefab);
             suppliesAvailable.SwitchMenu();
         }
     }

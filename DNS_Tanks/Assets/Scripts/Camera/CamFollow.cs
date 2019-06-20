@@ -69,6 +69,12 @@ public class CamFollow : MonoBehaviour
 
     }
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     void LateUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
@@ -76,6 +82,7 @@ public class CamFollow : MonoBehaviour
         {
             transform.position = player.transform.position + offset;
 
+            if(Lock().aimingLocked == false && Lock().allLocked == false)
             RotateCamera();
         }
   

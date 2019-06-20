@@ -24,6 +24,11 @@ public class PlayerInputSetup : MonoBehaviour
 
     string rightAnalogButton;
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponent<LockActions>();
+        return lockActions;
+    }
 
     protected void setControls()
     {
@@ -56,16 +61,21 @@ public class PlayerInputSetup : MonoBehaviour
     }
     public bool AButton()
     {
-        return Input.GetButton(aButton);
-        //return false;
+        if (Lock().shootingLOCKED == false)
+            return Input.GetButton(aButton);
+        else return false;
     }
     public bool BButton()
     {
-        return Input.GetButton(bButton);
+        if (Lock().menusLOCKED == false)
+            return Input.GetButton(bButton);
+        else return false;
     }
     public bool XButton()
     {
-        return Input.GetButton(xButton);
+        if (Lock().menusLOCKED == false)
+            return Input.GetButton(xButton);
+        else return false;
     }
     public bool YButton()
     {
