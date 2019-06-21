@@ -42,6 +42,11 @@ public class PlayerFiring : MonoBehaviour
             Fire();
             DrawTrajectory();
         }
+        if(timeStamp <= Time.time + 0.2)
+        {
+            trajectory.startColor = Color.green;
+            trajectory.endColor = Color.green;
+        }
 
     }
 
@@ -52,7 +57,9 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
-            
+            trajectory.startColor = Color.red;
+            trajectory.endColor = Color.red;
+
             animator.SetTrigger("Shot");
 
             // Tworzenie pocisku
@@ -85,5 +92,6 @@ public class PlayerFiring : MonoBehaviour
         trajectory.positionCount = 2;
         trajectory.SetPosition(0, bulletOut.transform.position);
         trajectory.SetPosition(1, bulletOut.transform.forward * 80 + transform.position);
+
     }
 }
