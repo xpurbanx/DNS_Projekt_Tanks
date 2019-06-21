@@ -192,20 +192,21 @@ public class Vehicle : MonoBehaviour
         }
 
         StartCoroutine(Wait());
-        
+
     }
 
     public void PutSupply()
     {
-        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a jako duszka
         Vector3 supplyPos = new Vector3(supply.position.x, 0, supply.position.z);
         GameObject chosenSupply = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<PlayerButtons>().prefab;
-        InstantiateSupply(supplyPos, chosenSupply);
 
-        Destroy(supply.gameObject); // Zniszczenie "duszka"
+        Instantiate(chosenSupply, supplyPos, supply.transform.rotation);
+
+        ActiveEntities.Instance.AddToList(supply.tag, supply.gameObject);
+        supply.position = supplyPos;
         supply = gameObject.transform.GetChild(1);
-        //supply.transform.SetParent(GameObject.FindGameObjectWithTag("GameController").transform);
-        transform.GetChild(1).SetParent(GameObject.FindGameObjectWithTag("GameController").transform);
+        Destroy(supply.gameObject); // Zniszczenie "duszka"
         SuppliesAvailable().hasSupply = false;
         SuppliesAvailable().canBeSet = false;
     }

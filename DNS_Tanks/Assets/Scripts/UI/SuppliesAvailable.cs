@@ -32,18 +32,22 @@ public class SuppliesAvailable : MonoBehaviour
 
     public void OpenMenu()
     {
-        timeStamp = Time.time + cooldown;
-        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
+        if (gameObject.GetComponentInParent<Respawn>().CurrentVeh().GetComponent<Vehicle>().vehType == 1)
         {
-
-            Animator animator = menu.GetComponent<Animator>();
-            if (animator != null)
+            timeStamp = Time.time + cooldown;
+            if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
             {
-                isOpen = animator.GetBool("open");
-                animator.SetBool("open", true);
-                isOpen = true;
+
+                Animator animator = menu.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    isOpen = animator.GetBool("open");
+                    animator.SetBool("open", true);
+                    isOpen = true;
+                }
             }
         }
+
     }
 
     public void CloseMenu()
@@ -64,17 +68,21 @@ public class SuppliesAvailable : MonoBehaviour
 
     public void SwitchMenu()
     {
-        timeStamp = Time.time + cooldown;
-        if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
+        if (gameObject.GetComponentInParent<Respawn>().CurrentVeh().GetComponent<Vehicle>().vehType == 1)
         {
-
-            Animator animator = menu.GetComponent<Animator>();
-            if (animator != null)
+            timeStamp = Time.time + cooldown;
+            if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
             {
-                isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
-                isOpen = !isOpen;
+
+                Animator animator = menu.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    isOpen = animator.GetBool("open");
+                    animator.SetBool("open", !isOpen);
+                    isOpen = !isOpen;
+                }
             }
         }
+
     }
 }
