@@ -1196,7 +1196,6 @@ GameObject:
   - component: {fileID: 168131589797091140}
   - component: {fileID: 1780648723698815657}
   - component: {fileID: 6717644252347808655}
-  - component: {fileID: 8662565544011712907}
   m_Layer: 0
   m_Name: TurretMain
   m_TagString: Untagged
@@ -1211,15 +1210,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7401818625051279331}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.030453479, y: -0.7973066, z: -0.19342598}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.030453479, y: -0.202, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4850178426121285297}
   - {fileID: 7638418136906975874}
   m_Father: {fileID: 8397384441794932828}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &168131589797091140
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1279,19 +1278,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: e56b100970188e548a21a9a435ea4e97, type: 3}
---- !u!114 &8662565544011712907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401818625051279331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd8fc801603e9945879f54ec884e9ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 7401818625051279331}
 --- !u!1 &7523981727309690836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8397384441794932828}
+  - component: {fileID: 520767549689096553}
   m_Layer: 0
   m_Name: TankTurret
   m_TagString: Untagged
@@ -1553,14 +1540,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8985171130085590194}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.02768898, y: 0.35, z: 0.14}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02768898, y: 0.356, z: 0.702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1637452410233926161}
   m_Father: {fileID: 781859274110492627}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &520767549689096553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985171130085590194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd8fc801603e9945879f54ec884e9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 8985171130085590194}
 --- !u!1001 &4768721950960327936
 PrefabInstance:
   m_ObjectHideFlags: 0
