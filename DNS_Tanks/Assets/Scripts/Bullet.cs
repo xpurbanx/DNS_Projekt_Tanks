@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Vehicle")]
 [assembly: InternalsVisibleTo("Building")]
@@ -36,6 +35,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        
         if(playerNumber == 1)
         {
             trail.endColor = Color.blue;
@@ -84,6 +84,12 @@ public class Bullet : MonoBehaviour
         return damage;
     }
 
+    private void SpawnParticles()
+    {
+        var particles = Instantiate(particleEffect);
+        particles.transform.position = particleEffect.transform.position;
+        particles.Play();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -108,9 +114,8 @@ public class Bullet : MonoBehaviour
             else
                 vehicle.Damage(DealDamage());
 
-
-            particleEffect.Play();
-            Destroy(gameObject, 1f);
+            SpawnParticles();
+            Destroy(gameObject);
         }
 
         // Jeżeli uderzony obiekt jest budynkiem
@@ -121,13 +126,13 @@ public class Bullet : MonoBehaviour
 
             if (building.playerNumber == playerNumber) return;
             building.Damage(DealDamage());
-            particleEffect.Play();
-            Destroy(gameObject, 1f);
+            SpawnParticles();
+            Destroy(gameObject);
 
         }
         else
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 
