@@ -291,6 +291,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System Bullet End
       objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.92549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4338962939732455731, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
       propertyPath: m_LocalPosition.x
