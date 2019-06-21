@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerRotateTurret : MonoBehaviour
 {
     public GameObject turret;
-    internal float turnTurretSpeed;
+    internal float turnTurretSpeed = 20f;
 
     private PlayerInputSetup playerInput;
     private float turnTurretInputValue;
@@ -15,7 +15,10 @@ public class PlayerRotateTurret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInput = GetComponent<PlayerInputSetup>();
+        playerInput = GetComponentInParent<PlayerInputSetup>();
+        if (playerInput == null)
+            Debug.Log("BRAK PLAYERINPUT DLA PlayerRotateTurret");
+       // turret = this.gameObject;
     }
 
     // Update is called once per frame
@@ -30,17 +33,19 @@ public class PlayerRotateTurret : MonoBehaviour
         TurnTurret();
     }
 
+ 
     private void TurnTurret()
     {
+        
         // Stopień skręcania
         float turnTurret = turnTurretInputValue * turnTurretSpeed * Time.deltaTime * 5f;
-
+       // Debug.Log("TURNING  " + turnTurretInputValue);
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        //Quaternion turnRotation = Quaternion.Euler(-90f, 0f, turnTurret);
+        //Quaternion turnRotation = Quaternion.Euler(-90f, 0f, turnTurret); 
         Vector3 rotation = new Vector3 (0f, 0f, turnTurret);
         //turret.MoveRotation(rigidbody.rotation * turnRotation);
-        turret.transform.Rotate(rotation);
+        transform.Rotate(rotation);
         return;
     }
 }

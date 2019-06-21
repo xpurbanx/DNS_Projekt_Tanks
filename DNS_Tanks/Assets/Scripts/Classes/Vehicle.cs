@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
+[assembly: InternalsVisibleTo("Player1Buttons")]
 
 public class Vehicle : MonoBehaviour
 {
@@ -64,6 +65,10 @@ public class Vehicle : MonoBehaviour
 
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
+    private void OnEnable()
+    {
+        ActiveEntities.Instance.AddToList(this.tag, this.gameObject);
+    }
 
     void Start()
     {
@@ -102,17 +107,19 @@ public class Vehicle : MonoBehaviour
             Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }
 
-    private void Update()
+    private void DestroyVehicle()
     {
-        if (hp <= 0)
-            Die();
-        Debug.Log(gameObject.name+": "+ hp);
-    }
-
-    private void Die()
-    {
+        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         Destroy(gameObject);
         GetComponentInParent<Respawn>().RespawnPlayer();
+        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
+    }
+
+    internal void ForVehicleChooseDestroy()
+    {
+        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        Destroy(gameObject);
+        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
     public float GetHealth()
@@ -126,6 +133,18 @@ public class Vehicle : MonoBehaviour
         currentSpeed = (int)rb.velocity.magnitude;
         //currentSpeed = System.Math.Round(currentSpeed, 2);
         return currentSpeed;
+    }
+
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        CheckIfDestroyed();
+    }
+
+    private void CheckIfDestroyed()
+    {
+        if (hp <= 0)
+            DestroyVehicle();
     }
 }
 

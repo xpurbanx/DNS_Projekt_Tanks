@@ -9,9 +9,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     internal PlayerFiring playerFiring;
+    internal AITower towerFiring;
+    internal Vector3 forward;
     internal float startVelocity = 10f;
     internal int playerNumber;
-    //internal float damage;
+    internal int firedBy; // ID pozjazdu, który wystrzelił pocisk
+
+    private TrailRenderer trail;
 
     private Vehicle vehicle;
     private Building building;
@@ -24,6 +28,37 @@ public class Bullet : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
+    }
+
+    void Start()
+    {
+        if(playerNumber == 1)
+        {
+            trail.endColor = Color.blue;
+            trail.startColor = Color.blue;
+        }
+        else if (playerNumber == 2)
+        {
+            trail.endColor = Color.red;
+            trail.startColor = Color.red;
+        }
+        else
+        {
+            trail.endColor = Color.white;
+            trail.startColor = Color.white;
+        }
+
+        // Ustawienie rozmiaru pocisku w zależności od pojazdu
+        switch (firedBy)
+        {
+            default:
+                break;
+            case 1:
+                Vector3 smaller = new Vector3(0.4f, 0.4f, 0.4f);
+                gameObject.transform.localScale = smaller;
+                break;
+        }
     }
 
     private void FixedUpdate()
@@ -31,31 +66,58 @@ public class Bullet : MonoBehaviour
         Fly();
     }
 
+    private float DealDamage()
+    {
+        float damage;
+        if(playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
+        {
+            damage = towerFiring.damage;
+        }
+        else
+        {
+            damage = playerFiring.damage;
+        }
+        return damage;
+    }
+
+
+
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Shield")
+        {
+            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
+        }
+
+
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
-            // Jeżeli wykryliśmy uderzenie w samego siebie
-            if (collision.gameObject.GetComponent<Vehicle>().playerNumber == playerNumber) return;
-
             vehicle = collision.gameObject.GetComponent<Vehicle>();
-            vehicle.hp -= playerFiring.damage;
+
+            // Jeżeli wykryliśmy uderzenie w samego siebie
+            if (vehicle.playerNumber == playerNumber) return;
+
+            // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
+            if (firedBy == 1 && vehicle.vehicleType == 2)
+                return;
+            else
+                vehicle.Damage(DealDamage());
+
             Destroy(gameObject);
         }
 
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
-            if (collision.gameObject.GetComponent<Building>().playerNumber != playerNumber)
-            {
-                building = collision.gameObject.GetComponent<Building>();
-                building.hp -= playerFiring.damage;
-            }
+            building = collision.gameObject.GetComponent<Building>();
+
+            if (building.playerNumber == playerNumber) return;
+
+            building.Damage(DealDamage());
 
             Destroy(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
@@ -67,14 +129,14 @@ public class Bullet : MonoBehaviour
         // Pocisk porusza sie z prędkością początkową startVelocity i z każdą sekundę jego prędkość obecna maleje
         if (!wasIFired)
         {
-            Vector3 movement = transform.forward * startVelocity / Time.deltaTime;
+            Vector3 movement = forward * startVelocity / Time.deltaTime;
             rigidbody.AddForce(movement);
             wasIFired = true;
-
         }
 
         // Sprawdzanie czy pocisk już "Wylądował"/nie porusza się - jeżeli tak, to zniszcz
-        CheckToDestroy();
+        //Wykomentowalem bo nie dzialalo z tym, bez tego pociski tez znikaja
+        //CheckToDestroy();
     }
 
     private void CheckToDestroy()

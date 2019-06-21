@@ -18,6 +18,11 @@ public class PlayerInputSetup : MonoBehaviour
     string xButton;
     string yButton;
     string trigger;
+    string leftTrigger;
+    string rightTrigger;
+    string leftBumper;
+
+    string rightAnalogButton;
 
 
     protected void setControls()
@@ -36,9 +41,13 @@ public class PlayerInputSetup : MonoBehaviour
        xButton = "J" + playerNumber + "X_Button";
        yButton = "J" + playerNumber + "Y_Button";
        trigger = "J" + playerNumber + "_Trigger";
+       leftTrigger = "J" + playerNumber + "_LeftTrigger";
+       rightTrigger = "J" + playerNumber + "_RightTrigger";
+        leftBumper = "J" + playerNumber + "_LeftBumper";
 
-       JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
+        JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
        KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
+       rightAnalogButton = "J" + playerNumber + "_RightAnalogButton";
 
     }
     private void Start()
@@ -62,6 +71,10 @@ public class PlayerInputSetup : MonoBehaviour
     {
         return Input.GetButton(yButton);
     }
+    public bool RightAnalogButton()
+    {
+        return Input.GetButton(rightAnalogButton);
+    }
     public float Horizontal()
     {
         float r = 0.0f;
@@ -69,10 +82,10 @@ public class PlayerInputSetup : MonoBehaviour
         r += Input.GetAxis(KHorizontal);
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
-    public float Vertical()
+    public float VerticalK()
     {
         float r = 0.0f;
-        r += Input.GetAxis(JVertical);
+        //r += Input.GetAxis(JVertical);
         r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -1.0f, 1.0f);
     }
@@ -87,8 +100,28 @@ public class PlayerInputSetup : MonoBehaviour
     {
         float r = 0.0f;
         r += Input.GetAxis(trigger);
-        r += Input.GetAxis(KVertical);
+       // r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -10.0f, 10.0f);
     }
+    public float LeftTrigger()
+    {
+        float r = 0.0f;
+        r += Input.GetAxis(leftTrigger);
+        // r += Input.GetAxis(KVertical);
+        return Mathf.Clamp(r, -10.0f, 10.0f);
+    }
+    public float RightTrigger()
+    {
+        float r = 0.0f;
+        r += Input.GetAxis(rightTrigger);
+        // r += Input.GetAxis(KVertical);
+        return Mathf.Clamp(r, -10.0f, 10.0f);
+    }
+
+    public bool LeftBumper()
+    {
+        return Input.GetButton(leftBumper);
+    }
+
 
 }

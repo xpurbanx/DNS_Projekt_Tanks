@@ -1,6 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
 
@@ -8,6 +6,7 @@ public class Building : MonoBehaviour
 {
     // PRYWATNE ATRYBUTY KLASY W TYM PLIKU:
     internal float hp;
+    internal bool hasFlag;
 
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Tooltip("Wytrzymałość budynku")]
@@ -16,27 +15,51 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
-    // Czy budynek został zniszczony
-    private bool isDestroyed = false;
-
+    private SpawnFractured fractured; 
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
+        fractured = GetComponent<SpawnFractured>();
+        ActiveEntities.Instance.AddToList(this.tag, this.gameObject);
     }
-
-    void Update()
+    private void OnEnable()
     {
-        // Jeżeli budynek został właśnie zniszczony
-        if (!isDestroyed && hp <= 0)
-        {
-            DestroyBuilding();
-        }
+        
     }
 
     private void DestroyBuilding()
     {
+        // Usuwa budynek z listy budynków
+        if (hasFlag)
+        {
+            //GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().DeleteBuildingFromArray(gameObject);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<FlagManager>().SpawnFlag(gameObject);
+        }
+
         // Zamienia budynek na kawałki, plus wywołuje dodatkowe efekty, particle
-        gameObject.GetComponent<SpawnFractured>().SpawnFracturedObject();
+        if (fractured != null)
+        {
+            fractured.SpawnFracturedObject();
+        }
+
+        Destroy(gameObject);
+        
+    }
+
+    private void CheckIfDestroyed()
+    {
+        if (hp <= 0)
+        {
+            DestroyBuilding();
+            ActiveEntities.Instance.RemoveFromList(tag, gameObject);
+        }
+            
+    }
+
+    public void Damage(float damage)
+    {
+        hp -= damage;
+        CheckIfDestroyed();
     }
 }

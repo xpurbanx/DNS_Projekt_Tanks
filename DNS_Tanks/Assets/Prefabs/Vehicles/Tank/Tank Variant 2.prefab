@@ -42,25 +42,25 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2847050966479108408, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050967884165641, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2784706635717078623, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2847050966440519777, guid: 4824674cae42b9a4bbb262af5ad8382f,
+    - target: {fileID: 2784706635717078623, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2847050966440519804, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: be666be9a54f221459a1d4a2d1425e46, type: 2}
-    - target: {fileID: 2847050967884165641, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2847050967885851312, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
@@ -77,7 +77,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2847050966476249662, guid: 4824674cae42b9a4bbb262af5ad8382f,
+    - target: {fileID: 2847050966440519777, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_TagString
       value: Player 2
@@ -102,16 +102,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2847050966386694651, guid: 4824674cae42b9a4bbb262af5ad8382f,
+    - target: {fileID: 2847050966440519804, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be666be9a54f221459a1d4a2d1425e46, type: 2}
+    - target: {fileID: 2847050966476249662, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2847050966476249657, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9a32e95d015510746a75a74e83cb82ab, type: 2}
     - target: {fileID: 2847050966672645831, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -128,10 +128,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9205059971933565700, guid: 1c285016261d9fb41adb9b476563f493,
         type: 3}
+    - target: {fileID: 2847050966386694651, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966476249657, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a32e95d015510746a75a74e83cb82ab, type: 2}
     - target: {fileID: 2847050966386694646, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eacc4d8db941c0545b967c399d108f63, type: 2}
+    - target: {fileID: 2824777725202945385, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4824674cae42b9a4bbb262af5ad8382f, type: 3}

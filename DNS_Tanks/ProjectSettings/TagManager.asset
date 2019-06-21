@@ -12,6 +12,11 @@ TagManager:
   - FlagStation 2
   - Player 1 Spawn
   - Player 2 Spawn
+  - Terrain
+  - Shield
+  - Empire
+  - Menu 1
+  - Menu 2
   layers:
   - Default
   - TransparentFX
@@ -23,8 +28,8 @@ TagManager:
   - 
   - PostProcessing
   - Players
-  - 
-  - 
+  - Player 1
+  - Player 2
   - 
   - 
   - 
