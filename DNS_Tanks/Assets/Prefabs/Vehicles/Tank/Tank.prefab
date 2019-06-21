@@ -179,17 +179,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.3298304
-        value: 0.03278388
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5824632
-        value: 0
+        time: 0.9929199
+        value: 0.049179077
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -594,6 +585,7 @@ MonoBehaviour:
   firingCooldown: 1.5
   turnTurretSpeed: 30
   bulletVelocity: 40
+  bulletRange: 30
 --- !u!114 &9198968313791921625
 MonoBehaviour:
   m_ObjectHideFlags: 0

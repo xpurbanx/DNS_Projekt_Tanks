@@ -277,6 +277,7 @@ MonoBehaviour:
   firingCooldown: 0.2
   turnTurretSpeed: 45
   bulletVelocity: 30
+  bulletRange: 30
 --- !u!114 &6212808171068318676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,8 +967,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7298246
-        value: 0
+        time: 1
+        value: 0.06556702
         inSlope: 0
         outSlope: 0
         tangentMode: 0

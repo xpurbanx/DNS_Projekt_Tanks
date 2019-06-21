@@ -26,8 +26,12 @@ public class Bullet : MonoBehaviour
     private new Rigidbody rigidbody;
     private bool wasIFired = false;
 
+    Vector3 startPos;
+    float range;
+
     void Awake()
     {
+
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
         trail = GetComponent<TrailRenderer>();
@@ -36,6 +40,9 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        if (playerFiring == null) range = towerFiring.range;
+        else range = playerFiring.GetRange();
+        startPos = gameObject.transform.position;
         if(playerNumber == 1)
         {
             trail.endColor = Color.blue;
@@ -67,6 +74,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         Fly();
+        CheckToDestroy();
     }
 
     private float DealDamage()
@@ -152,7 +160,8 @@ public class Bullet : MonoBehaviour
         // uznajemy go za taki, który już uderzył w inny obiekt (np. czołg)
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
-        if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+        //if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+        if ((startPos - transform.position).magnitude > range)
             Destroy(gameObject);
     }
 }
