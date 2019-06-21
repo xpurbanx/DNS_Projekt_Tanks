@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Vehicle")]
 [assembly: InternalsVisibleTo("Building")]
@@ -19,6 +20,7 @@ public class Bullet : MonoBehaviour
 
     private Vehicle vehicle;
     private Building building;
+    public ParticleSystem particleEffect;
 
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
@@ -29,6 +31,7 @@ public class Bullet : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
         trail = GetComponent<TrailRenderer>();
+        particleEffect = GetComponentInChildren<ParticleSystem>();
     }
 
     void Start()
@@ -75,52 +78,56 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+
             damage = playerFiring.damage;
         }
         return damage;
     }
 
 
-
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.tag == "Shield")
         {
-            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
+            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija            
         }
 
 
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
+            
             vehicle = collision.gameObject.GetComponent<Vehicle>();
 
             // Jeżeli wykryliśmy uderzenie w samego siebie
             if (vehicle.playerNumber == playerNumber) return;
-
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
             if (firedBy == 1 && vehicle.vehicleType == 2)
                 return;
             else
                 vehicle.Damage(DealDamage());
 
-            Destroy(gameObject);
+
+            particleEffect.Play();
+            Destroy(gameObject, 1f);
         }
 
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
+            
             building = collision.gameObject.GetComponent<Building>();
 
             if (building.playerNumber == playerNumber) return;
-
             building.Damage(DealDamage());
+            particleEffect.Play();
+            Destroy(gameObject, 1f);
 
-            Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 
