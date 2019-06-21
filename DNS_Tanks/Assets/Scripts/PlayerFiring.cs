@@ -10,6 +10,7 @@ public class PlayerFiring : MonoBehaviour
     public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
+    public ParticleSystem particleStart;
 
     // Atrybuty zarządzane przez klasę Vehicle
     internal float firingCooldown, damage, startVelocity;
@@ -31,6 +32,7 @@ public class PlayerFiring : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
         trajectory = bulletOut.GetComponent<LineRenderer>();
         vehicle = GetComponent<Vehicle>();
+        particleStart = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -50,6 +52,7 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
+            
             animator.SetTrigger("Shot");
 
             // Tworzenie pocisku
@@ -68,6 +71,12 @@ public class PlayerFiring : MonoBehaviour
 
             // Cooldown
             timeStamp = Time.time + firingCooldown;
+            particleStart.Play();
+            if (particleStart.isPlaying == false)
+                print("nie gra");
+            else
+                print("gra");
+
         }
     }
 
