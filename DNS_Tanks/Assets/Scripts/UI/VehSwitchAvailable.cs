@@ -43,12 +43,12 @@ public class VehSwitchAvailable : MonoBehaviour
         if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
 
-                Animator animator = menu.GetComponent<Animator>();
-                if (animator != null)
-                {
-                    bool isOpen = animator.GetBool("open");
-                    animator.SetBool("open", false);
-                }
+            Animator animator = menu.GetComponent<Animator>();
+            if (animator != null)
+            {
+                isOpen = animator.GetBool("open");
+                animator.SetBool("open", false);
+                isOpen = false;
             }
         }
     }
