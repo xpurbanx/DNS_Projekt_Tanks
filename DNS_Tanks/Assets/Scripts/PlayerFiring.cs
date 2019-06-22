@@ -10,7 +10,6 @@ public class PlayerFiring : MonoBehaviour
     public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
-    public ParticleSystem particleStart;
 
     // Atrybuty zarządzane przez klasę Vehicle
     internal float firingCooldown, damage, startVelocity;
@@ -20,8 +19,6 @@ public class PlayerFiring : MonoBehaviour
     private Vehicle vehicle;
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
-
-    bool lineHitObstacle;
 
     private LockActions Lock()
     {
@@ -34,17 +31,18 @@ public class PlayerFiring : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
         trajectory = bulletOut.GetComponent<LineRenderer>();
         vehicle = GetComponent<Vehicle>();
-        particleStart = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
     {
-        lineHitObstacle = false;
         if (Lock().shootingLocked == false && Lock().allLocked == false)
         {
             Fire();
             DrawTrajectory();
         }
+        else
+            ZeroTrajectory();
+
     }
 
     private void Fire()
@@ -54,9 +52,6 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
-            trajectory.startColor = Color.red;
-            trajectory.endColor = Color.red;
-
             animator.SetTrigger("Shot");
 
             // Tworzenie pocisku
@@ -75,12 +70,6 @@ public class PlayerFiring : MonoBehaviour
 
             // Cooldown
             timeStamp = Time.time + firingCooldown;
-            particleStart.Play();
-            if (particleStart.isPlaying == false)
-                print("nie gra");
-            else
-                print("gra");
-
         }
     }
 
@@ -89,5 +78,10 @@ public class PlayerFiring : MonoBehaviour
         trajectory.positionCount = 2;
         trajectory.SetPosition(0, bulletOut.transform.position);
         trajectory.SetPosition(1, bulletOut.transform.forward * 80 + transform.position);
+    }
+
+    private void ZeroTrajectory()
+    {
+        trajectory.positionCount = 0;
     }
 }

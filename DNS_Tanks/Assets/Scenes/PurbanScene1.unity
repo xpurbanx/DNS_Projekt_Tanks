@@ -2217,11 +2217,6 @@ PrefabInstance:
       propertyPath: startVehicle
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6203170420157972973, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!4 &799961134 stripped
@@ -3346,7 +3341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1166542929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6151,11 +6146,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288847050679872213, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d2ec3710ede7479c6ffccb665caf5, type: 3}

@@ -76,14 +76,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
         // Tylko jedna gąsiennica musi dotykać ziemi (?)
-
-
-        //narazie to wykomentowuje
-      // if (touchingGroundOne || touchingGroundTwo)
-      // {
+        if ((touchingGroundOne || touchingGroundTwo) && Lock().movementLocked == false && Lock().allLocked == false)
+        {
             Move();
             Turn();
-       //}
+        }
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);

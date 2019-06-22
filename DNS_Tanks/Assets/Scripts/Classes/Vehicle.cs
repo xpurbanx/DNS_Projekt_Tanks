@@ -49,9 +49,6 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Prędkość początkowa pocisku")]
     public float bulletVelocity = 10f;
 
-    [Tooltip("Zasięg pocisku")]
-    public float bulletRange = 30f;
-
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;

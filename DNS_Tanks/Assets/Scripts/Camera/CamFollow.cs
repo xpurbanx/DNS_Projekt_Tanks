@@ -169,7 +169,7 @@ public class CamFollow : MonoBehaviour
             right = 176;
         }
         //dla czolgu dziala, mozna zrobic jakies ladniejsze rozwiazanie
-        float frontOffset = turret.transform.localEulerAngles.y + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
+        float frontOffset = turret.transform.localEulerAngles.z + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
         frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {

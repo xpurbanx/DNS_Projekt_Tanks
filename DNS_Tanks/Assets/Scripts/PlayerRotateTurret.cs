@@ -49,7 +49,7 @@ public class PlayerRotateTurret : MonoBehaviour
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         //Quaternion turnRotation = Quaternion.Euler(-90f, 0f, turnTurret); 
-        Vector3 rotation = new Vector3 (0f, turnTurret, 0f );
+        Vector3 rotation = new Vector3(0f, 0f, turnTurret);
         //turret.MoveRotation(rigidbody.rotation * turnRotation);
         transform.Rotate(rotation);
         return;
