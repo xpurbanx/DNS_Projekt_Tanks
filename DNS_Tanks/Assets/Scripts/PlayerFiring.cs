@@ -88,7 +88,6 @@ public class PlayerFiring : MonoBehaviour
     {
         trajectory.positionCount = 2;
         trajectory.SetPosition(0, bulletOut.transform.position);
-        trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
-
+        trajectory.SetPosition(1, bulletOut.transform.forward * 80 + transform.position);
     }
 }
