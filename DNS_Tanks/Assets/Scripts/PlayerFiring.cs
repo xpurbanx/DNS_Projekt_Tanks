@@ -10,6 +10,7 @@ public class PlayerFiring : MonoBehaviour
     public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
+    public ParticleSystem particleStart;
 
     // Atrybuty zarządzane przez klasę Vehicle
     internal float firingCooldown, damage, startVelocity;
@@ -19,6 +20,8 @@ public class PlayerFiring : MonoBehaviour
     private Vehicle vehicle;
     private PlayerInputSetup playerInput;
     private float timeStamp = 0;
+
+    bool lineHitObstacle;
 
     private LockActions Lock()
     {
@@ -31,15 +34,23 @@ public class PlayerFiring : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInputSetup>();
         trajectory = bulletOut.GetComponent<LineRenderer>();
         vehicle = GetComponent<Vehicle>();
+        particleStart = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
     {
+        lineHitObstacle = false;
         if (Lock().shootingLocked == false && Lock().allLocked == false)
         {
             Fire();
             DrawTrajectory();
         }
+        if(timeStamp <= Time.time + 0.2)
+        {
+            trajectory.startColor = Color.green;
+            trajectory.endColor = Color.green;
+        }
+        CheckLineHit();
 
     }
 
@@ -50,6 +61,9 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButton()) && timeStamp <= Time.time)
         {
+            trajectory.startColor = Color.red;
+            trajectory.endColor = Color.red;
+
             animator.SetTrigger("Shot");
 
             // Tworzenie pocisku
@@ -68,6 +82,12 @@ public class PlayerFiring : MonoBehaviour
 
             // Cooldown
             timeStamp = Time.time + firingCooldown;
+            particleStart.Play();
+            if (particleStart.isPlaying == false)
+                print("nie gra");
+            else
+                print("gra");
+
         }
     }
 
@@ -75,6 +95,29 @@ public class PlayerFiring : MonoBehaviour
     {
         trajectory.positionCount = 2;
         trajectory.SetPosition(0, bulletOut.transform.position);
-        trajectory.SetPosition(1, bulletOut.transform.forward * 80 + transform.position);
+        trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
+
+    }
+
+    public float GetRange()
+    {
+        return vehicle.bulletRange;
+    }
+    private void CheckLineHit()
+    {
+        if(trajectory)
+        {
+            RaycastHit hitInfo;
+            if(Physics.Linecast(trajectory.GetPosition(0), trajectory.GetPosition(1), out hitInfo))
+            {
+                Debug.Log("Hit something: " + hitInfo.collider.gameObject);
+                lineHitObstacle = true;
+                trajectory.SetPosition(1, hitInfo.point);
+                if((trajectory.GetPosition(1) - trajectory.GetPosition(0)).magnitude > vehicle.bulletRange)
+                {
+                    trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
+                }
+            }
+        }
     }
 }
