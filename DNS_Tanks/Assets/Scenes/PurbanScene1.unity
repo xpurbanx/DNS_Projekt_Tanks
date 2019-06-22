@@ -2222,6 +2222,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5457747529947031511, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!4 &799961134 stripped
@@ -7033,5 +7038,11 @@ PrefabInstance:
       propertyPath: buildingsTwo.Array.data[1]
       value: 
       objectReference: {fileID: 1685065884573044848}
-    m_RemovedComponents: []
+    - target: {fileID: 4104729456710140335, guid: ed42d71775865d84dbfaebe985fa4426,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5216706192244290876, guid: ed42d71775865d84dbfaebe985fa4426, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed42d71775865d84dbfaebe985fa4426, type: 3}

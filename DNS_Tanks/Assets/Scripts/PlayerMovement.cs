@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private float movementInputValue;
     private float turnInputValue;
     private PlayerInputSetup playerInput;
-    
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -78,12 +78,16 @@ public class PlayerMovement : MonoBehaviour
         // Tylko jedna gąsiennica musi dotykać ziemi (?)
 
 
-        //narazie to wykomentowuje
-      // if (touchingGroundOne || touchingGroundTwo)
-      // {
+        //narazie to wykomentowuje // Michał: Spoko, ale ja se zablokuję sterowanie tutaj tylko
+        // if (touchingGroundOne || touchingGroundTwo)
+        // {
+        if (Lock().allLocked == false && Lock().movementLocked == false)
+        {
             Move();
             Turn();
-       //}
+        }
+
+        //}
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);
