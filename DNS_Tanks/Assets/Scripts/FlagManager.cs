@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class FlagManager : MonoBehaviour
 {
-    public RectTransform panelGameOver;
-    public Text txtGameOver;
-
     public int numberOfFlags;
     public GameObject flag1;
     public GameObject flag2;
@@ -96,7 +93,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftOne == 0)
             {
-                Win(playerNumber);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().Win(playerNumber);
             }
         }
 
@@ -106,7 +103,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftTwo == 0)
             {
-                Win(playerNumber);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().Win(playerNumber);
             }
         }
     }
@@ -124,20 +121,5 @@ public class FlagManager : MonoBehaviour
             GameObject flag = Instantiate(flag2, building.transform.position, Quaternion.identity);
             return;
         }
-    }
-
-    private void Win(int winnerNumber)
-    {
-        panelGameOver.gameObject.SetActive(true);
-        txtGameOver.text = $"Wygrywa gracz numer {winnerNumber}";
-        StartCoroutine(RestartGame());
-    }
-
-    private IEnumerator RestartGame()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        panelGameOver.gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 }

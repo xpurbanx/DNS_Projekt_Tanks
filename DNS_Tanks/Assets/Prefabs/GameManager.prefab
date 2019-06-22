@@ -264,6 +264,8 @@ GameObject:
   - component: {fileID: 9035578156095317100}
   - component: {fileID: 9035578156095317103}
   - component: {fileID: 2390430902754267623}
+  - component: {fileID: 3588759524806106557}
+  - component: {fileID: 8657485517174586009}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -299,8 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c683984d1c3b0ee46a7ab2de5a808cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelGameOver: {fileID: 6785136967091248945}
-  txtGameOver: {fileID: 3261923978070900585}
   numberOfFlags: 1
   flag1: {fileID: 9205059971933565700, guid: 1c285016261d9fb41adb9b476563f493, type: 3}
   flag2: {fileID: 6758032323322080915, guid: c83c6dc168bec7d4aba353c0e2ba8c91, type: 3}
@@ -328,6 +328,39 @@ MonoBehaviour:
   player1Tag: Player 1
   player2Tag: Player 2
   empireTag: Empire
+--- !u!114 &3588759524806106557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035578156095317101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1d8d6d4f794b144bfed3121b9d41de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifes: 1
+  tankLifes1: 0
+  jeepLifes1: 0
+  tankLifes2: 0
+  jeepLifes2: 0
+  playerOneDefeated: 0
+  playerTwoDefeated: 0
+--- !u!114 &8657485517174586009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035578156095317101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b633400d1495bf34e9345e6bc88ea586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelGameOver: {fileID: 6785136967091248945}
+  txtGameOver: {fileID: 3261923978070900585}
 --- !u!1001 &458978075400322322
 PrefabInstance:
   m_ObjectHideFlags: 0

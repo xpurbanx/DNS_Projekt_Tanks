@@ -17,7 +17,7 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Do którego gracza należy pojazd")]
     public int playerNumber = 0;
 
-    [Tooltip("Typ pojazdu (0: niezdefiniowany, 1: jeep, 2: czołg, 3: śmigłowiec)")]
+    [Tooltip("Typ pojazdu (1: jeep, 2: czołg,")]
     public int vehicleType = 0;
 
     [Tooltip("Wytrzymałość pojazdu")]
@@ -114,6 +114,7 @@ public class Vehicle : MonoBehaviour
 
     private void DestroyVehicle()
     {
+        DecreaseLifes();
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         GetComponent<Explosion>().Explode(false, false);
         Destroy(gameObject);
@@ -151,6 +152,19 @@ public class Vehicle : MonoBehaviour
     {
         if (hp <= 0)
             DestroyVehicle();
+    }
+
+    private void DecreaseLifes()
+    {
+        if (vehicleType == 1)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().JeepDeath(playerNumber);
+        }
+
+        else if (vehicleType == 2)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().TankDeath(playerNumber);
+        }
     }
 
     public SuppliesAvailable SuppliesAvailable()
