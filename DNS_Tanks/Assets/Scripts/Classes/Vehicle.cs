@@ -115,6 +115,7 @@ public class Vehicle : MonoBehaviour
     private void DestroyVehicle()
     {
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        GetComponent<Explosion>().Explode(false, false);
         Destroy(gameObject);
         GetComponentInParent<Respawn>().Launch();
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);

@@ -26,7 +26,7 @@ public class Explosion : MonoBehaviour
         if (particles != null)
         {
             GameObject particlesFX = Instantiate(particles, transform.position + particlesOffset, Quaternion.identity);
-            Destroy(particlesFX, 10f);
+            Destroy(particlesFX, 5f);
         }
 
         foreach (Transform transform in transform)
