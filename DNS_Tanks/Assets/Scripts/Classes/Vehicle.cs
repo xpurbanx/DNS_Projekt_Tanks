@@ -175,6 +175,10 @@ public class Vehicle : MonoBehaviour
         Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
         supply.rotation = gameObject.transform.rotation;
 
+        Rigidbody r = supply.gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody; // Dodanie rigidbody, zamrożenie wszystkiego, ustawienie trybu kolizji
+        r.constraints = RigidbodyConstraints.FreezeAll;
+        r.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
         Material newMaterial; // Utworzenie nowego materiału
         newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
 
