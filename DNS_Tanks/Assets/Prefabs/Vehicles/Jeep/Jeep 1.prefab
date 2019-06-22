@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8397384441794932828, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.908
+      objectReference: {fileID: 0}
     - target: {fileID: 3857884815732427006, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: m_TagString
@@ -109,28 +114,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637452410233926161, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.76172
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637452410233926161, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.76172
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637452410233926161, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.76172
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637452410233926161, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.88
+      value: -0.052
       objectReference: {fileID: 0}
     - target: {fileID: 1637452410233926161, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.19
+      value: -0.19342598
       objectReference: {fileID: 0}
     - target: {fileID: 8985171130085590194, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
@@ -141,6 +131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589855976957382298, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply Holder 1
       objectReference: {fileID: 0}
     - target: {fileID: 7401818625051279331, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
@@ -163,10 +158,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7589855976957382298, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+    - target: {fileID: 7638418136906975874, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
-      propertyPath: m_TagString
-      value: Supply Holder 1
+      propertyPath: m_LocalPosition.y
+      value: 2.101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638418136906975874, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.204
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8270042434258595311, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a, type: 3}

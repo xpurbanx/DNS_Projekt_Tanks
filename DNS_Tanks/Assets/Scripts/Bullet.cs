@@ -19,20 +19,29 @@ public class Bullet : MonoBehaviour
 
     private Vehicle vehicle;
     private Building building;
+    public ParticleSystem particleEffect;
 
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
     private bool wasIFired = false;
 
+    Vector3 startPos;
+    float range;
+
     void Awake()
     {
+
         gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigidbody = GetComponent<Rigidbody>();
         trail = GetComponent<TrailRenderer>();
+        particleEffect = GetComponentInChildren<ParticleSystem>();
     }
 
     void Start()
     {
+        if (playerFiring == null) range = towerFiring.range;
+        else range = playerFiring.GetRange();
+        startPos = gameObject.transform.position;
         if(playerNumber == 1)
         {
             trail.endColor = Color.blue;
@@ -64,6 +73,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         Fly();
+        CheckToDestroy();
     }
 
     private float DealDamage()
@@ -75,48 +85,57 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+
             damage = playerFiring.damage;
         }
         return damage;
     }
 
-
+    private void SpawnParticles()
+    {
+        var particles = Instantiate(particleEffect);
+        particles.transform.position = particleEffect.transform.position;
+        particles.Play();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.tag == "Shield")
         {
-            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija
+            return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija            
         }
 
 
         // Jeżeli uderzony obiekt jest pojazdem
         if (collision.gameObject.GetComponent<Vehicle>() != null)
         {
+            
             vehicle = collision.gameObject.GetComponent<Vehicle>();
 
             // Jeżeli wykryliśmy uderzenie w samego siebie
             if (vehicle.playerNumber == playerNumber) return;
-
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
             if (firedBy == 1 && vehicle.vehicleType == 2)
                 return;
             else
                 vehicle.Damage(DealDamage());
 
+            SpawnParticles();
             Destroy(gameObject);
         }
 
         // Jeżeli uderzony obiekt jest budynkiem
         else if (collision.gameObject.GetComponent<Building>() != null)
         {
+            
             building = collision.gameObject.GetComponent<Building>();
 
             if (building.playerNumber == playerNumber) return;
-
             building.Damage(DealDamage());
-
+            SpawnParticles();
             Destroy(gameObject);
+
         }
         else
         {
@@ -145,7 +164,8 @@ public class Bullet : MonoBehaviour
         // uznajemy go za taki, który już uderzył w inny obiekt (np. czołg)
         // można też stworzyć, aby w momencie interakcji (uderzenia) w jakąkolwiek powierzchnię pocisk był niszczony
 
-        if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+        //if (rigidbody.velocity == Vector3.zero && wasIFired == true)
+        if ((startPos - transform.position).magnitude > range)
             Destroy(gameObject);
     }
 }
