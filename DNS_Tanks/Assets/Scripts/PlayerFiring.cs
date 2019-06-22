@@ -91,26 +91,4 @@ public class PlayerFiring : MonoBehaviour
         trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
 
     }
-
-    public float GetRange()
-    {
-        return vehicle.bulletRange;
-    }
-    private void CheckLineHit()
-    {
-        if(trajectory)
-        {
-            RaycastHit hitInfo;
-            if(Physics.Linecast(trajectory.GetPosition(0), trajectory.GetPosition(1), out hitInfo))
-            {
-                Debug.Log("Hit something: " + hitInfo.collider.gameObject);
-                lineHitObstacle = true;
-                trajectory.SetPosition(1, hitInfo.point);
-                if((trajectory.GetPosition(1) - trajectory.GetPosition(0)).magnitude > vehicle.bulletRange)
-                {
-                    trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
-                }
-            }
-        }
-    }
 }
