@@ -44,6 +44,10 @@ public class SuppliesAvailable : MonoBehaviour
                     isOpen = animator.GetBool("open");
                     animator.SetBool("open", true);
                     isOpen = true;
+                    Lock().aimingLocked = true;
+                    Lock().movementLocked = true;
+                    Lock().shootingLOCKED = true;
+                    Lock().shootingLocked = true;
                 }
             }
         }
@@ -62,6 +66,10 @@ public class SuppliesAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", false);
                 isOpen = false;
+                Lock().aimingLocked = false;
+                Lock().movementLocked = false;
+                Lock().shootingLOCKED = false;
+                Lock().shootingLocked = false;
             }
         }
     }
@@ -80,6 +88,10 @@ public class SuppliesAvailable : MonoBehaviour
                     isOpen = animator.GetBool("open");
                     animator.SetBool("open", !isOpen);
                     isOpen = !isOpen;
+                    Lock().aimingLocked = !Lock().aimingLocked;
+                    Lock().movementLocked = !Lock().movementLocked;
+                    Lock().shootingLOCKED = !Lock().shootingLOCKED;
+                    Lock().shootingLocked = !Lock().shootingLocked;
                 }
             }
         }

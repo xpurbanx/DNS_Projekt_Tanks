@@ -45,7 +45,10 @@ public class PlayerFiring : MonoBehaviour
             Fire();
             DrawTrajectory();
         }
-        if(timeStamp <= Time.time + 0.2)
+        else
+            ZeroTrajectory();
+
+        if (timeStamp <= Time.time + 0.2)
         {
             trajectory.startColor = Color.green;
             trajectory.endColor = Color.green;
@@ -96,7 +99,6 @@ public class PlayerFiring : MonoBehaviour
         trajectory.positionCount = 2;
         trajectory.SetPosition(0, bulletOut.transform.position);
         trajectory.SetPosition(1, bulletOut.transform.forward * vehicle.bulletRange + transform.position);
-
     }
 
     public float GetRange()
@@ -119,5 +121,12 @@ public class PlayerFiring : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void ZeroTrajectory()
+    {
+        trajectory.positionCount = 2;
+        trajectory.SetPosition(0, Vector3.zero);
+        trajectory.SetPosition(1, Vector3.zero);
     }
 }

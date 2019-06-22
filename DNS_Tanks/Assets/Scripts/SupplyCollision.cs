@@ -10,14 +10,11 @@ public class SupplyCollision : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-            colliding = true;
-        //Instantiate(chSupply, pos, supp.transform.rotation);
+        colliding = true;
     }
 
     public void OnTriggerExit(Collider other)
     {
-            colliding = false;
-        //  Instantiate(chSupply, pos, supp.transform.rotation);
-        // do naprawy
+        colliding = false;
     }
 }
