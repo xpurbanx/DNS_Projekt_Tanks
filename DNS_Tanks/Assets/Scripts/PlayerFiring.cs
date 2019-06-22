@@ -45,19 +45,6 @@ public class PlayerFiring : MonoBehaviour
             Fire();
             DrawTrajectory();
         }
-<<<<<<< HEAD
-        else
-            ZeroTrajectory();
-            
-        if(timeStamp <= Time.time + 0.2)
-        {
-            trajectory.startColor = Color.green;
-            trajectory.endColor = Color.green;
-        }
-        CheckLineHit();
-=======
->>>>>>> parent of ea9747c... dokończono niektóre ficzery (lista w opisie)
-
     }
 
     private void Fire()
