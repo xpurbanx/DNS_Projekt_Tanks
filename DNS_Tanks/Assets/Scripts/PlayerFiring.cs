@@ -45,6 +45,7 @@ public class PlayerFiring : MonoBehaviour
             Fire();
             DrawTrajectory();
         }
+<<<<<<< HEAD
         else
             ZeroTrajectory();
             
@@ -54,6 +55,8 @@ public class PlayerFiring : MonoBehaviour
             trajectory.endColor = Color.green;
         }
         CheckLineHit();
+=======
+>>>>>>> parent of ea9747c... dokończono niektóre ficzery (lista w opisie)
 
     }
 
@@ -122,10 +125,5 @@ public class PlayerFiring : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void ZeroTrajectory()
-    {
-        trajectory.positionCount = 0;
     }
 }

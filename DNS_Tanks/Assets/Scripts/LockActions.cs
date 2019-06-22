@@ -23,17 +23,6 @@ public class LockActions : MonoBehaviour
     // NIE USTAWIONO (!!!):
 
     // movementLOCKED, aimingLOCKED, allLOCKED;
-
-    /*
-     
-    private LockActions Lock()
-    {
-        LockActions lockActions = GetComponentInParent<LockActions>();
-        return lockActions;
-    }
-
-     */
-
 }
 
 

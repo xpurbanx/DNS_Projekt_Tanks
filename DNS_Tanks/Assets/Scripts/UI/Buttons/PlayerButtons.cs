@@ -30,17 +30,17 @@ public class PlayerButtons : MonoBehaviour
     public void ChooseSupply(int supply)
     {
         player = GetComponentInParent<CurrentVehicle>().CurrentVehicleObject();
-
+        playerNumber = player.GetComponentInChildren<PlayerFiring>().playerNumber;
         suppliesAvailable = gameObject.GetComponent<SuppliesAvailable>();
+        
         ///////////////////////////////////////////////////////////////////////////
         if (suppliesAvailable != null && suppliesAvailable.isOpen == true)
         {
-            playerNumber = player.GetComponentInChildren<PlayerFiring>().playerNumber;
             Vector3 position = GameObject.FindGameObjectWithTag("Supply Holder " + playerNumber).transform.position;
             prefabs = suppliesAvailable.prefabs;
             prefab = prefabs[supply];
-            suppliesAvailable.CloseMenu();
             player.GetComponent<Vehicle>().SetSupply(position, prefab);
+            suppliesAvailable.SwitchMenu();
         }
     }
 
