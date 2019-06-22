@@ -39,6 +39,9 @@ public class VehSwitchAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", true);
                 isOpen = true;
+                Lock().aimingLocked = true;
+                Lock().movementLocked = true;
+                Lock().shootingLOCKED = true;
             }
         }
     }
@@ -55,6 +58,9 @@ public class VehSwitchAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", false);
                 isOpen = false;
+                Lock().aimingLocked = false;
+                Lock().movementLocked = false;
+                Lock().shootingLOCKED = false;
             }
         }
     }
@@ -71,6 +77,9 @@ public class VehSwitchAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
                 isOpen = !isOpen;
+                Lock().aimingLocked = !Lock().aimingLocked;
+                Lock().movementLocked = !Lock().movementLocked;
+                Lock().shootingLOCKED = !Lock().shootingLOCKED;
             }
         }
     }

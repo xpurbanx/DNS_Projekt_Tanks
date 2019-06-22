@@ -112,6 +112,10 @@ public class Vehicle : MonoBehaviour
     private void DestroyVehicle()
     {
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        Lock().aimingLocked = true;
+        Lock().movementLocked = true;
+        Lock().menusLOCKED = true;
+        Lock().shootingLOCKED = true;
         Destroy(gameObject);
         GetComponentInParent<Respawn>().Launch();
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
@@ -162,10 +166,11 @@ public class Vehicle : MonoBehaviour
 
     public void SetSupply(Vector3 pos, GameObject pref)
     {
-        Lock().shootingLOCKED = true;
+        Lock().shootingLocked = true;
         SuppliesAvailable().hasSupply = true;
         InstantiateSupply(pos, pref); // Utworzenie prefaba supply'a w przed pojazdem
         Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+        supply.rotation = gameObject.transform.rotation;
 
         Material newMaterial; // Utworzenie nowego materiału
         newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
@@ -190,9 +195,7 @@ public class Vehicle : MonoBehaviour
             supply.GetComponent<AITower>().enabled = false;
             supply.GetComponent<Building>().enabled = false;
         }
-
         StartCoroutine(Wait());
-
     }
 
     public void PutSupply()
@@ -201,22 +204,33 @@ public class Vehicle : MonoBehaviour
         Vector3 supplyPos = new Vector3(supply.position.x, 0, supply.position.z);
         GameObject chosenSupply = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<PlayerButtons>().prefab;
 
-        Instantiate(chosenSupply, supplyPos, supply.transform.rotation);
-
-        ActiveEntities.Instance.AddToList(supply.tag, supply.gameObject);
-        supply.position = supplyPos;
-        supply = gameObject.transform.GetChild(1);
-        Destroy(supply.gameObject); // Zniszczenie "duszka"
-        SuppliesAvailable().hasSupply = false;
-        SuppliesAvailable().canBeSet = false;
+        if (GetComponentInChildren<SupplyCollision>().colliding == false)
+        {
+            GameObject instance = Instantiate(chosenSupply, supplyPos, supply.transform.rotation);
+            ActiveEntities.Instance.AddToList(supply.tag, supply.gameObject);
+            supply.position = supplyPos;
+            Rigidbody rigidbody = instance.GetComponent<Rigidbody>();
+            Destroy(rigidbody); // Usunięcie fizyki
+            supply = gameObject.transform.GetChild(1);
+            Destroy(supply.gameObject); // Zniszczenie "duszka"
+            StartCoroutine(Wait2());
+        }
+        else return;
     }
 
     public IEnumerator Wait()
     {
         SuppliesAvailable().canBeSet = false;
         yield return new WaitForSecondsRealtime(1);
-        Lock().shootingLOCKED = false;
         SuppliesAvailable().canBeSet = true;
+    }
+
+    public IEnumerator Wait2()
+    {
+        SuppliesAvailable().hasSupply = false;
+        SuppliesAvailable().canBeSet = false;
+        yield return new WaitForSecondsRealtime(1);
+        Lock().shootingLocked = false;
     }
 
     private LockActions Lock()
@@ -227,6 +241,11 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
+        if (SuppliesAvailable().hasSupply)
+        {
+            Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+            supply.rotation = gameObject.transform.rotation;
+        }
         if (SuppliesAvailable().hasSupply && playerInput.AButton() && SuppliesAvailable().canBeSet)
             PutSupply();
     }
