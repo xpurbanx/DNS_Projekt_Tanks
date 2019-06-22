@@ -82,57 +82,13 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 4294953404048236561, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866788938019214155, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523981727309690836, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3857884815732427006, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 687758468728511557, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8985171130085590194, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381923515464694986, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7055706469062458921, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 50b77ab9212ff9949b22b7947e4d421a, type: 2}
-    - target: {fileID: 7401818625051279331, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3069772964074317861, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: flagPrefab
       value: 
       objectReference: {fileID: 9205059971933565700, guid: 1c285016261d9fb41adb9b476563f493,
         type: 3}
+<<<<<<< HEAD
     - target: {fileID: 1780648723698815657, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -153,6 +109,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Supply Holder 2
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 3a6fbeb... Request #48 (Mix zmian Michała, Mikołaja i moich, rozwiązane konflikty i naprawione małe bugi)
     - target: {fileID: 1014393113148093630, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

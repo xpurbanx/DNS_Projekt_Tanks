@@ -22,8 +22,4 @@ public class CurrentVehicle : MonoBehaviour
     {
         return currentVeh.transform;
     }
-    public GameObject CurrentVehicleObject()
-    {
-        return currentVeh.gameObject;
-    }
 }

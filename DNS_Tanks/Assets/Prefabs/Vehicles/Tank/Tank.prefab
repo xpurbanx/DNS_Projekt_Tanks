@@ -441,8 +441,6 @@ GameObject:
   - component: {fileID: 2847050966476249663}
   - component: {fileID: 2847050966476249658}
   - component: {fileID: 2847050966476249657}
-  - component: {fileID: 2847050966476249656}
-  - component: {fileID: 1711749827905603545}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -511,39 +509,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2847050966476249656
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847050966476249662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: e56b100970188e548a21a9a435ea4e97, type: 3}
---- !u!95 &1711749827905603545
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847050966476249662}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b654ae83cb4600346b6bcc1763cba2c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2847050966479108414
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec425bb843fcac44a7d2a474311a1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1711749827905603545}
   bulletPrefab: {fileID: 1684480512479799659, guid: e6baced53b9a5cd448c4ec98808928c5,
     type: 3}
   bulletOut: {fileID: 2784706635717078623}

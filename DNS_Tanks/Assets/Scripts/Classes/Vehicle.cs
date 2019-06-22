@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
+<<<<<<< HEAD
 [assembly: InternalsVisibleTo("PlayerButtons")]
+=======
+>>>>>>> parent of 3a6fbeb... Request #48 (Mix zmian Michała, Mikołaja i moich, rozwiązane konflikty i naprawione małe bugi)
 
 public class Vehicle : MonoBehaviour
 {
@@ -114,13 +117,6 @@ public class Vehicle : MonoBehaviour
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         Destroy(gameObject);
         GetComponentInParent<Respawn>().Launch();
-        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
-    }
-
-    internal void ForVehicleChooseDestroy()
-    {
-        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
-        Destroy(gameObject);
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 

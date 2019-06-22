@@ -7,6 +7,7 @@ using UnityEngine;
 public class VehicleSwitch : MonoBehaviour
 {
     public int playerNumber = 0;
+
     public double cooldown = 3;
     private double timeStamp;
 
@@ -21,10 +22,23 @@ public class VehicleSwitch : MonoBehaviour
     private Vector3 center = Vector3.zero;
     public float radius = 0.5f;
 
+<<<<<<< HEAD
     void Awake()
     {
         RadiusSetUp();
         SetUp();
+=======
+    GameObject panel;
+    internal bool menuAvailable;
+    internal bool closeNow;
+
+    void Start()
+    {
+        SphereCollider c = gameObject.GetComponent<SphereCollider>();
+        c.radius = radius;
+        center = transform.position;
+        menuAvailable = false;
+>>>>>>> parent of 3a6fbeb... Request #48 (Mix zmian Michała, Mikołaja i moich, rozwiązane konflikty i naprawione małe bugi)
     }
 
     void OnTriggerStay(Collider other)
@@ -48,6 +62,7 @@ public class VehicleSwitch : MonoBehaviour
         center = transform.position;
     }
 
+<<<<<<< HEAD
     void SetUp()
     {
         withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
@@ -61,5 +76,9 @@ public class VehicleSwitch : MonoBehaviour
                 timeStamp = vehSwitch.timeStamp;
             }
         }
+=======
+        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
+        //GameObject.FindGameObjectWithTag("Player " + playerNumber).GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
+>>>>>>> parent of 3a6fbeb... Request #48 (Mix zmian Michała, Mikołaja i moich, rozwiązane konflikty i naprawione małe bugi)
     }
 }
