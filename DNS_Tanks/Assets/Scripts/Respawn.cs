@@ -50,6 +50,7 @@ public class Respawn : MonoBehaviour
         Lock().movementLocked = false;
         Lock().menusLOCKED = false;
         Lock().shootingLOCKED = false;
+        Lock().shootingLocked = false;
     }
 
     public void RespawnPlayer()
