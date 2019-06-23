@@ -23,7 +23,7 @@ public class Map : MonoBehaviour
             newPos.y = transform.position.y;
             transform.position = newPos;
 
-            transform.rotation = Quaternion.Euler(90f, player.transform.eulerAngles.y, 0f);
+            //transform.rotation = Quaternion.Euler(90f, player.transform.eulerAngles.y, 0f); wykomentowałem obrót razem z graczem
         }
 
     }

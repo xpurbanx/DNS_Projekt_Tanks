@@ -23,6 +23,9 @@ TagManager:
   - Supply Holder 2
   - Transparent
   - Towers
+  - Map Panel 1
+  - Minimap Text
+  - Map Panel 2
   layers:
   - Default
   - TransparentFX
@@ -36,8 +39,8 @@ TagManager:
   - Players
   - Player 1
   - Player 2
-  - 
-  - 
+  - Minimap 1
+  - Minimap 2
   - 
   - 
   - 

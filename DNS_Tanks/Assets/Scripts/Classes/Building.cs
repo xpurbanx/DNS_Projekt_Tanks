@@ -7,6 +7,11 @@ public class Building : MonoBehaviour
     // PRYWATNE ATRYBUTY KLASY W TYM PLIKU:
     internal float hp;
     internal bool hasFlag;
+    [Header("JEŻELI TO MA BYĆ BUDYNEK Z FLAGĄ,", order = 1)]
+    [Header("nie zapomnij dodać go do listy budynków", order = 2)]
+    [Header("posiadających flagę w game managerze.", order = 3)]
+    [Space(10, order = 4)]
+
 
     // PUBLICZNE ODPOWIEDNIKI ATRYBUTÓW KLASY:
     [Tooltip("Wytrzymałość budynku")]
