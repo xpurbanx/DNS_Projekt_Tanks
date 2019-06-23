@@ -86,8 +86,4 @@ public class VehSwitchAvailable : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
-        Debug.Log(Lock().movementLocked);
-    }
 }

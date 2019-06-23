@@ -30,7 +30,7 @@ public class Respawn : MonoBehaviour
     internal void Launch()
     {
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
-        spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
+        spawnLocation = spawner.position;
         SpawnVehicle(startVehicle);
         if (transform.GetChild(0).GetComponent<PlayerFiring>() != null)
         {
