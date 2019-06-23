@@ -12,6 +12,11 @@ public class PlayerButtons : MonoBehaviour
     List<GameObject> prefabs;
     int playerNumber;
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
 
     public void Switch(int vehType)
     {
@@ -23,7 +28,7 @@ public class PlayerButtons : MonoBehaviour
             respawn.startVehicle = vehType;
             gameObject.GetComponent<VehSwitchAvailable>().CloseMenu();
             respawn.RespawnPlayer();
-            
+            Lock().mapLocked = false;
         }
 
     }

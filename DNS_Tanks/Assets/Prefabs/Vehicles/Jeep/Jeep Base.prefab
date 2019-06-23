@@ -897,7 +897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4179884548757747913}
   - component: {fileID: 4181693064045956278}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BulletOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

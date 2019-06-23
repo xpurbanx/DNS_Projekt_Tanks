@@ -22,7 +22,7 @@ public class OverlayEnable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.BButton() && timeStamp < Time.time && Lock().menusLocked == false && Lock().allLocked == false)
+        if (playerInput.BButton() && timeStamp < Time.time && Lock().menusLocked == false && Lock().mapLocked == false && Lock().allLocked == false)
             OpenPanel();
     }
 

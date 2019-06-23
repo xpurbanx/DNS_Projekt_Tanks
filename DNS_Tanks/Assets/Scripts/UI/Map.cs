@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
 
     void Start()
     {
-
+        transform.position = new Vector3(-339.1f , 8f, -138.8f);
     }
 
     void LateUpdate()
@@ -25,6 +25,8 @@ public class Map : MonoBehaviour
 
             //transform.rotation = Quaternion.Euler(90f, player.transform.eulerAngles.y, 0f); wykomentowałem obrót razem z graczem
         }
+        else
+            transform.position = new Vector3(-339.1f, 8f, -138.8f);
 
     }
 

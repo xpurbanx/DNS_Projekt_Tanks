@@ -29,6 +29,7 @@ public class Respawn : MonoBehaviour
 
     internal void Launch()
     {
+        Lock().mapLocked = true;
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
         spawnLocation = spawner.position;
         SpawnVehicle(startVehicle);
