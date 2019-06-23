@@ -651,7 +651,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 3
 --- !u!65 &2847050966479108415
 BoxCollider:
@@ -975,11 +975,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 128822215721017418}
     m_Modifications:
-    - target: {fileID: 1851086587948550017, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
-        type: 3}
-      propertyPath: m_Name
-      value: Dirt
-      objectReference: {fileID: 0}
     - target: {fileID: 2599423103260834462, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1035,6 +1030,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.809
       objectReference: {fileID: 0}
+    - target: {fileID: 1851086587948550017, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
+        type: 3}
+      propertyPath: m_Name
+      value: Dirt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f31bbc69e8be0d44b3f95faac474e4e, type: 3}
 --- !u!4 &5083502868778066753 stripped
@@ -1050,11 +1050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 128822215721017418}
     m_Modifications:
-    - target: {fileID: 1851086587948550017, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
-        type: 3}
-      propertyPath: m_Name
-      value: Dirt
-      objectReference: {fileID: 0}
     - target: {fileID: 2599423103260834462, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1109,6 +1104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.19800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851086587948550017, guid: 8f31bbc69e8be0d44b3f95faac474e4e,
+        type: 3}
+      propertyPath: m_Name
+      value: Dirt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f31bbc69e8be0d44b3f95faac474e4e, type: 3}

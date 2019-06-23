@@ -43,11 +43,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834587596647308171}
     m_Modifications:
-    - target: {fileID: 2847050966479108414, guid: 3915b792a613e46418db968f7876844a,
-        type: 3}
-      propertyPath: m_Name
-      value: Jeep 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2847050966479108404, guid: 3915b792a613e46418db968f7876844a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2847050966479108414, guid: 3915b792a613e46418db968f7876844a,
+        type: 3}
+      propertyPath: m_Name
+      value: Jeep 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2847050966479108411, guid: 3915b792a613e46418db968f7876844a,
         type: 3}
       propertyPath: damageMG
@@ -123,11 +123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834587596647308171}
     m_Modifications:
-    - target: {fileID: 2847050966479108414, guid: 7a9fe1e8951c00841b866e35403fdc51,
-        type: 3}
-      propertyPath: m_Name
-      value: Jeep 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2847050966479108404, guid: 7a9fe1e8951c00841b866e35403fdc51,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,6 +178,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2847050966479108414, guid: 7a9fe1e8951c00841b866e35403fdc51,
+        type: 3}
+      propertyPath: m_Name
+      value: Jeep 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a9fe1e8951c00841b866e35403fdc51, type: 3}
 --- !u!4 &59879006255907115 stripped
@@ -202,11 +202,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2847050966479108408, guid: 4824674cae42b9a4bbb262af5ad8382f,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2847050966479108404, guid: 4824674cae42b9a4bbb262af5ad8382f,
         type: 3}
@@ -262,6 +257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847050966479108408, guid: 4824674cae42b9a4bbb262af5ad8382f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4824674cae42b9a4bbb262af5ad8382f, type: 3}
@@ -342,6 +342,16 @@ PrefabInstance:
         type: 3}
       propertyPath: damageMG
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014393111874676533, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014393111874676533, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc70ca2f0f8f7b4db88782be8d9b98a, type: 3}
