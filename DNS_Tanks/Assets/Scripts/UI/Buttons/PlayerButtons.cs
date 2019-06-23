@@ -35,7 +35,7 @@ public class PlayerButtons : MonoBehaviour
         suppliesAvailable = gameObject.GetComponent<SuppliesAvailable>();
         
         ///////////////////////////////////////////////////////////////////////////
-        if (suppliesAvailable != null && suppliesAvailable.isOpen == true)
+        if (suppliesAvailable != null && suppliesAvailable.isOpen == true && suppliesAvailable.canBeSet == false)
         {
             playerNumber = player.GetComponentInChildren<PlayerFiring>().playerNumber;
             Vector3 position = GameObject.FindGameObjectWithTag("Supply Holder " + playerNumber).transform.position;
