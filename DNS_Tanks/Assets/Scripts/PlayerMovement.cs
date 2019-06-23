@@ -27,10 +27,6 @@ public class PlayerMovement : MonoBehaviour
     internal float turnSpeed;
     internal float maxVelocity;
 
-    // Prywatny atrybut zmieniany przez skrypt w gąsiennicach
-    internal bool touchingGroundOne;
-    internal bool touchingGroundTwo;
-
     // Vertical - oś od poruszania się na klawiaturze
     // Trigger - "oś" od poruszania się
     // Horizontal - oś od skręcania
@@ -75,19 +71,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        // Tylko jedna gąsiennica musi dotykać ziemi (?)
-
-
-        //narazie to wykomentowuje // Michał: Spoko, ale ja se zablokuję sterowanie tutaj tylko
-        // if (touchingGroundOne || touchingGroundTwo)
-        // {
         if (Lock().allLocked == false && Lock().movementLocked == false)
         {
             Move();
             Turn();
         }
-
-        //}
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);

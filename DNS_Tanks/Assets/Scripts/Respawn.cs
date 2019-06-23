@@ -30,12 +30,15 @@ public class Respawn : MonoBehaviour
     internal void Launch()
     {
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
-        spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
+        spawnLocation = spawner.position;
         SpawnVehicle(startVehicle);
-        if (transform.GetChild(0).GetComponent<PlayerFiring>())
+        if (transform.GetChild(0).GetComponent<PlayerFiring>() != null)
         {
             transform.GetChild(0).gameObject.SetActive(false);
-            GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+            if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().gameEnded)
+            {
+                GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+            }
         }
     }
 
