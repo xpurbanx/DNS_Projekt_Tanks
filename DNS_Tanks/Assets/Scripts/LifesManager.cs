@@ -10,10 +10,6 @@ public class LifesManager : MonoBehaviour
     public int jeepLifes1;
     public int tankLifes2;
     public int jeepLifes2;
-    [HideInInspector]
-    public bool playerOneDefeated;
-    [HideInInspector]
-    public bool playerTwoDefeated;
 
     private void Start()
     {
@@ -60,13 +56,11 @@ public class LifesManager : MonoBehaviour
     {
         if (jeepLifes1 == 0 && tankLifes1 == 0)
         {
-            playerOneDefeated = true;
             gameObject.GetComponent<WinManager>().Win(2);
         }
 
         if (jeepLifes2 == 0 && tankLifes2 == 0)
         {
-            playerTwoDefeated = true;
             gameObject.GetComponent<WinManager>().Win(1);
         }
     }

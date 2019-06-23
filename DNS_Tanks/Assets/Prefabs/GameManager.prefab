@@ -212,7 +212,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &7990177874044363579
 MonoBehaviour:
@@ -345,8 +345,6 @@ MonoBehaviour:
   jeepLifes1: 0
   tankLifes2: 0
   jeepLifes2: 0
-  playerOneDefeated: 0
-  playerTwoDefeated: 0
 --- !u!114 &8657485517174586009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +359,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelGameOver: {fileID: 6785136967091248945}
   txtGameOver: {fileID: 3261923978070900585}
+  playerOneWon: 0
+  playerTwoWon: 0
+  gameEnded: 0
 --- !u!1001 &458978075400322322
 PrefabInstance:
   m_ObjectHideFlags: 0
