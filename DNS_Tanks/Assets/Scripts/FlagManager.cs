@@ -9,6 +9,7 @@ public class FlagManager : MonoBehaviour
     public int numberOfFlags;
     public GameObject flag1;
     public GameObject flag2;
+    private GameObject gameController;
     public List<GameObject> buildingsOne;
     public List<GameObject> buildingsTwo;
 
@@ -19,6 +20,7 @@ public class FlagManager : MonoBehaviour
     {
         flagsLeftOne = numberOfFlags;
         flagsLeftTwo = numberOfFlags;
+        gameController = GameObject.FindGameObjectWithTag("GameController");
 
         if (numberOfFlags > buildingsOne.Count)
         {
@@ -93,7 +95,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftOne == 0)
             {
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().Win(playerNumber);
+                gameController.GetComponent<WinManager>().Win(playerNumber);
             }
         }
 
@@ -103,7 +105,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftTwo == 0)
             {
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().Win(playerNumber);
+                gameController.GetComponent<WinManager>().Win(playerNumber);
             }
         }
     }

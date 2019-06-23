@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
 
     Vector3 startPos;
     float range;
+    float damage;
 
     void Awake()
     {
@@ -57,6 +58,15 @@ public class Bullet : MonoBehaviour
             trail.endColor = Color.white;
             trail.startColor = Color.white;
         }
+        if (playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
+        {
+            damage = towerFiring.damage;
+        }
+        else
+        {
+
+            damage = playerFiring.damage;
+        }
 
         // Ustawienie rozmiaru pocisku w zależności od pojazdu
         switch (firedBy)
@@ -78,16 +88,6 @@ public class Bullet : MonoBehaviour
 
     private float DealDamage()
     {
-        float damage;
-        if(playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
-        {
-            damage = towerFiring.damage;
-        }
-        else
-        {
-
-            damage = playerFiring.damage;
-        }
         return damage;
     }
 
@@ -101,8 +101,9 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if (collision.gameObject.tag == "Shield")
+        if (collision.collider.gameObject.tag == "Shield")
         {
+            Destroy(gameObject, 1f);
             return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija            
         }
 

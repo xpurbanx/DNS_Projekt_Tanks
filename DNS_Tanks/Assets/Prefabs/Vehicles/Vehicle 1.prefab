@@ -172,6 +172,7 @@ MonoBehaviour:
   vehicles:
   - {fileID: 878164167225579809, guid: 99dce07f3140b3646b40cb08f0faf4aa, type: 3}
   - {fileID: 2847050966479108414, guid: 7a9fe1e8951c00841b866e35403fdc51, type: 3}
+  - {fileID: 3513187452390024585, guid: 55d5b5bd67f3f2449bd6931c51221386, type: 3}
   spawnerTag: Player 1 Spawn
   startVehicle: 0
   respawnTimer: 2
@@ -431,6 +432,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272226038073338873, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589847904658694446, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589847904658694446, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 395c1ff046aa13c47b1cb1fe468301d0, type: 3}
