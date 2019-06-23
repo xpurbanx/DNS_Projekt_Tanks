@@ -7,7 +7,13 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("LockActions")]
 
 public class Respawn : MonoBehaviour
-{   
+{
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     public List<GameObject> vehicles;
     public string spawnerTag;
     public int startVehicle = 0;
@@ -43,19 +49,24 @@ public class Respawn : MonoBehaviour
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();
         GetComponentInChildren<CamFollow>().UpdateCurrentVeh();
         isSpawning = false;
+        Lock().aimingLocked = false;
+        Lock().movementLocked = false;
+        Lock().menusLOCKED = false;
+        Lock().shootingLOCKED = false;
+        Lock().shootingLocked = false;
     }
 
     public void RespawnPlayer()
     {
-        if(!isSpawning)
-         StartCoroutine(Respawning());
+        if (!isSpawning)
+            StartCoroutine(Respawning());
     }
 
     public IEnumerator Respawning() // czeka 'respawnTimer' sekund
     {
-       isSpawning = true;
-       yield return new WaitForSeconds(respawnTimer);
-       SpawnVehicle(startVehicle);
+        isSpawning = true;
+        yield return new WaitForSeconds(respawnTimer);
+        SpawnVehicle(startVehicle);
     }
 
     [ExecuteInEditMode]

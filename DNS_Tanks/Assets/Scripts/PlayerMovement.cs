@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float movementInputValue;
     private float turnInputValue;
     private PlayerInputSetup playerInput;
-    
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -71,8 +71,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        Move();
-        Turn();
+        if (Lock().allLocked == false && Lock().movementLocked == false)
+        {
+            Move();
+            Turn();
+        }
 
         // Dodatkowa grawitacja (?)
         rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);
