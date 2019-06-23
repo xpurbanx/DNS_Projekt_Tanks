@@ -2248,7 +2248,7 @@ RectTransform:
   m_GameObject: {fileID: 7695139723393568807}
   m_LocalRotation: {x: 0.00000002360552, y: -0.00000005960463, z: -0.000000023515996,
     w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.9999542}
+  m_LocalPosition: {x: 0, y: 0, z: 1.999939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5261838445211445755}
@@ -2881,17 +2881,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f458ef93a90c043b15cdc8cdf2c42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  supplies:
-  - {fileID: 2932588291724447803}
-  - {fileID: 9015943603206953770}
-  - {fileID: 7458570563142451230}
-  - {fileID: 4142195693340656075}
+  menu: {fileID: 8348954541516628254}
   prefabs:
   - {fileID: 5997140803741880293, guid: fb237376a2f84f34b88924de8d9ef2e0, type: 3}
   - {fileID: 7497638002668326863, guid: cbee0fffd3b69f44485bc56d39248a6a, type: 3}
   - {fileID: 9170788181714542441, guid: 5796ffc6fcdd47d4babcac2f7da98a72, type: 3}
   - {fileID: 2175077490921917704, guid: f09b8e7620edb5c4b881c85ed757f452, type: 3}
-  menu: {fileID: 8348954541516628254}
   cooldown: 0.4
 --- !u!114 &7080941320476544765
 MonoBehaviour:
