@@ -87,7 +87,7 @@ public class Vehicle : MonoBehaviour
                 damage = damageAT;
                 break;
             case 3:
-                damage = 0f; // Na razie nie ustalono broni dla śmigłowca
+                damage = damageAT; // Na razie nie ustalono broni dla śmigłowca
                 break;
             default:
                 damage = 0f;

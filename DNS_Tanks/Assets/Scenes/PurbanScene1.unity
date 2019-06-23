@@ -7059,6 +7059,4 @@ PrefabInstance:
       value: GameOver
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedComponents:
-    - {fileID: 5216706192244290876, guid: ed42d71775865d84dbfaebe985fa4426, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed42d71775865d84dbfaebe985fa4426, type: 3}

@@ -171,6 +171,7 @@ MonoBehaviour:
   vehicles:
   - {fileID: 878164167225579809, guid: 8cffc77413906414da204275542c8489, type: 3}
   - {fileID: 2847050966479108414, guid: 3915b792a613e46418db968f7876844a, type: 3}
+  - {fileID: 3513187452390024585, guid: fb556d143ded00c4abca490db6c80a5e, type: 3}
   spawnerTag: Player 2 Spawn
   startVehicle: 0
   respawnTimer: 2
@@ -224,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe69fa0ce4fbb940bb8f67701dd0c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNumber: 2
 --- !u!1001 &27035268636148526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -372,6 +372,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3202195010132076516, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 9108637600399680391}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a8b955a656d2041bf51d1fb99bacd0, type: 3}
 --- !u!224 &5288847050679872213 stripped
@@ -402,5 +407,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9108637600399680391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9081629378795921577, guid: 25a8b955a656d2041bf51d1fb99bacd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 27035268636148526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4367424b9ee705e4089a4e71966d0c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerRotateTurret : MonoBehaviour
 {
     public GameObject turret;
+    private Vehicle vehicle;
     internal float turnTurretSpeed = 20f;
 
     private PlayerInputSetup playerInput;
@@ -20,6 +21,7 @@ public class PlayerRotateTurret : MonoBehaviour
 
     void Start()
     {
+        turnTurretSpeed = GetComponentInParent<Vehicle>().turnTurretSpeed;
         playerInput = GetComponentInParent<PlayerInputSetup>();
         if (playerInput == null)
             Debug.Log("BRAK PLAYERINPUT DLA PlayerRotateTurret");
