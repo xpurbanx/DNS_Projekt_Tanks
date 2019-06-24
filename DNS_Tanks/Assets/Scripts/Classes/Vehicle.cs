@@ -117,6 +117,8 @@ public class Vehicle : MonoBehaviour
         DecreaseLifes();
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         GetComponent<Explosion>().Explode(false, false);
+        GameObject.FindGameObjectWithTag("Map Panel " + playerFiring.playerNumber).GetComponentInParent<OverlayEnable>().ClosePanel();
+        Lock().mapLocked = true;
         Lock().aimingLocked = true;
         Lock().movementLocked = true;
         Lock().menusLOCKED = true;
