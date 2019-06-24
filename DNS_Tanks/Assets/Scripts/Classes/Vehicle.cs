@@ -117,10 +117,15 @@ public class Vehicle : MonoBehaviour
         DecreaseLifes();
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         GetComponent<Explosion>().Explode(false, false);
+        GameObject.FindGameObjectWithTag("Menu " + playerFiring.playerNumber).GetComponentInParent<OverlayEnable>().OpenPanel();
+        GameObject.FindGameObjectWithTag("Menu " + playerFiring.playerNumber).GetComponent<VehSwitchAvailable>().CloseMenu();
+        GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<SuppliesAvailable>().CloseMenu();
+
         Lock().aimingLocked = true;
         Lock().movementLocked = true;
         Lock().menusLOCKED = true;
         Lock().shootingLOCKED = true;
+
         Destroy(gameObject);
         GetComponentInParent<Respawn>().Launch();
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
