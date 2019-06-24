@@ -117,6 +117,8 @@ public class Vehicle : MonoBehaviour
         DecreaseLifes();
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
         GetComponent<Explosion>().Explode(false, false);
+        GameObject.FindGameObjectWithTag("Map Panel " + playerFiring.playerNumber).GetComponentInParent<OverlayEnable>().ClosePanel();
+        Lock().mapLocked = true;
         Lock().aimingLocked = true;
         Lock().movementLocked = true;
         Lock().menusLOCKED = true;
@@ -189,43 +191,41 @@ public class Vehicle : MonoBehaviour
 
     public void SetSupply(Vector3 pos, GameObject pref)
     {
-        //if (SuppliesAvailable().canBeSet == false)
-        //{
-            Lock().shootingLocked = true;
-            SuppliesAvailable().hasSupply = true;
-            InstantiateSupply(pos, pref); // Utworzenie prefaba supply'a w przed pojazdem
-            Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
-            supply.rotation = gameObject.transform.rotation;
+        Lock().shootingLocked = true;
+        Lock().menusLocked = true;
+        SuppliesAvailable().hasSupply = true;
+        InstantiateSupply(pos, pref); // Utworzenie prefaba supply'a w przed pojazdem
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+        supply.rotation = gameObject.transform.rotation;
 
-            Rigidbody r = supply.gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody; // Dodanie rigidbody, zamrożenie wszystkiego, ustawienie trybu kolizji
-            r.constraints = RigidbodyConstraints.FreezeAll;
-            r.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        Rigidbody r = supply.gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody; // Dodanie rigidbody, zamrożenie wszystkiego, ustawienie trybu kolizji
+        r.constraints = RigidbodyConstraints.FreezeAll;
+        r.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
-            Material newMaterial; // Utworzenie nowego materiału
-            newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
+        Material newMaterial; // Utworzenie nowego materiału
+        newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
 
-            supply.tag = "Untagged"; // Usunięcie taga w celu ignorowania supply'a przez wrogie wieżyczki
+        supply.tag = "Untagged"; // Usunięcie taga w celu ignorowania supply'a przez wrogie wieżyczki
 
-            MeshRenderer[] renderers = supply.transform.GetComponentsInChildren<MeshRenderer>();
-            for (int i = 0; i <= renderers.Length - 1; i++)
-            {
-                renderers[i].material = newMaterial;
-                renderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Nadanie przezroczystości supply'owi oraz wyłączenie cieni
-            }
+        MeshRenderer[] renderers = supply.transform.GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i <= renderers.Length - 1; i++)
+        {
+            renderers[i].material = newMaterial;
+            renderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Nadanie przezroczystości supply'owi oraz wyłączenie cieni
+        }
 
-            BoxCollider[] colliders = supply.transform.GetComponentsInChildren<BoxCollider>();
-            for (int i = 0; i <= colliders.Length - 1; i++)
-            {
-                colliders[i].isTrigger = true; // Przełączenie kolizji na trigger
-            }
+        BoxCollider[] colliders = supply.transform.GetComponentsInChildren<BoxCollider>();
+        for (int i = 0; i <= colliders.Length - 1; i++)
+        {
+            colliders[i].isTrigger = true; // Przełączenie kolizji na trigger
+        }
 
-            if (supply.GetComponent<AITower>() != null) // Wyłączenie właściwości i AI, jeśli wybraliśmy wieżyczkę
-            {
-                supply.GetComponent<AITower>().enabled = false;
-                supply.GetComponent<Building>().enabled = false;
-            }
-            StartCoroutine(Wait());
-        //}
+        if (supply.GetComponent<AITower>() != null) // Wyłączenie właściwości i AI, jeśli wybraliśmy wieżyczkę
+        {
+            supply.GetComponent<AITower>().enabled = false;
+            supply.GetComponent<Building>().enabled = false;
+        }
+        StartCoroutine(Wait());
 
     }
 
@@ -262,6 +262,7 @@ public class Vehicle : MonoBehaviour
         SuppliesAvailable().canBeSet = false;
         yield return new WaitForSecondsRealtime(1);
         Lock().shootingLocked = false;
+        Lock().menusLocked = false;
     }
 
     private LockActions Lock()
@@ -272,7 +273,7 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
-        if (SuppliesAvailable().hasSupply && playerInput.AButton() && SuppliesAvailable().canBeSet)
+        if (SuppliesAvailable().hasSupply && (playerInput.AButtonJ() || playerInput.AButtonK()) && SuppliesAvailable().canBeSet)
             PutSupply();
         if (SuppliesAvailable().hasSupply)
         {

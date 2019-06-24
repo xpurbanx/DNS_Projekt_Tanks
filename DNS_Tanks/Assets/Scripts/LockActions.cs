@@ -15,7 +15,7 @@ using UnityEngine;
 public class LockActions : MonoBehaviour
 {
     // Zmienne przechowywające informacje o wyłączonych funkcjach, nie inpucie
-    internal bool movementLocked, aimingLocked, shootingLocked, menusLocked, allLocked;
+    internal bool movementLocked, aimingLocked, shootingLocked, menusLocked, mapLocked, allLocked;
 
     // Zmienne przechowywające informacje o całkowicie wyłączonym inpucie
     internal bool movementLOCKED, aimingLOCKED, shootingLOCKED, menusLOCKED, allLOCKED;

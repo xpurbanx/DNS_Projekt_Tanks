@@ -13,7 +13,8 @@ public class PlayerInputSetup : MonoBehaviour
     string KVertical;
     string KSecondaryHorizontal; // nie ma duzego sensu, chce tylko zeby ta nazwa odpowiadala temu co jest na padzie
 
-    string aButton;
+    string aButtonJ;
+    string aButtonK;
     string bButton;
     string xButton;
     string yButton;
@@ -41,7 +42,8 @@ public class PlayerInputSetup : MonoBehaviour
         KHorizontal = "K" + playerNumber + "Horizontal";
         KVertical = "K" + playerNumber + "Vertical";
 
-        aButton = "J" + playerNumber + "A_Button";
+        aButtonJ = "J" + playerNumber + "A_Button";
+        aButtonK = "K" + playerNumber + "A_Button";
         bButton = "J" + playerNumber + "B_Button";
         xButton = "J" + playerNumber + "X_Button";
         yButton = "J" + playerNumber + "Y_Button";
@@ -59,10 +61,16 @@ public class PlayerInputSetup : MonoBehaviour
     {
         setControls();
     }
-    public bool AButton()
+    public bool AButtonJ()
     {
         if (Lock().shootingLOCKED == false)
-            return Input.GetButton(aButton);
+            return Input.GetButton(aButtonJ);
+        else return false;
+    }
+    public bool AButtonK()
+    {
+        if (Lock().shootingLOCKED == false)
+            return Input.GetButton(aButtonK);
         else return false;
     }
     public bool BButton()
