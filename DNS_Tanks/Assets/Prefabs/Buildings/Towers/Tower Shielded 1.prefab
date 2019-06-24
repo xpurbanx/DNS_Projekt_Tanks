@@ -92,6 +92,26 @@ PrefabInstance:
       propertyPath: enemyTag1
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: b7685a9839b3e0147a00caa7c84f20ec,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9441446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: b7685a9839b3e0147a00caa7c84f20ec,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.04822431
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: b7685a9839b3e0147a00caa7c84f20ec,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.9600469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: b7685a9839b3e0147a00caa7c84f20ec,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.0589112
+      objectReference: {fileID: 0}
     - target: {fileID: 1871872925425194382, guid: b7685a9839b3e0147a00caa7c84f20ec,
         type: 3}
       propertyPath: m_TagString

@@ -87,6 +87,16 @@ PrefabInstance:
       propertyPath: enemyTag2
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.322526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104331673768271744, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.5105206
+      objectReference: {fileID: 0}
     - target: {fileID: 1871872925425194382, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: m_TagString
@@ -116,11 +126,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593721467760111411, guid: 77e0fe26572ad01419be31eaf6d0beb6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4593721467760111413, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
@@ -191,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4593721467760111411, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e0fe26572ad01419be31eaf6d0beb6, type: 3}

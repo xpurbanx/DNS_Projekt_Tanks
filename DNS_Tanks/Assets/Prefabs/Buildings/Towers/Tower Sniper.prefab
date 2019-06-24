@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 4104331673768271744}
   - component: {fileID: 6044379771771063886}
   - component: {fileID: 6163640799554777988}
-  - component: {fileID: 3857854197524639531}
-  - component: {fileID: 5094514413329687953}
   - component: {fileID: 1913134590898419779}
   m_Layer: 0
   m_Name: Tower Sniper
@@ -98,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.33, y: 1.41, z: 1}
-  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Size: {x: 1.33, y: 0.96849585, z: 1}
+  m_Center: {x: 0, y: -0.0000032151274, z: 0}
 --- !u!114 &6044379771771063886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,32 +138,6 @@ MonoBehaviour:
   firePoint: {fileID: 6287959993432940514}
   enemies: []
   idleRotationSpeed: 0.5
---- !u!65 &3857854197524639531
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237511722881310783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.43, z: 2.7}
-  m_Center: {x: 0.06, y: 0.67, z: 0.46}
---- !u!65 &5094514413329687953
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237511722881310783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.43, z: 2.7}
-  m_Center: {x: 0.06, y: 0.67, z: 0.46}
 --- !u!114 &1913134590898419779
 MonoBehaviour:
   m_ObjectHideFlags: 0
