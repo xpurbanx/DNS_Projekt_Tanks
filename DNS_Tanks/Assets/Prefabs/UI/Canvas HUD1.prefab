@@ -2015,7 +2015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: K1Horizontal
   m_VerticalAxis: K1Vertical
-  m_SubmitButton: J1A_Button
+  m_SubmitButton: K1A_Button
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -3011,7 +3011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: K1Horizontal
   m_VerticalAxis: K1Vertical
-  m_SubmitButton: J1A_Button
+  m_SubmitButton: K1A_Button
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5

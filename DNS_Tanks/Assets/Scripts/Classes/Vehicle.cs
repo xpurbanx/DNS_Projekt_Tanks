@@ -267,7 +267,7 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
-        if (SuppliesAvailable().hasSupply && playerInput.AButton() && SuppliesAvailable().canBeSet)
+        if (SuppliesAvailable().hasSupply && (playerInput.AButtonJ() || playerInput.AButtonK()) && SuppliesAvailable().canBeSet)
             PutSupply();
         if (SuppliesAvailable().hasSupply)
         {

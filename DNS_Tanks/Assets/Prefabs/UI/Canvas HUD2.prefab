@@ -1639,7 +1639,7 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 9081629378795921577}
 --- !u!114 &8123968147117484391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: K2Horizontal
   m_VerticalAxis: K2Vertical
-  m_SubmitButton: J2A_Button
+  m_SubmitButton: K2A_Button
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: K2Horizontal
   m_VerticalAxis: K2Vertical
-  m_SubmitButton: J2A_Button
+  m_SubmitButton: K2A_Button
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
