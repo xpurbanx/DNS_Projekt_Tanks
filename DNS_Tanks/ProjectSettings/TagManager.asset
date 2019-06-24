@@ -26,6 +26,7 @@ TagManager:
   - Minimap Text
   - Map Panel 2
   - Map Panel 1
+  - Enemy Base Detector
   layers:
   - Default
   - TransparentFX
