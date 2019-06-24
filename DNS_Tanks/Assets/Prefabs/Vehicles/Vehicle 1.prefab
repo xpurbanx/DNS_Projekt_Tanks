@@ -368,11 +368,6 @@ PrefabInstance:
       propertyPath: m_havePropertiesChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 473124262674469475, guid: 395c1ff046aa13c47b1cb1fe468301d0,
-        type: 3}
-      propertyPath: m_SubmitButton
-      value: K1A_Button
-      objectReference: {fileID: 0}
     - target: {fileID: 4888213988783226274, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_CullTransparentMesh
