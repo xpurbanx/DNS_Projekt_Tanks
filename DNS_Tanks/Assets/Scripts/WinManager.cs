@@ -19,7 +19,7 @@ public class WinManager : MonoBehaviour
         gameEnded = true;
 
         panelGameOver.gameObject.SetActive(true);
-        txtGameOver.text = $"Wygrywa gracz numer {winnerNumber}";
+        txtGameOver.text = $"Player {winnerNumber} has won";
         StartCoroutine(RestartGame());
     }
 

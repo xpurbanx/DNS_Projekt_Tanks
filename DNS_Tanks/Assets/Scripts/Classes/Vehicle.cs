@@ -169,6 +169,11 @@ public class Vehicle : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().TankDeath(playerNumber);
         }
+
+        else if (vehicleType == 3)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().HeavyTankDeath(playerNumber);
+        }
     }
 
     public SuppliesAvailable SuppliesAvailable()
