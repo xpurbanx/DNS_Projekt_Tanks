@@ -20,7 +20,7 @@ public class Map : MonoBehaviour
         if (player != null)
         {
             Vector3 newPos = player.transform.position;
-            newPos.y = transform.position.y;
+            newPos.y = +115f;
             transform.position = newPos;
 
             //transform.rotation = Quaternion.Euler(90f, player.transform.eulerAngles.y, 0f); wykomentowałem obrót razem z graczem

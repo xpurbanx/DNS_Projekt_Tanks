@@ -23,7 +23,25 @@ public class OverlayEnable : MonoBehaviour
     public void Update()
     {
         if (playerInput.BButton() && timeStamp < Time.time && Lock().menusLocked == false && Lock().mapLocked == false && Lock().allLocked == false)
-            OpenPanel();
+            SwitchPanel();
+    }
+
+    public void SwitchPanel()
+    {
+        timeStamp = Time.time + cooldown;
+        if (panel != null)
+        {
+
+            Animator animator = panel.GetComponent<Animator>();
+            if (animator != null)
+            {
+
+                bool isOpen = animator.GetBool("open");
+                animator.SetBool("open", !isOpen);
+                Debug.Log(isOpen + " Halo");
+
+            }
+        }
     }
 
     public void OpenPanel()
@@ -37,7 +55,25 @@ public class OverlayEnable : MonoBehaviour
             {
 
                 bool isOpen = animator.GetBool("open");
-                animator.SetBool("open", !isOpen);
+                animator.SetBool("open", true);
+                Debug.Log(isOpen + " Halo");
+
+            }
+        }
+    }
+
+    public void ClosePanel()
+    {
+        timeStamp = Time.time + cooldown;
+        if (panel != null)
+        {
+
+            Animator animator = panel.GetComponent<Animator>();
+            if (animator != null)
+            {
+
+                bool isOpen = animator.GetBool("open");
+                animator.SetBool("open", false);
                 Debug.Log(isOpen + " Halo");
 
             }
