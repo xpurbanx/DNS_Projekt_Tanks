@@ -27,6 +27,8 @@ TagManager:
   - Map Panel 2
   - Map Panel 1
   - Enemy Base Detector
+  - Base 2
+  - Base 1
   layers:
   - Default
   - TransparentFX
