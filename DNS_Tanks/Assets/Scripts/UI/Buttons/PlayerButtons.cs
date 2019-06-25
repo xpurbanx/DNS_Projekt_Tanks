@@ -23,7 +23,6 @@ public class PlayerButtons : MonoBehaviour
             respawn.startVehicle = vehType;
             gameObject.GetComponent<VehSwitchAvailable>().CloseMenu();
             respawn.RespawnPlayer();
-            
         }
 
     }

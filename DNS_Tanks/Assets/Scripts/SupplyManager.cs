@@ -39,6 +39,7 @@ public class SupplyManager : MonoBehaviour
             {
                 towerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
                 towerButton.interactable = false;
+                towerButton.Select();
             }
         }
 
@@ -51,6 +52,7 @@ public class SupplyManager : MonoBehaviour
             {
                 sniperTowerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
                 sniperTowerButton.interactable = false;
+                sniperTowerButton.Select();
             }
         }
 
@@ -63,6 +65,7 @@ public class SupplyManager : MonoBehaviour
             {
                 shieldedTowerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
                 shieldedTowerButton.interactable = false;
+                shieldedTowerButton.Select();
             }
         }
 
@@ -75,6 +78,7 @@ public class SupplyManager : MonoBehaviour
             {
                 obstacleAmountText.color = new Color(0.885f, 0.44f, 0.35f);
                 obstacleButton.interactable = false;
+                obstacleButton.Select();
             }
         }
     }
