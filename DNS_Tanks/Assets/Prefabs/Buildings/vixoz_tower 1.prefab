@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: vixoz_tower 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6118974291346407030, guid: f5521698c1bcd8e44820f56558ca5412,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6118974291346498134, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,56 +70,61 @@ PrefabInstance:
     - target: {fileID: 6118974291346407010, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407008, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407014, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407012, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407018, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407016, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407022, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407020, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407026, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6118974291346407024, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: m_TagString
-      value: Player 1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3946226632580942777, guid: f5521698c1bcd8e44820f56558ca5412,
         type: 3}
       propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946226632580942777, guid: f5521698c1bcd8e44820f56558ca5412,
+        type: 3}
+      propertyPath: hasParts
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3659620018186970322, guid: f5521698c1bcd8e44820f56558ca5412,
@@ -270,12 +270,12 @@ PrefabInstance:
     - target: {fileID: 557806577975384249, guid: 6ad7c9765d62a684ea6e1c9a278588b6,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557806577975384249, guid: 6ad7c9765d62a684ea6e1c9a278588b6,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad7c9765d62a684ea6e1c9a278588b6, type: 3}
@@ -364,12 +364,12 @@ PrefabInstance:
     - target: {fileID: 7435076167382424710, guid: 4f16fd886df4a2f4185f8d91917a24d8,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7435076167382424710, guid: 4f16fd886df4a2f4185f8d91917a24d8,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f16fd886df4a2f4185f8d91917a24d8, type: 3}
