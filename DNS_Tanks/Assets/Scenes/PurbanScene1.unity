@@ -729,32 +729,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &92633962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1173913739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &92633965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 1173913739}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &92633966
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92633962}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!4 &104515034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9035578156095317100, guid: ed42d71775865d84dbfaebe985fa4426,
@@ -1375,6 +1355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1430,26 +1415,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire
-      objectReference: {fileID: 0}
-    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -1476,6 +1441,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649615233226593297, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -1523,6 +1503,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1577,11 +1562,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -1710,32 +1690,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8681c086a094348955216d4ef3cf0f, type: 3}
---- !u!1 &460182526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163980, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 809049283}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &460182529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
     type: 3}
   m_PrefabInstance: {fileID: 809049283}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &460182530
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460182526}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 8f34c244e0da945439f043bd7d958ecf, type: 3}
 --- !u!1001 &476634505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1854,6 +1814,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1913,11 +1878,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.6399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -2258,6 +2218,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2317,11 +2282,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.6399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -2483,56 +2443,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle 1
       objectReference: {fileID: 0}
-    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.47843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.8901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.34901962
-      objectReference: {fileID: 0}
-    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4284081018
-      objectReference: {fileID: 0}
-    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.47737512
-      objectReference: {fileID: 0}
-    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.8867924
-      objectReference: {fileID: 0}
-    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.34718758
-      objectReference: {fileID: 0}
-    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4284015225
-      objectReference: {fileID: 0}
     - target: {fileID: 721859432086749192, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_fontColor.r
@@ -2678,11 +2588,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4240597464455496628, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 500857018}
     - target: {fileID: 960165389369501003, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2773,6 +2678,61 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.47737512
+      objectReference: {fileID: 0}
+    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.34718758
+      objectReference: {fileID: 0}
+    - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284015225
+      objectReference: {fileID: 0}
+    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.47843137
+      objectReference: {fileID: 0}
+    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 426831464181170250, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284081018
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240597464455496628, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!114 &792264052 stripped
@@ -2793,32 +2753,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1286043210}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &803711156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1093305489}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &803711159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 1093305489}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &803711160
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803711156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!1001 &804595435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4633,32 +4573,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1321266213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 66056219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1321266216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 66056219}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1321266217
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321266213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!1001 &1325213207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4729,6 +4649,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4784,26 +4709,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -4830,6 +4735,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649615233226593297, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -5169,32 +5089,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbee0fffd3b69f44485bc56d39248a6a, type: 3}
---- !u!1 &1458510482 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 275752183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1458510485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 275752183}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1458510486
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458510482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!1 &1484331498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,32 +5138,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1495658805 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1325213207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1495658808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 1325213207}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1495658809
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495658805}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!1001 &1495822218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5681,6 +5561,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5741,11 +5626,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.6399999
       objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_Mesh
@@ -5784,32 +5664,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 564922158}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1599034911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163980, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1703564583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1599034914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
     type: 3}
   m_PrefabInstance: {fileID: 1703564583}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1599034915
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599034911}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 8f34c244e0da945439f043bd7d958ecf, type: 3}
 --- !u!1001 &1611599393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6605,32 +6465,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775896212}
   m_CullTransparentMesh: 0
---- !u!1 &1784090757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163980, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1653058609}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1784090760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 433264, guid: 2fb6f5d47657319408dbd4f3e8412b4c,
     type: 3}
   m_PrefabInstance: {fileID: 1653058609}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1784090761
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784090757}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 8f34c244e0da945439f043bd7d958ecf, type: 3}
 --- !u!4 &1801976674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4470656864641423983, guid: cbee0fffd3b69f44485bc56d39248a6a,
@@ -6909,32 +6749,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1437727992}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1915738847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1350412349}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1915738850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 1350412349}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1915738851
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915738847}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!4 &1927899174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 377211070006680133, guid: fb237376a2f84f34b88924de8d9ef2e0,
@@ -7319,36 +7139,6 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4284081018
       objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4284081018
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.47843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.8901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.34901962
-      objectReference: {fileID: 0}
     - target: {fileID: 530675510648928562, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
       propertyPath: m_fontColor.r
@@ -7378,6 +7168,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4284081018
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4284081018
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.47843137
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688047532121873595, guid: e27d2ec3710ede7479c6ffccb665caf5,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.34901962
       objectReference: {fileID: 0}
     - target: {fileID: 6855162925988636317, guid: e27d2ec3710ede7479c6ffccb665caf5,
         type: 3}
@@ -7866,32 +7686,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5796ffc6fcdd47d4babcac2f7da98a72, type: 3}
---- !u!1 &2070876145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 145430, guid: 82f6882977329724ca4b934e09af87fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2014808083}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2070876148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456744, guid: 82f6882977329724ca4b934e09af87fc,
     type: 3}
   m_PrefabInstance: {fileID: 2014808083}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2070876149
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070876145}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: ac812c2731bb9334aa4ea6c245c390ba, type: 3}
 --- !u!1001 &2101750849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7899,6 +7699,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7954,26 +7759,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -8000,6 +7785,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649615233226593297, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -8039,6 +7839,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8094,26 +7899,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -8140,6 +7925,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649615233226593297, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294626067274374293, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772266990368750813, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -8602,26 +8402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 509850719282128248, guid: ed42d71775865d84dbfaebe985fa4426,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 509850719282128248, guid: ed42d71775865d84dbfaebe985fa4426,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 509850719282128230, guid: ed42d71775865d84dbfaebe985fa4426,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 509850719282128228, guid: ed42d71775865d84dbfaebe985fa4426,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 9035578156095317101, guid: ed42d71775865d84dbfaebe985fa4426,
         type: 3}
       propertyPath: m_Name
@@ -8705,7 +8485,7 @@ PrefabInstance:
     - target: {fileID: 4104729456710140335, guid: ed42d71775865d84dbfaebe985fa4426,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6760249242791825450, guid: ed42d71775865d84dbfaebe985fa4426,
         type: 3}
@@ -8782,5 +8562,25 @@ PrefabInstance:
       propertyPath: heavyTank2Button
       value: 
       objectReference: {fileID: 688187017}
+    - target: {fileID: 509850719282128228, guid: ed42d71775865d84dbfaebe985fa4426,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 509850719282128230, guid: ed42d71775865d84dbfaebe985fa4426,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 509850719282128248, guid: ed42d71775865d84dbfaebe985fa4426,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 509850719282128248, guid: ed42d71775865d84dbfaebe985fa4426,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed42d71775865d84dbfaebe985fa4426, type: 3}
