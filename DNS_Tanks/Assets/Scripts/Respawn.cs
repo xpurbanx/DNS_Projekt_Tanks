@@ -38,6 +38,7 @@ public class Respawn : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().gameEnded)
             {
+                Lock().menusLocked = false;
                 GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
             }
         }
