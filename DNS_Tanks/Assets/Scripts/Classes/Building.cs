@@ -15,7 +15,7 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
-    
+
     [Tooltip("Dotyczy budynkow z czesciami jak wall.Parts musza miec collidery i rigidbody z zaznaczonym Trigger i zamrozonymi pozycjami")]
     public bool hasParts = false;
     [Tooltip("Z jaka moca rozpada sie budynek")]
@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
     [Tooltip("Z jaka moca rozpada sie budynek")]
     public float partLifetime = 5f;
 
-    private SpawnFractured fractured; 
+    private SpawnFractured fractured;
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
@@ -35,7 +35,7 @@ public class Building : MonoBehaviour
     }
     private void OnEnable()
     {
-        
+
     }
 
     private void DestroyBuilding()
@@ -56,23 +56,27 @@ public class Building : MonoBehaviour
         if (hasParts == true)
         {
             Destroy(GetComponent<Collider>());
-            for(int i = 0; i < transform.childCount; i++)
+            for (int i = 0; i < transform.childCount; i++)
             {
                 GameObject child = transform.GetChild(i).gameObject;
-                if(child.GetComponent<MeshCollider>() != null)
+                if (child.GetComponent<MeshCollider>() != null)
                 {
                     child.GetComponent<MeshCollider>().isTrigger = false;
                 }
-                child.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                child.GetComponent<Rigidbody>().AddExplosionForce(destroyExplosionForce, transform.position, explosionRadius);
+                if (child.GetComponent<Rigidbody>() != null)
+                {
+                    child.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    child.GetComponent<Rigidbody>().AddExplosionForce(destroyExplosionForce, transform.position, explosionRadius);
+                }
+
                 Destroy(child, partLifetime);
             }
             return;
-            
+
         }
 
         Destroy(gameObject);
-        
+
     }
 
     private void CheckIfDestroyed()
@@ -82,7 +86,7 @@ public class Building : MonoBehaviour
             DestroyBuilding();
             ActiveEntities.Instance.RemoveFromList(tag, gameObject);
         }
-            
+
     }
 
     public void Damage(float damage)
