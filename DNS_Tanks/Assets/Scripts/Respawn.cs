@@ -38,7 +38,6 @@ public class Respawn : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().gameEnded)
             {
-                Lock().menusLocked = false;
                 GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
             }
         }
@@ -54,6 +53,7 @@ public class Respawn : MonoBehaviour
         Lock().mapLocked = false;
         Lock().aimingLocked = false;
         Lock().movementLocked = false;
+        Lock().menusLocked = false;
         Lock().menusLOCKED = false;
         Lock().shootingLOCKED = false;
         Lock().shootingLocked = false;
