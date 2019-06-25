@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7141646514567814614, guid: 04ded9bf39e1a12449e2344bc09e8817,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7141646514568233462, guid: 04ded9bf39e1a12449e2344bc09e8817,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1128,6 +1133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1182,11 +1192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
@@ -1478,6 +1483,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1533,11 +1543,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -1591,6 +1596,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1645,11 +1655,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -1862,6 +1867,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1921,11 +1931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.6399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -2381,6 +2386,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2440,11 +2450,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.6399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -2577,6 +2582,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vehicle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 721859432086749192, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 721859432086749192, guid: 28fbc280ae3695542bed829c3c9f7d54,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 30221857901700260, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
@@ -2839,16 +2854,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 495184341491875435, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 721859432086749192, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 721859432086749192, guid: 28fbc280ae3695542bed829c3c9f7d54,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -3829,7 +3834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1138584620
 Transform:
   m_ObjectHideFlags: 0
@@ -4408,6 +4413,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4463,11 +4473,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -4507,6 +4512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4561,11 +4571,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
@@ -5293,6 +5298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Shielded Empire (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4206647952141824190, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5352,11 +5362,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.6399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7811217262732862750, guid: 8a5f28972f8a508438336cedf8b2112e,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Shielded Empire (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2428778075399924210, guid: 8a5f28972f8a508438336cedf8b2112e,
         type: 3}
@@ -6114,6 +6119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7141646514567814614, guid: 04ded9bf39e1a12449e2344bc09e8817,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7141646514568233462, guid: 04ded9bf39e1a12449e2344bc09e8817,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6565,6 +6575,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6619,11 +6634,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
@@ -7870,6 +7880,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7925,11 +7940,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_Mesh
@@ -7975,6 +7985,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961044408}
     m_Modifications:
+    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Empire (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2544220405586369749, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8029,11 +8044,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8451253516593809781, guid: 4aea5c8e06154b64f8c6d69ad981c515,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Empire (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3172904036464509001, guid: 4aea5c8e06154b64f8c6d69ad981c515,
         type: 3}
@@ -8364,6 +8374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: turret wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045705042385795652, guid: 083dd5ba022d7e144bda9216d486b959,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4045705042385795655, guid: 083dd5ba022d7e144bda9216d486b959,
         type: 3}
