@@ -8,18 +8,13 @@ using UnityEngine;
 public class VehSwitchAvailable : MonoBehaviour
 {
     public GameObject menu;
+    public MyButton defaultButton;
     public double cooldown = 3;
-    internal double timeStamp;
-    private PlayerInputSetup playerInput;
 
+    internal double timeStamp;
     internal bool menuAvailable;
     internal bool closeNow;
     internal bool isOpen = false;
-
-    public void Start()
-    {
-        playerInput = GetComponentInParent<PlayerInputSetup>();
-    }
 
     private LockActions Lock()
     {
@@ -32,13 +27,13 @@ public class VehSwitchAvailable : MonoBehaviour
         timeStamp = Time.time + cooldown;
         if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
-
             Animator animator = menu.GetComponent<Animator>();
             if (animator != null)
             {
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", true);
                 isOpen = true;
+                defaultButton.Select();
                 Lock().aimingLocked = true;
                 Lock().movementLocked = true;
                 Lock().shootingLOCKED = true;
@@ -52,7 +47,6 @@ public class VehSwitchAvailable : MonoBehaviour
         timeStamp = Time.time + cooldown;
         if (menu != null && Lock().menusLocked == false && Lock().allLocked == false)
         {
-
             Animator animator = menu.GetComponent<Animator>();
             if (animator != null)
             {
@@ -79,11 +73,26 @@ public class VehSwitchAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
                 isOpen = !isOpen;
+                defaultButton.Select();
                 Lock().aimingLocked = !Lock().aimingLocked;
                 Lock().movementLocked = !Lock().movementLocked;
                 Lock().shootingLOCKED = !Lock().shootingLOCKED;
                 Lock().shootingLocked = !Lock().shootingLocked;
             }
         }
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            StartCoroutine(SelectDefault());
+        }
+    }
+
+    private IEnumerator SelectDefault()
+    {
+        yield return new WaitForSeconds(0.1f);
+        defaultButton.Select();
     }
 }
