@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1684480512479799655}
   - component: {fileID: 1684480512479799657}
   - component: {fileID: 4809700245439663977}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ PrefabInstance:
     - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
       propertyPath: stopAction
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
@@ -285,11 +285,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ExternalForcesModule.enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System Bullet End
       objectReference: {fileID: 0}
     - target: {fileID: 4338962939732455728, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
@@ -415,6 +410,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle System Bullet End
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19676dbd99bb03e47b64859141561871, type: 3}

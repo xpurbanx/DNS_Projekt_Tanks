@@ -15,6 +15,16 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
+    
+    [Tooltip("Dotyczy budynkow z czesciami jak wall.Parts musza miec collidery i rigidbody z zaznaczonym Trigger i zamrozonymi pozycjami")]
+    public bool hasParts = false;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float destroyExplosionForce = 2f;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float explosionRadius = 10f;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float partLifetime = 5f;
+
     private SpawnFractured fractured; 
     void Start()
     {
@@ -41,6 +51,24 @@ public class Building : MonoBehaviour
         if (fractured != null)
         {
             fractured.SpawnFracturedObject();
+        }
+
+        if (hasParts == true)
+        {
+            Destroy(GetComponent<Collider>());
+            for(int i = 0; i < transform.childCount; i++)
+            {
+                GameObject child = transform.GetChild(i).gameObject;
+                if(child.GetComponent<MeshCollider>() != null)
+                {
+                    child.GetComponent<MeshCollider>().isTrigger = false;
+                }
+                child.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                child.GetComponent<Rigidbody>().AddExplosionForce(destroyExplosionForce, transform.position, explosionRadius);
+                Destroy(child, partLifetime);
+            }
+            return;
+            
         }
 
         Destroy(gameObject);

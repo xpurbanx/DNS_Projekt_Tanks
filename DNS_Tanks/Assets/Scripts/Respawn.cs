@@ -53,6 +53,7 @@ public class Respawn : MonoBehaviour
         Lock().mapLocked = false;
         Lock().aimingLocked = false;
         Lock().movementLocked = false;
+        Lock().menusLocked = false;
         Lock().menusLOCKED = false;
         Lock().shootingLOCKED = false;
         Lock().shootingLocked = false;

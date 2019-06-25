@@ -23,7 +23,6 @@ public class PlayerButtons : MonoBehaviour
             respawn.startVehicle = vehType;
             gameObject.GetComponent<VehSwitchAvailable>().CloseMenu();
             respawn.RespawnPlayer();
-            
         }
 
     }
@@ -37,6 +36,7 @@ public class PlayerButtons : MonoBehaviour
         ///////////////////////////////////////////////////////////////////////////
         if (suppliesAvailable != null && suppliesAvailable.isOpen == true && suppliesAvailable.canBeSet == false)
         {
+            GetComponent<SupplyManager>().DecreaseAmount(supply);
             playerNumber = player.GetComponentInChildren<PlayerFiring>().playerNumber;
             Vector3 position = GameObject.FindGameObjectWithTag("Supply Holder " + playerNumber).transform.position;
             prefabs = suppliesAvailable.prefabs;
