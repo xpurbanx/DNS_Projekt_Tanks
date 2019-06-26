@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class LookAtBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int playerNumber;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(GameObject.FindGameObjectWithTag("FlagStation " + playerNumber).transform);
+        transform.GetChild(1).LookAt(GameObject.FindGameObjectWithTag("Camera " + playerNumber).transform);
     }
 }

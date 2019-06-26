@@ -78,6 +78,9 @@ public class Building : MonoBehaviour
                     child.GetComponent<Rigidbody>().AddExplosionForce(destroyExplosionForce, transform.position, explosionRadius);
                 }
 
+                if (child.tag == "Marker") // Usunięcie markera z mapy
+                    Destroy(child);
+
                 Destroy(child, partLifetime);
             }
             return;

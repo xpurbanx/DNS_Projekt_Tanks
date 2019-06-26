@@ -26,9 +26,11 @@ TagManager:
   - Minimap Text
   - Map Panel 2
   - Map Panel 1
-  - Enemy Base Detector
   - Base 2
   - Base 1
+  - Marker
+  - Camera 1
+  - Camera 2
   layers:
   - Default
   - TransparentFX
@@ -46,10 +48,10 @@ TagManager:
   - Minimap 2
   - Wall Collider
   - Bullet
-  - 
-  - 
-  - 
-  - 
+  - Player 1 NO Minimap
+  - Player 2 NO Minimap
+  - Player 1 AND Minimap
+  - Player 2 AND Minimap
   - 
   - 
   - 

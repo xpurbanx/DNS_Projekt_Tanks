@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1622415767335028711}
   m_Layer: 0
   m_Name: Camera 1
-  m_TagString: Player 1
+  m_TagString: Camera 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 50999
+    m_Bits: 378679
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -342,6 +342,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7695139723393568807, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1315308119216491869, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -376,6 +381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673221839349723053, guid: 395c1ff046aa13c47b1cb1fe468301d0,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55095
       objectReference: {fileID: 0}
     - target: {fileID: 5545311112150816096, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
