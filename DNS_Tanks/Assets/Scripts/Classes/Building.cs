@@ -27,12 +27,14 @@ public class Building : MonoBehaviour
     public float partLifetime = 5f;
 
     private SpawnFractured fractured;
+    private Explosion explosion;
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
         fractured = GetComponent<SpawnFractured>();
         ActiveEntities.Instance.AddToList(this.tag, this.gameObject);
+        if (GetComponent<Explosion>() != null) explosion = GetComponent<Explosion>();
     }
     private void OnEnable()
     {
@@ -56,6 +58,8 @@ public class Building : MonoBehaviour
 
         if (hasParts == true)
         {
+            if (explosion != null)
+                explosion.Explode(false, false);
             foreach(Collider collider in GetComponents<Collider>())
             {
                 Destroy(collider);
@@ -79,7 +83,8 @@ public class Building : MonoBehaviour
             return;
 
         }
-
+        if(explosion != null)
+           explosion.Explode(true, true);
         Destroy(gameObject);
 
     }

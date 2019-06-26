@@ -55,8 +55,8 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            trail.endColor = Color.white;
-            trail.startColor = Color.white;
+            trail.endColor = Color.yellow;
+            trail.startColor = Color.yellow;
         }
         if (playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
         {
