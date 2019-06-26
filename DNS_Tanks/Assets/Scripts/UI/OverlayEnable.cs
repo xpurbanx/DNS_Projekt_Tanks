@@ -23,7 +23,7 @@ public class OverlayEnable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.BButton() && timeStamp < Time.time && Lock().menusLocked == false && Lock().mapLocked == false && Lock().allLocked == false)
+        if (playerInput.BButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false)
             SwitchPanel();
     }
 
@@ -39,12 +39,8 @@ public class OverlayEnable : MonoBehaviour
 
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
-                Debug.Log(isOpen + " Halo");
-                isOpen = !isOpen;
-                if (isOpen == true)
-                    Lock().shootingLocked = true;
-                else
-                    Lock().shootingLocked = false;
+                Lock().shootingLocked = !Lock().shootingLocked;
+                Lock().menusLocked = !Lock().menusLocked;
             }
         }
     }
@@ -61,8 +57,9 @@ public class OverlayEnable : MonoBehaviour
 
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", true);
-                Debug.Log(isOpen + " Halo");
+                isOpen = true;
                 Lock().shootingLocked = true;
+                Lock().menusLocked = true;
             }
         }
     }
@@ -79,8 +76,9 @@ public class OverlayEnable : MonoBehaviour
 
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", false);
-                Debug.Log(isOpen + " Halo");
+                isOpen = false;
                 Lock().shootingLocked = false;
+                Lock().menusLocked = false;
             }
         }
     }
