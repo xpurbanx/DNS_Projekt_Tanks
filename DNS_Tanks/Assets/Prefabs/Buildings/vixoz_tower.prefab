@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 885083264993268584}
   - component: {fileID: 7384078137521736101}
   - component: {fileID: 799406168871891568}
+  - component: {fileID: 3973058944188628410}
   m_Layer: 0
   m_Name: vixoz_tower
   m_TagString: Untagged
@@ -1193,3 +1194,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.25, y: 4.26, z: 3.24}
   m_Center: {x: 0.33, y: 1.93, z: -0.32}
+--- !u!114 &3973058944188628410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a4171161218874c85a1afc83d7aa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3190487094944005068, guid: 0a8bbaef0027bf444816e99c9496d15b,
+    type: 3}
+  particlesOffset: {x: 0, y: 0, z: 0}
+  minForce: 0
+  maxForce: 0
+  radius: 0
+  disappearDelay: 0

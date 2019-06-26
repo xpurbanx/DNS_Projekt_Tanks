@@ -101,16 +101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5263368483500078495, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -166,6 +156,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237511722881310783, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: enemyTag
@@ -186,6 +186,12 @@ PrefabInstance:
       propertyPath: enemyTag1
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6163640799554777988, guid: 77e0fe26572ad01419be31eaf6d0beb6,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1768710842417386481, guid: 3cff8497795dae946b3a7994cee41b17,
+        type: 3}
     - target: {fileID: 6044379771771063886, guid: 77e0fe26572ad01419be31eaf6d0beb6,
         type: 3}
       propertyPath: playerNumber

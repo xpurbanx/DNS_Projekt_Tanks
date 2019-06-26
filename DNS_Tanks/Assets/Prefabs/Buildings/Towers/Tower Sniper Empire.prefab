@@ -106,26 +106,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2237511722881310783, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_Name
-      value: Tower Sniper Empire
-      objectReference: {fileID: 0}
-    - target: {fileID: 2237511722881310783, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Empire
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 8649681611788494743}
-    - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: enemyTag2
-      value: Player 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5263368483500078495, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,41 +161,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8715013063975081301, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+    - target: {fileID: 2237511722881310783, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower Sniper Empire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237511722881310783, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: m_TagString
       value: Empire
       objectReference: {fileID: 0}
-    - target: {fileID: 6346388516581487205, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+    - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1871872925425194382, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 8649681611788494743}
+    - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
-      propertyPath: m_TagString
-      value: Empire
+      propertyPath: enemyTag2
+      value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6163640799554777988, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1768710842417386481, guid: a3b44afb2fecfb24b832306c8a0acf22,
+        type: 3}
     - target: {fileID: 7021374846251610771, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d3afbf5d438568f4c940744c3c831465, type: 2}
-    - target: {fileID: 7566660751199898452, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3581748604005973220, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426798285184262993, guid: ab33d7c10bcf42440bcb8fd720260e8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 4449315829553921760, guid: ab33d7c10bcf42440bcb8fd720260e8f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -236,6 +212,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 895079902dfb3f346af9f132aeb9f43b, type: 2}
+    - target: {fileID: 6346388516581487205, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715013063975081301, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Empire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871872925425194382, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Empire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566660751199898452, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581748604005973220, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426798285184262993, guid: ab33d7c10bcf42440bcb8fd720260e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab33d7c10bcf42440bcb8fd720260e8f, type: 3}
 --- !u!4 &7368373232196619754 stripped
