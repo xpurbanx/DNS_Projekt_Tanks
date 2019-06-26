@@ -25,5 +25,6 @@ public class SpawnFractured : MonoBehaviour
 
         // Funkcja odpowiedzialna za ewentualną eksplozję i zniknięcie zniszczonych elementów budynku
         fractObj.GetComponent<Explosion>().Explode(enableExplosionForce, enablePartsDisappear);
+        Destroy(gameObject);
     }
 }
