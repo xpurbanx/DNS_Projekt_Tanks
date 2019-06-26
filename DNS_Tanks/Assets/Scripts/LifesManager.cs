@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class LifesManager : MonoBehaviour
 {
+    Color color = new Color(1f, 0.5f, 0.5f);
+
     [Header("Ogólna ilość żyć dla każdego typu pojazdu", order = 1)]
     [Header("jeżeli chcesz customizować życia, zostaw atrybut na 0", order = 2)]
     [Space(5, order = 3)]
@@ -59,7 +61,7 @@ public class LifesManager : MonoBehaviour
             tankLifes1 -= 1;
             if (tankLifes1 == 0)
             {
-                tankAmount1.color = new Color(0.885f, 0.44f, 0.35f);
+                tankAmount1.color = color;
                 tank1Button.interactable = false;
             }
 
@@ -71,7 +73,7 @@ public class LifesManager : MonoBehaviour
             tankLifes2 -= 1;
             if (tankLifes2 == 0)
             {
-                tankAmount2.color = new Color(0.885f, 0.44f, 0.35f);
+                tankAmount2.color = color;
                 tank2Button.interactable = false;
             }
 
@@ -88,7 +90,7 @@ public class LifesManager : MonoBehaviour
             jeepLifes1 -= 1;
             if (jeepLifes1 == 0)
             {
-                jeepAmount1.color = new Color(0.885f, 0.44f, 0.35f);
+                jeepAmount1.color = color;
                 jeep1Button.interactable = false;
             }
 
@@ -100,7 +102,7 @@ public class LifesManager : MonoBehaviour
             jeepLifes2 -= 1;
             if (jeepLifes2 == 0)
             {
-                jeepAmount2.color = new Color(0.885f, 0.44f, 0.35f);
+                jeepAmount2.color = color;
                 jeep2Button.interactable = false;
             }
 
@@ -117,7 +119,7 @@ public class LifesManager : MonoBehaviour
             heavyTankLifes1 -= 1;
             if (heavyTankLifes1 == 0)
             {
-                heavyTankAmount1.color = new Color(0.885f, 0.44f, 0.35f);
+                heavyTankAmount1.color = color;
                 heavyTank1Button.interactable = false;
             }
 
@@ -129,7 +131,7 @@ public class LifesManager : MonoBehaviour
             heavyTankLifes2 -= 1;
             if (heavyTankLifes2 == 0)
             {
-                heavyTankAmount2.color = new Color(0.885f, 0.44f, 0.35f);
+                heavyTankAmount2.color = color;
                 heavyTank2Button.interactable = false;
             }
 

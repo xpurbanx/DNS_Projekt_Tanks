@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SupplyManager : MonoBehaviour
 {
+    Color color = new Color(1f, 0.5f, 0.5f);
+
     public int towerAmount;
     public int sniperTowerAmount;
     public int shieldedTowerAmount;
@@ -37,7 +39,7 @@ public class SupplyManager : MonoBehaviour
 
             if (towerAmount == 0)
             {
-                towerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
+                towerAmountText.color = color;
                 towerButton.interactable = false;
             }
         }
@@ -49,7 +51,7 @@ public class SupplyManager : MonoBehaviour
 
             if (sniperTowerAmount == 0)
             {
-                sniperTowerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
+                sniperTowerAmountText.color = color;
                 sniperTowerButton.interactable = false;
             }
         }
@@ -61,7 +63,7 @@ public class SupplyManager : MonoBehaviour
 
             if (shieldedTowerAmount == 0)
             {
-                shieldedTowerAmountText.color = new Color(0.885f, 0.44f, 0.35f);
+                shieldedTowerAmountText.color = color;
                 shieldedTowerButton.interactable = false;
             }
         }
@@ -73,7 +75,7 @@ public class SupplyManager : MonoBehaviour
 
             if (obstacleAmount == 0)
             {
-                obstacleAmountText.color = new Color(0.885f, 0.44f, 0.35f);
+                obstacleAmountText.color = color;
                 obstacleButton.interactable = false;
             }
         }
