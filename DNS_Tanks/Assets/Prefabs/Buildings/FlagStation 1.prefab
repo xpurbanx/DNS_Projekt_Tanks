@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagStation 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2389800242668483583, guid: f7a86f14bf0766e48b5291ab045141c1,
+        type: 3}
+      propertyPath: m_TagString
+      value: FlagStation 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2389800242668483571, guid: f7a86f14bf0766e48b5291ab045141c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,6 +75,11 @@ PrefabInstance:
     - target: {fileID: 2389800242668483568, guid: f7a86f14bf0766e48b5291ab045141c1,
         type: 3}
       propertyPath: flagStationNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017117533639067648, guid: f7a86f14bf0766e48b5291ab045141c1,
+        type: 3}
+      propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
