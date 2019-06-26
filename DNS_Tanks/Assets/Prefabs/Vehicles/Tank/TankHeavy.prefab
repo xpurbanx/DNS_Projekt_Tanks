@@ -517,7 +517,7 @@ MonoBehaviour:
   damageAT: 42
   firingCooldown: 1.5
   turnTurretSpeed: 0
-  bulletVelocity: 40
+  bulletVelocity: 80
   bulletRange: 30
 --- !u!114 &3476636104668274286
 MonoBehaviour:

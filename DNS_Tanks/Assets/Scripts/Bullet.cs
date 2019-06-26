@@ -92,11 +92,13 @@ public class Bullet : MonoBehaviour
                 gameObject.transform.localScale = smaller;
                 break;
         }
+        Fly();
+        
     }
 
     private void FixedUpdate()
     {
-        Fly();
+       // Fly();
         CheckToDestroy();
     }
 
@@ -114,10 +116,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Destroy(gameObject, 0.5f);
+
         if (collision.collider.gameObject.tag == "Shield")
         {
-            Destroy(gameObject, 1f);
+           // Destroy(gameObject, 1f);
             return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija            
         }
 
@@ -158,13 +161,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
+
     private void Fly()
     {
         // Pocisk porusza sie z prędkością początkową startVelocity i z każdą sekundę jego prędkość obecna maleje
         if (!wasIFired)
         {
-            Vector3 movement = forward * startVelocity / Time.deltaTime;
-            rigidbody.AddForce(movement);
+            Vector3 movement = forward * startVelocity; /// Time.deltaTime;
+            //rigidbody.AddForce(movement);
+            rigidbody.velocity = movement;
             wasIFired = true;
         }
 
