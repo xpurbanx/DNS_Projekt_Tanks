@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
 
@@ -55,7 +56,11 @@ public class Building : MonoBehaviour
 
         if (hasParts == true)
         {
-            Destroy(GetComponent<Collider>());
+            foreach(Collider collider in GetComponents<Collider>())
+            {
+                Destroy(collider);
+            }
+
             for (int i = 0; i < transform.childCount; i++)
             {
                 GameObject child = transform.GetChild(i).gameObject;
