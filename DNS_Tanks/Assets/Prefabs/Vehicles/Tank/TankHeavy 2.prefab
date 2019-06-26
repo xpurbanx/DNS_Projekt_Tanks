@@ -195,6 +195,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5960866686587195181, guid: b158733d691758e4e8a3515a316eebbe,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1768710842417386481, guid: 3cff8497795dae946b3a7994cee41b17,
+        type: 3}
     - target: {fileID: 7499886643235756675, guid: b158733d691758e4e8a3515a316eebbe,
         type: 3}
       propertyPath: m_LocalPosition.x

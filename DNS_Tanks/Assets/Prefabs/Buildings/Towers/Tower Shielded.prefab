@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 6044379771771063886}
   - component: {fileID: 6163640799554777988}
   - component: {fileID: 3172713349882712242}
+  - component: {fileID: 1015504495174377482}
   m_Layer: 0
   m_Name: Tower Shielded
   m_TagString: Untagged
@@ -415,6 +416,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 2
+  explosionRadius: 10
+  partLifetime: 5
 --- !u!114 &6163640799554777988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +458,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b0aaaefbad8334f94df2e631a2e1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1015504495174377482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237511722881310783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a4171161218874c85a1afc83d7aa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3190487094944005068, guid: dd65856a61a79af4f94a4ba457138b32,
+    type: 3}
+  particlesOffset: {x: 0, y: 0, z: 0}
+  minForce: 0
+  maxForce: 0
+  radius: 0
+  disappearDelay: 0
 --- !u!1 &6346388516581487205
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5981533664145626143}
   - component: {fileID: 4104331673768271744}
   - component: {fileID: 6044379771771063886}
+  - component: {fileID: 3532643557324647529}
   - component: {fileID: 6163640799554777988}
   - component: {fileID: 1913134590898419779}
   m_Layer: 0
@@ -112,6 +113,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 2
+  explosionRadius: 10
+  partLifetime: 5
+--- !u!114 &3532643557324647529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237511722881310783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a4171161218874c85a1afc83d7aa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3190487094944005068, guid: dd65856a61a79af4f94a4ba457138b32,
+    type: 3}
+  particlesOffset: {x: 0, y: 0, z: 0}
+  minForce: 0
+  maxForce: 0
+  radius: 0
+  disappearDelay: 0
 --- !u!114 &6163640799554777988
 MonoBehaviour:
   m_ObjectHideFlags: 0
