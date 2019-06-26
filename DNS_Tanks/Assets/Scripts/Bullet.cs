@@ -20,6 +20,9 @@ public class Bullet : MonoBehaviour
     private Vehicle vehicle;
     private Building building;
     public ParticleSystem particleEffect;
+    public ParticleSystem laserParticle;
+    ParticleSystem.MainModule laserMain;
+    private Light light;
 
     // rigidbody - odpowiada za sam pocisk
     private new Rigidbody rigidbody;
@@ -36,6 +39,8 @@ public class Bullet : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         trail = GetComponent<TrailRenderer>();
         particleEffect = GetComponentInChildren<ParticleSystem>();
+        light = GetComponentInChildren<Light>();
+        laserMain = laserParticle.main;
     }
 
     void Start()
@@ -47,16 +52,25 @@ public class Bullet : MonoBehaviour
         {
             trail.endColor = Color.blue;
             trail.startColor = Color.blue;
+            light.color = Color.blue;
+            laserMain.startColor = new ParticleSystem.MinMaxGradient(Color.blue);
+            laserMain.startColor = Color.blue;
         }
         else if (playerNumber == 2)
         {
             trail.endColor = Color.red;
             trail.startColor = Color.red;
+            light.color = Color.red;
+            laserMain.startColor = new ParticleSystem.MinMaxGradient(Color.red);
+            laserMain.startColor = Color.red;
         }
         else
         {
             trail.endColor = Color.yellow;
             trail.startColor = Color.yellow;
+            light.color = Color.yellow;
+            laserMain.startColor = new ParticleSystem.MinMaxGradient(Color.yellow);
+            laserMain.startColor = Color.yellow;
         }
         if (playerFiring == null) // jeżeli nie ma playerFiring to jest to wiezyczka
         {
