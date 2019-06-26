@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 2389800242668483581}
   - component: {fileID: 2389800242668483580}
   - component: {fileID: 2389800242668483568}
-  - component: {fileID: 5017117533639067648}
-  - component: {fileID: 2265004966324918699}
   m_Layer: 0
   m_Name: FlagStation
   m_TagString: Terrain
@@ -107,29 +105,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagStationNumber: 0
---- !u!114 &5017117533639067648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2389800242668483583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7785f4a348b8754ebc2e36f372e4422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNumber: 0
---- !u!135 &2265004966324918699
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2389800242668483583}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
