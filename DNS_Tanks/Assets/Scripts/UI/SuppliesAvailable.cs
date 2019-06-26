@@ -8,10 +8,10 @@ using UnityEngine;
 public class SuppliesAvailable : MonoBehaviour
 {
     public GameObject menu;
+    public MyButton defaultButton;
     public List<GameObject> prefabs;
     public double cooldown = 3;
     internal double timeStamp;
-    private PlayerInputSetup playerInput;
 
     internal bool canBeSet = false;
     internal bool hasSupply = false;
@@ -23,11 +23,6 @@ public class SuppliesAvailable : MonoBehaviour
     {
         LockActions lockActions = GetComponentInParent<LockActions>();
         return lockActions;
-    }
-
-    public void Start()
-    {
-        playerInput = GetComponentInParent<PlayerInputSetup>();
     }
 
     public void OpenMenu()
@@ -44,6 +39,7 @@ public class SuppliesAvailable : MonoBehaviour
                     isOpen = animator.GetBool("open");
                     animator.SetBool("open", true);
                     isOpen = true;
+                    defaultButton.Select();
                     Lock().aimingLocked = true;
                     Lock().movementLocked = true;
                     Lock().shootingLOCKED = true;
@@ -88,6 +84,7 @@ public class SuppliesAvailable : MonoBehaviour
                     isOpen = animator.GetBool("open");
                     animator.SetBool("open", !isOpen);
                     isOpen = !isOpen;
+                    defaultButton.Select();
                     Lock().aimingLocked = !Lock().aimingLocked;
                     Lock().movementLocked = !Lock().movementLocked;
                     Lock().shootingLOCKED = !Lock().shootingLOCKED;
@@ -95,6 +92,19 @@ public class SuppliesAvailable : MonoBehaviour
                 }
             }
         }
+    }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            StartCoroutine(SelectDefault());
+        }
+    }
+
+    private IEnumerator SelectDefault()
+    {
+        yield return new WaitForSeconds(0.1f);
+        defaultButton.Select();
     }
 }

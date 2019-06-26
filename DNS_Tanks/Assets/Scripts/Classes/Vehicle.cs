@@ -103,6 +103,8 @@ public class Vehicle : MonoBehaviour
         playerFiring.startVelocity = bulletVelocity;
         playerFiring.playerNumber = playerNumber;
 
+        GetComponentInParent<HUD>().UpdateHealthBar(hp);
+
         if (playerRotateTurret != null)
         {
             playerRotateTurret.turnTurretSpeed = turnTurretSpeed;
@@ -135,22 +137,18 @@ public class Vehicle : MonoBehaviour
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
-    public float GetHealth()
-    {
-        return hp;
-    }
-
-    public int GetSpeed()
-    {
-        int currentSpeed;
-        currentSpeed = (int)rb.velocity.magnitude;
-        //currentSpeed = System.Math.Round(currentSpeed, 2);
-        return currentSpeed;
-    }
+    //public int GetSpeed()
+    //{
+    //    int currentSpeed;
+    //    currentSpeed = (int)rb.velocity.magnitude;
+    //    //currentSpeed = System.Math.Round(currentSpeed, 2);
+    //    return currentSpeed;
+    //}
 
     public void Damage(float damage)
     {
         hp -= damage;
+        GetComponentInParent<HUD>().UpdateHealthBar(hp);
         CheckIfDestroyed();
     }
 

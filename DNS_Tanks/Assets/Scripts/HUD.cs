@@ -5,45 +5,39 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    Vehicle currentVeh;
+    public Image healthBar;
 
-    public Text healthText;
-    public Text speedText;
+    private Vehicle currentVeh;
+    private float startHealth;
 
-    float currentSpeed;
-    float currentHealth;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         UpdateCurrentVeh();
+        UpdateHealthBar(0);
     }
 
     public void UpdateCurrentVeh()
     {
         currentVeh = GetComponentInChildren<Vehicle>();
+
+        if (currentVeh != null) startHealth = currentVeh.health;
     }
-    // Update is called once per frame
-    void Update()
+
+    public void UpdateHealthBar(float currentHealth)
     {
         if (!currentVeh)
         {
             UpdateCurrentVeh();
-            Debug.Log("UPDATED VEH IN HUD SCRIPT");
         }
 
         if (currentVeh != null)
         {
-            healthText.text = "Health: " + currentVeh.GetHealth();
-            speedText.text = "Speed: " + currentVeh.GetSpeed();
+            healthBar.fillAmount = currentHealth / startHealth;
         }
+
         else
         {
-            healthText.text = "";
-            speedText.text = "";
+            healthBar.fillAmount = 0;
         }
-
-
     }
 }

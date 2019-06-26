@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6118974291344203936}
   - component: {fileID: 3576234876278813409}
   - component: {fileID: 4517765217410511616}
+  - component: {fileID: 3181909555490405341}
   m_Layer: 0
   m_Name: Cylinder001
   m_TagString: Untagged
@@ -109,6 +110,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3181909555490405341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407010
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +141,7 @@ GameObject:
   - component: {fileID: 6118974291344203938}
   - component: {fileID: 5175712435311523546}
   - component: {fileID: 8650308020292122801}
+  - component: {fileID: 6176764936034345006}
   m_Layer: 0
   m_Name: Box001
   m_TagString: Untagged
@@ -218,6 +238,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6176764936034345006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407012
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +269,7 @@ GameObject:
   - component: {fileID: 6118974291344203940}
   - component: {fileID: 5802402215055263705}
   - component: {fileID: 2800745442786778764}
+  - component: {fileID: 1510770958392571070}
   m_Layer: 0
   m_Name: Gengon001
   m_TagString: Untagged
@@ -327,6 +366,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1510770958392571070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407014
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +397,7 @@ GameObject:
   - component: {fileID: 6118974291344203942}
   - component: {fileID: 4640081240880937469}
   - component: {fileID: 7692265306816539539}
+  - component: {fileID: 3319073159163891649}
   m_Layer: 0
   m_Name: Cylinder003
   m_TagString: Untagged
@@ -436,6 +494,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3319073159163891649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407016
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +525,7 @@ GameObject:
   - component: {fileID: 6118974291344203944}
   - component: {fileID: 6725119598911670552}
   - component: {fileID: 8141789774139355076}
+  - component: {fileID: 6627220240674848951}
   m_Layer: 0
   m_Name: Object003
   m_TagString: Untagged
@@ -545,6 +622,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6627220240674848951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407018
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +653,7 @@ GameObject:
   - component: {fileID: 6118974291344203946}
   - component: {fileID: 2289780330799827840}
   - component: {fileID: 5648697896955891299}
+  - component: {fileID: 8363390241072014104}
   m_Layer: 0
   m_Name: Object001
   m_TagString: Untagged
@@ -654,6 +750,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &8363390241072014104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407020
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +781,7 @@ GameObject:
   - component: {fileID: 6118974291344203948}
   - component: {fileID: 3755736457436818682}
   - component: {fileID: 2492321523039686497}
+  - component: {fileID: 6484522164021736637}
   m_Layer: 0
   m_Name: Object007
   m_TagString: Untagged
@@ -763,6 +878,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6484522164021736637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407022
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +909,7 @@ GameObject:
   - component: {fileID: 6118974291344203950}
   - component: {fileID: 8445133202541017802}
   - component: {fileID: 8419042072650433671}
+  - component: {fileID: 3750824790801757948}
   m_Layer: 0
   m_Name: Object005
   m_TagString: Untagged
@@ -872,6 +1006,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3750824790801757948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407024
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +1037,7 @@ GameObject:
   - component: {fileID: 6118974291344203952}
   - component: {fileID: 3363859179331947402}
   - component: {fileID: 2308173260840806526}
+  - component: {fileID: 3161598732460164310}
   m_Layer: 0
   m_Name: Object011
   m_TagString: Untagged
@@ -981,6 +1134,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3161598732460164310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407026
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1165,7 @@ GameObject:
   - component: {fileID: 6118974291344203954}
   - component: {fileID: 3116847144750738046}
   - component: {fileID: 2438477791415603168}
+  - component: {fileID: 7216683900592805355}
   m_Layer: 0
   m_Name: Object009
   m_TagString: Untagged
@@ -1090,6 +1262,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7216683900592805355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118974291346407026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f164e3a9a922e45802c4f1d17615fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 0
+  explosionRadius: 0
+  partLifetime: 0
 --- !u!1 &6118974291346407030
 GameObject:
   m_ObjectHideFlags: 0
