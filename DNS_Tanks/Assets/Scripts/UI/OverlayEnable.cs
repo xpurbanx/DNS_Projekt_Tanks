@@ -8,6 +8,7 @@ public class OverlayEnable : MonoBehaviour
     public double cooldown = 3;
     private double timeStamp;
     private PlayerInputSetup playerInput;
+    bool isOpen = false;
 
     public void Start()
     {
@@ -36,10 +37,14 @@ public class OverlayEnable : MonoBehaviour
             if (animator != null)
             {
 
-                bool isOpen = animator.GetBool("open");
+                isOpen = animator.GetBool("open");
                 animator.SetBool("open", !isOpen);
                 Debug.Log(isOpen + " Halo");
-
+                isOpen = !isOpen;
+                if (isOpen == true)
+                    Lock().shootingLocked = true;
+                else
+                    Lock().shootingLocked = false;
             }
         }
     }
@@ -54,10 +59,10 @@ public class OverlayEnable : MonoBehaviour
             if (animator != null)
             {
 
-                bool isOpen = animator.GetBool("open");
+                isOpen = animator.GetBool("open");
                 animator.SetBool("open", true);
                 Debug.Log(isOpen + " Halo");
-
+                Lock().shootingLocked = true;
             }
         }
     }
@@ -72,10 +77,10 @@ public class OverlayEnable : MonoBehaviour
             if (animator != null)
             {
 
-                bool isOpen = animator.GetBool("open");
+                isOpen = animator.GetBool("open");
                 animator.SetBool("open", false);
                 Debug.Log(isOpen + " Halo");
-
+                Lock().shootingLocked = false;
             }
         }
     }
