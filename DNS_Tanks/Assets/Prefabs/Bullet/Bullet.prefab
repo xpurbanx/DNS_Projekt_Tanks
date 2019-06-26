@@ -91,7 +91,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684480512479799659}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9bf47b49583220d4080f17bf8fe722ab, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -106,8 +106,8 @@ Rigidbody:
   m_GameObject: {fileID: 1684480512479799659}
   serializedVersion: 2
   m_Mass: 0.375
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -522,6 +522,41 @@ PrefabInstance:
     - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 6.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152757662942103114, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: NoiseModule.enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
