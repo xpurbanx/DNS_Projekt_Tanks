@@ -40,6 +40,7 @@ public class SuppliesAvailable : MonoBehaviour
                     animator.SetBool("open", true);
                     isOpen = true;
                     defaultButton.Select();
+                    Lock().mapLocked = true;
                     Lock().aimingLocked = true;
                     Lock().movementLocked = true;
                     Lock().shootingLOCKED = true;
@@ -62,6 +63,7 @@ public class SuppliesAvailable : MonoBehaviour
                 isOpen = animator.GetBool("open");
                 animator.SetBool("open", false);
                 isOpen = false;
+                Lock().mapLocked = false;
                 Lock().aimingLocked = false;
                 Lock().movementLocked = false;
                 Lock().shootingLOCKED = false;
@@ -85,6 +87,7 @@ public class SuppliesAvailable : MonoBehaviour
                     animator.SetBool("open", !isOpen);
                     isOpen = !isOpen;
                     defaultButton.Select();
+                    Lock().mapLocked = !Lock().mapLocked;
                     Lock().aimingLocked = !Lock().aimingLocked;
                     Lock().movementLocked = !Lock().movementLocked;
                     Lock().shootingLOCKED = !Lock().shootingLOCKED;

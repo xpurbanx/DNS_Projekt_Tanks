@@ -10,11 +10,13 @@ public class SupplyCollision : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        colliding = true;
+        if (other.GetComponentInChildren<BaseCheck>() == null)
+            colliding = true;
     }
 
     public void OnTriggerExit(Collider other)
     {
-        colliding = false;
+        if (other.GetComponentInChildren<BaseCheck>() == null)
+            colliding = false;
     }
 }
