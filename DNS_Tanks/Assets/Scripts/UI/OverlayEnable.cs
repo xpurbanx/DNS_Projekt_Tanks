@@ -23,7 +23,7 @@ public class OverlayEnable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.BButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false)
+        if (playerInput.BButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false && MenuPause.gameIsPaused == false)
             SwitchPanel();
     }
 
