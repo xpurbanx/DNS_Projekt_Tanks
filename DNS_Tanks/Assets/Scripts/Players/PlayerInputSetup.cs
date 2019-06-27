@@ -22,6 +22,7 @@ public class PlayerInputSetup : MonoBehaviour
     string leftTrigger;
     string rightTrigger;
     string leftBumper;
+    string rightBumper;
 
     string rightAnalogButton;
 
@@ -51,6 +52,7 @@ public class PlayerInputSetup : MonoBehaviour
         leftTrigger = "J" + playerNumber + "_LeftTrigger";
         rightTrigger = "J" + playerNumber + "_RightTrigger";
         leftBumper = "J" + playerNumber + "_LeftBumper";
+        rightBumper = "J" + playerNumber + "_RightBumper";
 
         JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
         KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
@@ -138,6 +140,9 @@ public class PlayerInputSetup : MonoBehaviour
     {
         return Input.GetButton(leftBumper);
     }
-
+    public bool RightBumper()
+    {
+        return Input.GetButton(rightBumper);
+    }
 
 }
