@@ -42,6 +42,7 @@ public class PlayerFlagManager : MonoBehaviour
             GameObject flag = Instantiate(flagObject, position + new Vector3(0, 0.3f, 0), Quaternion.identity);
             flag.GetComponent<Flag>().isTaken = false;
             holdingFlag = false;
+            flag.GetComponent<Flag>().Enable();
         }
     }
 }
