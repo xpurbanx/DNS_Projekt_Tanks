@@ -9,6 +9,6 @@ public class LookAtBase : MonoBehaviour
     void Update()
     {
         transform.LookAt(GameObject.FindGameObjectWithTag("FlagStation " + playerNumber).transform);
-        transform.GetChild(1).LookAt(GameObject.FindGameObjectWithTag("Camera " + playerNumber).transform);
+        //transform.GetChild(1).LookAt(GameObject.FindGameObjectWithTag("Camera " + playerNumber).transform);
     }
 }

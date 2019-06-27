@@ -11,12 +11,11 @@ public class BaseCheck : MonoBehaviour
         transform.position = GameObject.FindGameObjectWithTag("Player " + playerNumber + " Spawn").transform.position;
     }
 
+
     public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player " + playerNumber)
         {
-            GameObject.FindGameObjectWithTag("Base " + playerNumber).GetComponentInChildren<Light>().enabled = false;
-
             MeshRenderer[] mesh = GameObject.FindGameObjectWithTag("Base " + playerNumber).GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i <= mesh.Length - 1; i++)
             {
@@ -29,8 +28,6 @@ public class BaseCheck : MonoBehaviour
     {
         if (other.tag == "Player " + playerNumber)
         {
-            GameObject.FindGameObjectWithTag("Base " + playerNumber).GetComponentInChildren<Light>().enabled = true;
-
             MeshRenderer[] mesh = GameObject.FindGameObjectWithTag("Base " + playerNumber).GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i <= mesh.Length - 1; i++)
             {
