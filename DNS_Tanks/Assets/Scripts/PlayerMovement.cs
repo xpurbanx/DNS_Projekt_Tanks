@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         // Input gracza
 
         movementInputValue = playerInput.LeftTrigger();
-        if (playerInput.LeftBumper())
+        if (playerInput.LeftBumper() || playerInput.RightBumper())
         {
             Debug.Log("BUMPER");
             movementInputValue = -1.0f;
