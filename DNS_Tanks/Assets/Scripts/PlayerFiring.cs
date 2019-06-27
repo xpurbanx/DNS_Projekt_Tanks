@@ -64,6 +64,7 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButtonJ() || playerInput.AButtonK()) && timeStamp <= Time.time)
         {
+            this.GetComponent<AudioSource>().Play();
             trajectory.startColor = Color.red;
             trajectory.endColor = Color.red;
 
