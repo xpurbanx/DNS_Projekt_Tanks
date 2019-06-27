@@ -75,9 +75,7 @@ public class PlayerInputSetup : MonoBehaviour
     }
     public bool BButton()
     {
-        if (Lock().menusLOCKED == false)
-            return Input.GetButton(bButton);
-        else return false;
+        return Input.GetButton(bButton);
     }
     public bool XButton()
     {

@@ -67,6 +67,7 @@ public class Respawn : MonoBehaviour
 
     public IEnumerator Respawning() // czeka 'respawnTimer' sekund
     {
+        Lock().mapLocked = true;
         isSpawning = true;
         yield return new WaitForSeconds(respawnTimer);
         SpawnVehicle(startVehicle);
