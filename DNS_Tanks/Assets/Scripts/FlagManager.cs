@@ -115,12 +115,14 @@ public class FlagManager : MonoBehaviour
         if (building.GetComponent<Building>().playerNumber == 1)
         {
             GameObject flag = Instantiate(flag1, building.transform.position, Quaternion.identity);
+            flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             return;
         }
 
         if (building.GetComponent<Building>().playerNumber == 2)
         {
             GameObject flag = Instantiate(flag2, building.transform.position, Quaternion.identity);
+            flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             return;
         }
     }
