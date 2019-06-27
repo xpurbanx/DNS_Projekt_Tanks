@@ -32,12 +32,12 @@ public class HUD : MonoBehaviour
 
         if (currentVeh != null)
         {
-            healthBar.fillAmount = currentHealth / startHealth;
+            healthBar.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = currentHealth / startHealth;
         }
 
         else
         {
-            healthBar.fillAmount = 0;
+            healthBar.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = 0;
         }
     }
 }
