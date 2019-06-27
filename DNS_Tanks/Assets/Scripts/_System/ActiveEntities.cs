@@ -24,7 +24,7 @@ public class ActiveEntities : MonoBehaviour
         else
             Instance = this;
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         player1Entities = new List<GameObject>();
         player2Entities = new List<GameObject>();
