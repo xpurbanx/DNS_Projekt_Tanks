@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 2052294961812743746, guid: a75a95aec96825c418deaf7f83fd0163,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2964004711624976894, guid: a75a95aec96825c418deaf7f83fd0163,
         type: 3}
       propertyPath: m_Mesh
@@ -118,11 +123,6 @@ PrefabInstance:
       value: 10.750001
       objectReference: {fileID: 0}
     - target: {fileID: 9198043191681070209, guid: a75a95aec96825c418deaf7f83fd0163,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052294961812743746, guid: a75a95aec96825c418deaf7f83fd0163,
         type: 3}
       propertyPath: m_Mesh
       value: 
@@ -486,6 +486,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cca48c4be7c1560489444d2a0d73e099, type: 2}
+    - target: {fileID: 2008924749760365641, guid: b158733d691758e4e8a3515a316eebbe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008924749760365641, guid: b158733d691758e4e8a3515a316eebbe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.37860733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008924749760365641, guid: b158733d691758e4e8a3515a316eebbe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.2863564
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b158733d691758e4e8a3515a316eebbe, type: 3}
 --- !u!4 &3513187452390024579 stripped
