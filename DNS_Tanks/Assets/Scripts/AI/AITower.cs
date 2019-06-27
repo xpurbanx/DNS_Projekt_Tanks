@@ -89,7 +89,7 @@ public class AITower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (idle) RotateOnIdle();
+        if (idle && !MenuPause.gameIsPaused) RotateOnIdle();
         LockOnTarget();
 
         if (target != null && fireCountdown <= 0f && shortestDistance <= range)
