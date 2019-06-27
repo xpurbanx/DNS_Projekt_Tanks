@@ -6,6 +6,12 @@ public class BaseCheck : MonoBehaviour
 {
     public int playerNumber;
 
+    private void Start()
+    {
+        transform.position = GameObject.FindGameObjectWithTag("Player " + playerNumber + " Spawn").transform.position;
+    }
+
+
     public void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player " + playerNumber)

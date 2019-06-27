@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2389800242668483581}
   - component: {fileID: 2389800242668483580}
   - component: {fileID: 2389800242668483568}
-  - component: {fileID: 2681057973703066300}
   m_Layer: 0
   m_Name: FlagStation
   m_TagString: Terrain
@@ -106,16 +105,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flagStationNumber: 0
---- !u!114 &2681057973703066300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2389800242668483583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7785f4a348b8754ebc2e36f372e4422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNumber: 0
