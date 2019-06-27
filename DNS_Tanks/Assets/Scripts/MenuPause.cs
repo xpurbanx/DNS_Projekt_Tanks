@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
@@ -12,7 +9,7 @@ public class MenuPause : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Joystick2Button7))
         {
             if (gameIsPaused)
             {
@@ -46,6 +43,19 @@ public class MenuPause : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+    }
+
+    public void ChangeMap()
+    {
+        if (SceneManager.GetActiveScene().name != "Urantia")
+        {
+            SceneManager.LoadScene("Urantia");
+        }
+
+        else
+        {
+            SceneManager.LoadScene("TwoFortsV2");
+        }
     }
 
     public void QuitGame()
