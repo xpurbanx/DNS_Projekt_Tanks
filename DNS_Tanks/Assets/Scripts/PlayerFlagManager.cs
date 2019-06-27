@@ -40,6 +40,7 @@ public class PlayerFlagManager : MonoBehaviour
         if (holdingFlag)
         {
             GameObject flag = Instantiate(flagObject, position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+            flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             flag.GetComponent<Flag>().isTaken = false;
             holdingFlag = false;
         }
