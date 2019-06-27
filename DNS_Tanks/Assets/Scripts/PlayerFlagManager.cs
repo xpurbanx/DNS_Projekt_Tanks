@@ -43,6 +43,7 @@ public class PlayerFlagManager : MonoBehaviour
             flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             flag.GetComponent<Flag>().isTaken = false;
             holdingFlag = false;
+            flag.GetComponent<Flag>().Enable();
         }
     }
 }

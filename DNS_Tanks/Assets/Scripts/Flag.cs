@@ -1,9 +1,13 @@
 ﻿using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
 [assembly: InternalsVisibleTo("PlayerFlagManager")]
 
 public class Flag : MonoBehaviour
 {
+    GameObject[] markers;
+    int i = 0;
+
     [Header("Numer flagi, odpowiada numerowi gracza, do którego należy flaga:")]
     public int flagNumber = 0;
 
@@ -24,7 +28,7 @@ public class Flag : MonoBehaviour
         {
             // Pobieramy numer gracza za pomocą tagu (ostatnia cyfra)
             // Pobieramy gameobject Tank tego gracza, dość brzydko bo za pomocą GameObject Find, ale nie mogłem wpaść na inny pomysł
-           // string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
+            // string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             string playerNumberString = other.gameObject.tag.Substring(other.gameObject.tag.Length - 1);
             int playerNumber = Utility.ParseToInt(playerNumberString);
 
@@ -51,7 +55,16 @@ public class Flag : MonoBehaviour
             Vector3 position = transform.position;
             float newY = Mathf.Sin(Time.time * speed) * height + position.y;
             transform.position = new Vector3(position.x, newY, position.z);
+
+
         }
+        /*else
+        {
+            markers[i].GetComponent<MeshRenderer>().enabled = false;
+            markers[i].GetComponentInChildren<MeshRenderer>().enabled = false;
+        }*/
+
+
     }
 
     private void PickUpFlag(GameObject player)
@@ -59,6 +72,34 @@ public class Flag : MonoBehaviour
         // Zaznaczamy w Eq czołgu, że nosi on aktualnie flagę
         player.GetComponent<PlayerFlagManager>().PickFlag();
 
+        markers = GameObject.FindGameObjectsWithTag("Marker");
+        for (i = 0; i <= markers.Length - 1; i++)
+        {
+            if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
+            {
+                markers[i].GetComponentInChildren<TextMeshPro>().enabled = false;
+                markers[i].GetComponent<MeshRenderer>().enabled = false;
+            }
+           /* else
+            {
+                markers[i].GetComponentInChildren<TextMeshPro>().enabled = true;
+                markers[i].GetComponent<MeshRenderer>().enabled = true;
+            }*/
+        }
+
         Destroy(gameObject);
+    }
+
+    public void Enable()
+    {
+        markers = GameObject.FindGameObjectsWithTag("Marker");
+        for (i = 0; i <= markers.Length - 1; i++)
+        {
+            if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
+            {
+                markers[i].GetComponentInChildren<TextMeshPro>().enabled = true;
+                markers[i].GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
     }
 }
