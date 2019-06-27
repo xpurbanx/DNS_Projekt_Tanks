@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerFiring : MonoBehaviour
 {
+    public AudioSource shot;
     public Animator animator;
     public GameObject bulletPrefab;
     public GameObject bulletOut;
@@ -31,6 +32,7 @@ public class PlayerFiring : MonoBehaviour
 
     void Start()
     {
+
         playerInput = GetComponentInParent<PlayerInputSetup>();
         trajectory = bulletOut.GetComponent<LineRenderer>();
         vehicle = GetComponent<Vehicle>();
@@ -64,7 +66,7 @@ public class PlayerFiring : MonoBehaviour
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
         if ((playerInput.RightTrigger() != 0 || playerInput.AButtonJ() || playerInput.AButtonK()) && timeStamp <= Time.time)
         {
-            this.GetComponent<AudioSource>().Play();
+            shot.Play();
             trajectory.startColor = Color.red;
             trajectory.endColor = Color.red;
 
