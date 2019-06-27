@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1684480512479799659, guid: 36c0666c88f559b48b6f542e0ece5923,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1684480512479799659, guid: 36c0666c88f559b48b6f542e0ece5923,
         type: 3}
@@ -77,6 +77,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4115907054544683789, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941162176308797134, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459754023293391972, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068967763253892345, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecd3c737c6bf0e941837b60fc3ff8de8, type: 2}
+    - target: {fileID: 1486987625413209486, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696879827580226173, guid: 36c0666c88f559b48b6f542e0ece5923,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 3854120115999648243, guid: 36c0666c88f559b48b6f542e0ece5923,
         type: 3}
       propertyPath: m_Layer
@@ -121,31 +151,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playerNumber
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4115907054544683789, guid: 36c0666c88f559b48b6f542e0ece5923,
-        type: 3}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6941162176308797134, guid: 36c0666c88f559b48b6f542e0ece5923,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459754023293391972, guid: 36c0666c88f559b48b6f542e0ece5923,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4696879827580226173, guid: 36c0666c88f559b48b6f542e0ece5923,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486987625413209486, guid: 36c0666c88f559b48b6f542e0ece5923,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c0666c88f559b48b6f542e0ece5923, type: 3}

@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3480961176740761041}
   - component: {fileID: 5012582111695331882}
   - component: {fileID: 7258111917217770874}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
