@@ -120,7 +120,8 @@ public class Bullet : MonoBehaviour
 
         if (collision.collider.gameObject.tag == "Shield")
         {
-           // Destroy(gameObject, 1f);
+            // Destroy(gameObject, 1f);
+            //collision.collider.GetComponent<AudioSource>().Play();
             return; // Shield - tag dla rzeczy od ktorych sie pocisk odbija            
         }
 
