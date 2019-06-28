@@ -344,6 +344,16 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle System Bullet End
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4338962939732455731, guid: 19676dbd99bb03e47b64859141561871,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,16 +424,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System Bullet End
-      objectReference: {fileID: 0}
-    - target: {fileID: 4338962939732455734, guid: 19676dbd99bb03e47b64859141561871,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19676dbd99bb03e47b64859141561871, type: 3}
 --- !u!4 &8404305078496472297 stripped
@@ -439,11 +439,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1684480512479799656}
     m_Modifications:
-    - target: {fileID: 6534323967921133285, guid: 24d0495a971e095469de145aeaf09630,
-        type: 3}
-      propertyPath: m_Name
-      value: Laser Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 5726350777836843584, guid: 24d0495a971e095469de145aeaf09630,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,6 +554,11 @@ PrefabInstance:
       propertyPath: NoiseModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6534323967921133285, guid: 24d0495a971e095469de145aeaf09630,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Particle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d0495a971e095469de145aeaf09630, type: 3}
 --- !u!4 &1502030897445747167 stripped
@@ -580,11 +580,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1684480512479799656}
     m_Modifications:
-    - target: {fileID: 6293889371243621929, guid: 9a8f300847460d748b82574d27bad6fa,
-        type: 3}
-      propertyPath: m_Name
-      value: Laser Light
-      objectReference: {fileID: 0}
     - target: {fileID: 1633056891358442379, guid: 9a8f300847460d748b82574d27bad6fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -639,6 +634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293889371243621929, guid: 9a8f300847460d748b82574d27bad6fa,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Light
       objectReference: {fileID: 0}
     - target: {fileID: 2837849705792074536, guid: 9a8f300847460d748b82574d27bad6fa,
         type: 3}
