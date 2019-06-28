@@ -7,6 +7,11 @@ public class MenuPause : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Joystick2Button7))
@@ -28,6 +33,7 @@ public class MenuPause : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        Cursor.visible = true;
     }
 
     public void Resume()
@@ -35,6 +41,7 @@ public class MenuPause : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        Cursor.visible = false;
     }
 
     public void RestartScene()
@@ -43,6 +50,7 @@ public class MenuPause : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        Cursor.visible = false;
     }
 
     public void ChangeMap()
