@@ -135,8 +135,8 @@ public class Bullet : MonoBehaviour
             // Jeżeli wykryliśmy uderzenie w samego siebie
             if (vehicle.playerNumber == playerNumber) return;
             // Jeżeli jeep strzela z KM-u w opancerzony czołg, nie zadajemy obrażeń
-            if (firedBy == 1 && vehicle.vehicleType == 2)
-                return;
+            //if (firedBy == 1 && vehicle.vehicleType == 2)
+               // return;
             else
                 vehicle.Damage(DealDamage());
 
