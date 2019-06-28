@@ -85,7 +85,7 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 170
   maxVelocity: 20
-  damageMG: 10
+  damageMG: 6
   damageAT: 8
   firingCooldown: 0.2
   turnTurretSpeed: 45

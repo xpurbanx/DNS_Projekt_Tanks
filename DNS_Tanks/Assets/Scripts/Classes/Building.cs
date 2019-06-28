@@ -26,6 +26,7 @@ public class Building : MonoBehaviour
     [Tooltip("Z jaka moca rozpada sie budynek")]
     public float partLifetime = 5f;
 
+    public AudioSource explosionSound;
     private SpawnFractured fractured;
     private Explosion explosion;
     void Start()
@@ -96,6 +97,7 @@ public class Building : MonoBehaviour
     {
         if (hp <= 0)
         {
+            explosionSound.Play();
             DestroyBuilding();
             ActiveEntities.Instance.RemoveFromList(tag, gameObject);
         }
