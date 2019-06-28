@@ -3074,7 +3074,7 @@ MonoBehaviour:
   towerAmount: 2
   sniperTowerAmount: 2
   shieldedTowerAmount: 2
-  obstacleAmount: 2
+  obstacleAmount: 6
   towerAmountText: {fileID: 3321153415058518214}
   sniperTowerAmountText: {fileID: 8584813516030556377}
   shieldedTowerAmountText: {fileID: 5545311112150816096}
