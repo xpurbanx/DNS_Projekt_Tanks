@@ -196,6 +196,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5223974163620321750, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223974163620321750, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.39320827
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223974163620321750, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278242461220212344, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126963538640607075, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126963538640607075, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.39320827
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126963538640607075, guid: 400f88facbf75b54e87f4cee640ab1d0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.990566
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400f88facbf75b54e87f4cee640ab1d0, type: 3}
 --- !u!4 &9205059971933565704 stripped

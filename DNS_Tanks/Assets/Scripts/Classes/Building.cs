@@ -97,7 +97,7 @@ public class Building : MonoBehaviour
     {
         if (hp <= 0)
         {
-            explosionSound.Play();
+            if(explosionSound != null) explosionSound.Play();
             DestroyBuilding();
             ActiveEntities.Instance.RemoveFromList(tag, gameObject);
         }
