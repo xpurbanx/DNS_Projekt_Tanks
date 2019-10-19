@@ -13,7 +13,8 @@ public class PlayerInputSetup : MonoBehaviour
     string KVertical;
     string KSecondaryHorizontal; // nie ma duzego sensu, chce tylko zeby ta nazwa odpowiadala temu co jest na padzie
 
-    string aButton;
+    string aButtonJ;
+    string aButtonK;
     string bButton;
     string xButton;
     string yButton;
@@ -21,43 +22,58 @@ public class PlayerInputSetup : MonoBehaviour
     string leftTrigger;
     string rightTrigger;
     string leftBumper;
+    string rightBumper;
 
     string rightAnalogButton;
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponent<LockActions>();
+        return lockActions;
+    }
 
     protected void setControls()
     {
         if (gameObject.tag == "Player 2") playerNumber = 2;
         else playerNumber = 1;
 
-       JHorizontal = "J" + playerNumber + "Horizontal";
-       JVertical = "J" + playerNumber + "Vertical";
+        JHorizontal = "J" + playerNumber + "Horizontal";
+        JVertical = "J" + playerNumber + "Vertical";
 
-       KHorizontal = "K" + playerNumber + "Horizontal";
-       KVertical = "K" + playerNumber + "Vertical";
+        KHorizontal = "K" + playerNumber + "Horizontal";
+        KVertical = "K" + playerNumber + "Vertical";
 
-       aButton = "J" + playerNumber + "A_Button";
-       bButton = "J" + playerNumber + "B_Button";
-       xButton = "J" + playerNumber + "X_Button";
-       yButton = "J" + playerNumber + "Y_Button";
-       trigger = "J" + playerNumber + "_Trigger";
-       leftTrigger = "J" + playerNumber + "_LeftTrigger";
-       rightTrigger = "J" + playerNumber + "_RightTrigger";
+        aButtonJ = "J" + playerNumber + "A_Button";
+        aButtonK = "K" + playerNumber + "A_Button";
+        bButton = "J" + playerNumber + "B_Button";
+        xButton = "J" + playerNumber + "X_Button";
+        yButton = "J" + playerNumber + "Y_Button";
+        trigger = "J" + playerNumber + "_Trigger";
+        leftTrigger = "J" + playerNumber + "_LeftTrigger";
+        rightTrigger = "J" + playerNumber + "_RightTrigger";
         leftBumper = "J" + playerNumber + "_LeftBumper";
+        rightBumper = "J" + playerNumber + "_RightBumper";
 
         JSecondaryHorizontal = "J" + playerNumber + "_SecondaryHorizontal";
-       KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
-       rightAnalogButton = "J" + playerNumber + "_RightAnalogButton";
+        KSecondaryHorizontal = "K" + playerNumber + "_SecondaryHorizontal";
+        rightAnalogButton = "J" + playerNumber + "_RightAnalogButton";
 
     }
     private void Start()
     {
         setControls();
     }
-    public bool AButton()
+    public bool AButtonJ()
     {
-        return Input.GetButton(aButton);
-        //return false;
+        if (Lock().shootingLOCKED == false)
+            return Input.GetButton(aButtonJ);
+        else return false;
+    }
+    public bool AButtonK()
+    {
+        if (Lock().shootingLOCKED == false)
+            return Input.GetButton(aButtonK);
+        else return false;
     }
     public bool BButton()
     {
@@ -65,7 +81,9 @@ public class PlayerInputSetup : MonoBehaviour
     }
     public bool XButton()
     {
-        return Input.GetButton(xButton);
+        if (Lock().menusLOCKED == false)
+            return Input.GetButton(xButton);
+        else return false;
     }
     public bool YButton()
     {
@@ -100,7 +118,7 @@ public class PlayerInputSetup : MonoBehaviour
     {
         float r = 0.0f;
         r += Input.GetAxis(trigger);
-       // r += Input.GetAxis(KVertical);
+        // r += Input.GetAxis(KVertical);
         return Mathf.Clamp(r, -10.0f, 10.0f);
     }
     public float LeftTrigger()
@@ -122,6 +140,9 @@ public class PlayerInputSetup : MonoBehaviour
     {
         return Input.GetButton(leftBumper);
     }
-
+    public bool RightBumper()
+    {
+        return Input.GetButton(rightBumper);
+    }
 
 }

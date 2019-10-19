@@ -17,6 +17,20 @@ TagManager:
   - Empire
   - Menu 1
   - Menu 2
+  - Supplies 1
+  - Supplies 2
+  - Supply Holder 1
+  - Supply Holder 2
+  - Transparent
+  - Towers
+  - Minimap Text
+  - Map Panel 2
+  - Map Panel 1
+  - Base 2
+  - Base 1
+  - Marker
+  - Camera 1
+  - Camera 2
   layers:
   - Default
   - TransparentFX
@@ -30,14 +44,14 @@ TagManager:
   - Players
   - Player 1
   - Player 2
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Minimap 1
+  - Minimap 2
+  - Wall Collider
+  - Bullet
+  - Player 1 NO Minimap
+  - Player 2 NO Minimap
+  - Player 1 AND Minimap
+  - Player 2 AND Minimap
   - 
   - 
   - 

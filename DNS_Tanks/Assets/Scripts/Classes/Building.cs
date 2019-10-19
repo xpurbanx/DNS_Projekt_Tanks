@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
 
@@ -15,17 +16,30 @@ public class Building : MonoBehaviour
     [Tooltip("Numer gracza, do którego należy budynek")]
     public int playerNumber = 0;
 
-    private SpawnFractured fractured; 
+
+    [Tooltip("Dotyczy budynkow z czesciami jak wall.Parts musza miec collidery i rigidbody z zaznaczonym Trigger i zamrozonymi pozycjami")]
+    public bool hasParts = false;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float destroyExplosionForce = 2f;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float explosionRadius = 10f;
+    [Tooltip("Z jaka moca rozpada sie budynek")]
+    public float partLifetime = 5f;
+
+    public AudioSource explosionSound;
+    private SpawnFractured fractured;
+    private Explosion explosion;
     void Start()
     {
         //gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         hp = health;
         fractured = GetComponent<SpawnFractured>();
         ActiveEntities.Instance.AddToList(this.tag, this.gameObject);
+        if (GetComponent<Explosion>() != null) explosion = GetComponent<Explosion>();
     }
     private void OnEnable()
     {
-        
+
     }
 
     private void DestroyBuilding()
@@ -43,18 +57,51 @@ public class Building : MonoBehaviour
             fractured.SpawnFracturedObject();
         }
 
+        if (hasParts == true)
+        {
+            if (explosion != null)
+                explosion.Explode(false, false);
+            foreach(Collider collider in GetComponents<Collider>())
+            {
+                Destroy(collider);
+            }
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GameObject child = transform.GetChild(i).gameObject;
+                if (child.GetComponent<MeshCollider>() != null)
+                {
+                    child.GetComponent<MeshCollider>().isTrigger = false;
+                }
+                if (child.GetComponent<Rigidbody>() != null)
+                {
+                    child.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    child.GetComponent<Rigidbody>().AddExplosionForce(destroyExplosionForce, transform.position, explosionRadius);
+                }
+
+                if (child.tag == "Marker") // Usunięcie markera z mapy
+                    Destroy(child);
+
+                Destroy(child, partLifetime);
+            }
+            return;
+
+        }
+        if(explosion != null)
+           explosion.Explode(true, true);
         Destroy(gameObject);
-        
+
     }
 
     private void CheckIfDestroyed()
     {
         if (hp <= 0)
         {
+            if(explosionSound != null) explosionSound.Play();
             DestroyBuilding();
             ActiveEntities.Instance.RemoveFromList(tag, gameObject);
         }
-            
+
     }
 
     public void Damage(float damage)

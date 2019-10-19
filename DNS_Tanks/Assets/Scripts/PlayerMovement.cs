@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [assembly: InternalsVisibleTo("Vehicle")]
@@ -14,32 +15,36 @@ public class PlayerMovement : MonoBehaviour
     // ALE!!! #2 W unity jest tak, że pomimo tego, że obiekt ma zaznaczony freeze rotation, za pomocą skryptu można zmieniać jego rotację (w tym przypadku skryptu PlayerMovement)
     // Więc na razie po prostu zablokowałem całkowicie rotację, co niestety brzydziej wygląda (mniej realistyczne uderzanie w inne obiekty)
 
+    // Kod wymagany do blokady sterowania
+
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     // Prywatne atrybuty zmieniane w Vehicle.cs
     internal float speed;
     internal float turnSpeed;
     internal float maxVelocity;
 
-    // Prywatny atrybut zmieniany przez skrypt w gąsiennicach
-    internal bool touchingGroundOne;
-    internal bool touchingGroundTwo;
-
     // Vertical - oś od poruszania się na klawiaturze
     // Trigger - "oś" od poruszania się
     // Horizontal - oś od skręcania
-    private new Rigidbody rigidbody;
+    private Rigidbody rb;
     private float movementInputValue;
     private float turnInputValue;
     private PlayerInputSetup playerInput;
-    
+
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Po włączeniu skryptu upewniamy się, że na czołg mogą działać siły i zerujemy aktualnie działające siły
     private void OnEnable()
     {
-        rigidbody.isKinematic = false;
+        rb.isKinematic = false;
         movementInputValue = 0f;
         turnInputValue = 0f;
     }
@@ -47,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerInput = GetComponentInParent<PlayerInputSetup>();
+        StartCoroutine(RigibodyFreezePositionY());
     }
 
     void Update()
@@ -54,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         // Input gracza
 
         movementInputValue = playerInput.LeftTrigger();
-        if (playerInput.LeftBumper())
+        if (playerInput.LeftBumper() || playerInput.RightBumper())
         {
             Debug.Log("BUMPER");
             movementInputValue = -1.0f;
@@ -67,15 +73,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        // Tylko jedna gąsiennica musi dotykać ziemi (?)
-        if (touchingGroundOne || touchingGroundTwo)
+        if (Lock().allLocked == false && Lock().movementLocked == false)
         {
             Move();
             Turn();
         }
 
         // Dodatkowa grawitacja (?)
-        rigidbody.AddForce(-transform.up * 5, ForceMode.Acceleration);
+        rb.AddForce(-transform.up * 5, ForceMode.Acceleration);
         // Maksymalna prędkość pojazdu
         MaxSpeed();
     }
@@ -86,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = transform.forward * movementInputValue * speed * 1000f;
 
         // Poruszanie obiektem jest oparte na dodawaniu siły
-        rigidbody.AddForce(movement);
+        rb.AddForce(movement);
     }
 
     private void Turn()
@@ -95,17 +100,24 @@ public class PlayerMovement : MonoBehaviour
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
-        rigidbody.MoveRotation(rigidbody.rotation * turnRotation);
+        rb.MoveRotation(rb.rotation * turnRotation);
         return;
     }
 
     private void MaxSpeed()
     {
-        Vector3 velocity = rigidbody.velocity;
+        Vector3 velocity = rb.velocity;
         float y = velocity.y;
         velocity.y = 0f;
         velocity = Vector3.ClampMagnitude(velocity, maxVelocity);
         velocity.y = y;
-        rigidbody.velocity = velocity;
+        rb.velocity = velocity;
+    }
+
+    private IEnumerator RigibodyFreezePositionY()
+    {
+        yield return new WaitForSeconds(0.5f);
+        rb.constraints |= RigidbodyConstraints.FreezePositionY;
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - 0.01f, transform.localPosition.z);
     }
 }

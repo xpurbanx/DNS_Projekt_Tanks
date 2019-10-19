@@ -6,79 +6,60 @@ using UnityEngine;
 
 public class VehicleSwitch : MonoBehaviour
 {
-    internal GameObject[] withPlayerTag;
-    internal GameObject player;
     public int playerNumber = 0;
     public double cooldown = 3;
     private double timeStamp;
 
+    internal GameObject[] withPlayerTag;
+    internal GameObject player;
+    GameObject panel;
+    GameObject vehicle;
+
+    PlayerInputSetup playerInput;
+    VehSwitchAvailable vehSwitch;
+
     private Vector3 center = Vector3.zero;
     public float radius = 0.5f;
 
-    GameObject panel;
-    internal bool menuAvailable;
-    internal bool closeNow;
-
     void Awake()
     {
-        SphereCollider c = gameObject.GetComponent<SphereCollider>();
-        c.radius = radius;
-        center = transform.position;
-        menuAvailable = false;
-
-        withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
-        for (int i = 0; i <= withPlayerTag.Length - 1; i++)
-        {
-            if (withPlayerTag[i].GetComponent<CamFollow>() && withPlayerTag[i].tag == "Player " + playerNumber) // Jeżeli jest to kamera TEGO gracza
-            {
-                player = withPlayerTag[i];
-            }
-
-
-        }
+        RadiusSetUp();
+        SetUp();
     }
-
 
     void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent != null)
-        {
-            if (other.transform.parent.tag == "Player " + playerNumber)
-            {
-                menuAvailable = true;
-                closeNow = false;
-            }
-        }
+        timeStamp = vehSwitch.timeStamp;
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
+            vehSwitch.SwitchMenu();
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.transform.parent != null)
-        {
-            if (other.transform.parent.tag == "Player " + playerNumber)
-            {
-                menuAvailable = false;
-                closeNow = true;
-            }
-
-        }
+        timeStamp = vehSwitch.timeStamp;
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == true)
+            vehSwitch.CloseMenu();
     }
 
-    void Update()
+    void RadiusSetUp()
     {
         SphereCollider c = gameObject.GetComponent<SphereCollider>();
         c.radius = radius;
-
-
-        if (player.GetComponentInChildren<VehSwitchAvailable>() != null)
-        {
-            player.GetComponentInChildren<VehSwitchAvailable>().menuAvailable = menuAvailable;
-            player.GetComponentInChildren<VehSwitchAvailable>().closeNow = closeNow;
-        }
-
-
-
+        center = transform.position;
     }
 
-
+    void SetUp()
+    {
+        withPlayerTag = GameObject.FindGameObjectsWithTag("Player " + playerNumber);
+        for (int i = 0; i <= withPlayerTag.Length - 1; i++)
+        {
+            if (withPlayerTag[i].GetComponent<Respawn>() && withPlayerTag[i].tag == "Player " + playerNumber)
+            {
+                vehicle = withPlayerTag[i];
+                playerInput = vehicle.GetComponent<PlayerInputSetup>();
+                vehSwitch = vehicle.GetComponentInChildren<VehSwitchAvailable>();
+                timeStamp = vehSwitch.timeStamp;
+            }
+        }
+    }
 }

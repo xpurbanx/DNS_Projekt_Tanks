@@ -2,36 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("Player1Buttons")]
+[assembly: InternalsVisibleTo("PlayerButtons")]
+[assembly: InternalsVisibleTo("Vehicle")]
+[assembly: InternalsVisibleTo("LockActions")]
 
 public class Respawn : MonoBehaviour
 {
-
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
 
     public List<GameObject> vehicles;
     public string spawnerTag;
     public int startVehicle = 0;
     public int respawnTimer = 2;
     internal bool isSpawning = false;
-    Transform spawner;
-    Vector3 spawnLocation;
-    // Start is called before the first frame update
+    internal Transform spawner;
+    internal Vector3 spawnLocation;
 
     void Awake()
     {
         Launch();
-
     }
 
     internal void Launch()
     {
+        Lock().mapLocked = true;
         spawner = GameObject.FindGameObjectWithTag(spawnerTag).transform;
-        spawnLocation = new Vector3(spawner.position.x, spawner.position.y, spawner.position.z);
+        spawnLocation = spawner.position;
         SpawnVehicle(startVehicle);
-        if(transform.GetChild(0).GetComponent<PlayerFiring>())
+        if (transform.GetChild(0).GetComponent<PlayerFiring>() != null)
         {
             transform.GetChild(0).gameObject.SetActive(false);
-            GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+            if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<WinManager>().gameEnded)
+            {
+                GetComponentInChildren<VehSwitchAvailable>().OpenMenu();
+            }
         }
     }
 
@@ -42,19 +50,27 @@ public class Respawn : MonoBehaviour
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();
         GetComponentInChildren<CamFollow>().UpdateCurrentVeh();
         isSpawning = false;
+        Lock().mapLocked = false;
+        Lock().aimingLocked = false;
+        Lock().movementLocked = false;
+        Lock().menusLocked = false;
+        Lock().menusLOCKED = false;
+        Lock().shootingLOCKED = false;
+        Lock().shootingLocked = false;
     }
 
     public void RespawnPlayer()
     {
-        if(!isSpawning)
-         StartCoroutine(Respawning());
+        if (!isSpawning)
+            StartCoroutine(Respawning());
     }
 
     public IEnumerator Respawning() // czeka 'respawnTimer' sekund
     {
-       isSpawning = true;
-       yield return new WaitForSeconds(respawnTimer);
-       SpawnVehicle(startVehicle);
+        Lock().mapLocked = true;
+        isSpawning = true;
+        yield return new WaitForSeconds(respawnTimer);
+        SpawnVehicle(startVehicle);
     }
 
     [ExecuteInEditMode]
@@ -62,5 +78,11 @@ public class Respawn : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnLocation, 1f);
+    }
+
+    public GameObject CurrentVeh()
+    {
+        GameObject veh = transform.GetChild(0).gameObject;
+        return veh;
     }
 }

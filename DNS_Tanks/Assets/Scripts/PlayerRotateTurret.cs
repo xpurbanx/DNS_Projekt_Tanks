@@ -7,18 +7,25 @@ using UnityEngine;
 public class PlayerRotateTurret : MonoBehaviour
 {
     public GameObject turret;
+    private Vehicle vehicle;
     internal float turnTurretSpeed = 20f;
 
     private PlayerInputSetup playerInput;
     private float turnTurretInputValue;
 
-    // Start is called before the first frame update
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     void Start()
     {
+        turnTurretSpeed = GetComponentInParent<Vehicle>().turnTurretSpeed;
         playerInput = GetComponentInParent<PlayerInputSetup>();
         if (playerInput == null)
             Debug.Log("BRAK PLAYERINPUT DLA PlayerRotateTurret");
-       // turret = this.gameObject;
+        // turret = this.gameObject;
     }
 
     // Update is called once per frame
@@ -30,20 +37,21 @@ public class PlayerRotateTurret : MonoBehaviour
     private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
-        TurnTurret();
+        if (Lock().aimingLocked == false && Lock().allLocked == false)
+            TurnTurret();
     }
 
- 
+
     private void TurnTurret()
     {
-        
+
         // Stopień skręcania
         float turnTurret = turnTurretInputValue * turnTurretSpeed * Time.deltaTime * 5f;
-       // Debug.Log("TURNING  " + turnTurretInputValue);
+        // Debug.Log("TURNING  " + turnTurretInputValue);
         // Unity wymyśliło sobie taki powalony typ jak Quaternion, ale nie wolno się bać
         //Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         //Quaternion turnRotation = Quaternion.Euler(-90f, 0f, turnTurret); 
-        Vector3 rotation = new Vector3 (0f, 0f, turnTurret);
+        Vector3 rotation = new Vector3 (0f, turnTurret, 0f );
         //turret.MoveRotation(rigidbody.rotation * turnRotation);
         transform.Rotate(rotation);
         return;

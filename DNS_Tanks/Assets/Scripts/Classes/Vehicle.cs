@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [assembly: InternalsVisibleTo("Bullet")]
-[assembly: InternalsVisibleTo("Player1Buttons")]
+[assembly: InternalsVisibleTo("PlayerButtons")]
 
 public class Vehicle : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Do którego gracza należy pojazd")]
     public int playerNumber = 0;
 
-    [Tooltip("Typ pojazdu (0: niezdefiniowany, 1: jeep, 2: czołg, 3: śmigłowiec)")]
+    [Tooltip("Typ pojazdu (1: jeep, 2: czołg,")]
     public int vehicleType = 0;
 
     [Tooltip("Wytrzymałość pojazdu")]
@@ -49,14 +49,19 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Prędkość początkowa pocisku")]
     public float bulletVelocity = 10f;
 
+    [Tooltip("Zasięg pocisku")]
+    public float bulletRange = 30f;
+
     // Zarządzane skrypty
     private PlayerMovement playerMovement;
     private PlayerFiring playerFiring;
     private PlayerRotateTurret playerRotateTurret;
+    private PlayerInputSetup playerInput;
     private Rigidbody rb;
 
     private void Awake()
     {
+        playerInput = gameObject.GetComponentInParent<PlayerInputSetup>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerFiring = gameObject.GetComponent<PlayerFiring>();
         playerRotateTurret = gameObject.GetComponent<PlayerRotateTurret>();
@@ -73,7 +78,7 @@ public class Vehicle : MonoBehaviour
     void Start()
     {
         vehType = vehicleType;
-        switch(vehType)
+        switch (vehType)
         {
             case 1:
                 damage = damageMG;
@@ -82,7 +87,7 @@ public class Vehicle : MonoBehaviour
                 damage = damageAT;
                 break;
             case 3:
-                damage = 0f; // Na razie nie ustalono broni dla śmigłowca
+                damage = damageAT; // Na razie nie ustalono broni dla śmigłowca
                 break;
             default:
                 damage = 0f;
@@ -98,20 +103,27 @@ public class Vehicle : MonoBehaviour
         playerFiring.startVelocity = bulletVelocity;
         playerFiring.playerNumber = playerNumber;
 
+        GetComponentInParent<HUD>().UpdateHealthBar(hp);
+
         if (playerRotateTurret != null)
         {
             playerRotateTurret.turnTurretSpeed = turnTurretSpeed;
         }
-
-        if (damage == 0f)
-            Debug.Log("Pojazd \""+gameObject.name+"\" nie zadaje obrażeń. Może nie zdefiniowałeś jego typu w polu \"Vehicle Type\"?");
     }
 
     private void DestroyVehicle()
     {
+        DecreaseLifes();
         GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        GetComponent<Explosion>().Explode(false, false);
+        GameObject.FindGameObjectWithTag("Map Panel " + playerFiring.playerNumber).GetComponentInParent<OverlayEnable>().ClosePanel();
+        Lock().mapLocked = true;
+        Lock().aimingLocked = true;
+        Lock().movementLocked = true;
+        Lock().menusLOCKED = true;
+        Lock().shootingLOCKED = true;
         Destroy(gameObject);
-        GetComponentInParent<Respawn>().RespawnPlayer();
+        GetComponentInParent<Respawn>().Launch();
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
@@ -122,22 +134,18 @@ public class Vehicle : MonoBehaviour
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
-    public float GetHealth()
-    {
-        return hp;
-    }
-
-    public int GetSpeed()
-    {
-        int currentSpeed;
-        currentSpeed = (int)rb.velocity.magnitude;
-        //currentSpeed = System.Math.Round(currentSpeed, 2);
-        return currentSpeed;
-    }
+    //public int GetSpeed()
+    //{
+    //    int currentSpeed;
+    //    currentSpeed = (int)rb.velocity.magnitude;
+    //    //currentSpeed = System.Math.Round(currentSpeed, 2);
+    //    return currentSpeed;
+    //}
 
     public void Damage(float damage)
     {
         hp -= damage;
+        GetComponentInParent<HUD>().UpdateHealthBar(hp);
         CheckIfDestroyed();
     }
 
@@ -145,6 +153,128 @@ public class Vehicle : MonoBehaviour
     {
         if (hp <= 0)
             DestroyVehicle();
+    }
+
+    private void DecreaseLifes()
+    {
+        if (vehicleType == 1)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().JeepDeath(playerNumber);
+        }
+
+        else if (vehicleType == 2)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().TankDeath(playerNumber);
+        }
+
+        else if (vehicleType == 3)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<LifesManager>().HeavyTankDeath(playerNumber);
+        }
+    }
+
+    public SuppliesAvailable SuppliesAvailable()
+    {
+        SuppliesAvailable suppliesAvailable = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<SuppliesAvailable>();
+        return suppliesAvailable;
+    }
+
+    void InstantiateSupply(Vector3 pos, GameObject pref)
+    {
+        Instantiate(pref, pos, transform.rotation, transform);
+    }
+
+    public void SetSupply(Vector3 pos, GameObject pref)
+    {
+        Lock().shootingLocked = true;
+        Lock().menusLocked = true;
+        SuppliesAvailable().hasSupply = true;
+        InstantiateSupply(pos, pref); // Utworzenie prefaba supply'a w przed pojazdem
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+        supply.rotation = gameObject.transform.rotation;
+
+        Rigidbody r = supply.gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody; // Dodanie rigidbody, zamrożenie wszystkiego, ustawienie trybu kolizji
+        r.constraints = RigidbodyConstraints.FreezeAll;
+        r.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
+        Material newMaterial; // Utworzenie nowego materiału
+        newMaterial = GameObject.FindGameObjectWithTag("Transparent").GetComponent<MeshRenderer>().material; // Nadanie właściwości nowemu materiałowi
+
+        supply.tag = "Untagged"; // Usunięcie taga w celu ignorowania supply'a przez wrogie wieżyczki
+
+        MeshRenderer[] renderers = supply.transform.GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i <= renderers.Length - 1; i++)
+        {
+            renderers[i].material = newMaterial;
+            renderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Nadanie przezroczystości supply'owi oraz wyłączenie cieni
+        }
+
+        BoxCollider[] colliders = supply.transform.GetComponentsInChildren<BoxCollider>();
+        for (int i = 0; i <= colliders.Length - 1; i++)
+        {
+            colliders[i].isTrigger = true; // Przełączenie kolizji na trigger
+        }
+
+        if (supply.GetComponent<AITower>() != null) // Wyłączenie właściwości i AI, jeśli wybraliśmy wieżyczkę
+        {
+            supply.GetComponent<AITower>().enabled = false;
+            supply.GetComponent<Building>().enabled = false;
+        }
+        StartCoroutine(Wait());
+
+    }
+
+    public void PutSupply()
+    {
+        Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a jako duszka
+        Vector3 supplyPos = new Vector3(supply.position.x, 0, supply.position.z);
+        GameObject chosenSupply = GameObject.FindGameObjectWithTag("Supplies " + playerFiring.playerNumber).GetComponent<PlayerButtons>().prefab;
+
+        if (GetComponentInChildren<SupplyCollision>().colliding == false)
+        {
+            GameObject instance = Instantiate(chosenSupply, supplyPos, supply.transform.rotation);
+            ActiveEntities.Instance.AddToList(supply.tag, supply.gameObject);
+            supply.position = supplyPos;
+            Rigidbody rigidbody = instance.GetComponent<Rigidbody>();
+            Destroy(rigidbody); // Usunięcie fizyki
+            supply = gameObject.transform.GetChild(1);
+            Destroy(supply.gameObject); // Zniszczenie "duszka"
+            StartCoroutine(Wait2());
+        }
+        else return;
+    }
+
+    public IEnumerator Wait()
+    {
+        SuppliesAvailable().canBeSet = false;
+        yield return new WaitForSecondsRealtime(1);
+        SuppliesAvailable().canBeSet = true;
+    }
+
+    public IEnumerator Wait2()
+    {
+        SuppliesAvailable().hasSupply = false;
+        SuppliesAvailable().canBeSet = false;
+        yield return new WaitForSecondsRealtime(1);
+        Lock().shootingLocked = false;
+        Lock().menusLocked = false;
+    }
+
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
+    private void Update()
+    {
+        if (SuppliesAvailable().hasSupply && (playerInput.AButtonJ() || playerInput.AButtonK()) && SuppliesAvailable().canBeSet)
+            PutSupply();
+        if (SuppliesAvailable().hasSupply)
+        {
+            Transform supply = gameObject.transform.GetChild(1); // Oznaczenie supply'a
+            supply.rotation = gameObject.transform.rotation;
+        }
     }
 }
 

@@ -69,6 +69,12 @@ public class CamFollow : MonoBehaviour
 
     }
 
+    private LockActions Lock()
+    {
+        LockActions lockActions = GetComponentInParent<LockActions>();
+        return lockActions;
+    }
+
     void LateUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
@@ -76,6 +82,7 @@ public class CamFollow : MonoBehaviour
         {
             transform.position = player.transform.position + offset;
 
+            if(Lock().aimingLocked == false && Lock().allLocked == false)
             RotateCamera();
         }
   
@@ -162,7 +169,7 @@ public class CamFollow : MonoBehaviour
             right = 176;
         }
         //dla czolgu dziala, mozna zrobic jakies ladniejsze rozwiazanie
-        float frontOffset = turret.transform.localEulerAngles.z + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
+        float frontOffset = turret.transform.localEulerAngles.y + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
         frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {

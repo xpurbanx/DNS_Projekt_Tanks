@@ -38,13 +38,16 @@ public class AITower : MonoBehaviour
     private bool idle = true;
     public float idleRotationSpeed = 2f;
     float shortestDistance;
+
+    AudioSource shotSound;
     // Use this for initialization
     void Start()
     {
-        
+       
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         InvokeRepeating("UpdateList", 0f, 5f); 
         building = GetComponent<Building>();
+        shotSound = GetComponent<AudioSource>();
     }
     private void UpdateList()
     {
@@ -89,7 +92,7 @@ public class AITower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (idle) RotateOnIdle();
+        if (idle && !MenuPause.gameIsPaused) RotateOnIdle();
         LockOnTarget();
 
         if (target != null && fireCountdown <= 0f && shortestDistance <= range)
@@ -121,6 +124,7 @@ public class AITower : MonoBehaviour
 
     void Shoot()
     {
+        shotSound.Play();
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.towerFiring = this;

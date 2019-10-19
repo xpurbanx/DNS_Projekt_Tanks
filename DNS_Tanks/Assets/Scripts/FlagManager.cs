@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class FlagManager : MonoBehaviour
 {
-    public RectTransform panelGameOver;
-    public Text txtGameOver;
-
     public int numberOfFlags;
     public GameObject flag1;
     public GameObject flag2;
+    private GameObject gameController;
     public List<GameObject> buildingsOne;
     public List<GameObject> buildingsTwo;
 
@@ -22,6 +20,7 @@ public class FlagManager : MonoBehaviour
     {
         flagsLeftOne = numberOfFlags;
         flagsLeftTwo = numberOfFlags;
+        gameController = GameObject.FindGameObjectWithTag("GameController");
 
         if (numberOfFlags > buildingsOne.Count)
         {
@@ -96,7 +95,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftOne == 0)
             {
-                Win(playerNumber);
+                gameController.GetComponent<WinManager>().Win(playerNumber);
             }
         }
 
@@ -106,7 +105,7 @@ public class FlagManager : MonoBehaviour
 
             if (flagsLeftTwo == 0)
             {
-                Win(playerNumber);
+                gameController.GetComponent<WinManager>().Win(playerNumber);
             }
         }
     }
@@ -116,28 +115,15 @@ public class FlagManager : MonoBehaviour
         if (building.GetComponent<Building>().playerNumber == 1)
         {
             GameObject flag = Instantiate(flag1, building.transform.position, Quaternion.identity);
+            flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             return;
         }
 
         if (building.GetComponent<Building>().playerNumber == 2)
         {
             GameObject flag = Instantiate(flag2, building.transform.position, Quaternion.identity);
+            flag.GetComponent<Transform>().localScale = new Vector3(2, 2, 2);
             return;
         }
-    }
-
-    private void Win(int winnerNumber)
-    {
-        panelGameOver.gameObject.SetActive(true);
-        txtGameOver.text = $"Wygrywa gracz numer {winnerNumber}";
-        StartCoroutine(RestartGame());
-    }
-
-    private IEnumerator RestartGame()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        panelGameOver.gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 }
