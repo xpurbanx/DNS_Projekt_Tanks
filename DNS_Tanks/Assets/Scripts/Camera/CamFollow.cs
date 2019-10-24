@@ -22,11 +22,14 @@ public class CamFollow : MonoBehaviour
     bool followTurret = true;
     float frontOffset;
     bool startedRotating = false;
-    [SerializeField][Tooltip("followTurret max angle left on autoRotate")]
+    [SerializeField]
+    [Tooltip("followTurret max angle left on autoRotate")]
     int leftDefault = 220;
-    [SerializeField][Tooltip("followTurret max angle right on autoRotate")]
+    [SerializeField]
+    [Tooltip("followTurret max angle right on autoRotate")]
     int rightDefault = 168;
-    [SerializeField][Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
+    [SerializeField]
+    [Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
     int angleDefault = 20;
 
 
@@ -39,7 +42,7 @@ public class CamFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(RotateFunction(player.transform.GetChild(0).position, 3f));
         UpdateCurrentVeh();
         playerInput = GetComponentInParent<PlayerInputSetup>();
     }
@@ -56,9 +59,9 @@ public class CamFollow : MonoBehaviour
         if (!offsetSet)
         {
 
-            if(classicCam)
+            if (classicCam)
             {
-               // transform.rotation.SetEulerAngles(66, transform.rotation.y, transform.rotation.z);
+                // transform.rotation.SetEulerAngles(66, transform.rotation.y, transform.rotation.z);
                 transform.Translate(classicOffset);
                 transform.LookAt(player.transform);
             }
@@ -75,17 +78,17 @@ public class CamFollow : MonoBehaviour
         return lockActions;
     }
 
-    void LateUpdate()
+    void LateUpdate() // LATE!
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if (player != null)
         {
             transform.position = player.transform.position + offset;
 
-            if(Lock().aimingLocked == false && Lock().allLocked == false)
-            RotateCamera();
+            if (Lock().aimingLocked == false && Lock().allLocked == false)
+                RotateCamera();
         }
-  
+
     }
 
     private void RotateCamera()
@@ -147,6 +150,26 @@ public class CamFollow : MonoBehaviour
 
         }
     }
+
+    IEnumerator RotateFunction(/*GameObject poll,*/ Vector3 pivotPos, float degree)
+    {
+        float timeSinceStarted = 0f;
+        while (true)
+        {
+            timeSinceStarted += Time.deltaTime * 0.1f;
+            transform.RotateAround(pivotPos, new Vector3(0, 1, 0), degree * Time.deltaTime);
+            Debug.Log("PLAYER: " + player.transform.position + " | CAMERA: " + transform.position);
+            // If the object has arrived, stop the coroutine
+            if (timeSinceStarted >= 1f)
+            {
+                yield break;
+            }
+
+            // Otherwise, continue next frame
+            yield return null;
+        }
+    }
+
     private void RotateTurretFront()
     {
         int left, right;
@@ -173,13 +196,13 @@ public class CamFollow : MonoBehaviour
         frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
         if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
         {
-           // Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
+            // Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
             startedRotating = true;
         }
 
 
         if (startedRotating)
-        {  
+        {
             Vector3 direction = Vector3.up; //clockwise
             if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360) // okresla w ktora strone sie obraca
                 direction = Vector3.up;   //clockwise
