@@ -7131,16 +7131,6 @@ PrefabInstance:
       propertyPath: sniperTowerAmount
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: autoRotate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622415767335028711, guid: 28fbc280ae3695542bed829c3c9f7d54,
-        type: 3}
-      propertyPath: followTurret
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fbc280ae3695542bed829c3c9f7d54, type: 3}
 --- !u!1001 &795920133

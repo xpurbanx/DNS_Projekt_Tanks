@@ -33,6 +33,9 @@ public class CamFollow : MonoBehaviour
     int angleDefault = 20;
     float t = 0f;
 
+    private float leftCenter = 184;  // 184 - wartosc "srodka" z lewej strony
+    private float rightCenter = 176; // 176 - wartosc "srodka" z prawej strony
+                                     // chodzi o to, ze kamera centruje sie do tego przedzialu stopni
 
     [SerializeField]
     bool classicCam = false;
@@ -108,25 +111,27 @@ public class CamFollow : MonoBehaviour
         float frontOffset;
         if (autoRotate)
         {
-            rotationSpeed = Mathf.Lerp(0f, defaultRotationSpeed, t) * 10f;//rotationSpeed = defaultRotationSpeed;
+            //rotationSpeed = Mathf.Lerp(0f, defaultRotationSpeed, t) * 10f;//rotationSpeed = defaultRotationSpeed;
+            rotationSpeed = defaultRotationSpeed;
             angle = angleDefault; // powyzej tej wartosci zaczyna obracac do srodka
         }
         else
         {
             rotationSpeed = 0;
-            angle = 2; // wtedy jest na srodku, 
+            angle = angleDefault; // wtedy jest na srodku, 
 
         }
 
         if (playerInput.RightAnalogButton())
         {
             rotationSpeed = 100f; // gotta go fast
-            angle = 2; // wtedy jest na srodku
+            angle = angleDefault; // wtedy jest na srodku
         }
 
         frontOffset = player.transform.eulerAngles.y - transform.transform.eulerAngles.y;
         if ((Mathf.Abs(frontOffset) > angle) && (playerInput.RightAnalogButton() || autoRotate))
         {
+            Debug.Log("Autorotate: " + autoRotate +"   frontOffset: " + frontOffset);
             startedRotating = true;
         }
 
@@ -141,7 +146,7 @@ public class CamFollow : MonoBehaviour
             transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
             //transform.LookAt(player.transform);
-            if (Mathf.Abs(frontOffset) < angle)
+            if (Mathf.Abs(frontOffset) < 2) // 2 stopnie bledu wzgledem srodka
             {
                 startedRotating = false;
                 t = 0;
@@ -170,8 +175,8 @@ public class CamFollow : MonoBehaviour
         if (playerInput.RightAnalogButton())
         {
             rotationSpeed = 100f; // gotta go fast
-            left = 184; // wtedy jest na srodku
-            right = 176;
+            left = leftDefault; // daje margines bledu
+            right = rightDefault;
         }
         //dla czolgu dziala, mozna zrobic jakies ladniejsze rozwiazanie
         float frontOffset = turret.transform.localEulerAngles.y + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
@@ -194,8 +199,8 @@ public class CamFollow : MonoBehaviour
             transform.RotateAround(playerPos, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
             //transform.LookAt(player.transform);
-            if ((Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right))
-            {
+            if ((Mathf.Abs(frontOffset) < leftCenter && Mathf.Abs(frontOffset) > rightCenter))
+            {                                                               
                 startedRotating = false;
                 t = 0;
             }
