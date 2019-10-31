@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  defaultRotationSpeed: 8
+  defaultRotationSpeed: 10
   cameraOffset: 10
   autoRotate: 1
-  followTurret: 0
+  followTurret: 1
   leftDefault: 230
   rightDefault: 130
-  angleDefault: 30
+  angleDefault: 1
   classicCam: 1
   classicOffset: {x: 0, y: 0, z: -17.5}
 --- !u!1 &6129786785379115946
