@@ -176,7 +176,7 @@ public class CamFollow : MonoBehaviour
 
         if (playerInput.RightAnalogButton())
         {
-            rotationSpeed = 100f; // gotta go fast
+            rotationSpeed = Mathf.Lerp(3f, defaultRotationSpeed*3.5f, t) * 25f;//rotationSpeed = defaultRotationSpeed;//rotationSpeed = 100f; // gotta go fast
             turretAngle = angleDefault; // wtedy jest na srodku
         }
 
