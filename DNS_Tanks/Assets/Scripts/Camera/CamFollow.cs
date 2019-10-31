@@ -22,13 +22,20 @@ public class CamFollow : MonoBehaviour
     bool followTurret = true;
     float frontOffset;
     bool startedRotating = false;
-    [SerializeField][Tooltip("followTurret max angle left on autoRotate")]
+    [SerializeField]
+    [Tooltip("followTurret max angle left on autoRotate")]
     int leftDefault = 220;
-    [SerializeField][Tooltip("followTurret max angle right on autoRotate")]
+    [SerializeField]
+    [Tooltip("followTurret max angle right on autoRotate")]
     int rightDefault = 168;
-    [SerializeField][Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
+    [SerializeField]
+    [Tooltip("followBody max angle (when turning towards body, !followTurret) on autoRotate")]
     int angleDefault = 20;
+    float t = 0f;
 
+    private float leftCenter = 180;  // 184 - wartosc "srodka" z lewej strony
+    private float rightCenter = 170; // 176 - wartosc "srodka" z prawej strony
+                                     // chodzi o to, ze kamera centruje sie do tego przedzialu stopni
 
     [SerializeField]
     bool classicCam = false;
@@ -36,10 +43,9 @@ public class CamFollow : MonoBehaviour
     Vector3 classicOffset;
 
     int left, right;
-    // Start is called before the first frame update
     void Start()
     {
-
+        //StartCoroutine(RotateFunction(player.transform.position, 45f));
         UpdateCurrentVeh();
         playerInput = GetComponentInParent<PlayerInputSetup>();
     }
@@ -56,9 +62,9 @@ public class CamFollow : MonoBehaviour
         if (!offsetSet)
         {
 
-            if(classicCam)
+            if (classicCam)
             {
-               // transform.rotation.SetEulerAngles(66, transform.rotation.y, transform.rotation.z);
+                // transform.rotation.SetEulerAngles(66, transform.rotation.y, transform.rotation.z);
                 transform.Translate(classicOffset);
                 transform.LookAt(player.transform);
             }
@@ -75,17 +81,15 @@ public class CamFollow : MonoBehaviour
         return lockActions;
     }
 
-    void LateUpdate()
+    void LateUpdate() // LATE!
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if (player != null)
         {
             transform.position = player.transform.position + offset;
-
-            if(Lock().aimingLocked == false && Lock().allLocked == false)
-            RotateCamera();
+            if (Lock().aimingLocked == false && Lock().allLocked == false)
+                RotateCamera();
         }
-  
     }
 
     private void RotateCamera()
@@ -103,29 +107,32 @@ public class CamFollow : MonoBehaviour
     }
     private void RotateBodyFront()
     {
+        t += 0.001f;
         int angle;
         float frontOffset;
         if (autoRotate)
         {
-            rotationSpeed = defaultRotationSpeed;
+            rotationSpeed = Mathf.Lerp(0f, defaultRotationSpeed, t) * 10f;//rotationSpeed = defaultRotationSpeed;
+            //rotationSpeed = defaultRotationSpeed;
             angle = angleDefault; // powyzej tej wartosci zaczyna obracac do srodka
         }
         else
         {
             rotationSpeed = 0;
-            angle = 2; // wtedy jest na srodku, 
+            angle = angleDefault; // wtedy jest na srodku, 
 
         }
 
         if (playerInput.RightAnalogButton())
         {
             rotationSpeed = 100f; // gotta go fast
-            angle = 2; // wtedy jest na srodku
+            angle = angleDefault; // wtedy jest na srodku
         }
 
         frontOffset = player.transform.eulerAngles.y - transform.transform.eulerAngles.y;
         if ((Mathf.Abs(frontOffset) > angle) && (playerInput.RightAnalogButton() || autoRotate))
         {
+            Debug.Log("Autorotate: " + autoRotate + "   frontOffset: " + frontOffset);
             startedRotating = true;
         }
 
@@ -140,61 +147,63 @@ public class CamFollow : MonoBehaviour
             transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
             //transform.LookAt(player.transform);
-            if (Mathf.Abs(frontOffset) < angle)
+            if (Mathf.Abs(frontOffset) < 2) // 2 stopnie bledu wzgledem srodka
             {
                 startedRotating = false;
+                t = 0;
             }
 
         }
     }
+
     private void RotateTurretFront()
     {
-        int left, right;
+        t += 0.001f;
+        int turretAngle;
+        float frontOffset;
         if (autoRotate)
         {
-            rotationSpeed = defaultRotationSpeed;
-            left = leftDefault; // daje margines bledu
-            right = rightDefault;
+            rotationSpeed = Mathf.Lerp(0.8f, defaultRotationSpeed, t) * 25f;//rotationSpeed = defaultRotationSpeed;
+            //rotationSpeed = defaultRotationSpeed;
+            turretAngle = angleDefault; // powyzej tej wartosci zaczyna obracac do srodka
         }
         else
         {
             rotationSpeed = 0;
-            left = 184; // wtedy jest na srodku
-            right = 176;
+            turretAngle = angleDefault; // wtedy jest na srodku, 
+
         }
+
         if (playerInput.RightAnalogButton())
         {
-            rotationSpeed = 100f; // gotta go fast
-            left = 184; // wtedy jest na srodku
-            right = 176;
+            rotationSpeed = Mathf.Lerp(3f, defaultRotationSpeed*3.5f, t) * 25f;//rotationSpeed = defaultRotationSpeed;//rotationSpeed = 100f; // gotta go fast
+            turretAngle = angleDefault; // wtedy jest na srodku
         }
-        //dla czolgu dziala, mozna zrobic jakies ladniejsze rozwiazanie
-        float frontOffset = turret.transform.localEulerAngles.y + player.transform.rotation.eulerAngles.y - transform.eulerAngles.y + 180; // 180 bo tak jest w TankRotation (chyba dlatego)
-        frontOffset = frontOffset % 360;// zeby nie wychodzilo za 360
-        if ((!(Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right)) && (playerInput.RightAnalogButton() || autoRotate))
+
+        frontOffset = player.GetComponentInChildren<PlayerRotateTurret>().transform.eulerAngles.y - transform.transform.eulerAngles.y;
+        if ((Mathf.Abs(frontOffset) > turretAngle) && (playerInput.RightAnalogButton() || autoRotate))
         {
-           // Debug.Log("TURRET: " + turret.transform.localEulerAngles.z + "   CAMERA: " + transform.eulerAngles.y + "  offset: " + frontOffset);
+            Debug.Log("Autorotate: " + autoRotate + "   frontOffset: " + frontOffset);
             startedRotating = true;
         }
 
 
         if (startedRotating)
-        {  
-            Vector3 direction = Vector3.up; //clockwise
-            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360) // okresla w ktora strone sie obraca
-                direction = Vector3.up;   //clockwise
+        {
+            Vector3 direction = Vector3.down; //clockwise
+            if (frontOffset < 0 && frontOffset > -180 || frontOffset > 180 && frontOffset < 360)// okresla w ktora strone sie obraca
+                direction = Vector3.down;   //clockwise
             else
-                direction = Vector3.down; //counter clockwise
-            Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-            transform.RotateAround(playerPos, direction, rotationSpeed * Time.deltaTime);
+                direction = Vector3.up; //counter clockwise
+            transform.RotateAround(player.transform.position, direction, rotationSpeed * Time.deltaTime);
             offset = transform.position - player.transform.position;
             //transform.LookAt(player.transform);
-            if ((Mathf.Abs(frontOffset) < left && Mathf.Abs(frontOffset) > right))
+            if (Mathf.Abs(frontOffset) < 2) // 2 stopnie bledu wzgledem srodka
             {
                 startedRotating = false;
+                t = 0;
             }
 
         }
-
     }
 }

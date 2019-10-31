@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 2279129249134564159}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -937,6 +937,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletOut
       objectReference: {fileID: 0}
+    - target: {fileID: 2661024816607091290, guid: 39d86f5bc3f1026479fca6faec967ba3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661024816607091290, guid: 39d86f5bc3f1026479fca6faec967ba3,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.04917908
+      objectReference: {fileID: 0}
     - target: {fileID: 2658371238848146981, guid: 39d86f5bc3f1026479fca6faec967ba3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -981,16 +991,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2661024816607091290, guid: 39d86f5bc3f1026479fca6faec967ba3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2661024816607091290, guid: 39d86f5bc3f1026479fca6faec967ba3,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.04917908
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d86f5bc3f1026479fca6faec967ba3, type: 3}
