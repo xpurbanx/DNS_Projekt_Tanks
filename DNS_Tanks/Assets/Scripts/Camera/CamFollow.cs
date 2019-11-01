@@ -14,8 +14,7 @@ public class CamFollow : MonoBehaviour
     private PlayerInputSetup playerInput;
     bool offsetSet = false;
     private Vector3 offset;
-    [SerializeField]
-    int cameraOffset = 10;
+    Vector3 startOffset; // offset camery na starcie
     [SerializeField]
     bool autoRotate = true;
     [SerializeField]
@@ -43,6 +42,12 @@ public class CamFollow : MonoBehaviour
     Vector3 classicOffset;
 
     int left, right;
+    private void Awake()
+    {
+        startOffset = transform.localPosition;
+        Debug.Log("Local Position: " + startOffset);
+        Debug.Log("World Position: " + transform.position);
+    }
     void Start()
     {
         //StartCoroutine(RotateFunction(player.transform.position, 45f));
@@ -68,11 +73,17 @@ public class CamFollow : MonoBehaviour
                 transform.Translate(classicOffset);
                 transform.LookAt(player.transform);
             }
-            offset = transform.position - player.transform.position;
+            offset = startOffset - player.transform.position;
             offsetSet = true;
 
         }
 
+    }
+    public void ChangeCamera()
+    {
+        offsetSet = false;
+        classicCam = !classicCam;
+        UpdateCurrentVeh();
     }
 
     private LockActions Lock()
@@ -83,6 +94,10 @@ public class CamFollow : MonoBehaviour
 
     void LateUpdate() // LATE!
     {
+        if (playerInput.LeftAnalogButton())
+        {
+            ChangeCamera();
+        }
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         if (player != null)
         {
@@ -176,8 +191,13 @@ public class CamFollow : MonoBehaviour
 
         if (playerInput.RightAnalogButton())
         {
+<<<<<<< HEAD
             rotationSpeed = Mathf.Lerp(3f, defaultRotationSpeed * 3.5f, t) * 25f;//rotationSpeed = defaultRotationSpeed;//rotationSpeed = 100f; // gotta go fast
             turretAngle = angleDefault; // wtedy jest na srodku
+=======
+            rotationSpeed = Mathf.Lerp(3f, defaultRotationSpeed*3.5f, t) * 25f;//rotationSpeed = defaultRotationSpeed;//rotationSpeed = 100f; // gotta go fast
+            turretAngle = 4; // wtedy jest na srodku
+>>>>>>> WIP some camera changes
         }
 
         frontOffset = player.GetComponentInChildren<PlayerRotateTurret>().transform.eulerAngles.y - transform.transform.eulerAngles.y;
@@ -205,5 +225,10 @@ public class CamFollow : MonoBehaviour
             }
 
         }
+    }
+
+    private void adaptiveSpeed()
+    {
+
     }
 }
