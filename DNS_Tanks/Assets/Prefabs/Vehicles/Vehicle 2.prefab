@@ -98,13 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  defaultRotationSpeed: 10
+  defaultRotationSpeed: 6
   cameraOffset: 10
   autoRotate: 1
   followTurret: 1
   leftDefault: 230
   rightDefault: 130
-  angleDefault: 1
+  angleDefault: 45
   classicCam: 1
   classicOffset: {x: 0, y: 0, z: -17.5}
 --- !u!114 &7361411774512202046
@@ -122,13 +122,13 @@ MonoBehaviour:
   volumeTrigger: {fileID: 0}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 2
+  antialiasingMode: 0
   temporalAntialiasing:
-    jitterSpread: 1
-    sharpness: 3
+    jitterSpread: 0.75
+    sharpness: 0.25
     stationaryBlending: 0.95
     motionBlending: 0.85
   subpixelMorphologicalAntialiasing:
@@ -160,7 +160,7 @@ MonoBehaviour:
       motionGridSize: 64
       colorBlindnessType: 0
       colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_Resources: {fileID: 0}
   m_ShowToolkit: 0
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
