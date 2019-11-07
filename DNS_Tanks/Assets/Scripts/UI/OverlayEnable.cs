@@ -1,14 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Runtime.CompilerServices;
 using UnityEngine;
+
+[assembly: InternalsVisibleTo("VehicleSwitch")]
 
 public class OverlayEnable : MonoBehaviour
 {
     public GameObject panel;
     public double cooldown = 3;
-    private double timeStamp;
+
+    internal bool isInRadiusOfStation;
+
     private PlayerInputSetup playerInput;
-    bool isOpen = false;
+    private double timeStamp;
+    private bool isOpen = false;
 
     public void Start()
     {
@@ -23,8 +27,16 @@ public class OverlayEnable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.BButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false && MenuPause.gameIsPaused == false)
-            SwitchPanel();
+        if (playerInput.XButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false && MenuPause.gameIsPaused == false)
+        {
+            // Jeśli gracz nie jest w zasięgu jakiejś stacji, mapa się przełączy
+            if (isInRadiusOfStation == false)
+                SwitchPanel();
+
+            // Jeśli jest, mapa się tylko wyłączy
+            else
+                ClosePanel();
+        }
     }
 
     public void SwitchPanel()

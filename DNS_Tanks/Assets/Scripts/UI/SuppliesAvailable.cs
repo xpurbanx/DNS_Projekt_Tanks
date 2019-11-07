@@ -11,8 +11,8 @@ public class SuppliesAvailable : MonoBehaviour
     public MyButton defaultButton;
     public List<GameObject> prefabs;
     public double cooldown = 3;
-    internal double timeStamp;
 
+    internal double timeStamp;
     internal bool canBeSet = false;
     internal bool hasSupply = false;
     internal bool menuAvailable;

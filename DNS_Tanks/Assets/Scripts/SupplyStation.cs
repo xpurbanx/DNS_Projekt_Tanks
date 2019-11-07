@@ -27,6 +27,13 @@ public class SupplyStation : MonoBehaviour
         SetUp();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
+        if (veh != null)
+            veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
+    }
+
     void OnTriggerStay(Collider other)
     {
         timeStamp = supp.timeStamp;
@@ -39,6 +46,10 @@ public class SupplyStation : MonoBehaviour
         timeStamp = supp.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<SuppliesAvailable>().isOpen == true)
             supp.CloseMenu();
+
+        GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
+        if (veh != null)
+            veh.GetComponent<OverlayEnable>().isInRadiusOfStation = false;
     }
 
     void RadiusSetUp()

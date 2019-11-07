@@ -6,25 +6,31 @@ using UnityEngine;
 
 public class VehicleSwitch : MonoBehaviour
 {
-    public int playerNumber = 0;
     public double cooldown = 3;
-    private double timeStamp;
+    public float radius = 0.5f;
+    public int playerNumber = 0;
 
     internal GameObject[] withPlayerTag;
     internal GameObject player;
-    GameObject panel;
-    GameObject vehicle;
-
-    PlayerInputSetup playerInput;
-    VehSwitchAvailable vehSwitch;
-
+    internal bool isInRadius;
+    
+    private GameObject vehicle;
+    private PlayerInputSetup playerInput;
+    private VehSwitchAvailable vehSwitch;
     private Vector3 center = Vector3.zero;
-    public float radius = 0.5f;
+    private double timeStamp;
 
     void Awake()
     {
         RadiusSetUp();
         SetUp();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
+        if (veh != null)
+            veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
     }
 
     void OnTriggerStay(Collider other)
@@ -39,6 +45,10 @@ public class VehicleSwitch : MonoBehaviour
         timeStamp = vehSwitch.timeStamp;
         if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && vehicle.GetComponentInChildren<VehSwitchAvailable>().isOpen == true)
             vehSwitch.CloseMenu();
+
+        GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
+        if (veh != null)
+            veh.GetComponent<OverlayEnable>().isInRadiusOfStation = false;
     }
 
     void RadiusSetUp()
