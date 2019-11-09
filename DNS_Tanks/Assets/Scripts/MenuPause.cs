@@ -62,8 +62,9 @@ public class MenuPause : MonoBehaviour
 
         else
         {
-            SceneManager.LoadScene("TwoFortsV2");
+            SceneManager.LoadScene("Desert Battle");
         }
+
     }
 
     public void QuitGame()
