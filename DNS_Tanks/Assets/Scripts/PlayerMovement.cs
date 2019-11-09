@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         turnInputValue = playerInput.Horizontal();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Poruszanie się czołgu, jechanie prosto do tyłu i skręcanie
         if (Lock().allLocked == false && Lock().movementLocked == false)
