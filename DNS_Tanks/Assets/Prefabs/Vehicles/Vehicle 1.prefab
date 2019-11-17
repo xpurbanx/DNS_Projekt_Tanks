@@ -471,11 +471,6 @@ PrefabInstance:
       propertyPath: m_havePropertiesChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5673221839349723053, guid: 395c1ff046aa13c47b1cb1fe468301d0,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 55095
-      objectReference: {fileID: 0}
     - target: {fileID: 5545311112150816096, guid: 395c1ff046aa13c47b1cb1fe468301d0,
         type: 3}
       propertyPath: m_isInputParsingRequired
