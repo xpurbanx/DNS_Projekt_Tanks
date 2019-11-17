@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2389800242668483570}
   - component: {fileID: 2389800242668483581}
   - component: {fileID: 2389800242668483580}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: VehSwitchStation
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -149,5 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5d60d3dc55d864b901b5028977860c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
+  cooldown: 3
   radius: 0.5
+  playerNumber: 0

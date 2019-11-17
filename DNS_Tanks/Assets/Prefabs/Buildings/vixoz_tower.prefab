@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 799406168871891568}
   - component: {fileID: 3973058944188628410}
   - component: {fileID: 1979820060305636013}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: vixoz_tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

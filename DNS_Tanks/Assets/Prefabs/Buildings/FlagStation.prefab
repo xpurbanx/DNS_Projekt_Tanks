@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2389800242668483581}
   - component: {fileID: 2389800242668483580}
   - component: {fileID: 2389800242668483568}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: FlagStation
   m_TagString: Terrain
   m_Icon: {fileID: 0}

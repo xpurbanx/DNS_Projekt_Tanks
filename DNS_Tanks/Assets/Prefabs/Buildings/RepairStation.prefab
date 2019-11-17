@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7553249287860586129}
   - component: {fileID: 7553249287860586133}
   - component: {fileID: 2381609156073017141}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: RepairStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,6 +107,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerNumber: 0
+  hasParts: 0
+  destroyExplosionForce: 2
+  explosionRadius: 10
+  partLifetime: 5
+  explosionSound: {fileID: 0}
 --- !u!114 &2381609156073017141
 MonoBehaviour:
   m_ObjectHideFlags: 0

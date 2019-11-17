@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4045705042385795655}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: turret wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
