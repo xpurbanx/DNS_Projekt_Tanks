@@ -64,7 +64,7 @@ public class PlayerFiring : MonoBehaviour
         // Pocisk zostaje wystrzelony w momencie w którym dostaje input dla AButton
         // oraz w którym nie został jeszcze wystrzelony (Zabezpieczenie przed przyśpieszającym pociskiem)
         //if ((playerInput.AButton() || playerInput.Trigger() != 0) && timeStamp <= Time.time)
-        if ((playerInput.RightTrigger() != 0 || playerInput.AButtonJ() || playerInput.AButtonK()) && timeStamp <= Time.time)
+        if ((playerInput.LeftTrigger() != 0 || playerInput.BButton()) && timeStamp <= Time.time)
         {
             shot.Play();
             trajectory.startColor = Color.red;
