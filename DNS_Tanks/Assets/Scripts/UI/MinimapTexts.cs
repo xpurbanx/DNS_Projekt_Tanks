@@ -6,21 +6,21 @@ public class MinimapTexts : MonoBehaviour
 {
     GameObject[] texts;
 
-    void Update()
+    void Start()
     {
         StartCoroutine(RotateTexts());
     }
 
     public IEnumerator RotateTexts()
     {
-        texts = GameObject.FindGameObjectsWithTag("Minimap Text");
+        texts = GameObject.FindGameObjectsWithTag("Marker");
 
         yield return new WaitForSecondsRealtime(1 / 60);
 
         for (int i = 0; i <= texts.Length - 1; i++)
         {
             if (texts[i] != null)
-                texts[i].GetComponent<RectTransform>().rotation = Quaternion.Euler(90f, -1.525879e-05f, -1.525879e-05f);
+                texts[i].GetComponent<Transform>().rotation = Quaternion.Euler(90f, -1.525879e-05f, -1.525879e-05f);
         }
     }
 }
