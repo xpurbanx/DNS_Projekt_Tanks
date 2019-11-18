@@ -6,10 +6,12 @@ public class MenuPause : MonoBehaviour
     public static bool gameIsPaused;
 
     public GameObject pauseMenuUI;
+    GameObject MainMiniMap;
 
     private void Start()
     {
         Cursor.visible = false;
+        MainMiniMap = GameObject.FindGameObjectWithTag("Main Minimap");
     }
 
     void Update()
@@ -34,6 +36,7 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
         Cursor.visible = true;
+        MainMiniMap.SetActive(false);
     }
 
     public void Resume()
@@ -42,6 +45,7 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         Cursor.visible = false;
+        MainMiniMap.SetActive(true);
     }
 
     public void RestartScene()
@@ -58,11 +62,13 @@ public class MenuPause : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Urantia")
         {
             SceneManager.LoadScene("Urantia");
+            Resume();
         }
 
         else
         {
             SceneManager.LoadScene("Desert Battle");
+            Resume();
         }
 
     }
