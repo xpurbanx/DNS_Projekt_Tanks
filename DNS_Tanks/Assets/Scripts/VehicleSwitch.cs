@@ -29,8 +29,11 @@ public class VehicleSwitch : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null)
+        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
+            veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel();
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -47,8 +50,11 @@ public class VehicleSwitch : MonoBehaviour
             vehSwitch.CloseMenu();
 
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null)
+        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = false;
+            veh.GetComponent<OverlayEnable>().HideHelpButtonPanel();
+        }
     }
 
     void RadiusSetUp()

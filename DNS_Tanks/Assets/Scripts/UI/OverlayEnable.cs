@@ -1,11 +1,15 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [assembly: InternalsVisibleTo("VehicleSwitch")]
 
 public class OverlayEnable : MonoBehaviour
 {
     public GameObject panel;
+    public GameObject helpPanel;
     public double cooldown = 3;
 
     internal bool isInRadiusOfStation;
@@ -13,6 +17,7 @@ public class OverlayEnable : MonoBehaviour
     private PlayerInputSetup playerInput;
     private double timeStamp;
     private bool isOpen = false;
+    private float fadeTime = 0.25f;
 
     public void Start()
     {
@@ -92,6 +97,57 @@ public class OverlayEnable : MonoBehaviour
                 Lock().shootingLocked = false;
                 Lock().menusLocked = false;
             }
+        }
+    }
+
+    public void ShowHelpButtonPanel()
+    {
+        if (!helpPanel.activeSelf)
+            StartCoroutine(FadeIn(helpPanel.GetComponent<Image>()));
+    }
+
+    public void HideHelpButtonPanel()
+    {
+        if (helpPanel.activeSelf)
+            StartCoroutine(FadeOut(helpPanel.GetComponent<Image>())); 
+    }
+
+    private YieldInstruction fadeInstruction = new YieldInstruction();
+    IEnumerator FadeOut(Image image)
+    {
+        TextMeshProUGUI helpText = helpPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        float elapsedTime = 0.0f;
+        Color c = image.color;
+        Color tc = helpText.color;
+        while (elapsedTime < fadeTime && c.a > 0)
+        {
+            yield return fadeInstruction;
+            elapsedTime += Time.deltaTime;
+            c.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
+            tc.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
+            image.color = c;
+            helpText.color = tc;
+        }
+
+        helpPanel.SetActive(false);
+    }
+
+    IEnumerator FadeIn(Image image)
+    {
+        helpPanel.SetActive(true);
+
+        TextMeshProUGUI helpText = helpPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        float elapsedTime = 0.0f;
+        Color c = image.color;
+        Color tc = helpText.color;
+        while (elapsedTime < fadeTime)
+        {
+            yield return fadeInstruction;
+            elapsedTime += Time.deltaTime;
+            c.a = Mathf.Clamp01(elapsedTime / fadeTime);
+            tc.a = Mathf.Clamp01(elapsedTime / fadeTime);
+            image.color = c;
+            helpText.color = tc;
         }
     }
 }

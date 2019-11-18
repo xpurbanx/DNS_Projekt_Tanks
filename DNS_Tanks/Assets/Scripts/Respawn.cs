@@ -49,6 +49,8 @@ public class Respawn : MonoBehaviour
         Instantiate(vehicles[vehicleIndex], spawnLocation, transform.rotation, transform);
         GetComponent<CurrentVehicle>().UpdateCurrentVeh();
         GetComponentInChildren<CamFollow>().UpdateCurrentVeh();
+        GetComponentInChildren<OverlayEnable>().isInRadiusOfStation = false;
+        GetComponentInChildren<OverlayEnable>().HideHelpButtonPanel();
         isSpawning = false;
         Lock().mapLocked = false;
         Lock().aimingLocked = false;

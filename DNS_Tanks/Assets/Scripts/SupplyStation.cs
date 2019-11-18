@@ -30,8 +30,12 @@ public class SupplyStation : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null)
+        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
+            if (vehicle.GetComponentInChildren<Vehicle>().vehType == 1)
+                veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel();
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -48,8 +52,11 @@ public class SupplyStation : MonoBehaviour
             supp.CloseMenu();
 
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null)
+        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = false;
+            veh.GetComponent<OverlayEnable>().HideHelpButtonPanel();
+        }
     }
 
     void RadiusSetUp()
