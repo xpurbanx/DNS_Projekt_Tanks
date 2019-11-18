@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUD : MonoBehaviour
 {
@@ -33,11 +34,14 @@ public class HUD : MonoBehaviour
         if (currentVeh != null)
         {
             healthBar.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = currentHealth / startHealth;
+            if (currentHealth < 0) currentHealth = 0;
+            healthBar.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{currentHealth} / {startHealth}";
         }
 
         else
         {
             healthBar.transform.GetChild(0).gameObject.GetComponent<Image>().fillAmount = 0;
+            healthBar.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = "";
         }
     }
 }
