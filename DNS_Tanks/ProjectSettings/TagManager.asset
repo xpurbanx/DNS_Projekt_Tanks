@@ -33,6 +33,9 @@ TagManager:
   - Camera 2
   - MainManager
   - Turret
+  - MainMinimapCam
+  - Minimap 1
+  - Minimap 2
   layers:
   - Default
   - TransparentFX
