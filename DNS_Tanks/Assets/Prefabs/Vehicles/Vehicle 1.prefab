@@ -57,7 +57,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5
+    width: 0.4975
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -607,6 +607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Divider
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194294630150251879, guid: 026cd926090778d4991b1f2bd944e533,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8194294630150251899, guid: 026cd926090778d4991b1f2bd944e533,
         type: 3}
