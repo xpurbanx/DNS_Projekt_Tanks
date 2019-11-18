@@ -40,7 +40,7 @@ public class MainMinimapSet : MonoBehaviour
             case "Desert Battle":
                 camPos = new Vector3(485f, 70.32f, 1359f);
                 camRot = new Vector3(90f, 0f, 0f);
-                cameraSize = 247.6f;
+                cameraSize = 247.6f; // 225.1f
 
                 transform.localPosition = camPos;
                 transform.localEulerAngles = camRot;

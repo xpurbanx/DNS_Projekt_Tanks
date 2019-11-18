@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7508259739546791244}
   m_Layer: 0
   m_Name: EnemyMarker
-  m_TagString: Marker
+  m_TagString: MainMapMarkers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

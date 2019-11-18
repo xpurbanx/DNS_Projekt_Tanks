@@ -519,6 +519,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 873327504876831555, guid: c1ca07fea32c55e4a8be3411cd85d834,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainMapMarkers
+      objectReference: {fileID: 0}
     - target: {fileID: 3112570168905366529, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,17 +582,12 @@ PrefabInstance:
     - target: {fileID: 3112570168905366529, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 19.73688
-      objectReference: {fileID: 0}
-    - target: {fileID: 3112570168905366529, guid: c1ca07fea32c55e4a8be3411cd85d834,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.333341
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3112570168905366529, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5744007392007402619, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}

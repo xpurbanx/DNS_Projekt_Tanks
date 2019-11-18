@@ -77,7 +77,6 @@ public class Flag : MonoBehaviour
         {
             if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
             {
-                markers[i].GetComponentInChildren<TextMeshPro>().enabled = false;
                 markers[i].GetComponent<MeshRenderer>().enabled = false;
             }
            /* else
@@ -97,7 +96,6 @@ public class Flag : MonoBehaviour
         {
             if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
             {
-                markers[i].GetComponentInChildren<TextMeshPro>().enabled = true;
                 markers[i].GetComponent<MeshRenderer>().enabled = true;
             }
         }
