@@ -58,13 +58,19 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Input gracza
-
-        movementInputValue = playerInput.LeftTrigger();
-        if (playerInput.LeftBumper() || playerInput.RightBumper())
+        if (playerInput.AButtonJ())
         {
-            Debug.Log("BUMPER");
+            Debug.Log("AButton");
+            movementInputValue = 1.0f;
+        }
+        else if (playerInput.XButton())
+        {
+            Debug.Log("XButton");
             movementInputValue = -1.0f;
         }
+        else
+            movementInputValue = 0.0f;
+        //movementInputValue = playerInput.LeftTrigger();
         movementInputValue += playerInput.VerticalK();
 
         turnInputValue = playerInput.Horizontal();

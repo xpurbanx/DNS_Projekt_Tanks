@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  defaultRotationSpeed: 10
+  defaultRotationSpeed: 50
   cameraOffset: 10
   autoRotate: 1
   followTurret: 1

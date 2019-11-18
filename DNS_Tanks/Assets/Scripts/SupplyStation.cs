@@ -41,7 +41,7 @@ public class SupplyStation : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         timeStamp = supp.timeStamp;
-        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.BButton() && timeStamp < Time.time)
             supp.SwitchMenu();
     }
 
