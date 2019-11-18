@@ -33,6 +33,10 @@ TagManager:
   - Camera 2
   - MainManager
   - Turret
+  - MainMinimapCam
+  - Minimap 1
+  - Minimap 2
+  - MainMapMarkers
   layers:
   - Default
   - TransparentFX
@@ -54,8 +58,8 @@ TagManager:
   - Player 2 NO Minimap
   - Player 1 AND Minimap
   - Player 2 AND Minimap
-  - 
-  - 
+  - MAIN MINIMAP
+  - MINIMAP ICONS
   - 
   - 
   - 

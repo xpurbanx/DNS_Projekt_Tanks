@@ -81,6 +81,8 @@ public class Building : MonoBehaviour
 
                 if (child.tag == "Marker") // Usunięcie markera z mapy
                     Destroy(child);
+                if (child.tag == "MainMapMarkers") // Usunięcie markera z mapy
+                    Destroy(child);
 
                 Destroy(child, partLifetime);
             }
