@@ -37,6 +37,7 @@ TagManager:
   - Minimap 1
   - Minimap 2
   - MainMapMarkers
+  - Main Minimap
   layers:
   - Default
   - TransparentFX

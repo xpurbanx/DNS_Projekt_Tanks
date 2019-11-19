@@ -77,7 +77,7 @@ public class Flag : MonoBehaviour
         {
             if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
             {
-                markers[i].GetComponent<MeshRenderer>().enabled = false;
+                markers[i].GetComponent<SpriteRenderer>().enabled = false;
             }
            /* else
             {
@@ -96,7 +96,7 @@ public class Flag : MonoBehaviour
         {
             if (markers[i].GetComponentInParent<Flag>() != null && markers[i].transform.parent.tag == "Flag " + flagNumber)
             {
-                markers[i].GetComponent<MeshRenderer>().enabled = true;
+                markers[i].GetComponent<SpriteRenderer>().enabled = true;
             }
         }
     }
