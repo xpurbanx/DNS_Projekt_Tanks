@@ -9,6 +9,7 @@ public class VehicleSwitch : MonoBehaviour
     public double cooldown = 3;
     public float radius = 0.5f;
     public int playerNumber = 0;
+    public int stationType = 0;
 
     internal GameObject[] withPlayerTag;
     internal GameObject player;
@@ -29,10 +30,10 @@ public class VehicleSwitch : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        if (veh != null && other.gameObject.tag == "Player " + playerNumber)
         {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
-            veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel();
+            veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel(stationType, -1);
         }
     }
 

@@ -8,6 +8,7 @@ public class SupplyStation : MonoBehaviour
 {
     public int playerNumber = 0;
     public double cooldown = 3;
+    public int stationType = 1;
     internal double timeStamp;
 
     internal GameObject[] withPlayerTag;
@@ -30,11 +31,10 @@ public class SupplyStation : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameObject veh = vehicle.GetComponentInChildren<OverlayEnable>().gameObject;
-        if (veh != null && other.gameObject.tag == "Player 1" || other.gameObject.tag == "Player 2")
+        if (veh != null && other.gameObject.tag == "Player " + playerNumber)
         {
             veh.GetComponent<OverlayEnable>().isInRadiusOfStation = true;
-            if (vehicle.GetComponentInChildren<Vehicle>().vehType == 1)
-                veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel();
+            veh.GetComponent<OverlayEnable>().ShowHelpButtonPanel(stationType, vehicle.GetComponentInChildren<Vehicle>().vehType);
         }
     }
 
