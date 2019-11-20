@@ -212,6 +212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairStation 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4535323949748743363, guid: 33b2346dd75dbcf479fe8f5db8c6180b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4535323949748743367, guid: 33b2346dd75dbcf479fe8f5db8c6180b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,6 +372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HQ 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8738162244878068509, guid: 7f2bf9df5b8d8db4ab5615b4e47f4676,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8738162244878068505, guid: 7f2bf9df5b8d8db4ab5615b4e47f4676,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -441,6 +451,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9502443
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738162244878068511, guid: 7f2bf9df5b8d8db4ab5615b4e47f4676,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738162244878068510, guid: 7f2bf9df5b8d8db4ab5615b4e47f4676,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6054049771249460294, guid: 7f2bf9df5b8d8db4ab5615b4e47f4676,
         type: 3}

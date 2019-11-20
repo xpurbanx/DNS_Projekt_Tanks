@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HQ 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1433891578212880767, guid: 6d6de1ca73c3b5a44b0115de554c810d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433891578212880763, guid: 6d6de1ca73c3b5a44b0115de554c810d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,6 +126,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 34.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433891578212880764, guid: 6d6de1ca73c3b5a44b0115de554c810d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433891578212880765, guid: 6d6de1ca73c3b5a44b0115de554c810d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4514377831521295908, guid: 6d6de1ca73c3b5a44b0115de554c810d,
         type: 3}
@@ -386,6 +401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RepairStation 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 636781786718310836, guid: c8279aa6ed870d74299e033ea6866605,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 636781786718310832, guid: c8279aa6ed870d74299e033ea6866605,
         type: 3}

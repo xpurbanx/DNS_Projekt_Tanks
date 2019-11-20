@@ -229,3 +229,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2719628878866971179}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5808579113116539043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 329983947589536216}
+    m_Modifications:
+    - target: {fileID: 873327504876831555, guid: ff6de148ccbd8b34586f84d0f2da5e74,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 873327504876831555, guid: ff6de148ccbd8b34586f84d0f2da5e74,
+        type: 3}
+      propertyPath: m_Name
+      value: VehSwitch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112570168905366529, guid: ff6de148ccbd8b34586f84d0f2da5e74,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff6de148ccbd8b34586f84d0f2da5e74, type: 3}
