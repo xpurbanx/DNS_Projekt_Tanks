@@ -32,7 +32,7 @@ public class OverlayEnable : MonoBehaviour
 
     public void Update()
     {
-        if (playerInput.YButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false && MenuPause.gameIsPaused == false)
+        if (playerInput.XButton() && timeStamp < Time.time && Lock().mapLocked == false && Lock().allLocked == false && MenuPause.gameIsPaused == false)
         {
             // Jeśli gracz nie jest w zasięgu jakiejś stacji, mapa się przełączy
             if (isInRadiusOfStation == false)

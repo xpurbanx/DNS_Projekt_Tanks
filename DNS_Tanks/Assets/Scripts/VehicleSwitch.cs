@@ -40,7 +40,7 @@ public class VehicleSwitch : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         timeStamp = vehSwitch.timeStamp;
-        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.BButton() && timeStamp < Time.time)
+        if (other.transform.parent != null && other.transform.parent.tag == "Player " + playerNumber && playerInput.XButton() && timeStamp < Time.time)
             vehSwitch.SwitchMenu();
     }
 
