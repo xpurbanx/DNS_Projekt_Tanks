@@ -105,13 +105,13 @@ public class OverlayEnable : MonoBehaviour
         if (stationType == 1 && vehType != 1)
         {
             //helpPanel.GetComponent<Image>().color = new Color(235/255f, 35/255f, 35/255f); 
-            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Only jeep can use that";
+            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Only jeep can use it!";
         }
 
         else
         {
             //helpPanel.GetComponent<Image>().color = new Color32(134, 134, 134, 0);
-            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Press X to enter/exit";
+            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Press X to open/close";
         }
 
         if (!helpPanel.activeSelf)
