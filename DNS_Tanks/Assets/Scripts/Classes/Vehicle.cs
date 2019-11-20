@@ -111,6 +111,13 @@ public class Vehicle : MonoBehaviour
         }
     }
 
+    internal void ForVehicleChooseDestroy()
+    {
+        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
+        Destroy(gameObject);
+        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
+    }
+
     private void DestroyVehicle()
     {
         DecreaseLifes();
@@ -127,12 +134,7 @@ public class Vehicle : MonoBehaviour
         ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
     }
 
-    internal void ForVehicleChooseDestroy()
-    {
-        GetComponentInParent<PlayerFlagManager>().DropFlagAfterDeath(transform.position);
-        Destroy(gameObject);
-        ActiveEntities.Instance.RemoveFromList(this.tag, this.gameObject);
-    }
+
 
     //public int GetSpeed()
     //{
@@ -186,6 +188,7 @@ public class Vehicle : MonoBehaviour
 
     public void SetSupply(Vector3 pos, GameObject pref)
     {
+        Lock().mapLocked = true;
         Lock().shootingLocked = true;
         Lock().menusLocked = true;
         SuppliesAvailable().hasSupply = true;
@@ -257,6 +260,7 @@ public class Vehicle : MonoBehaviour
         SuppliesAvailable().canBeSet = false;
         yield return new WaitForSecondsRealtime(1);
         Lock().shootingLocked = false;
+        Lock().mapLocked = false;
         Lock().menusLocked = false;
     }
 

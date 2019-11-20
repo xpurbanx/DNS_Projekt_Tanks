@@ -7,6 +7,7 @@ public class WinManager : MonoBehaviour
 {
     public RectTransform panelGameOver;
     public Text txtGameOver;
+    string color;
 
     public bool playerOneWon;
     public bool playerTwoWon;
@@ -14,12 +15,23 @@ public class WinManager : MonoBehaviour
 
     public void Win(int winnerNumber)
     {
-        if (winnerNumber == 1) playerOneWon = true; txtGameOver.text = "Player BLUE has won!";
-        if (winnerNumber == 2) playerTwoWon = true; txtGameOver.text = "Player RED has won!";
+        if (winnerNumber == 1)
+        {
+            playerOneWon = true;
+            color = "BLUE";
+        }
+
+        //txtGameOver.text = "Player BLUE has won!";
+        if (winnerNumber == 2)
+        {
+            playerTwoWon = true;
+            color = "RED";
+        }
+
         gameEnded = true;
 
         panelGameOver.gameObject.SetActive(true);
-        //txtGameOver.text = $"Player {winnerNumber} has won";
+        txtGameOver.text = $"Player {color} has won!";
         StartCoroutine(RestartGame());
     }
 
