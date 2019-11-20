@@ -276,6 +276,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6083855058565172154, guid: c1ca07fea32c55e4a8be3411cd85d834,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ae7a9f4b5413024f8de11ffe2770133,
+        type: 3}
     - target: {fileID: 5744007392007402619, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
       propertyPath: m_Layer
@@ -563,16 +569,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 969834787625596618, guid: a75a95aec96825c418deaf7f83fd0163,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 969834787625596618, guid: a75a95aec96825c418deaf7f83fd0163,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2964004711624976894, guid: a75a95aec96825c418deaf7f83fd0163,
         type: 3}
       propertyPath: m_Mesh
@@ -584,6 +580,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090249108870345459, guid: a75a95aec96825c418deaf7f83fd0163,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969834787625596618, guid: a75a95aec96825c418deaf7f83fd0163,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969834787625596618, guid: a75a95aec96825c418deaf7f83fd0163,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 0

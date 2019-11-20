@@ -59,16 +59,23 @@ public class MenuPause : MonoBehaviour
 
     public void ChangeMap()
     {
-        if (SceneManager.GetActiveScene().name != "Urantia")
+
+        if (SceneManager.GetActiveScene().name == "Urantia")
         {
-            SceneManager.LoadScene("Urantia");
-            Resume();
+            SceneManager.LoadScene("Battleground");
+           // Resume();
         }
 
-        else
+        if (SceneManager.GetActiveScene().name == "Battleground")
         {
             SceneManager.LoadScene("Desert Battle");
-            Resume();
+            // Resume();
+        }
+
+        if (SceneManager.GetActiveScene().name == "Desert Battle")
+        {
+            SceneManager.LoadScene("Urantia");
+            //Resume();
         }
 
     }

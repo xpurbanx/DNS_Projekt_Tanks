@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Desert Battle.unity
     guid: 17acce596a25c9941b7a1b3d403372d7
   - enabled: 1
+    path: Assets/Scenes/Battleground.unity
+    guid: 2111a48e68967f240a18b67a3dc09a4a
+  - enabled: 1
     path: Assets/Scenes/Urantia.unity
     guid: f42451ef09123a04daefa52cbf3a6d40
   - enabled: 0
