@@ -111,7 +111,7 @@ public class OverlayEnable : MonoBehaviour
         else
         {
             //helpPanel.GetComponent<Image>().color = new Color32(134, 134, 134, 0);
-            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Press B to enter/exit";
+            helpPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Press X to enter/exit";
         }
 
         if (!helpPanel.activeSelf)
