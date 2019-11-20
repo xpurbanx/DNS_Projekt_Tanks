@@ -114,7 +114,7 @@ PrefabInstance:
     - target: {fileID: 873327504876831555, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
       propertyPath: m_TagString
-      value: MainMapMarkers
+      value: PlayerMainMarkers
       objectReference: {fileID: 0}
     - target: {fileID: 3112570168905366529, guid: c1ca07fea32c55e4a8be3411cd85d834,
         type: 3}
