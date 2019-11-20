@@ -14,12 +14,12 @@ public class WinManager : MonoBehaviour
 
     public void Win(int winnerNumber)
     {
-        if (winnerNumber == 1) playerOneWon = true;
-        if (winnerNumber == 2) playerTwoWon = true;
+        if (winnerNumber == 1) playerOneWon = true; txtGameOver.text = "Player BLUE has won!";
+        if (winnerNumber == 2) playerTwoWon = true; txtGameOver.text = "Player RED has won!";
         gameEnded = true;
 
         panelGameOver.gameObject.SetActive(true);
-        txtGameOver.text = $"Player {winnerNumber} has won";
+        //txtGameOver.text = $"Player {winnerNumber} has won";
         StartCoroutine(RestartGame());
     }
 
