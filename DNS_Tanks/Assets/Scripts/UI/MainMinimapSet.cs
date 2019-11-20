@@ -57,6 +57,16 @@ public class MainMinimapSet : MonoBehaviour
                 transform.GetComponent<Camera>().orthographicSize = cameraSize;
                 return;
 
+            case "Battleground":
+                camPos = new Vector3(501f, 31f, 1355f);
+                camRot = new Vector3(90f, 90f, 90f);
+                cameraSize = 252.1008f;
+
+                transform.localPosition = camPos;
+                transform.localEulerAngles = camRot;
+                transform.GetComponent<Camera>().orthographicSize = cameraSize;
+                return;
+
             default:
                 return;
         }
