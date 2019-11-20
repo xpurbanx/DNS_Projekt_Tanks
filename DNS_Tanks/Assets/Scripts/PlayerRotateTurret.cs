@@ -32,6 +32,7 @@ public class PlayerRotateTurret : MonoBehaviour
     void Update()
     {
         turnTurretInputValue = playerInput.SecondaryHorizontal();
+        Debug.Log("Turning turret: " + turnTurretInputValue);
     }
 
     private void FixedUpdate()

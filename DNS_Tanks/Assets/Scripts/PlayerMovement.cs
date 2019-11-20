@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             movementInputValue = -1.0f;
         }
         movementInputValue += playerInput.VerticalK();
+        movementInputValue += playerInput.Vertical();
 
         turnInputValue = playerInput.Horizontal();
     }
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Poruszanie się prosto (lub do tyłu, zależy od movementInputValue) z określoną prędkością
-        Vector3 movement = transform.forward * movementInputValue * speed * 1000f;
+        Vector3 movement = transform.forward * Mathf.Clamp(movementInputValue,-1.0f,1.0f) * speed * 1000f;
 
         // Poruszanie obiektem jest oparte na dodawaniu siły
         rb.AddForce(movement);
