@@ -174,3 +174,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4155587039017422526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7377696390512855765
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1765933106025233741}
+    m_Modifications:
+    - target: {fileID: 873327504876831555, guid: 5fbec61e102ff6c439445cd80c6358b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 873327504876831555, guid: 5fbec61e102ff6c439445cd80c6358b6,
+        type: 3}
+      propertyPath: m_Name
+      value: Supply (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112570168905366529, guid: 5fbec61e102ff6c439445cd80c6358b6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5fbec61e102ff6c439445cd80c6358b6, type: 3}
